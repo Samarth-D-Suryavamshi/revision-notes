@@ -1,8 +1,5 @@
 
-# Object-Oriented Programming - Interview Notes (System-First Approach)
-
----
-
+# Object-Oriented Programming
 ## 1. INTRODUCTION TO OOP
 
 **What is OOP?**
@@ -12,6 +9,7 @@ Programming paradigm organizing code around objects (data + behavior) rather tha
 Real-world modeling, code reusability, maintainability, encapsulation of complexity.
 
 **Procedural vs OOP:**
+
 | Procedural | OOP |
 |-----------|-----|
 | Functions + data separate | Data + behavior bundled |
@@ -28,6 +26,7 @@ Small scripts, performance-critical systems, functional data pipelines.
 ## 2. CLASS AND OBJECT
 
 **Class:** Blueprint/template defining what an object has (data) and does (behavior).
+
 **Object:** Instance created from class. Has state, behavior, identity.
 
 ```
@@ -41,10 +40,12 @@ Object: myCar = new Car("red", 0, "Tesla")
 ```
 
 **Where objects stored?**
+
 - Stack: Reference/address of object
 - Heap: Actual object data
 
 **Can object exist without class?**
+
 No. Object is instantiation of class. (Except prototype-based languages like JS)
 
 ---
@@ -62,6 +63,7 @@ BankAccount
 ```
 
 **Why important?**
+
 - Prevents invalid state (can't set balance = -1000 directly)
 - Internal changes don't break external code
 - Validation logic centralized
@@ -85,6 +87,7 @@ Driver uses car.start() -> doesn't care HOW it starts
 ```
 
 **Abstraction vs Encapsulation:**
+
 | Abstraction | Encapsulation |
 |-------------|---------------|
 | WHAT an object does | HOW data is protected |
@@ -110,6 +113,7 @@ User interacts with simple interface. Internal complexity irrelevant.
 ```
 
 **Types:**
+
 - **Single:** One parent (Java, C#)
 - **Multiple:** Two+ parents (C++ classes, Python) - Java via interfaces
 - **Multilevel:** Grandparent -> Parent -> Child
@@ -130,6 +134,7 @@ Diamond problem: two parents have same method - which one to call?
 ```
 
 **Advantages:** Code reuse, hierarchical classification, polymorphism.
+
 **Disadvantages:** Tight coupling, fragile base class problem, rigid hierarchy.
 
 ---
@@ -209,6 +214,7 @@ class Person {
 ```
 
 **Constructor vs Method:**
+
 | Constructor | Method |
 |-------------|--------|
 | Same name as class | Any name |
@@ -285,6 +291,7 @@ static {
 API surface, constants, methods intended for external use.
 
 **private vs protected:**
+
 - private: Only this class
 - protected: This class + subclasses + same package
 
@@ -293,12 +300,14 @@ API surface, constants, methods intended for external use.
 ## 11. this AND super
 
 **this:**
+
 - Refers to current object
 - Differentiates instance var from parameter: this.name = name
 - Calls constructor: this(args)
 - Passes current object: someMethod(this)
 
 **super:**
+
 - Refers to parent class
 - Calls parent constructor: super(args)
 - Calls parent method: super.methodName()
@@ -345,6 +354,7 @@ PaymentProcessor ---> Logger
 PaymentProcessor uses Logger as parameter. Logger can change.
 
 **Aggregation vs Composition:**
+
 | Aggregation | Composition |
 |-------------|-------------|
 | Weak ownership | Strong ownership |
@@ -353,6 +363,7 @@ PaymentProcessor uses Logger as parameter. Logger can change.
 | Can be shared | Exclusive |
 
 **Why composition over inheritance?**
+
 - Inheritance = rigid hierarchy, tight coupling
 - Composition = flexible, runtime behavior change, easier testing
 - "Favor composition over inheritance" - Gang of Four
@@ -387,6 +398,7 @@ abstract class Animal {
 - Partial implementation: "What + some How"
 
 ### Interface vs Abstract Class
+
 | Feature | Interface | Abstract Class |
 |---------|-----------|----------------|
 | State | No | Yes |
@@ -396,10 +408,12 @@ abstract class Animal {
 | Use case | Capability/contract | Shared base + variation |
 
 **When interface?**
+
 - Defining a contract multiple unrelated classes implement
 - Multiple capabilities (Flyable, Swimmable, Drawable)
 
 **When abstract class?**
+
 - Shared code among related classes
 - Common state + some default behavior
 - Template method pattern
@@ -690,8 +704,7 @@ account.withdraw(500);   // OK, validated
 
 ## SKIP THESE (Unless Runtime/Compiler Role)
 
-VTable implementation details, JVM bytecode generation, CLR internals, Python MRO beyond basics, C++ object layout in memory, virtual inheritance internals, reflection implementation internals, compiler dispatch table generation, runtime metadata internals
-
+<div style="text-align: justify;"> VTable implementation details, JVM bytecode generation, CLR internals, Python MRO beyond basics, C++ object layout in memory, virtual inheritance internals, reflection implementation internals, compiler dispatch table generation, runtime metadata internals</div>
 ---
 
-**Revision Order:** OOP Fundamentals -> Class vs Object -> Encapsulation -> Abstraction -> Inheritance -> Polymorphism -> Constructors -> Static vs Instance -> Access Modifiers -> Association -> Aggregation -> Composition -> Interfaces -> Abstract Classes -> Interface vs Abstract Class -> Method Overloading vs Overriding -> SOLID -> Coupling & Cohesion -> Composition Over Inheritance -> Dependency Injection -> Design Patterns
+> **Revision Order:** OOP Fundamentals -> Class vs Object -> Encapsulation -> Abstraction -> Inheritance -> Polymorphism -> Constructors -> Static vs Instance -> Access Modifiers -> Association -> Aggregation -> Composition -> Interfaces -> Abstract Classes -> Interface vs Abstract Class -> Method Overloading vs Overriding -> SOLID -> Coupling & Cohesion -> Composition Over Inheritance -> Dependency Injection -> Design Patterns

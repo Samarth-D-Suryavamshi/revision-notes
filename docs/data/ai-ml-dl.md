@@ -1,6 +1,4 @@
-# AI / Machine Learning / Deep Learning Interview Notes — System Flow Approach
-
----
+# AI / Machine Learning / Deep Learning Interview Notes
 
 # Priority 1 — Mathematics
 
@@ -296,6 +294,7 @@ Layer N: aₙ₋₁ → zₙ = Wₙaₙ₋₁ + bₙ → ŷ = Softmax(zₙ)
 ```
 
 **Activation Functions:**
+
 | Function | Formula | Use | Problem |
 |----------|---------|-----|---------|
 | **Sigmoid** | 1/(1+e⁻ˣ) | Output layer (binary) | Vanishing gradient |
@@ -305,6 +304,7 @@ Layer N: aₙ₋₁ → zₙ = Wₙaₙ₋₁ + bₙ → ŷ = Softmax(zₙ)
 | **Softmax** | eˣⁱ/Σeˣʲ | Output layer (multi-class) | — |
 
 **Loss Functions:**
+
 | Problem | Loss | Formula |
 |---------|------|---------|
 | Regression | MSE | Mean of (y - ŷ)² |
@@ -312,6 +312,7 @@ Layer N: aₙ₋₁ → zₙ = Wₙaₙ₋₁ + bₙ → ŷ = Softmax(zₙ)
 | Multi-class | Categorical Cross-Entropy | -Σ yᵢ log(ŷᵢ) |
 
 **Optimizers:**
+
 | Optimizer | How | Use |
 |-----------|-----|-----|
 | **SGD** | w = w - α×gradient | Simple, needs tuning |
@@ -494,6 +495,7 @@ Prompt → Tokenize → Pass through Transformer layers → Predict next token �
 ```
 
 **Temperature vs Top-p:**
+
 | Parameter | Effect | Value |
 |-----------|--------|-------|
 | **Temperature** | Randomness of sampling | 0 = deterministic, 1 = creative, >1 = random |

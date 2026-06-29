@@ -1,0 +1,109 @@
+/* ==========================================================================
+   Premium Code Blocks
+   ========================================================================== */
+
+.md-typeset pre {
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+}
+
+.md-typeset pre:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Language badge */
+.md-typeset pre::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.75rem;
+  right: 3.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.md-typeset pre code {
+  padding: 1.25rem 1rem;
+  font-size: 0.8em;
+  line-height: 1.6;
+  display: block;
+}
+
+/* Copy button */
+.md-clipboard {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity var(--motion-duration-fast) var(--motion-easing-default),
+              transform var(--motion-duration-fast) var(--motion-easing-spring),
+              background-color var(--motion-duration-fast) var(--motion-easing-default);
+}
+
+.md-typeset pre:hover .md-clipboard {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.md-clipboard:hover {
+  background-color: var(--color-surface-2);
+  border-color: var(--color-accent);
+}
+
+.md-clipboard.is-copied {
+  background-color: #22c55e;
+  border-color: #22c55e;
+  color: white;
+}
+
+.md-clipboard.is-copied svg {
+  animation: copySuccess 400ms var(--motion-easing-spring);
+}
+
+/* Line highlight */
+.md-typeset .highlight .hll {
+  background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border-left: 3px solid var(--color-accent);
+  margin-left: -1rem;
+  padding-left: calc(1rem - 3px);
+  display: block;
+  animation: lineHighlight 300ms var(--motion-easing-out);
+}
+
+/* Scrollable overflow indicator */
+.md-typeset pre::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(to top, var(--color-surface-2), transparent);
+  opacity: 0;
+  transition: opacity var(--motion-duration-fast) var(--motion-easing-default);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.md-typeset pre.is-scrollable::after {
+  opacity: 1;
+}

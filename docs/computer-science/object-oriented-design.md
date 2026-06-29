@@ -1,10 +1,8 @@
-# OOD/LLD Interview Notes — System Flow Approach
+# OOD/LLD
 
----
+## Priority 1 — OOD Fundamentals
 
-# Priority 1 — OOD Fundamentals
-
-## 1. Introduction to Object-Oriented Design
+### 1. Introduction to Object-Oriented Design
 
 **OOD vs OOP** → OOP is the *tool* (classes, objects), OOD is the *process* (how to design them).
 
@@ -16,13 +14,16 @@
 
 ---
 
-## 2. Requirement Analysis
+### 2. Requirement Analysis
 
 **System Flow:** Interviewer asks → You ask "Who uses it? What do they do? Any constraints?" → List actors → List use cases → Identify functional vs non-functional
 
 **Functional** = What the system does ("User can book a ticket")
+
 **Non-Functional** = How well it does it ("Booking completes in <2s")
+
 **Assumptions** = Things you assume exist ("User is already registered")
+
 **Constraints** = Limitations ("Only credit card payments")
 
 **Ambiguous Requirements** → Ask clarifying questions, state assumptions explicitly, don't guess silently.
@@ -100,6 +101,7 @@
 ```
 
 **Relationships in UML:**
+
 - Association: `——` (solid line)
 - Aggregation: `◇——` (empty diamond)
 - Composition: `◆——` (filled diamond)
@@ -122,6 +124,7 @@ One member has many borrowings. Each borrowing links one book.
 **System Flow:** User action → Object 1 calls Object 2 → Object 2 returns → Object 1 responds to user
 
 **Elements:**
+
 - **Lifeline** = Vertical dashed line (object's timeline)
 - **Message** = Horizontal arrow (method call)
 - **Activation Bar** = Rectangle on lifeline (object is active/processing)
@@ -145,6 +148,7 @@ OrderController → User: orderConfirmation
 **System Flow:** Who interacts with the system? What do they do?
 
 **Elements:**
+
 - **Actor** = Stick figure (user, external system)
 - **Use Case** = Oval (action: "Place Order", "Cancel Booking")
 - **Relationships** = `<<include>>` (mandatory), `<<extend>>` (optional)
@@ -163,6 +167,7 @@ OrderController → User: orderConfirmation
 **System Flow:** Start → Action → Decision → Parallel actions → End
 
 **Elements:**
+
 - Start/End: ● / ◉
 - Action: Rectangle
 - Decision: ◇ (diamond)
@@ -182,6 +187,7 @@ OrderController → User: orderConfirmation
 **System Flow:** Object created → Events change its state → Object destroyed
 
 **Elements:**
+
 - States: Rounded rectangles
 - Transitions: Arrows labeled with event
 
@@ -651,4 +657,4 @@ User creates group → Adds members → Adds expense → Selects split type
 6. EXTEND (if time)      → "What if we add X?"
 ```
 
-**Always think:** "How does the data flow?" not "What is the theory?"
+> **Always think:** "How does the data flow?" not "What is the theory?"

@@ -1,14 +1,12 @@
 
-# Databases - Interview Notes (System-First Approach)
-
----
-
+# Databases
 ## 1. DATABASE FUNDAMENTALS
 
 **What is a Database?**
 Organized collection of data with efficient retrieval, modification, and management.
 
 **DBMS vs RDBMS:**
+
 | DBMS | RDBMS |
 |------|-------|
 | Any data model (hierarchical, network) | Relational model only |
@@ -22,6 +20,7 @@ Concurrent access, ACID guarantees, indexing, query language, security, scalabil
 **Schema:** Blueprint defining tables, columns, types, constraints.
 
 **Types:**
+
 - Relational: Tables, SQL, ACID (PostgreSQL, MySQL)
 - Document: JSON documents, flexible schema (MongoDB)
 - Key-Value: Simple lookup (Redis, DynamoDB)
@@ -35,10 +34,13 @@ Concurrent access, ACID guarantees, indexing, query language, security, scalabil
 ## 2. RELATIONAL DATABASE FUNDAMENTALS
 
 **Table:** Collection of related data (e.g., users)
+
 **Tuple:** Row/record (e.g., (1, "Alice", "alice@email.com"))
+
 **Attribute:** Column (e.g., email)
 
 **Keys:**
+
 | Key | Definition |
 |-----|-----------|
 | Primary Key | Unique identifier per row. One per table. Cannot be NULL. |
@@ -69,6 +71,7 @@ Prevent orphaned records. orders.user_id must exist in users.id.
 | TCL | COMMIT, ROLLBACK, SAVEPOINT | Manage transactions |
 
 **DELETE vs TRUNCATE vs DROP:**
+
 | DELETE | TRUNCATE | DROP |
 |--------|----------|------|
 | Row-by-row, WHERE filter | All rows, no WHERE | Entire table + structure |
@@ -92,6 +95,7 @@ HAVING AVG(salary) > 50000;
 ```
 
 **WHERE vs HAVING:**
+
 - WHERE: Filters rows BEFORE aggregation
 - HAVING: Filters groups AFTER aggregation
 
@@ -299,6 +303,7 @@ Each statement is a transaction. Turn off for multi-statement operations.
 ## 14. CONCURRENCY CONTROL
 
 **Problems:**
+
 | Problem | Scenario |
 |---------|----------|
 | Dirty Read | Read uncommitted data that gets rolled back |
@@ -307,6 +312,7 @@ Each statement is a transaction. Turn off for multi-statement operations.
 | Lost Update | Two transactions overwrite each other |
 
 **Isolation Levels:**
+
 | Level | Dirty Read | Non-repeatable | Phantom | Performance |
 |-------|-----------|---------------|---------|-------------|
 | Read Uncommitted | Yes | Yes | Yes | Fastest |
@@ -315,6 +321,7 @@ Each statement is a transaction. Turn off for multi-statement operations.
 | Serializable | No | No | No | Slowest |
 
 **PostgreSQL default:** Read Committed.
+
 **MySQL InnoDB default:** Repeatable Read.
 
 **Repeatable Read vs Serializable:**
@@ -388,9 +395,11 @@ Seq Scan on users  (cost=0.00..35.50 rows=1 width=100)
 Estimates cost (I/O + CPU) of different plans, picks cheapest.
 
 **Cardinality:** Number of unique values. High = selective.
+
 **Selectivity:** Fraction of rows matching condition. Low = good for index.
 
 **Optimize slow query:**
+
 1. EXPLAIN ANALYZE -> find bottleneck
 2. Add index on WHERE/JOIN columns
 3. Rewrite to avoid functions on indexed columns
@@ -429,7 +438,11 @@ High concurrency. No read locks needed.
 
 ### VACUUM
 Removes dead tuples (old versions no longer visible). Reclaims space.
-**Autovacuum:** Background process. **Manual:** VACUUM ANALYZE.
+
+**Autovacuum:** Background process. 
+
+**Manual:** VACUUM ANALYZE.
+
 Without vacuum: table bloats, performance degrades.
 
 ### WAL (Write-Ahead Logging)
@@ -445,6 +458,7 @@ Durability guarantee. Crash recovery: replay WAL.
 Random I/O to data files = slow. Sequential WAL = fast. Recovery possible.
 
 ### EXPLAIN / EXPLAIN ANALYZE
+
 - EXPLAIN: Estimated plan
 - EXPLAIN ANALYZE: Actual execution times
 
@@ -455,6 +469,7 @@ Auto-increment. Creates sequence, default nextval().
 Binary JSON. Indexed with GIN. Query with operators: ->, ->>, @>, ?.
 
 ### Index Types
+
 | Type | Use |
 |------|-----|
 | B-tree | Default. Equality, range, sorting. |
@@ -501,6 +516,7 @@ db.orders.aggregate([
 Stages process documents left-to-right. Pipeline = efficient server-side processing.
 
 ### Indexing
+
 | Type | Use |
 |------|-----|
 | Single Field | db.users.createIndex({email: 1}) |
@@ -526,10 +542,12 @@ Router (mongos) -> Shard 1 (range A-M) -> Replica Set
 Shard key determines distribution. Balancer moves chunks.
 
 ### Transactions
+
 - Single-document: Always atomic
 - Multi-document: Since 4.0 (replica sets), 4.2 (sharded)
 
 ### Data Modeling: Embed vs Reference
+
 | Embed | Reference |
 |-------|-----------|
 | One-to-few, read together | One-to-many, independent access |
@@ -568,9 +586,11 @@ App -> Write -> Primary
     Read -> Replica 2
 ```
 **Synchronous:** Primary waits for replica ACK. Consistent but slow.
+
 **Asynchronous:** Fire and forget. Fast but replication lag.
 
 ### Sharding vs Partitioning
+
 | Sharding | Partitioning |
 |----------|-------------|
 | Data across multiple servers | Data across multiple tables/files on same server |
@@ -578,16 +598,19 @@ App -> Write -> Primary
 | Complex | Simpler |
 
 **Partitioning Types:**
+
 - Range: orders_2023, orders_2024
 - List: orders_east, orders_west
 - Hash: Hash of key determines partition
 
 ### Backup & Recovery
+
 - Snapshots: Point-in-time copy
 - PITR: Replay WAL to any point
 - WAL Recovery: Replay since last checkpoint
 
 ### Caching
+
 - Query Cache: Store result of frequent queries (MySQL removed, PostgreSQL doesn't have)
 - Application Cache: Redis/Memcached in front of DB
 - Cache Invalidation: Write-through, write-back, TTL-based
@@ -796,8 +819,8 @@ If ROLLBACK:
 
 ## SKIP THESE (Unless Database Engineering Role)
 
-PostgreSQL source code internals, query planner implementation details, storage engine internals, MongoDB WiredTiger internals, distributed consensus algorithms (Raft/Paxos) in database implementations, advanced indexing algorithms, PostgreSQL extension development, database kernel development, advanced replication protocols, custom storage engines
+<div style="text-align: justify;">PostgreSQL source code internals, query planner implementation details, storage engine internals, MongoDB WiredTiger internals, distributed consensus algorithms (Raft/Paxos) in database implementations, advanced indexing algorithms, PostgreSQL extension development, database kernel development, advanced replication protocols, custom storage engines</div>
 
 ---
 
-**Revision Order:** Database Fundamentals -> Relational Concepts -> SQL Syntax -> Queries -> Joins -> Aggregates -> Subqueries -> Window Functions -> CTEs -> Normalization -> ACID -> Transactions -> Concurrency -> Locks -> Indexing -> Query Optimization -> PostgreSQL (MVCC, WAL, VACUUM) -> MongoDB -> SQL vs NoSQL -> Production Concepts (Replication, Sharding, Partitioning, Caching, Connection Pooling)
+> **Revision Order:** Database Fundamentals -> Relational Concepts -> SQL Syntax -> Queries -> Joins -> Aggregates -> Subqueries -> Window Functions -> CTEs -> Normalization -> ACID -> Transactions -> Concurrency -> Locks -> Indexing -> Query Optimization -> PostgreSQL (MVCC, WAL, VACUUM) -> MongoDB -> SQL vs NoSQL -> Production Concepts (Replication, Sharding, Partitioning, Caching, Connection Pooling)

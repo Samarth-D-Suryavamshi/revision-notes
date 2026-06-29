@@ -1,13 +1,11 @@
 
-# DESIGN PATTERNS — SYSTEM FLOW NOTES
-## How to read: Follow the arrow (→) flow. Each pattern is a mini-story.
-
----
+# DESIGN PATTERNS
 
 # PRIORITY 1 — FUNDAMENTALS
 
 ## 1. What are Design Patterns?
 **Flow:** Common problem → Someone solved it → Named the solution → Reuse it
+
 - **1-liner:** Reusable blueprints for recurring software problems.
 - **Gang of Four (GoF):** 4 authors, 1994, 23 patterns in *Design Patterns* book.
 - **Why exist:** Stop reinventing wheels; share battle-tested solutions.
@@ -16,6 +14,7 @@
 - **When to avoid:** Over-engineering simple code; YAGNI applies.
 
 **Interview Q:**
+
 - Mandatory? No. Use when complexity justifies it.
 - Avoid when: Simple if-else works, team doesn't know it, premature optimization.
 
@@ -24,6 +23,7 @@
 ## 2. Design Principles Behind Patterns
 
 **SOLID (the backbone):**
+
 | Principle | Flow | Example |
 |-----------|------|---------|
 | **S**ingle Responsibility | Class has 1 job → Easy to change | `UserAuth` handles login, NOT email sending |
@@ -33,6 +33,7 @@
 | **D**ependency Inversion | High-level → Depends on abstractions, NOT concrete | `OrderService` depends on `IPaymentGateway`, not `StripeAPI` |
 
 **Other Principles:**
+
 - **DRY:** Write once → Use everywhere (extract common logic).
 - **KISS:** Simple solution → Works → Ship it.
 - **YAGNI:** Don't build → What you don't need yet.
@@ -42,6 +43,7 @@
 - **Encapsulate What Varies:** Isolate changing parts → Stable core remains.
 
 **Interview Q:**
+
 - Why interfaces? Decoupling. Swap implementations without breaking callers.
 - Composition > Inheritance? Inheritance is rigid (compile-time); composition is flexible (runtime).
 
@@ -68,11 +70,13 @@ Thread A checks instance == null → Yes → Locks class
 ```
 
 **Types:**
+
 - **Eager:** `private static Instance = new Instance()` — loads at class load.
 - **Lazy:** Creates on first `getInstance()` call.
 - **Enum (Java):** `enum Singleton { INSTANCE; }` — JVM guarantees single instance, thread-safe, serialization-safe.
 
 **Why Controversial?** Hidden global state → Hard to test → Tight coupling.
+
 **Avoid when:** You need multiple instances (testing, different configs), or DI frameworks handle it.
 
 ---
@@ -88,14 +92,17 @@ User clicks "Send Notification" → NotificationFactory.create("email")
 ```
 
 **Structure:**
+
 - `Notification` (interface) ← `EmailNotification`, `SMSNotification`
 - `NotificationFactory` (interface) ← `EmailFactory`, `SMSFactory`
 
 **Factory vs Constructor:**
+
 - Constructor: `new EmailNotification()` — tight coupling, hard to change.
 - Factory: `factory.create()` — loose coupling, easy to add new types.
 
 **Factory Method vs Abstract Factory:**
+
 - Factory Method: One product family, subclasses decide which product.
 - Abstract Factory: Multiple product families, factory creates related products.
 
@@ -129,10 +136,12 @@ User orders Pizza → Pizza.Builder()
 ```
 
 **Builder vs Constructor:**
+
 - Constructor: `new Pizza("thin", "tomato", ["cheese"], null, null, ...)` — messy, param hell.
 - Builder: Fluent, readable, optional params, immutable result.
 
 **Fluent Builder:** Each method returns `this` → chain calls.
+
 **Immutable:** Build once → Can't modify → Thread-safe.
 
 ---
@@ -146,6 +155,7 @@ Game spawns enemy → BaseEnemy.clone() → Modify health/position → New enemy
 ```
 
 **Shallow Copy:** Copies object → References inside point to same objects.
+
 **Deep Copy:** Copies object + all nested objects → Completely independent.
 
 **When useful:** Object creation is expensive; you have a template; need many similar objects.
@@ -180,10 +190,12 @@ User orders Coffee → BaseCoffee ($2)
 ```
 
 **Decorator vs Inheritance:**
+
 - Inheritance: `MilkSugarWhipCoffee` — rigid, compile-time, explosive class count.
 - Decorator: Wrap at runtime → Flexible, mix-and-match.
 
 **Decorator vs Proxy:**
+
 - Decorator: Adds functionality (enhances).
 - Proxy: Controls access (restricts/protects).
 
@@ -207,6 +219,7 @@ User presses "Watch Movie" on HomeTheaterFacade
 ```
 
 **Facade vs Adapter:**
+
 - Facade: Simplifies complex subsystem (many → one simple interface).
 - Adapter: Converts one interface to another (one → one different interface).
 
@@ -240,6 +253,7 @@ User requests data → Proxy checks cache
 **Remote Proxy:** Local proxy represents remote object (RPC, RMI).
 
 **Proxy vs Decorator:**
+
 - Proxy: Controls access (security, lazy load, remote).
 - Decorator: Adds functionality (features, enhancements).
 
@@ -316,6 +330,7 @@ Shopping Cart → Checkout
 **Replaces:** Giant switch/if-else statements.
 
 **Strategy vs State:**
+
 - Strategy: Client chooses algorithm (payment method).
 - State: Object changes behavior based on its internal state (ATM states).
 
@@ -335,6 +350,7 @@ Channel uploads video → notifyAll() → All subscribers updated
 ```
 
 **Observer vs Pub/Sub:**
+
 - Observer: Subject knows observers directly (tight coupling).
 - Pub/Sub: Message broker sits in middle (loose coupling, async).
 
@@ -354,7 +370,7 @@ Text Editor:
 Commands stored in stack → Undo = pop & undo → Redo = push & execute
 ```
 
-**Why use?** Decouple sender from receiver; support undo/redo; queue requests.
+> **Why use?** Decouple sender from receiver; support undo/redo; queue requests.
 
 ---
 
@@ -374,6 +390,7 @@ ATM Machine:
 Each state is a class with its own behavior. State transitions are handled within states.
 
 **Strategy vs State:**
+
 - Strategy: External choice (user picks payment method).
 - State: Internal transition (ATM moves between states based on actions).
 
@@ -528,6 +545,7 @@ Document structure: Paragraph, Image, Table
 # PRIORITY 7 — REAL-WORLD APPLICATIONS
 
 ## Java
+
 | Framework/Feature | Pattern | Flow |
 |-------------------|---------|------|
 | **Collections.sort()** | Strategy | Pass Comparator → Sort uses your strategy |
@@ -539,6 +557,7 @@ Document structure: Paragraph, Image, Table
 | **Streams API** | Builder/Strategy | `stream().filter().map().collect()` — chain of operations |
 
 ## Spring Boot
+
 | Feature | Pattern | Flow |
 |---------|---------|------|
 | **Dependency Injection** | Factory + Strategy | Container creates beans → Injects based on type/qualifier |
@@ -548,6 +567,7 @@ Document structure: Paragraph, Image, Table
 | **MVC** | Strategy | DispatcherServlet → HandlerMapping → Controller (strategy) → View |
 
 ## Backend Systems
+
 | System | Pattern | Flow |
 |--------|---------|------|
 | **Payment Gateway** | Strategy | Order → PaymentContext → Set CreditCard/PayPal/Stripe → Pay |
@@ -591,6 +611,7 @@ Document structure: Paragraph, Image, Table
 For each pattern, implement and document:
 
 1. **Thread-safe Singleton**
+
    - Flow: `getInstance()` → DCL → Return instance
    - Try: Enum version (Java)
 
@@ -650,9 +671,10 @@ For each pattern, implement and document:
 ---
 
 **REMEMBER:** Interviewers care about:
+
 1. **Why** this pattern? (Problem it solves)
 2. **How** it works? (The flow/story)
 3. **Trade-offs** (When NOT to use)
 4. **Real examples** (Where you've seen it)
 
-Never memorize UML. Tell the story of how data/request flows through the system.
+> Never memorize UML. Tell the story of how data/request flows through the system.

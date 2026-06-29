@@ -1,6 +1,5 @@
 
 # LINUX — SYSTEM FLOW NOTES
-## How to read: Follow the arrow (→) flow. Every command is a story of what the system does.
 
 ---
 
@@ -20,6 +19,7 @@ User types command → Shell (bash/zsh) interprets →
 ```
 
 **Kernel vs Shell:**
+
 | Kernel | Shell |
 |--------|-------|
 | Core of OS, talks to hardware | Command interpreter, talks to user |
@@ -99,6 +99,7 @@ Relative: ./app.js  or  ../config.js   ← Relative to current directory
 ```
 
 **Hard Link vs Symbolic Link:**
+
 | | Hard Link | Symbolic Link |
 |---|---|---|
 | Points to | Inode (actual data) | File path (name) |
@@ -108,6 +109,7 @@ Relative: ./app.js  or  ../config.js   ← Relative to current directory
 | `ls -l` shows | Normal file | `symlink -> target` |
 
 **cp vs mv:**
+
 - `cp` = duplicate data (new inode, new blocks).
 - `mv` = rename directory entry (same inode, instant even for huge files).
 
@@ -152,6 +154,7 @@ chmod 777 file → rwxrwxrwx (everyone — dangerous!)
 ```
 
 **Commands:**
+
 | Command | Flow |
 |---------|------|
 | `chmod 755 script.sh` | Change mode → Owner: rwx, Group: r-x, Others: r-x |
@@ -161,6 +164,7 @@ chmod 777 file → rwxrwxrwx (everyone — dangerous!)
 | `umask 022` | New files get 644 (666-022), dirs get 755 (777-022) |
 
 **chmod vs chown:**
+
 - `chmod` = WHAT can be done (permissions).
 - `chown` = WHO can do it (owner/group).
 
@@ -181,6 +185,7 @@ Program on disk (binary) → fork() creates copy → exec() loads new program �
 ```
 
 **Key Concepts:**
+
 | Term | Meaning | Flow |
 |------|---------|------|
 | **PID** | Process ID | Unique number assigned at creation → `ps` shows it |
@@ -192,6 +197,7 @@ Program on disk (binary) → fork() creates copy → exec() loads new program �
 | **Orphan** | Parent died | Parent crashed → Adopted by init (PID 1) → init calls wait() → Cleaned up |
 
 **Commands:**
+
 | Command | Flow |
 |---------|------|
 | `ps aux` | Snapshot of all processes → CPU%, MEM%, PID, Command |
@@ -203,6 +209,7 @@ Program on disk (binary) → fork() creates copy → exec() loads new program �
 | `fg %1` | Bring job 1 to foreground |
 
 **Zombie vs Orphan:**
+
 - Zombie = Dead child, living parent forgot to clean up. Harmless but leaks PID.
 - Orphan = Living child, parent died. init adopts and cleans up properly.
 
@@ -224,6 +231,7 @@ User presses Ctrl+Z → SIGSTOP sent → Process paused → `fg` resumes it
 ```
 
 **Signal Table:**
+
 | Signal | Number | Action | Flow |
 |--------|--------|--------|------|
 | **SIGTERM** | 15 | Graceful shutdown | "Please exit" → Process can cleanup → Save state → Exit |
@@ -233,10 +241,12 @@ User presses Ctrl+Z → SIGSTOP sent → Process paused → `fg` resumes it
 | **SIGCONT** | 18 | Continue | Resume paused process |
 
 **SIGTERM vs SIGKILL:**
+
 - SIGTERM = polite ask. Process can save data, close files, clean up. Use first.
 - SIGKILL = murder. Immediate, uncatchable. Use when SIGTERM ignored.
 
 **Commands:**
+
 | Command | Flow |
 |---------|------|
 | `kill 1234` | Send SIGTERM to PID 1234 → Graceful shutdown |
@@ -286,6 +296,7 @@ bye" |
 **1-liner:** Environment variables = configuration that programs inherit from the shell.
 
 **Key Variables:**
+
 | Variable | Purpose | Example |
 |----------|---------|---------|
 | **PATH** | Where to find executables | `/usr/local/bin:/usr/bin:/bin` → `ls` found in /usr/bin |
@@ -302,6 +313,7 @@ User types "git" → Shell checks: /usr/local/bin/git? → No →
 ```
 
 **Commands:**
+
 | Command | Flow |
 |---------|------|
 | `env` | Show all environment variables |
@@ -404,10 +416,12 @@ sed '/^#/d' file.txt              # Delete lines starting with # (comments)
 ```
 
 **grep vs find:**
+
 - `grep` = Search **inside** file content.
 - `find` = Search **filesystem** by name/type/size.
 
 **awk vs sed:**
+
 - `awk` = Column-based processing, calculations, filtering by value.
 - `sed` = Line-based text transformation, search/replace, delete lines.
 
@@ -434,6 +448,7 @@ ps aux | grep python | awk '{print $2}' | xargs kill -9
 ```
 
 **Standard Streams:**
+
 | Stream | Number | Default | Redirect |
 |--------|--------|---------|----------|
 | stdin  | 0 | Keyboard | `< file` |
@@ -481,6 +496,7 @@ Order matters! `cmd 2>&1 > output.log` → stderr goes to terminal (where stdout
 | `iostat` | Disk IO stats | Read/write rates per device |
 
 **df vs du:**
+
 - `df` = Disk Free — how much space on filesystem (mount point level).
 - `du` = Disk Usage — how much space a directory tree uses.
 
@@ -507,6 +523,7 @@ free -h → Shows: total 16G, used 8G, free 2G, available 10G
 | `dig google.com` | Detailed DNS query → Show all records | Debug DNS issues |
 
 **curl vs wget:**
+
 - `curl` = Swiss army knife. Supports all HTTP methods, headers, auth, uploads. Interactive testing.
 - `wget` = Download specialist. Recursive downloads, resumes, mirrors. Non-interactive.
 
@@ -582,6 +599,7 @@ echo "Exit code: $?"          # $? = exit code of last command (0 = success)
 ```
 
 **Exit Codes:**
+
 | Code | Meaning |
 |------|---------|
 | 0 | Success |
@@ -607,6 +625,7 @@ echo "Exit code: $?"          # $? = exit code of last command (0 = success)
 | | `rpm -i package.rpm` | Install local .rpm file |
 
 **apt vs dpkg:**
+
 - `apt` = High-level, handles dependencies, fetches from repos.
 - `dpkg` = Low-level, installs single package, no dependency resolution.
 
@@ -769,10 +788,11 @@ systemctl status nginx   → Check status, logs, PID
 ---
 
 **REMEMBER:** Interviewers care about:
+
 1. **Can you navigate a Linux system confidently?** (Know the filesystem, basic commands)
 2. **Do you understand permissions?** (rwx, numeric, security implications)
 3. **Can you debug a running system?** (ps, top, logs, network, disk)
 4. **Can you chain commands?** (Pipes, redirection, text processing)
 5. **Do you understand processes?** (Lifecycle, signals, zombies, background)
 
-Tell the story of what happens when you run a command — where the data flows, what the kernel does, what the output means.
+> Tell the story of what happens when you run a command — where the data flows, what the kernel does, what the output means.

@@ -1,4 +1,4 @@
-# Software Engineering Practices Interview Notes — System Flow Approach
+# Software Engineering Practices
 
 ---
 
@@ -18,12 +18,15 @@ Requirement Gathering → Feasibility → Design → Development → Testing →
 ```
 
 **Functional vs Non-Functional Requirements**
+
 | Functional | Non-Functional |
 |-----------|-----------------|
 | What system does | How well it does it |
 | "User can book ticket" | "Page loads in <2s", "99.9% uptime" |
 
+
 **Quality Attributes**
+
 | Attribute | Meaning | Example |
 |-----------|---------|---------|
 | **Maintainability** | Easy to modify | Clean code, tests, docs |
@@ -57,6 +60,7 @@ Sprint 3: Plan → Design → Code → Test → Review → Deploy
 - Use: Most product companies, evolving requirements
 
 **Comparison:**
+
 | Waterfall | Agile |
 |-----------|-------|
 | Fixed scope, fixed timeline | Flexible scope, fixed sprints |
@@ -66,6 +70,7 @@ Sprint 3: Plan → Design → Code → Test → Review → Deploy
 | Customer sees product at end | Customer sees product every sprint |
 
 **Other Models:**
+
 - **Incremental** = Build in chunks (core first, then features)
 - **Iterative** = Build rough version → refine → refine
 - **Spiral** = Risk-driven, cycles of planning + risk analysis + engineering + evaluation
@@ -86,6 +91,7 @@ Responding to change             > Following a plan
 ```
 
 **12 Principles (Key Ones)**
+
 - Deliver working software frequently (weeks, not months)
 - Welcome changing requirements
 - Business people and developers work together daily
@@ -122,6 +128,7 @@ Repeat
 ```
 
 **Roles:**
+
 | Role | Responsibility |
 |------|---------------|
 | **Product Owner** | Owns backlog, prioritizes features, speaks for customer |
@@ -129,6 +136,7 @@ Repeat
 | **Dev Team** | Self-organizing, cross-functional, delivers increment |
 
 **Artifacts:**
+
 | Artifact | What it is |
 |----------|-----------|
 | **Product Backlog** | All features, bugs, tech debt (prioritized) |
@@ -136,6 +144,7 @@ Repeat
 | **Increment** | Potentially shippable work at sprint end |
 
 **Ceremonies:**
+
 | Ceremony | Duration | Purpose |
 |----------|----------|---------|
 | Sprint Planning | 2-4 hrs | What to build this sprint? |
@@ -161,11 +170,13 @@ Backlog → To Do → In Progress → Code Review → Testing → Done
 ```
 
 **Key Concepts:**
+
 - **Visual board** = See all work at a glance
 - **WIP limits** = Max items per column (prevents overload)
 - **Continuous flow** = No sprints, work pulled when capacity available
 
 **Scrum vs Kanban:**
+
 | Scrum | Kanban |
 |-------|--------|
 | Fixed sprints (2 weeks) | Continuous flow |
@@ -186,6 +197,7 @@ Dev writes code → Self-review → Create PR → Automated checks (CI) → Peer
 ```
 
 **What to check in code review:**
+
 | Category | Check |
 |----------|-------|
 | **Correctness** | Does it work? Edge cases handled? |
@@ -196,6 +208,7 @@ Dev writes code → Self-review → Create PR → Automated checks (CI) → Peer
 | **Performance** | N+1 queries? Unnecessary loops? |
 
 **Best Practices:**
+
 - Keep PRs small (<400 lines)
 - Respond within 24 hours
 - Be constructive, not critical
@@ -221,6 +234,7 @@ Dev writes code → Self-review → Create PR → Automated checks (CI) → Peer
 ## 8. Testing Fundamentals
 
 **Verification vs Validation**
+
 | Verification | Validation |
 |-------------|-----------|
 | "Are we building it RIGHT?" | "Are we building the RIGHT thing?" |
@@ -256,6 +270,7 @@ Write function → Write test (input → expected output) → Run test → Pass/
 ```
 
 **Key Concepts:**
+
 | Concept | Definition | Example |
 |---------|-----------|---------|
 | **Test Case** | Input + expected output | `add(2,3)` should return `5` |
@@ -298,12 +313,14 @@ Start test DB → Seed data → Call API endpoint → Verify response + DB state
 ```
 
 **What to verify:**
+
 - API request/response contracts
 - Database read/write operations
 - External service interactions (with test doubles)
 - Authentication/authorization flows
 
 **Unit vs Integration:**
+
 | Unit | Integration |
 |------|-------------|
 | One class/function | Multiple components |
@@ -385,6 +402,7 @@ CI passes → Deploy to staging → E2E tests pass → Auto-deploy to production
 **Key:** Fully automated. No manual approval. Requires robust tests + monitoring + rollback.
 
 **CD vs CD:**
+
 | Continuous Delivery | Continuous Deployment |
 |-------------------|----------------------|
 | Auto everything EXCEPT final production push | Auto everything INCLUDING production |
@@ -419,6 +437,7 @@ Source code → Build tool compiles → Runs tests → Packages → Publishes ar
 | **pip** | Python | Packages (requirements.txt), virtual envs |
 
 **Maven vs Gradle:**
+
 | Maven | Gradle |
 |-------|--------|
 | XML config (verbose) | Groovy/Kotlin DSL (concise) |
@@ -448,6 +467,7 @@ Code executes → Logger writes message → Appender sends to file/stdout/ELK �
 ```
 
 **Log Levels (When to use):**
+
 | Level | When to Use | Example |
 |-------|-------------|---------|
 | **TRACE** | Detailed execution flow | "Entering method X with params Y" |
@@ -476,6 +496,7 @@ Request enters → Generate correlation-id → Pass through all services → All
 ```
 
 **What NEVER to log:**
+
 - Passwords, tokens, API keys
 - PII (SSN, credit card numbers)
 - Sensitive business data
@@ -497,6 +518,7 @@ App emits metrics → Collector (Prometheus) → Dashboard (Grafana) → Alert r
 ```
 
 **Key Definitions:**
+
 | Term | Definition | Example |
 |------|-----------|---------|
 | **SLI** | Service Level Indicator | "Request latency", "Error rate" |
@@ -509,6 +531,7 @@ SLI (metric) → SLO (target) → SLA (contract)
 ```
 
 **What to monitor:**
+
 | Category | Metrics |
 |----------|---------|
 | **Performance** | Response time, throughput, CPU, memory |
@@ -517,6 +540,7 @@ SLI (metric) → SLO (target) → SLA (contract)
 | **Infrastructure** | Disk usage, network I/O, queue depth |
 
 **Monitoring vs Logging:**
+
 | Monitoring | Logging |
 |-----------|---------|
 | "Is the system healthy?" | "What happened in detail?" |
@@ -638,6 +662,7 @@ Consequences: Faster reads, eventual consistency
 # Priority 12 — Engineering Best Practices
 
 **Quick Reference:**
+
 | Practice | What it means | Example |
 |----------|-------------|---------|
 | **DRY** | Don't Repeat Yourself | Extract common validation logic |
@@ -708,4 +733,4 @@ Fix → Deploy → Monitor → Resolve incident
 6. Give real example from your project
 ```
 
-**Always remember:** Interviewers want to hear that you think beyond "it works on my machine." Show you care about the full lifecycle: code → test → deploy → monitor → maintain.
+> **Always remember:** Interviewers want to hear that you think beyond "it works on my machine." Show you care about the full lifecycle: code → test → deploy → monitor → maintain.

@@ -1,4 +1,4 @@
-# Concurrency & Multithreading Interview Notes — System Flow Approach
+# Concurrency & Multithreading
 
 ---
 
@@ -15,6 +15,7 @@ Analogy: Concurrency = Juggling 3 balls (switching attention). Parallelism = 3 p
 ```
 
 **Process vs Thread**
+
 | Process | Thread |
 |---------|--------|
 | Independent program with own memory | Lightweight unit within a process |
@@ -47,6 +48,7 @@ NEW → START() → RUNNABLE → Scheduler picks → RUNNING → sleep()/wait() 
 ```
 
 **Thread States:**
+
 | State | Meaning |
 |-------|---------|
 | **NEW** | Created, not started |
@@ -124,6 +126,7 @@ Thread B: mutex.lock() → BLOCKED (A holds lock) → ... → A unlocks → B en
 **Mutex has ownership:** Only the thread that locked it can unlock it.
 
 **Mutex vs Semaphore:**
+
 | Mutex | Semaphore |
 |-------|-----------|
 | Binary (0 or 1) | Can be counting (0 to N) |
@@ -144,6 +147,7 @@ Thread B: mutex.lock() → BLOCKED (A holds lock) → ... → A unlocks → B en
 | **Spin Lock** | Thread busy-waits (spins) instead of blocking | Very short critical sections |
 
 **Spin Lock vs Mutex:**
+
 | Spin Lock | Mutex |
 |-----------|-------|
 | Busy-waits (consumes CPU) | Blocks (yields CPU) |
@@ -207,6 +211,7 @@ Consumer: wakes up → RELOCKS mutex → consume item → unlock(mutex)
 **Why needed?** → Mutex alone can't wait for a condition. Condition variable = "wake me when X happens."
 
 **Condition Variable vs Semaphore:**
+
 | Condition Variable | Semaphore |
 |-------------------|-----------|
 | Signaling mechanism (wake specific threads) | Counting permits |
@@ -258,6 +263,7 @@ DEADLOCK — both wait forever
 ```
 
 **Prevention:**
+
 | Strategy | How |
 |----------|-----|
 | **Eliminate Mutual Exclusion** | Use lock-free structures (hard) |
@@ -300,6 +306,7 @@ vs Deadlock: Both are waiting (blocked)
 ```
 
 **Deadlock vs Livelock vs Starvation:**
+
 | Deadlock | Livelock | Starvation |
 |----------|----------|------------|
 | All blocked, no progress | All active, no progress | Some blocked, others keep progressing |
@@ -428,6 +435,7 @@ Asynchronous: Call API → Continue other work → Response arrives → Callback
 ```
 
 **Async vs Multithreading:**
+
 | Async | Multithreading |
 |-------|---------------|
 | Programming model (non-blocking) | Execution model (multiple threads) |
@@ -493,6 +501,7 @@ Thread B: read volatile x → Reads from main memory (not stale cache) → Sees 
 ```
 
 **Guarantees:**
+
 | Guarantee | Meaning |
 |-----------|---------|
 | **Visibility** | Write visible to all threads immediately |
@@ -507,6 +516,7 @@ Fix: Use AtomicInteger or synchronized for compound operations.
 ```
 
 **volatile vs synchronized:**
+
 | volatile | synchronized |
 |----------|-------------|
 | Visibility + ordering | Visibility + ordering + mutual exclusion |
@@ -680,4 +690,4 @@ Optimal: threads ≈ cores (CPU-bound) or threads > cores (I/O-bound, since thre
 6. Mention thread-safe alternatives (concurrent collections, thread pools)
 ```
 
-**Always remember:** Shared mutable state = danger. Make it immutable, localize it, or synchronize it.
+> **Always remember:** Shared mutable state = danger. Make it immutable, localize it, or synchronize it.

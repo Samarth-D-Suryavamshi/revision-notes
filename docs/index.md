@@ -1,17 +1,46 @@
-# Welcome to MkDocs
+# Engineering Revision Notes
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<div style="text-align: justify;"> Welcome to the ultimate revision guide for Software Engineering, Computer Science, and System Design. This repository contains curated notes, diagrams, and resources to help you ace your interviews and master core concepts.</div>
 
-## Commands
+<div class="category-grid">
+  <a href="roadmap.md" class="category-card">
+    <img src="assets/icons/roadmap.svg" alt="Roadmap" class="icon-svg">
+    <h3>Roadmap</h3>
+    <p>Guided learning paths for different roles.</p>
+  </a>
+  <a href="interview-preparation.md" class="category-card">
+    <img src="assets/icons/interview.svg" alt="Interview" class="icon-svg">
+    <h3>Interview Prep</h3>
+    <p>Common questions, coding tips, and behavioral prep.</p>
+  </a>
+  <a href="computer-science/dsa.md" class="category-card">
+    <img src="assets/icons/algorithms.svg" alt="DSA" class="icon-svg">
+    <h3>DSA</h3>
+    <p>Data Structures and Algorithms.</p>
+  </a>
+  <a href="computer-science/system-design.md" class="category-card">
+    <img src="assets/icons/system-design.svg" alt="System Design" class="icon-svg">
+    <h3>System Design</h3>
+    <p>Architecting scalable and distributed systems.</p>
+  </a>
+  <a href="computer-science/databases.md" class="category-card">
+    <img src="assets/icons/database.svg" alt="Databases" class="icon-svg">
+    <h3>Databases</h3>
+    <p>Relational, NoSQL, and ACID properties.</p>
+  </a>
+  <a href="programming/language-specific.md" class="category-card">
+    <img src="assets/icons/code.svg" alt="Programming" class="icon-svg">
+    <h3>Programming</h3>
+    <p>Deep dives into Python, JS, C++, and more.</p>
+  </a>
+</div>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+---
 
-## Project layout
+## 🚀 Getting Started
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Browse through the sections in the sidebar or use the search bar to find specific topics. Each section is designed to be concise yet comprehensive.
+
+## 🛠️ Contribution
+
+Found a typo or want to add a topic? Check out our [Contributing Guide](contributing.md).

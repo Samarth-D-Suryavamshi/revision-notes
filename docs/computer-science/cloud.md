@@ -1,6 +1,5 @@
 
-# CLOUD COMPUTING — SYSTEM FLOW NOTES
-## How to read: Follow the arrow (→) flow. Every concept traces a request's journey through the cloud.
+# CLOUD COMPUTING
 
 ---
 
@@ -24,6 +23,7 @@ Cloud:
 ```
 
 **Cloud Types:**
+
 | Type | Flow | Example |
 |------|------|---------|
 | **Public** | Anyone rents shared infrastructure | AWS, Azure, GCP |
@@ -32,6 +32,7 @@ Cloud:
 | **Multi-Cloud** | Use AWS + Azure + GCP → Avoid vendor lock-in | Netflix on AWS + backup on GCP |
 
 **Service Models (The Pizza Analogy):**
+
 | Model | You manage | Provider manages | Pizza Analogy |
 |-------|-----------|------------------|---------------|
 | **IaaS** | OS, App, Data | Hardware, Network, Virtualization | They provide kitchen, you cook |
@@ -40,6 +41,7 @@ Cloud:
 | **FaaS** | Function code only | Everything else | They provide kitchen, you just add toppings |
 
 **Examples:**
+
 - IaaS: AWS EC2, Azure VMs — you manage OS, patches, security.
 - PaaS: Heroku, AWS Elastic Beanstalk — you deploy code, they manage runtime.
 - SaaS: Gmail, Slack, Salesforce — login and use.
@@ -64,6 +66,7 @@ User Request → DNS → CDN (cached?) →
 ```
 
 **Components:**
+
 | Component | Role | Example |
 |-----------|------|---------|
 | **Compute** | Run your code | EC2, Lambda, ECS |
@@ -91,12 +94,14 @@ Physical Server (Host) → Hypervisor installed →
 ```
 
 **Hypervisor Types:**
+
 | Type | Name | Flow | Speed | Example |
 |------|------|------|-------|---------|
 | **Type 1** | Bare Metal | Hypervisor → Directly on hardware → VMs | Fast | VMware ESXi, Hyper-V, KVM |
 | **Type 2** | Hosted | Host OS → Hypervisor → VMs | Slower (extra layer) | VirtualBox, VMware Workstation |
 
 **VM vs Physical Machine:**
+
 - Physical: One OS, one machine, dedicated hardware.
 - VM: Multiple OS on one machine, shared hardware, isolated, snapshot/clone capable.
 
@@ -127,6 +132,7 @@ Host OS (Linux Kernel) →
 ```
 
 **VM vs Container:**
+
 | | VM | Container |
 |---|---|---|
 | Size | GBs (full OS) | MBs (app + libs) |
@@ -136,6 +142,7 @@ Host OS (Linux Kernel) →
 | Use case | Different OS needs, strong isolation | Microservices, same OS, fast scaling |
 
 **How containers isolated?**
+
 - **Namespaces:** PID (process IDs), Network (interfaces), Mount (filesystem), User (UIDs) — each container sees its own isolated view.
 - **cgroups:** Control groups — limit CPU, memory, disk I/O per container.
 
@@ -155,6 +162,7 @@ Developer writes Dockerfile → docker build → Docker Image (blueprint) →
 ```
 
 **Components:**
+
 | Component | What it is | Flow |
 |-----------|-----------|------|
 | **Docker Engine** | Runtime that runs containers | Docker Daemon listens → Client sends commands |
@@ -167,6 +175,7 @@ Developer writes Dockerfile → docker build → Docker Image (blueprint) →
 | **Network** | Container communication | Bridge (default), Host, None, Custom → Containers talk via IPs |
 
 **Image vs Container:**
+
 - Image = Class (blueprint, read-only, stored).
 - Container = Object (running instance, writable layer on top, ephemeral).
 
@@ -183,6 +192,7 @@ Dockerfile instructions → Each instruction creates a layer → Cached if uncha
 ```
 
 **Instructions:**
+
 | Instruction | Flow | Example |
 |-------------|------|---------|
 | `FROM node:18` | Start from base image | Like inheritance — base OS + Node.js pre-installed |
@@ -206,6 +216,7 @@ ENTRYPOINT ["node"] + CMD ["app.js"] → docker run myimage → Runs: node app.j
 ```
 
 **COPY vs ADD:**
+
 - COPY = simple file copy (preferred, predictable).
 - ADD = COPY + auto-extract archives + download from URL (magic, less predictable).
 
@@ -260,6 +271,7 @@ User runs: kubectl apply -f deployment.yaml
 ```
 
 **Core Components:**
+
 | Component | What it does | Flow |
 |-----------|-----------|------|
 | **Pod** | Smallest deployable unit → 1+ containers sharing network/storage | Container(s) + shared IP + shared volumes |
@@ -271,11 +283,13 @@ User runs: kubectl apply -f deployment.yaml
 | **Secret** | Sensitive data (passwords, tokens, keys) | Base64 encoded (not encrypted by default), mounted as files |
 
 **Pod vs Container:**
+
 - Container = single running process.
 - Pod = wrapper around 1+ containers → Shared IP, shared storage, same lifecycle.
 - Example: App container + Sidecar container (logging) in same Pod.
 
 **Deployment vs ReplicaSet:**
+
 - ReplicaSet = ensures N Pods running (low-level).
 - Deployment = manages ReplicaSet + supports rolling updates + rollback (higher-level).
 - You always use Deployment, never ReplicaSet directly.
@@ -308,6 +322,7 @@ Upload function code → Set trigger (API Gateway, S3 upload, Cron) →
 ```
 
 **EC2 vs Lambda:**
+
 | | EC2 | Lambda |
 |---|---|---|
 | Model | Always-on server | Event-driven function |
@@ -328,6 +343,7 @@ Create Bucket (global unique name) → Upload file → Object stored →
 ```
 
 **S3 vs EBS vs EFS:**
+
 | | S3 | EBS | EFS |
 |---|---|---|---|
 | Type | Object Storage | Block Storage | File Storage |
@@ -367,6 +383,7 @@ VPC (Virtual Private Cloud) → 10.0.0.0/16 →
 ```
 
 **Security Group vs Firewall:**
+
 - Security Group = AWS cloud firewall (stateful, allow rules only, attached to instances).
 - Traditional Firewall = Hardware/software, stateful or stateless, more complex rules.
 
@@ -412,6 +429,7 @@ Image uploaded → Stored as object → URL generated →
 ```
 
 **S3 Features:**
+
 - **Versioning:** Keep all versions → Delete = add delete marker → Restore old version.
 - **Lifecycle:** After 30 days → Move to cheaper storage (S3 Standard-IA) → After 1 year → Archive to Glacier.
 
@@ -428,6 +446,7 @@ User Request → DNS resolves to LB IP →
 ```
 
 **Layer 4 vs Layer 7:**
+
 | | Layer 4 (NLB) | Layer 7 (ALB) |
 |---|---|---|
 | OSI Layer | Transport (TCP/UDP) | Application (HTTP/HTTPS) |
@@ -436,6 +455,7 @@ User Request → DNS resolves to LB IP →
 | Example | `api.com:443` → Any backend | `/api/*` → API servers, `/web/*` → Web servers |
 
 **LB vs Reverse Proxy:**
+
 - LB = distributes across multiple servers (scalability).
 - Reverse Proxy = sits in front of one server, can cache, SSL termination, security (enhancement).
 - Often combined: ALB (LB) → Nginx (Reverse Proxy) → App Server.
@@ -453,10 +473,12 @@ CloudWatch monitors CPU → CPU > 70% for 5 min? →
 ```
 
 **Scalability vs Elasticity:**
+
 - Scalability = Ability to handle growth (plan for more capacity).
 - Elasticity = Auto-scale up AND down based on demand (pay for what you use).
 
 **High Availability vs Fault Tolerance:**
+
 | | High Availability | Fault Tolerance |
 |---|---|---|
 | Goal | Minimize downtime | Zero downtime |
@@ -466,6 +488,7 @@ CloudWatch monitors CPU → CPU > 70% for 5 min? →
 | Example | Multi-AZ RDS (failover in 60s) | Active-active across regions |
 
 **Multi-AZ vs Multi-Region:**
+
 - Multi-AZ: Same region, different data centers (availability zones) → Low latency failover.
 - Multi-Region: Different geographic regions → Disaster recovery, global latency.
 
@@ -531,6 +554,7 @@ Write template.yaml (JSON/YAML) → Upload to AWS → CloudFormation creates sta
 # PRIORITY 12 — CLOUD COST OPTIMIZATION
 
 **Instance Types:**
+
 | Type | Flow | Cost | Use Case |
 |------|------|------|----------|
 | **On-Demand** | Launch anytime → Pay per hour | Highest | Dev/test, unpredictable workloads |
@@ -538,6 +562,7 @@ Write template.yaml (JSON/YAML) → Upload to AWS → CloudFormation creates sta
 | **Spot** | Bid on unused capacity → Can be interrupted | 90% cheaper | Fault-tolerant batch jobs |
 
 **S3 Storage Classes:**
+
 | Class | Use Case | Cost |
 |-------|----------|------|
 | Standard | Frequently accessed | Highest |
@@ -636,6 +661,7 @@ Write template.yaml (JSON/YAML) → Upload to AWS → CloudFormation creates sta
 ---
 
 **REMEMBER:** Interviewers care about:
+
 1. **Can you explain the cloud journey?** (User → DNS → CDN → LB → Compute → DB → Response)
 2. **VM vs Container vs Serverless?** (When to use which, trade-offs)
 3. **Docker flow?** (Dockerfile → Image → Registry → Container → Volume)
@@ -644,4 +670,4 @@ Write template.yaml (JSON/YAML) → Upload to AWS → CloudFormation creates sta
 6. **Deployment strategies?** (Rolling vs Blue-Green vs Canary)
 7. **Security basics?** (IAM least privilege, encryption, no hardcoded keys)
 
-Tell the story of how a request flows through your cloud architecture.
+> Tell the story of how a request flows through your cloud architecture.

@@ -1,7 +1,5 @@
-# Git & Version Control Interview Notes — System Flow Approach
-
+# Git & Version Control
 ---
-
 # Priority 1 — Version Control Fundamentals
 
 ## 1. Introduction to Version Control
@@ -14,6 +12,7 @@ You write code → Save file → VCS snapshots the change → You can go back to
 ```
 
 **Types:**
+
 | Type | How it works | Example |
 |------|-------------|---------|
 | **Local** | One machine, no sharing | RCS (ancient) |
@@ -53,6 +52,7 @@ HEAD → Points to latest commit on current branch
 ```
 
 **Git Objects:**
+
 | Object | What it stores | Analogy |
 |--------|---------------|---------|
 | **Blob** | File content (not filename) | File body |
@@ -205,6 +205,7 @@ main:    A---B---C
 ```
 
 **What rebase does:**
+
 1. Saves your branch commits as patches
 2. Moves branch pointer to target branch tip
 3. Re-applies patches one by one
@@ -217,6 +218,7 @@ git rebase -i HEAD~3    # Last 3 commits
 ```
 
 **Operations in interactive mode:**
+
 | Command | Action |
 |---------|--------|
 | `pick` | Keep commit as-is |
@@ -226,7 +228,9 @@ git rebase -i HEAD~3    # Last 3 commits
 | `drop` | Remove commit |
 | `reorder` | Change order in file |
 
+
 **Merge vs Rebase:**
+
 | Aspect | Merge | Rebase |
 |--------|-------|--------|
 | History | Preserves branch structure | Linear, rewritten |
@@ -255,10 +259,12 @@ main:    A---B---C---D---F'
 ```
 
 **When to use:**
+
 - Bug fix committed to wrong branch → cherry-pick to release branch
 - Need ONE commit, not entire branch merge
 
 **Cherry Pick vs Merge:**
+
 | Cherry Pick | Merge |
 |-------------|-------|
 | Copies ONE commit | Brings ALL commits |
@@ -315,6 +321,7 @@ main: A---B---C---C' (new commit that undoes C)
 **What revert does:** Creates a NEW commit that is the opposite of the target commit. Safe for shared branches because it doesn't rewrite history.
 
 **Reset vs Revert:**
+
 | Reset | Revert |
 |-------|--------|
 | Removes commits from history | Adds new "undo" commit |
@@ -363,6 +370,7 @@ git stash clear              # Delete all stashes
 ```
 
 **Pop vs Apply:**
+
 | Pop | Apply |
 |-----|-------|
 | Applies + removes from stash list | Applies + keeps in stash list |
@@ -382,6 +390,7 @@ Code ready for release → git tag v1.0.0 → Push tags → GitHub creates relea
 ```
 
 **Types:**
+
 | Type | What it stores | Use |
 |------|---------------|-----|
 | **Lightweight** | Just a commit pointer | Quick bookmark |
@@ -394,7 +403,9 @@ git push origin v1.0.0            # Push one tag
 git push origin --tags            # Push all tags
 ```
 
+
 **Branch vs Tag:**
+
 | Branch | Tag |
 |--------|-----|
 | Moves forward with commits | Fixed to one commit |
@@ -402,6 +413,7 @@ git push origin --tags            # Push all tags
 | `main`, `feature-x` | `v1.0.0`, `release-2024` |
 
 **Semantic Versioning:** `MAJOR.MINOR.PATCH` (e.g., `v2.1.3`)
+
 - MAJOR = Breaking changes
 - MINOR = New features, backward compatible
 - PATCH = Bug fixes
@@ -418,6 +430,7 @@ Your laptop (local) ←→ origin (your fork) ←→ upstream (original repo)
 ```
 
 **Key Concepts:**
+
 | Term | Meaning |
 |------|---------|
 | **origin** | Default name for your remote repo |
@@ -485,6 +498,7 @@ GitHub Flow:     main ← feature → PR → merge → deploy immediately
 | `git reflog` | ALL HEAD movements (even "lost" commits) | Safety net for recovery |
 
 **git log vs git reflog:**
+
 | git log | git reflog |
 |---------|-----------|
 | Commit history (DAG) | HEAD movement history |
@@ -532,6 +546,7 @@ Fix: git checkout -b new-branch     # Create branch from detached state
 ```
 
 **Recovery Cheat Sheet:**
+
 | Mistake | Recovery |
 |---------|----------|
 | Deleted uncommitted file | `git restore <file>` |
@@ -665,4 +680,4 @@ git remote -v, git fetch, git pull, git push, git remote add upstream <url>
 5. Give real scenario ("If I'm on a team, I'd use...")
 ```
 
-**Always remember:** Git stores snapshots, not diffs. Everything is an object with a hash. Branches are just pointers.
+> **Always remember:** Git stores snapshots, not diffs. Everything is an object with a hash. Branches are just pointers.

@@ -1,6 +1,6 @@
 
-# MATHEMATICS — SYSTEM FLOW NOTES
-## How to read: Follow the arrow (→) flow. Every concept traces how numbers/data transform step-by-step.
+# MATHEMATICS
+
 
 ---
 
@@ -44,6 +44,7 @@ Why two's complement? Single representation of zero, simple arithmetic:
 ```
 
 **One's Complement vs Two's Complement:**
+
 | | One's Complement | Two's Complement |
 |---|---|---|
 | Zero | +0 (0000) and -0 (1111) — problem! | Single zero (0000) |
@@ -70,6 +71,7 @@ Power Set:            All subsets → {∅, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, 
 ```
 
 **Set Difference vs Symmetric Difference:**
+
 - A - B = Only A's unique elements (directional).
 - A Δ B = (A - B) ∪ (B - A) = Elements in exactly one set (bidirectional).
 
@@ -158,6 +160,7 @@ Example: "Not (rich AND happy)" = "Not rich OR not happy"
 ```
 
 **Implication vs Equivalence:**
+
 - Implication (P → Q): If P then Q (one direction).
 - Equivalence (P ↔ Q): P if and only if Q (both directions).
 
@@ -202,6 +205,7 @@ Inductive step: Assume true for n=k → Prove for n=k+1
 ```
 
 **Contradiction vs Contrapositive:**
+
 - Contradiction: Assume claim false → Derive absurdity → Claim must be true.
 - Contrapositive: Prove equivalent statement (¬Q → ¬P) instead of (P → Q).
 
@@ -303,6 +307,7 @@ Coin flip: P(Head AND Head) = 0.5 × 0.5 = 0.25
 ## Probability Distributions
 
 **Discrete Distributions:**
+
 | Distribution | What it models | Example |
 |--------------|---------------|---------|
 | **Bernoulli** | Single trial, 2 outcomes | Coin flip (1 trial) |
@@ -311,6 +316,7 @@ Coin flip: P(Head AND Head) = 0.5 × 0.5 = 0.25
 | **Geometric** | Trials until first success | Coin flips until first head |
 
 **Continuous Distributions:**
+
 | Distribution | What it models | Key Property |
 |--------------|---------------|--------------|
 | **Uniform** | Equal probability everywhere | Die roll (discrete), random number generator |
@@ -424,6 +430,7 @@ C[i][j] = dot product of row i of A and column j of B
 ```
 
 **Key Matrices:**
+
 | Matrix | Property | Use |
 |--------|----------|-----|
 | **Identity I** | Diagonal = 1, rest = 0 | A × I = A (like multiplying by 1) |
@@ -517,6 +524,8 @@ DAG:         Directed Acyclic Graph → No cycles, topological sort possible
 ```
 
 **Tree vs Graph:**
+
+
 | | Tree | Graph |
 |---|---|---|
 | Cycles | No | Can have |
@@ -773,9 +782,10 @@ Logistic:   y = L / (1 + e^(-k(x-x₀)))    → S-curve, growth slows as approac
 ---
 
 **REMEMBER:** Interviewers care about:
+
 1. **Can you translate math to code?** (Implement GCD, matrix multiply, gradient descent)
 2. **Do you understand WHY?** (Why two's complement, why gradient descent works, why Bayes matters)
 3. **Can you connect to real applications?** (Entropy in decision trees, eigenvalues in PCA, modular arithmetic in crypto)
 4. **Do you know the trade-offs?** (Mean vs median for outliers, SGD vs full GD, local vs global minima)
 
-Tell the story of how numbers transform — from input → through operations → to output.
+> Tell the story of how numbers transform — from input → through operations → to output.

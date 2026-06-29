@@ -1,33 +1,35 @@
 
-# 🌐 Computer Networks — Interview Notes (System-First Approach)
-
----
-
+# 🌐 Computer Networks
 ## 1. NETWORKING FUNDAMENTALS
 
 **What is a Computer Network?**
 → Two+ devices connected to share resources (files, internet, printers).
 
 **Types:**
+
 - **LAN** (Local): Home/Office WiFi — fast, private
 - **WAN** (Wide): Internet — spans cities/countries
 - **MAN** (Metropolitan): City-wide cable network
 - **PAN** (Personal): Bluetooth earbuds ↔ phone
 
 **Client-Server vs P2P:**
+
 - Client-Server: You (client) → request → Google Server → response
 - P2P: Torrent — your PC downloads from 50 other PCs simultaneously
 
 **Bandwidth vs Throughput:**
+
 - Bandwidth = pipe width (100 Mbps plan)
 - Throughput = actual water flow (80 Mbps due to congestion)
 
 **Latency vs Delay vs Jitter:**
+
 - Latency = total round-trip time (ping)
 - Delay = one-way time
 - Jitter = latency variation (bad for video calls)
 
 **Packet Loss:**
+
 → Data packets dropped due to congestion. TCP retransmits, UDP loses it.
 
 ---
@@ -53,6 +55,7 @@ Data → Segment (L4) → Packet (L3) → Frame (L2) → Bits (L1)
 Bits → Frame → Packet → Segment → Data
 
 **Key Q&A:**
+
 - TCP works on **Layer 4 (Transport)**
 - Router operates on **Layer 3 (Network)**
 - Switch operates on **Layer 2 (Data Link)**
@@ -78,13 +81,16 @@ Bits → Frame → Packet → Segment → Data
 ## 4. IP ADDRESSING
 
 **IPv4:** 32-bit, ~4.3 billion addresses (e.g., 192.168.1.1)
+
 **IPv6:** 128-bit, unlimited (e.g., 2001:0db8::1)
 
 **Public vs Private IP:**
+
 - Public: Unique globally (your router's WAN IP)
 - Private: Reusable locally (192.168.x.x, 10.x.x.x)
 
 **Static vs Dynamic:**
+
 - Static: Fixed (servers)
 - Dynamic: Changes (your phone via DHCP)
 
@@ -95,16 +101,20 @@ Bits → Frame → Packet → Segment → Data
 → /24 = 255.255.255.0 (separates network from host portion)
 
 **Network ID:** First IP in subnet (192.168.1.0)
+
 **Broadcast Address:** Last IP (192.168.1.255)
+
 **Loopback:** 127.0.0.1 (talks to yourself)
+
 **Default Gateway:** Router's IP (exit door from LAN)
 
 **NAT (Network Address Translation):**
 → Your 5 devices (private IPs) → Router → 1 public IP → Internet
+
 **PAT (Port Address Translation):**
 → NAT + port numbers to track which device made which request
 
-**Why NAT?** IPv4 shortage. Many private devices share one public IP.
+> **Why NAT?** IPv4 shortage. Many private devices share one public IP.
 
 ---
 
@@ -129,15 +139,16 @@ Client → ACK → Server
 [Connection CLOSED]
 ```
 
-**Why 4-way?** Each side must close independently. Server may still have data to send.
+>**Why 4-way?** Each side must close independently. Server may still have data to send.
 
-**Why TIME_WAIT (2MSL)?**
+>**Why TIME_WAIT (2MSL)?**
 → Ensures last ACK reaches server. Prevents old duplicate packets from confusing new connections.
 
-**What if ACK is lost?**
+>**What if ACK is lost?**
 → Server retransmits FIN. Client in TIME_WAIT resends ACK.
 
 **Reliability Mechanisms:**
+
 - **ACK:** "I got packet #5"
 - **Sequence Numbers:** Track packet order
 - **Flow Control (Sliding Window):** Receiver tells sender its buffer size
@@ -145,6 +156,7 @@ Client → ACK → Server
 - **Retransmission:** Resend if ACK not received in timeout
 
 **MSS (Max Segment Size):** Max data per TCP segment (~1460 bytes)
+
 **MTU (Max Transmission Unit):** Max packet size on link (~1500 bytes)
 
 ---
@@ -152,6 +164,7 @@ Client → ACK → Server
 ## 6. UDP (User Datagram Protocol)
 
 **Characteristics:**
+
 - No handshake → faster
 - No ACK → unreliable
 - No ordering → packets may arrive jumbled
@@ -161,6 +174,7 @@ Client → ACK → Server
 **Header:** 8 bytes only (vs TCP's 20+ bytes)
 
 **Use Cases:**
+
 - **DNS:** One request, one response — overhead not worth TCP
 - **Video Streaming:** Lost frame? Skip it, don't wait
 - **Gaming:** Speed > reliability
@@ -191,10 +205,12 @@ IP: 142.250.185.78
 ```
 
 **Query Types:**
+
 - **Recursive:** "Find me the IP, I don't care how" (resolver does all work)
 - **Iterative:** "Here's who to ask next" (resolver asks step by step)
 
 **DNS Records:**
+
 | Record | Purpose |
 |--------|---------|
 | A | IPv4 address |
@@ -212,6 +228,7 @@ IP: 142.250.185.78
 ## 8. HTTP / HTTPS
 
 **HTTP Methods:**
+
 - GET: Read
 - POST: Create
 - PUT: Update (full)
@@ -219,12 +236,14 @@ IP: 142.250.185.78
 - DELETE: Remove
 
 **Status Codes:**
+
 - 2xx: Success (200 OK, 201 Created)
 - 3xx: Redirect (301 Moved, 302 Found)
 - 4xx: Client Error (404 Not Found, 401 Unauthorized)
 - 5xx: Server Error (500 Internal, 502 Bad Gateway, 503 Unavailable)
 
 **Cookies vs Sessions:**
+
 - Cookie: Data stored on client ("remember me")
 - Session: Data stored on server, session ID in cookie
 
@@ -232,6 +251,7 @@ IP: 142.250.185.78
 → Keep TCP connection alive for multiple requests (vs HTTP/1.0: one request = one connection)
 
 **HTTP/1.1 vs HTTP/2 vs HTTP/3:**
+
 | Feature | HTTP/1.1 | HTTP/2 | HTTP/3 |
 |---------|----------|--------|--------|
 | Multiplexing | No | Yes | Yes |
@@ -257,6 +277,7 @@ Client ← Finished ← Server
 ```
 
 **Key Concepts:**
+
 - **Asymmetric Encryption:** Public key encrypts, private key decrypts (handshake)
 - **Symmetric Encryption:** Same key both ways (session — faster for data)
 - **Certificate:** Server's ID card signed by CA
@@ -276,6 +297,7 @@ Client ← Finished ← Server
 **Default Route:** 0.0.0.0/0 → "If you don't know, send to gateway"
 
 **Static Routing:** Admin manually sets routes
+
 **Dynamic Routing:** Routers talk to each other (OSPF, BGP — skip details)
 
 **Longest Prefix Match:**
@@ -305,9 +327,11 @@ PC caches it, sends frame
 ## 12. MAC ADDRESS
 
 **MAC:** 48-bit physical address burned into NIC (AA:BB:CC:DD:EE:FF)
+
 **IP:** Logical address assigned by network admin/DHCP
 
 **MAC vs IP:**
+
 - MAC = flat, permanent, works within LAN
 - IP = hierarchical, changeable, works across networks
 
@@ -323,6 +347,7 @@ PC caches it, sends frame
 ```
 
 **MTU:** 1500 bytes max payload
+
 **Broadcast Domain:** All devices that receive a broadcast (limited by router)
 
 ---
@@ -343,6 +368,7 @@ Next time: direct forwarding, no flooding
 ```
 
 **MAC Table:** Port ↔ MAC mapping
+
 **Flooding:** Send to all ports when destination unknown
 
 ---
@@ -350,6 +376,7 @@ Next time: direct forwarding, no flooding
 ## 15. ICMP
 
 **Ping:** "Are you alive?" → Echo request/reply
+
 **Traceroute:** Sends packets with increasing TTL to map route hops
 
 **Error Reporting:** Destination unreachable, time exceeded
@@ -385,10 +412,12 @@ Server → DHCP ACK ("It's yours for 24 hours")
 | Load Balancer | L4/L7 | Distributes traffic across servers |
 
 **Hub vs Switch:**
+
 - Hub: Broadcasts to everyone (collision domain = all ports)
 - Switch: Sends only to destination (collision domain = per port)
 
 **Router vs Switch:**
+
 - Router: Connects networks, uses IP
 - Switch: Connects devices within network, uses MAC
 
@@ -397,7 +426,9 @@ Server → DHCP ACK ("It's yours for 24 hours")
 ## 18. FIREWALLS
 
 **Stateless:** Checks each packet independently (ACL rules)
+
 **Stateful:** Tracks connection state ("This ACK belongs to that SYN")
+
 **Packet Filtering:** Allow/deny based on IP/port/protocol
 
 ---
@@ -405,9 +436,11 @@ Server → DHCP ACK ("It's yours for 24 hours")
 ## 19. LOAD BALANCING
 
 **L4 (Transport):** Balances based on IP + port (TCP/UDP level)
+
 **L7 (Application):** Balances based on URL, cookie, header (HTTP level)
 
 **Algorithms:**
+
 - Round Robin: A → B → C → A → B → C
 - Least Connections: Send to least busy server
 - Sticky Sessions: Same user → same server
@@ -430,8 +463,11 @@ Cache miss? → Fetch from origin, cache for next user
 ```
 
 **Edge Server:** Local cache server
+
 **TTL:** How long content stays cached
+
 **Static Content:** Images, CSS, JS (cache heavily)
+
 **Dynamic Content:** Personalized API responses (cache lightly)
 
 ---
@@ -441,17 +477,20 @@ Cache miss? → Fetch from origin, cache for next user
 ### HTTP Versions Deep Dive
 
 **HTTP/1.1:**
+
 - Persistent connections
 - Pipelining (flawed)
 - Head-of-line blocking
 
 **HTTP/2:**
+
 - Binary framing (not text)
 - Multiplexing: multiple streams on one TCP connection
 - Server push
 - Header compression (HPACK)
 
 **HTTP/3:**
+
 - QUIC over UDP (not TCP)
 - 0-RTT connection setup
 - No head-of-line blocking
@@ -478,6 +517,7 @@ Server: 101 Switching Protocols
 - **Streaming:** Client streaming, server streaming, bidirectional
 
 **REST vs gRPC:**
+
 | REST | gRPC |
 |------|------|
 | HTTP/1.1 or HTTP/2 | HTTP/2 only |
@@ -497,6 +537,7 @@ Server: 101 Switching Protocols
 ### API Gateway
 
 **Purpose:**
+
 - Single entry point for microservices
 - Authentication, rate limiting, routing, SSL termination
 - Example: AWS API Gateway, Kong
@@ -504,6 +545,7 @@ Server: 101 Switching Protocols
 ### Service Discovery
 
 **Problem:** Microservices need to find each other's IPs
+
 **Solution:**
 - Client-side: Service queries registry (Eureka, Consul)
 - Server-side: Load balancer knows all backends
@@ -516,6 +558,7 @@ Server: 101 Switching Protocols
 ### Connection Pooling
 
 **Why?**
+
 → Opening TCP + TLS for every DB query = slow
 → Pool maintains open connections, app borrows/returns
 → Same for HTTP clients (e.g., axios keep-alive)
@@ -623,4 +666,4 @@ BGP, OSPF, RIP, MPLS, VLAN config, STP, QoS internals, SDN, VXLAN, GRE tunnels, 
 
 ---
 
-**Revision Order:** TCP/IP → OSI → TCP → UDP → IP/Subnet → DNS → HTTP/HTTPS → TLS → ARP → DHCP → Routing → Devices → LB → Proxy → CDN → HTTP/2/3/WebSockets/gRPC → Commands → Production Concepts
+> **Revision Order:** TCP/IP → OSI → TCP → UDP → IP/Subnet → DNS → HTTP/HTTPS → TLS → ARP → DHCP → Routing → Devices → LB → Proxy → CDN → HTTP/2/3/WebSockets/gRPC → Commands → Production Concepts

@@ -1,10 +1,8 @@
-# Data Structures & Algorithms Interview Notes — System Flow + Code Approach
+# Data Structures & Algorithms
 
----
+## Priority 1 — Programming Fundamentals
 
-# Priority 1 — Programming Fundamentals
-
-## 1. Programming Basics
+### 1. Programming Basics
 
 **Recursion vs Iteration**
 ```
@@ -49,7 +47,7 @@ print(b)   # [1, 2, 3, 4] (modified)
 
 ---
 
-## 2. Mathematical Foundations
+### 2. Mathematical Foundations
 
 **Sieve of Eratosthenes** — Find all primes up to N
 ```python
@@ -96,9 +94,9 @@ def gcd(a, b):
 
 ---
 
-# Priority 2 — Complexity Analysis
+## Priority 2 — Complexity Analysis
 
-## Big-O Notation
+### Big-O Notation
 
 **System Flow — How complexity grows:**
 ```
@@ -134,9 +132,9 @@ Example: Dynamic array (ArrayList)
 
 ---
 
-# Priority 3 — Arrays
+## Priority 3 — Arrays
 
-## Core Techniques
+### Core Techniques
 
 **Prefix Sum** — Range sum queries in O(1)
 ```python
@@ -232,7 +230,7 @@ def sort_colors(nums):
 
 ---
 
-# Priority 4 — Strings
+## Priority 4 — Strings
 
 **KMP Algorithm** — Pattern matching in O(n + m)
 ```python
@@ -318,7 +316,7 @@ class Trie:
 
 ---
 
-# Priority 5 — Linked Lists
+## Priority 5 — Linked Lists
 
 **Reverse Linked List**
 ```python
@@ -393,7 +391,7 @@ def merge_k_lists(lists):
 
 ---
 
-# Priority 6 — Stack & Queue
+## Priority 6 — Stack & Queue
 
 **Monotonic Stack** — Next Greater Element
 ```python
@@ -472,7 +470,7 @@ class LRUCache:
 
 ---
 
-# Priority 7 — Hashing
+## Priority 7 — Hashing
 
 **HashMap Internals**
 ```
@@ -504,7 +502,7 @@ def group_anagrams(strs):
 
 ---
 
-# Priority 8 — Trees
+## Priority 8 — Trees
 
 **Binary Tree Traversals**
 ```python
@@ -615,7 +613,7 @@ def find_kth_largest(nums, k):
 
 ---
 
-# Priority 9 — Graphs
+## Priority 9 — Graphs
 
 **Graph Representations**
 ```python
@@ -767,7 +765,7 @@ def topological_sort(graph, num_nodes):
 
 ---
 
-# Priority 10 — Recursion & Backtracking
+## Priority 10 — Recursion & Backtracking
 
 **Backtracking Template**
 ```python
@@ -837,7 +835,7 @@ def generate_parenthesis(n):
 
 ---
 
-# Priority 11 — Dynamic Programming (Highest ROI)
+## Priority 11 — Dynamic Programming (Highest ROI)
 
 **DP Framework**
 ```
@@ -962,7 +960,7 @@ Tabulation (Bottom-Up):
 
 ---
 
-# Priority 12 — Greedy Algorithms
+## Priority 12 — Greedy Algorithms
 
 **When Greedy Works:**
 ```
@@ -1007,7 +1005,7 @@ Example: Fractional Knapsack → Greedy works (take highest value/weight)
 
 ---
 
-# Priority 13 — Bit Manipulation
+## Priority 13 — Bit Manipulation
 
 | Operation | Symbol | Example | Result |
 |-----------|--------|---------|--------|
@@ -1062,7 +1060,7 @@ def subsets(nums):
 
 ---
 
-# Priority 14 — Advanced Data Structures
+## Priority 14 — Advanced Data Structures
 
 **Segment Tree** — Range queries and updates
 ```python
@@ -1139,7 +1137,7 @@ class FenwickTree:
 
 ---
 
-# Priority 15 — Advanced Algorithms
+## Priority 15 — Advanced Algorithms
 
 **Binary Search on Answer**
 ```python
@@ -1165,7 +1163,7 @@ def binary_search_answer(nums, target):
 
 ---
 
-# Priority 16 — Algorithmic Paradigms
+## Priority 16 — Algorithmic Paradigms
 
 | Paradigm | Approach | Example |
 |----------|----------|---------|
@@ -1178,7 +1176,7 @@ def binary_search_answer(nums, target):
 
 ---
 
-# Priority 17 — Sorting & Searching
+## Priority 17 — Sorting & Searching
 
 **Quick Sort**
 ```python
@@ -1293,7 +1291,7 @@ def upper_bound(arr, target):
 
 ---
 
-# Priority 18 — Problem-Solving Patterns
+## Priority 18 — Problem-Solving Patterns
 
 | Pattern | When to Use | Key Technique |
 |---------|-------------|---------------|
@@ -1315,7 +1313,7 @@ def upper_bound(arr, target):
 
 ---
 
-# Common Interview Scenarios — Quick Solutions
+## Common Interview Scenarios — Quick Solutions
 
 | Problem | Pattern | Approach |
 |---------|---------|----------|
@@ -1342,7 +1340,7 @@ def upper_bound(arr, target):
 
 ---
 
-# Final Tip: Interview Problem-Solving Flow
+## Final Tip: Interview Problem-Solving Flow
 
 ```
 1. UNDERSTAND (2 min)  → Clarify inputs, outputs, constraints, edge cases
@@ -1353,4 +1351,4 @@ def upper_bound(arr, target):
 6. ANALYZE (5 min)     → Time/space complexity, trade-offs
 ```
 
-**Always remember:** Start with brute force → Optimize step by step → Explain your thinking. Interviewers care more about your problem-solving process than getting the optimal solution immediately.
+> **Always remember:** Start with brute force → Optimize step by step → Explain your thinking. Interviewers care more about your problem-solving process than getting the optimal solution immediately.

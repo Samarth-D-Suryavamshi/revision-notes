@@ -1,6 +1,4 @@
-# Data Analytics Interview Notes — System Flow Approach
-
----
+# Data Analytics
 
 # Priority 1 — Mathematics & Statistics
 
@@ -158,7 +156,7 @@ p ≥ 0.05: "Not statistically significant"
 
 ---
 
-# Priority 2 — SQL (Highest Priority)
+# Priority 2 — SQL
 
 ## System Flow — Query Execution Order
 
@@ -359,7 +357,7 @@ CREATE INDEX idx_orders_customer_date ON orders(customer_id, order_date) INCLUDE
 
 ---
 
-# Priority 3 — Excel (High ROI)
+# Priority 3 — Excel
 
 | Function | What it does | Example |
 |----------|-------------|---------|
@@ -589,6 +587,7 @@ R=1,F=1,M=1 → Lost (don't spend here)
 # Priority 9 — Databases
 
 **OLTP vs OLAP:**
+
 | OLTP | OLAP |
 |------|------|
 | Online Transaction Processing | Online Analytical Processing |
@@ -651,7 +650,7 @@ Source → Data Lake → Transform in-place (SQL/Python)
 
 ---
 
-# Priority 11 — Big Data (Basic)
+# Priority 11 — Big Data
 
 | Concept | What it is | Example |
 |---------|-----------|---------|
@@ -682,7 +681,7 @@ Business Question → Data Collection → Analysis → Insights → Visualizatio
 
 ---
 
-# Common Interview Questions — Quick Answers
+# Common Interview Questions
 
 | Question | One-Liner |
 |----------|-----------|
@@ -730,4 +729,4 @@ Business Question → Data Collection → Analysis → Insights → Visualizatio
 7. Recommend (actionable insights, not just numbers)
 ```
 
-**Always remember:** Analytics is about driving decisions. Every analysis should answer: "So what? What should we do differently?"
+> **Always remember:** Analytics is about driving decisions. Every analysis should answer: "So what? What should we do differently?"

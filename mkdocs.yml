@@ -25,15 +25,27 @@ theme:
     - navigation.top
     - navigation.footer
 
+    - navigation.indexes
+
+    - navigation.path
+
+    - content.action.edit
+
+    - content.action.view
+
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+
+    - content.tabs.link
+
     - search.highlight
     - search.suggest
     - search.share
 
-    - content.code.copy
-    - content.code.annotate
-    - content.tabs.link
-
     - toc.follow
+
+    - announce.dismiss
 
   palette:
 
@@ -64,6 +76,13 @@ markdown_extensions:
   - footnotes
 
   - def_list
+
+  - pymdownx.critic
+  - pymdownx.magiclink
+  - pymdownx.arithmatex
+  - pymdownx.betterem
+  - pymdownx.smartsymbols
+  - pymdownx.escapeall
 
   - toc:
       permalink: true
@@ -100,11 +119,14 @@ plugins:
   - search
 
 extra_css:
-
   - assets/css/extra.css
 
 extra_javascript:
-
+  - assets/js/config.js
+  - assets/js/search.js
+  - assets/js/progress.js
+  - assets/js/animations.js
+  - assets/js/clipboard.js
   - assets/js/extra.js
 
 nav:
@@ -168,10 +190,10 @@ nav:
 
   - Resources: resources.md
 
+  - Contributing: contributing.md
+
 extra:
-
   social:
-
     - icon: fontawesome/brands/github
       link: https://github.com/samarth-d-suryavamshi
 

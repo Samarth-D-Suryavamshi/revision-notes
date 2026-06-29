@@ -1,14 +1,12 @@
 
-# System Design — Interview Notes (System-First Approach)
-
----
-
+# System Design
 ## 1. SYSTEM DESIGN FUNDAMENTALS
 
 **What is System Design?**
 → Process of defining architecture, components, interfaces, and data to satisfy requirements.
 
 **HLD vs LLD:**
+
 | HLD (High-Level) | LLD (Low-Level) |
 |-------------------|-----------------|
 | Architecture, components, data flow | Class design, APIs, algorithms |
@@ -45,11 +43,13 @@
 ## 2. SCALABILITY
 
 **Vertical Scaling (Scale Up):**
+
 → Bigger machine. More CPU/RAM/disk.
 - Pros: Simple, no code changes
 - Cons: Hardware limits, single point of failure, expensive
 
 **Horizontal Scaling (Scale Out):**
+
 → More machines. Add servers.
 - Pros: Unlimited scale, fault tolerance, cost-effective
 - Cons: Complexity, distributed system challenges
@@ -79,6 +79,7 @@ Active Server A  ----fail---->  Standby Server B
 ```
 
 **Active-Active:** Both servers serving simultaneously. Load balanced.
+
 **Active-Passive:** One active, one standby. Switch on failure.
 
 ---
@@ -86,6 +87,7 @@ Active Server A  ----fail---->  Standby Server B
 ## 4. RELIABILITY
 
 **Reliability vs Availability:**
+
 | Reliability | Availability |
 |-------------|--------------|
 | Correctness of operation | Uptime |
@@ -115,10 +117,12 @@ Request -> Fail -> Wait 1s -> Retry -> Fail -> Wait 2s -> Retry -> Success
 ## 5. CONSISTENCY
 
 **Strong Consistency:**
+
 → Read always returns latest write. All nodes agree.
 → Cost: Slower, lower availability.
 
 **Eventual Consistency:**
+
 → Read may return stale data, but converges to latest.
 → Cost: Faster, higher availability.
 
@@ -161,14 +165,18 @@ Request -> Fail -> Wait 1s -> Retry -> Fail -> Wait 2s -> Retry -> Success
 ## 7. LOAD BALANCER
 
 **L4 (Transport Layer):**
+
 → TCP/UDP level. Routes by IP + port. Fast, less intelligent.
 → Examples: AWS NLB, HAProxy (L4 mode)
 
+
 **L7 (Application Layer):**
+
 → HTTP level. Routes by URL, header, cookie. Smart, slower.
 → Examples: Nginx, AWS ALB, Envoy
 
 **Algorithms:**
+
 | Algorithm | How It Works |
 |-----------|-------------|
 | Round Robin | A -> B -> C -> A |
@@ -196,6 +204,7 @@ Client -> Reverse Proxy (Nginx) -> App Server 1
 ```
 
 **Functions:**
+
 - Request routing
 - SSL termination (HTTPS -> HTTP to backends)
 - Caching
@@ -203,6 +212,7 @@ Client -> Reverse Proxy (Nginx) -> App Server 1
 - Rate limiting
 
 **Reverse Proxy vs Load Balancer:**
+
 | Reverse Proxy | Load Balancer |
 |---------------|---------------|
 | Can be LB | Specifically distributes load |
@@ -210,6 +220,7 @@ Client -> Reverse Proxy (Nginx) -> App Server 1
 | Nginx is both | AWS ALB/NLB is LB |
 
 **Reverse Proxy vs Forward Proxy:**
+
 | Forward Proxy | Reverse Proxy |
 |---------------|---------------|
 | Client side | Server side |
@@ -230,6 +241,7 @@ Client -> API Gateway -> Auth Service
 ```
 
 **Responsibilities:**
+
 - Authentication (who are you?)
 - Authorization (what can you do?)
 - Rate limiting (prevent abuse)
@@ -255,6 +267,7 @@ Cache miss? -> Fetch from origin -> Cache -> Serve next user
 **Edge Servers:** Cache servers geographically distributed.
 
 **Static vs Dynamic Content:**
+
 - Static: Images, CSS, JS (cache heavily, long TTL)
 - Dynamic: API responses (cache lightly, short TTL, or not at all)
 
@@ -265,6 +278,7 @@ Cache miss? -> Fetch from origin -> Cache -> Serve next user
 → Reduces latency (serve from nearby), reduces origin load, handles traffic spikes.
 
 **CDN vs Reverse Proxy:**
+
 | CDN | Reverse Proxy |
 |-----|---------------|
 | Geographically distributed | Usually single location |
@@ -279,6 +293,7 @@ Cache miss? -> Fetch from origin -> Cache -> Serve next user
 → Reduce DB load, reduce latency, handle read-heavy workloads.
 
 **Cache Hit:** Data found in cache. Fast.
+
 **Cache Miss:** Data not in cache. Fetch from DB, store in cache.
 
 **Cache Eviction:** Remove old data when cache full.
@@ -297,6 +312,7 @@ Cache miss? -> Fetch from origin -> Cache -> Serve next user
 - String, List, Set, Sorted Set, Hash, Bitmap, HyperLogLog, Stream, Geo
 
 **Persistence (optional):**
+
 - RDB: Periodic snapshots
 - AOF: Append-only log of every write
 
@@ -366,6 +382,7 @@ Write -> Primary -> Async replication -> Replica 1 (read)
 → Scale reads, reduce primary load, disaster recovery.
 
 **Synchronous vs Asynchronous:**
+
 | Sync | Async |
 |------|-------|
 | Primary waits for replica ACK | Fire and forget |
@@ -373,6 +390,7 @@ Write -> Primary -> Async replication -> Replica 1 (read)
 | Slower writes | Faster writes |
 
 **Replication vs Backup:**
+
 | Replication | Backup |
 |-------------|--------|
 | Real-time, continuous | Point-in-time snapshot |
@@ -398,6 +416,7 @@ User ID 2001-3000 -> Shard 3
 → Move data when shards grow unevenly or add new shards.
 
 ### Partitioning
+
 | Type | How |
 |------|-----|
 | Range | time < '2024-01-01' -> partition 1 |
@@ -417,6 +436,7 @@ Producer -> Queue -> Consumer 1
 → Decouples producer and consumer. Buffer for traffic spikes.
 
 **Queue vs Pub/Sub:**
+
 | Queue | Pub/Sub |
 |-------|---------|
 | One message -> one consumer | One message -> all subscribers |
@@ -452,6 +472,7 @@ Bucket -> Object (data + metadata + unique ID)
 → Flat namespace, HTTP access, highly durable. AWS S3, Azure Blob.
 
 **File vs Object Storage:**
+
 | File | Object |
 |------|--------|
 | Hierarchical | Flat |
@@ -476,6 +497,7 @@ DELETE /users/123   -> Delete user 123
 ```
 
 **Idempotency:**
+
 - GET, PUT, DELETE: Idempotent (same result every time)
 - POST: Not idempotent (creates new resource each time)
 
@@ -500,6 +522,7 @@ Client Stub <-> Server
 ```
 
 **REST vs gRPC:**
+
 | REST | gRPC |
 |------|------|
 | HTTP/1.1 or HTTP/2 | HTTP/2 only |
@@ -509,6 +532,7 @@ Client Stub <-> Server
 | Loose contract | Strict .proto contract |
 
 **gRPC vs WebSockets:**
+
 | gRPC | WebSockets |
 |------|------------|
 | RPC framework | Communication protocol |
@@ -564,6 +588,7 @@ App -> Thread Pool A (Payment) -> Payment Service
 ## 20. OBSERVABILITY
 
 **Three Pillars:**
+
 | Pillar | What | Example |
 |--------|------|---------|
 | **Logs** | Discrete events | "User 123 logged in at 10:00" |
@@ -577,6 +602,7 @@ App -> Thread Pool A (Payment) -> Payment Service
 → Collect metrics, visualize dashboards, set alerts.
 
 **Tools:**
+
 - Prometheus (metrics) + Grafana (visualization)
 - ELK Stack (Elasticsearch, Logstash, Kibana) for logs
 - Jaeger/Zipkin for tracing
@@ -587,6 +613,7 @@ App -> Thread Pool A (Payment) -> Payment Service
 ## 21. SECURITY
 
 **Authentication:** Who are you? (Login, JWT, OAuth)
+
 **Authorization:** What can you do? (RBAC, permissions)
 
 **JWT:**
@@ -643,6 +670,7 @@ Bandwidth:
 ```
 
 **Key Numbers to Remember:**
+
 | Unit | Value |
 |------|-------|
 | 1M requests/day | ~12 RPS average |
@@ -1184,8 +1212,8 @@ User requests product details
 
 ## SKIP THESE (Unless Senior Distributed Systems Role)
 
-Raft/Paxos internals, distributed transaction protocols (2PC/3PC), vector clocks, CRDTs, consistent hashing implementation, gossip protocol implementation, Kubernetes internals, service mesh internals, GFS/HDFS implementation, consensus algorithm proofs
+<div style="text-align: justify;">Raft/Paxos internals, distributed transaction protocols (2PC/3PC), vector clocks, CRDTs, consistent hashing implementation, gossip protocol implementation, Kubernetes internals, service mesh internals, GFS/HDFS implementation, consensus algorithm proofs</div>
 
 ---
 
-**Revision Order:** System Design Fundamentals -> Scalability -> Availability -> Reliability -> Consistency -> CAP -> Load Balancer -> Reverse Proxy -> API Gateway -> CDN -> Redis -> Cache Strategies -> Replication -> Sharding -> Message Queues -> REST -> WebSockets -> gRPC -> Reliability Patterns -> Capacity Estimation -> TinyURL -> Rate Limiter -> Notification Service -> WhatsApp -> Instagram Feed
+> **Revision Order:** System Design Fundamentals -> Scalability -> Availability -> Reliability -> Consistency -> CAP -> Load Balancer -> Reverse Proxy -> API Gateway -> CDN -> Redis -> Cache Strategies -> Replication -> Sharding -> Message Queues -> REST -> WebSockets -> gRPC -> Reliability Patterns -> Capacity Estimation -> TinyURL -> Rate Limiter -> Notification Service -> WhatsApp -> Instagram Feed

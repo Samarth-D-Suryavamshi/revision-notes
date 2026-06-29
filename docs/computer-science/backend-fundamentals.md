@@ -1,9 +1,6 @@
 
-# BACKEND FUNDAMENTALS — SYSTEM FLOW NOTES
-## How to read: Follow the arrow (→) flow. Every concept is a journey of a request.
-
+# BACKEND FUNDAMENTALS
 ---
-
 # PRIORITY 1 — WEB & BACKEND FUNDAMENTALS
 
 ## 1. Introduction to Backend Development
@@ -19,6 +16,7 @@ User opens app → Types URL → Browser sends HTTP Request → DNS resolves IP 
 ```
 
 **Stateless vs Stateful:**
+
 | Stateless | Stateful |
 |-----------|----------|
 | Server forgets you after each request | Server remembers you between requests |
@@ -27,6 +25,7 @@ User opens app → Types URL → Browser sends HTTP Request → DNS resolves IP 
 | Scales horizontally easily | Harder to scale (sticky sessions needed) |
 
 **Monolithic vs Microservices:**
+
 - Monolithic: One big app → All features in single codebase → Deploy together → Simple but rigid.
 - Microservices: App split into services → Auth Service, Order Service, Payment Service → Deploy independently → Complex but scalable.
 
@@ -34,7 +33,7 @@ User opens app → Types URL → Browser sends HTTP Request → DNS resolves IP 
 
 ---
 
-## 2. REST APIs (Highest Priority)
+## 2. REST APIs
 
 **1-liner:** REST = architectural style where everything is a resource, accessed via standard HTTP methods.
 
@@ -66,10 +65,12 @@ Versioning: /api/v1/... or Header: API-Version: v1
 ```
 
 **REST vs RPC:**
+
 - REST: Resource-centric, HTTP verbs, stateless, cacheable.
 - RPC: Action-centric, `/doSomething`, often uses POST only, tighter coupling.
 
 **REST vs GraphQL:**
+
 - REST: Multiple endpoints, fixed response shape, over-fetching/under-fetching possible.
 - GraphQL: Single endpoint, client requests exact fields, no over-fetching, but caching is harder.
 
@@ -90,6 +91,7 @@ User types "google.com" → Browser checks DNS cache →
 ```
 
 **HTTP Versions:**
+
 | Version | Key Feature | Flow |
 |---------|-------------|------|
 | **HTTP/1.1** | Persistent connections, pipelining | One request at a time per connection, head-of-line blocking |
@@ -120,13 +122,16 @@ Stateless = simpler server, easier to scale, but client must carry identity ever
 | **HEAD** | Yes | Yes | GET without body | Check if resource exists, get headers only |
 
 **Safe = doesn't change server state.**
+
 **Idempotent = doing it multiple times = same result as once.**
 
 **PUT vs PATCH:**
+
 - PUT: Send full object → Replaces everything → Missing fields = deleted.
 - PATCH: Send only changed fields → Partial update → Other fields untouched.
 
 **POST vs PUT:**
+
 - POST: Create new, server assigns ID → Not idempotent (POST twice = 2 resources).
 - PUT: Update existing (or create at known URL) → Idempotent (PUT twice = same result).
 
@@ -140,6 +145,7 @@ Stateless = simpler server, easier to scale, but client must carry identity ever
 - `100 Continue` → Server received headers, send body now.
 
 **2xx — Success**
+
 | Code | Meaning | When to use |
 |------|---------|-------------|
 | **200 OK** | Generic success | GET returned data, PUT/PATCH succeeded |
@@ -148,6 +154,7 @@ Stateless = simpler server, easier to scale, but client must carry identity ever
 | **204 No Content** | Success, nothing to return | DELETE succeeded, no body needed |
 
 **3xx — Redirection**
+
 | Code | Meaning | Flow |
 |------|---------|------|
 | **301 Moved Permanently** | URL changed forever | Browser bookmarks new URL, SEO juice passes |
@@ -155,6 +162,7 @@ Stateless = simpler server, easier to scale, but client must carry identity ever
 | **304 Not Modified** | Cache is still valid | Browser uses cached version, no download needed |
 
 **4xx — Client Error (You messed up)**
+
 | Code | Meaning | When |
 |------|---------|------|
 | **400 Bad Request** | Malformed request | Invalid JSON, missing required field |
@@ -167,6 +175,7 @@ Stateless = simpler server, easier to scale, but client must carry identity ever
 | **429 Too Many Requests** | Rate limited | Client sent too many requests, slow down |
 
 **5xx — Server Error (We messed up)**
+
 | Code | Meaning | When |
 |------|---------|------|
 | **500 Internal Server Error** | Generic server crash | Uncaught exception, bug in code |
@@ -175,6 +184,7 @@ Stateless = simpler server, easier to scale, but client must carry identity ever
 | **504 Gateway Timeout** | Upstream too slow | Backend didn't respond in time |
 
 **Quick Diffs:**
+
 - **401 vs 403:** 401 = "Who are you?" (auth missing); 403 = "I know you, but you can't" (permission denied).
 - **400 vs 422:** 400 = "I can't read this" (malformed); 422 = "I read it, but it's wrong" (semantic error).
 - **502 vs 503 vs 504:** 502 = bad response from upstream; 503 = server can't handle request; 504 = upstream too slow.
@@ -214,6 +224,7 @@ Step 2: Enter OTP from SMS/Authenticator → Valid? → Authenticated
 ```
 
 **Authentication vs Authorization:**
+
 - Authentication = "Who are you?" (login).
 - Authorization = "What can you do?" (permissions).
 
@@ -235,6 +246,7 @@ Access granted if: (role == "Manager" AND department == "Sales" AND time < 18:00
 ```
 
 **Where to check authorization?**
+
 - Gateway level: Block early (performance).
 - Service level: Fine-grained control (security).
 - Both: Defense in depth.
@@ -255,6 +267,7 @@ User logs in → Server creates Session ID (random string) →
 ```
 
 **Session Storage:**
+
 - In-memory: Fast, but lost on restart, doesn't scale.
 - Redis: Shared across servers, TTL auto-expiry, scales horizontally.
 - Database: Persistent but slower.
@@ -272,12 +285,14 @@ Absolute timeout: Max 8 hours → Force re-login
 **1-liner:** Cookie = small text file browser stores and sends with every request to the domain.
 
 **Types:**
+
 | Type | Flow | Use Case |
 |------|------|----------|
 | **Session Cookie** | Deleted when browser closes | Short-term login |
 | **Persistent Cookie** | Has Expires/Max-Age | "Remember me" for 7 days |
 
 **Security Attributes:**
+
 | Attribute | What it does | Without it |
 |-----------|--------------|------------|
 | **Secure** | Only sent over HTTPS | Cookie sent over HTTP = intercepted |
@@ -287,6 +302,7 @@ Absolute timeout: Max 8 hours → Force re-login
 | **SameSite=None** | Cookie sent everywhere | Needed for cross-site, must use Secure |
 
 **Cookies vs Sessions:**
+
 - Cookie = storage mechanism (client-side or reference to server data).
 - Session = concept of server remembering you (stored via cookie ID or JWT).
 
@@ -313,6 +329,7 @@ User logs in → Server verifies credentials →
 ```
 
 **Access Token vs Refresh Token:**
+
 | | Access Token | Refresh Token |
 |---|---|---|
 | Lifetime | Short (15 min) | Long (7 days) |
@@ -328,6 +345,7 @@ JWT is self-contained → Server just verifies signature → No DB lookup →
 ```
 
 **Signing vs Encryption:**
+
 - Signing = "I made this" (integrity) — anyone can read, but can't forge.
 - Encryption = "Only you can read this" (confidentiality) — JWE for encryption.
 
@@ -338,6 +356,7 @@ JWT is self-contained → Server just verifies signature → No DB lookup →
 **1-liner:** OAuth 2.0 = delegation protocol — you authorize App X to access your Google data without giving App X your password.
 
 **Actors:**
+
 | Actor | Role |
 |-------|------|
 | **Resource Owner** | You (the user) |
@@ -356,6 +375,7 @@ User clicks "Login with Google" → Redirected to Google →
 ```
 
 **OAuth vs JWT:**
+
 - OAuth = protocol/framework for authorization.
 - JWT = token format that can be used WITHIN OAuth.
 - You can use OAuth without JWT (e.g., opaque tokens), and JWT without OAuth (e.g., custom auth).
@@ -456,6 +476,7 @@ Request arrives →
 ```
 
 **Quick Definitions:**
+
 - **API Key:** Simple identifier for app/client (not user-specific).
 - **Bearer Token:** "Bearer of this token is authorized" — sent in Authorization header.
 - **CSRF:** Evil site tricks browser into sending authenticated request to your API.
@@ -494,6 +515,7 @@ Solution: Idempotency-Key: uuid-123 → Server checks key → Already processed?
 ```
 
 **Retry Safety:**
+
 - GET = safe to retry anytime.
 - POST = not safe → Use idempotency key.
 - PUT/DELETE = idempotent → Retry OK.
@@ -577,6 +599,7 @@ HTTP Request → Controller (handles HTTP, validates input) →
 ```
 
 **Why separate?**
+
 | Layer | Responsibility | Change without affecting |
 |-------|---------------|--------------------------|
 | Controller | HTTP handling, routing | Service logic |
@@ -643,6 +666,7 @@ Write openapi.yaml → Auto-generates docs + client SDKs + server stubs →
 ```
 
 **Testing Tools:**
+
 | Tool | Use |
 |------|-----|
 | **Postman** | Manual API testing, collections, environments |
@@ -756,9 +780,10 @@ POST /posts/123/comments → Auth → Create comment → 201
 ---
 
 **REMEMBER:** Interviewers care about:
+
 1. **Can you trace a request end-to-end?** (DNS → LB → Server → DB → Response)
 2. **Why this status code / method / auth mechanism?** (Trade-offs matter)
 3. **What happens when things fail?** (Timeouts, retries, circuit breakers)
 4. **How do you scale?** (Stateless, caching, connection pooling, async)
 
-Tell the story of a request's journey through your system.
+> Tell the story of a request's journey through your system.

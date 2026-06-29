@@ -1,10 +1,7 @@
 
-# PROGRAMMING FUNDAMENTALS — SYSTEM FLOW NOTES
-## How to read: Follow the arrow (→) flow. Every concept traces how data/code moves through memory and execution.
+# PROGRAMMING FUNDAMENTALS
 
----
-
-# PRIORITY 1 — PROGRAMMING BASICS
+## PRIORITY 1 — PROGRAMMING BASICS
 
 ## Variables
 
@@ -148,6 +145,7 @@ do-while:               // Body first → Check → Repeat
 ```
 
 **break vs continue vs return:**
+
 | Statement | Flow | Use |
 |-----------|------|-----|
 | `break` | Exit loop immediately | Found what I need, stop searching |
@@ -275,16 +273,19 @@ Person alice = new Person("Alice"); setName(alice);  // alice.name is now "Bob"
 
 **Memory Layout:**
 ```
-int[] arr = new int[5];     // Heap: contiguous block of 5 * 4 = 20 bytes
+int[] arr = new int[5];     
+    // Heap: contiguous block of 5 * 4 = 20 bytes
     // Memory: [0: addr+0] [1: addr+4] [2: addr+8] [3: addr+12] [4: addr+16]
 
-arr[2] = 10;                // Base address + (2 * 4) = direct jump → O(1)
+arr[2] = 10;                
+    // Base address + (2 * 4) = direct jump → O(1)
     // CPU: address = base + index * size → Single calculation → Single memory access
 ```
 
 **Why O(1) indexing?** Contiguous memory + fixed size = math gets exact address instantly.
 
 **Static vs Dynamic Arrays:**
+
 | | Static | Dynamic |
 |---|---|---|
 | Size | Fixed at compile time | Grows as needed |
@@ -333,6 +334,7 @@ String result = sb.toString();  // One final object created
 ```
 
 **ASCII vs Unicode:**
+
 | | ASCII | Unicode |
 |---|---|---|
 | **Bits** | 7 bits (128 chars) | 16-32 bits (millions of chars) |
@@ -372,6 +374,7 @@ Program writes → BufferedWriter → OutputStream → File
 # PRIORITY 10 — ERROR HANDLING
 
 **Exception vs Error:**
+
 | | Exception | Error |
 |---|---|---|
 | **Type** | Recoverable | Catastrophic |
@@ -394,6 +397,7 @@ try {
 ```
 
 **Checked vs Unchecked (Java):**
+
 | | Checked | Unchecked |
 |---|---|---|
 | **When** | Compile-time | Runtime |
@@ -401,7 +405,7 @@ try {
 | **Handle** | Must catch or declare | Optional |
 | **Examples** | IOException, SQLException | NullPointerException, ArrayIndexOutOfBounds |
 
-**Why finally?** Guaranteed cleanup — even if exception thrown, return called, or break used.
+> **Why finally?** Guaranteed cleanup — even if exception thrown, return called, or break used.
 
 ---
 
@@ -451,6 +455,7 @@ Stack grows: [f(5)] → [f(5), f(4)] → ... → [f(5), f(4), f(3), f(2), f(1)] 
 ```
 
 **Recursion vs Iteration:**
+
 | | Recursion | Iteration |
 |---|---|---|
 | **Memory** | Stack (risk overflow) | Constant |
@@ -505,6 +510,7 @@ Car yourCar = new Car("Blue");       // Another object → count is now 2 (share
 ```
 
 **Constructor vs Method:**
+
 | | Constructor | Method |
 |---|---|---|
 | **Purpose** | Initialize object | Perform action |
@@ -606,6 +612,7 @@ A = null         → refCount = 0 → Free memory!
 ```
 
 **Memory Leak vs Memory Corruption:**
+
 | | Memory Leak | Memory Corruption |
 |---|---|---|
 | **What** | Memory allocated but never freed | Memory written where it shouldn't |
@@ -636,6 +643,7 @@ Readable naming → Small functions → Single responsibility →
 # PRIORITY 18 — DEBUGGING
 
 **Error Types:**
+
 | Type | When | Example | Fix |
 |------|------|---------|-----|
 | **Syntax** | Compile-time | Missing `;`, unmatched `}` | Compiler tells you exactly where |
@@ -670,6 +678,7 @@ Write function → Write test: input → expected output → Run test →
 ```
 
 **Test Types:**
+
 | Type | What | Example |
 |------|------|---------|
 | **Happy Path** | Normal input → Expected output | `add(2,3) → 5` |
@@ -788,11 +797,12 @@ class Logger { log(); }
 
 ---
 
-**REMEMBER:** Interviewers care about:
+## **REMEMBER:** Interviewers care about:
+
 1. **Can you trace execution?** (What happens in memory, on stack, in heap)
 2. **Do you understand trade-offs?** (Mutable vs immutable, recursion vs iteration, static vs dynamic)
 3. **Can you debug?** (Read stack traces, identify error types, find root cause)
 4. **Is your code clean?** (DRY, single responsibility, meaningful names, proper error handling)
 5. **Do you know memory?** (Stack vs heap, GC, leaks, pass by value/reference)
 
-Tell the story of how your code executes — where variables live, how data flows, what happens on the stack.
+> Tell the story of how your code executes — where variables live, how data flows, what happens on the stack.

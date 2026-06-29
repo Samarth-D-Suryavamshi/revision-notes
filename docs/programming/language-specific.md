@@ -1,10 +1,7 @@
 
-# Language-Specific — Interview Notes (System-First Approach)
-
----
+# Language-Specific — Interview Notes
 
 ## JAVA
-
 ---
 
 ### 1. JVM, JDK, JRE
@@ -27,6 +24,7 @@ JDK (Java Development Kit)
 ```
 
 **JDK vs JRE vs JVM:**
+
 | JDK | JRE | JVM |
 |-----|-----|-----|
 | Develop + Run | Run only | Execute bytecode |
@@ -83,6 +81,7 @@ Iterable
 ```
 
 **ArrayList vs LinkedList:**
+
 | ArrayList | LinkedList |
 |-----------|-----------|
 | Dynamic array | Doubly linked list |
@@ -103,6 +102,7 @@ Bucket (array of Node<K,V>)
 ```
 
 **HashMap vs ConcurrentHashMap:**
+
 | HashMap | ConcurrentHashMap |
 |---------|-------------------|
 | Not thread-safe | Thread-safe |
@@ -111,6 +111,7 @@ Bucket (array of Node<K,V>)
 | Fail-fast iterator | Weakly consistent iterator |
 
 **HashSet vs LinkedHashSet vs TreeSet:**
+
 | HashSet | LinkedHashSet | TreeSet |
 |---------|---------------|---------|
 | Unordered | Insertion order | Sorted (natural/comparator) |
@@ -170,6 +171,7 @@ Throwable
 ```
 
 **Checked vs Unchecked:**
+
 | Checked | Unchecked |
 |---------|-----------|
 | Compile-time check | Runtime |
@@ -199,6 +201,7 @@ nums.stream()
 ```
 
 **Stream vs Collection:**
+
 | Collection | Stream |
 |-----------|--------|
 | Stores data | Computes on demand |
@@ -247,6 +250,7 @@ JVM Memory
 ```
 
 **Heap vs Stack:**
+
 | Heap | Stack |
 |------|-------|
 | All objects | Primitive locals, references |
@@ -281,6 +285,7 @@ After several survivals -> Promoted to Old Gen
 → Full GC scans entire heap. STW (Stop The World) pause. Expensive.
 
 **Garbage Collectors:**
+
 | Collector | Use Case | Characteristics |
 |-----------|----------|----------------|
 | Serial | Single-threaded apps | Simple, STW |
@@ -312,6 +317,7 @@ Future<String> future = executor.submit(task);
 ```
 
 **Runnable vs Callable:**
+
 | Runnable | Callable |
 |----------|----------|
 | void run() | T call() throws Exception |
@@ -319,6 +325,7 @@ Future<String> future = executor.submit(task);
 | No checked exceptions | Can throw checked |
 
 **synchronized vs Lock:**
+
 | synchronized | Lock (ReentrantLock) |
 |-------------|----------------------|
 | Built-in keyword | Explicit object |
@@ -328,6 +335,7 @@ Future<String> future = executor.submit(task);
 | No interruptible | lockInterruptibly() |
 
 **volatile vs synchronized:**
+
 | volatile | synchronized |
 |----------|--------------|
 | Visibility only (read from main memory) | Visibility + atomicity |
@@ -343,6 +351,7 @@ executor.shutdown();
 ```
 
 **Thread Pools:**
+
 | Type | Behavior |
 |------|----------|
 | FixedThreadPool | Fixed N threads, queue excess |
@@ -452,12 +461,14 @@ Generation 0 (new objects) -> survive -> Generation 1 -> survive -> Generation 2
 → Simplifies memory management (reference counting). Prevents race conditions on object access.
 
 **Impact:**
+
 | Task Type | Effect |
 |-----------|--------|
 | CPU-bound | No speedup with threads (GIL serializes) |
 | I/O-bound | Threads useful (GIL released during I/O) |
 
 **Threads vs Processes in Python:**
+
 | Threads | Processes |
 |---------|-----------|
 | Shared memory | Separate memory |
@@ -491,6 +502,7 @@ class MyIterator:
 ```
 
 **Iterable vs Iterator:**
+
 | Iterable | Iterator |
 |----------|----------|
 | Has __iter__() | Has __iter__() + __next__() |
@@ -515,6 +527,7 @@ def fibonacci(n):
 ```
 
 **Generator vs List:**
+
 | Generator | List |
 |-----------|------|
 | Lazy evaluation | Eager evaluation |
@@ -603,6 +616,7 @@ asyncio.run(main())
 ```
 
 **asyncio vs Threads:**
+
 | asyncio | Threads |
 |---------|---------|
 | Single thread, event loop | Multiple threads |
@@ -623,6 +637,7 @@ asyncio.run(main())
 ### 1. STL
 
 **Containers:**
+
 | Container | Underlying | Use Case |
 |-----------|-----------|----------|
 | vector | Dynamic array | Default, fast random access |
@@ -637,6 +652,7 @@ asyncio.run(main())
 | priority_queue | Heap | Max/min element access |
 
 **vector vs list:**
+
 | vector | list |
 |--------|------|
 | Contiguous memory | Scattered nodes |
@@ -646,6 +662,7 @@ asyncio.run(main())
 | May reallocate | Stable iterators |
 
 **map vs unordered_map:**
+
 | map | unordered_map |
 |-----|---------------|
 | Sorted | Unordered |
@@ -690,6 +707,7 @@ weak_ptr<Resource> w = s1;
 ```
 
 **shared_ptr vs unique_ptr:**
+
 | unique_ptr | shared_ptr |
 |-----------|-----------|
 | Zero overhead | Reference count overhead |
@@ -740,6 +758,7 @@ vector<string> list = createList();  // Move constructor called
 ```
 
 **Copy vs Move:**
+
 | Copy | Move |
 |------|------|
 | Duplicate data | Transfer ownership |
@@ -1252,9 +1271,11 @@ void process() {
 
 ## SKIP THESE (Unless Runtime/Compiler Role)
 
-Java: JVM bytecode verification internals, JIT optimization algorithms, GC implementation details, Java Memory Model specification
+<div style="text-align: justify;">Java: JVM bytecode verification internals, JIT optimization algorithms, GC implementation details, Java Memory Model specification
+<br>
 Python: CPython source code, bytecode interpreter internals, reference counting implementation, C API
-C++: Template metaprogramming, expression templates, compiler optimization internals, ABI details, placement new
+<br>
+C++: Template metaprogramming, expression templates, compiler optimization internals, ABI details, placement new</div>
 
 ---
 
