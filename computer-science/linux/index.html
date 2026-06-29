@@ -1,0 +1,2538 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/linux/">
+      
+      
+        <link rel="prev" href="../git/">
+      
+      
+        <link rel="next" href="../software-engineering/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Linux - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-system-flow-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-command-is-a-story-of-what-the-system-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every command is a story of what the system does.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-command-is-a-story-of-what-the-system-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every command is a story of what the system does.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="linux-system-flow-notes">LINUX — SYSTEM FLOW NOTES<a class="headerlink" href="#linux-system-flow-notes" title="Permanent link">&para;</a></h1>
+<h2 id="how-to-read-follow-the-arrow-flow-every-command-is-a-story-of-what-the-system-does">How to read: Follow the arrow (→) flow. Every command is a story of what the system does.<a class="headerlink" href="#how-to-read-follow-the-arrow-flow-every-command-is-a-story-of-what-the-system-does" title="Permanent link">&para;</a></h2>
+<hr />
+<h1 id="priority-1-linux-fundamentals">PRIORITY 1 — LINUX FUNDAMENTALS<a class="headerlink" href="#priority-1-linux-fundamentals" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduction-to-linux">1. Introduction to Linux<a class="headerlink" href="#1-introduction-to-linux" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Linux = open-source OS kernel + GNU tools → powers 90% of servers worldwide.</p>
+<p><strong>Linux Architecture Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User types command → Shell (bash/zsh) interprets → 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    → System Calls → Linux Kernel → Hardware (CPU, RAM, Disk, Network)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    Kernel manages: Processes, Memory, Filesystem, Device Drivers, Network Stack
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    Shell provides: Commands, Scripting, User Interface to Kernel
+</code></pre></div></p>
+<p><strong>Kernel vs Shell:</strong>
+| Kernel | Shell |
+|--------|-------|
+| Core of OS, talks to hardware | Command interpreter, talks to user |
+| <code>fork()</code>, <code>exec()</code>, <code>open()</code> | <code>ls</code>, <code>cd</code>, <code>grep</code> |
+| Written in C | Bash, Zsh, Fish |
+| One per system | Many choices, swappable |</p>
+<p><strong>Why servers use Linux:</strong>
+- Free, open-source, stable, secure, lightweight, great CLI, container-native (Docker runs on Linux kernel features).</p>
+<p><strong>Distributions:</strong> Ubuntu (user-friendly), CentOS/RHEL (enterprise), Debian (stable), Alpine (containers, tiny).</p>
+<p><strong>GNU/Linux:</strong> GNU = tools (gcc, bash, coreutils) + Linux = kernel. Together = full OS.</p>
+<p><strong>CLI vs GUI:</strong> Servers have no monitor → CLI only. Faster, scriptable, remote-friendly (SSH).</p>
+<hr />
+<h2 id="2-linux-file-system-hierarchy">2. Linux File System Hierarchy<a class="headerlink" href="#2-linux-file-system-hierarchy" title="Permanent link">&para;</a></h2>
+<p><strong>The Tree (everything starts at <code>/</code>):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/                           ← Root, top of everything
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── /bin                    ← Essential commands (ls, cat, cp) — needed for boot
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── /sbin                   ← System admin commands (fdisk, reboot) — root only
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── /usr/bin                ← User-installed apps (git, docker) — most commands live here
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── /usr/sbin               ← User-installed system tools
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── /etc                    ← Config files (nginx.conf, passwd, hosts)
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>├── /var                    ← Variable data (logs, caches, databases, mail)
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├── /tmp                    ← Temporary files — wiped on reboot
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>├── /opt                    ← Optional software (third-party apps)
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>├── /dev                    ← Device files (/dev/sda = disk, /dev/null = black hole)
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>├── /proc                   ← Virtual filesystem → Process info as files (live kernel data)
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│   ├── /proc/1234/         ← Process 1234 details (memory, status, cmdline)
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│   └── /proc/cpuinfo       ← CPU info (not real file, generated on read)
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>├── /sys                    ← System hardware info (devices, drivers, kernel params)
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>├── /boot                   ← Boot loader files (kernel image, grub config)
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>├── /home                   ← User home directories (/home/alice, /home/bob)
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>└── /root                   ← Root user&#39;s home (separate from /home)
+</code></pre></div></p>
+<p><strong>Key Diffs:</strong>
+- <code>/bin</code> vs <code>/usr/bin</code>: Historically separate; modern systems often symlinked together.
+- <code>/proc</code>: Not real files — reading triggers kernel to generate data live.</p>
+<hr />
+<h2 id="3-navigation-file-operations">3. Navigation &amp; File Operations<a class="headerlink" href="#3-navigation-file-operations" title="Permanent link">&para;</a></h2>
+<p><strong>Commands as Flows:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+<th>Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pwd</code></td>
+<td>Print Working Directory</td>
+<td>Shows where you are → <code>/home/alice/projects</code></td>
+</tr>
+<tr>
+<td><code>ls -la</code></td>
+<td>List files</td>
+<td>Shows all files (-a) with details (-l) → permissions, owner, size, date</td>
+</tr>
+<tr>
+<td><code>cd /var/log</code></td>
+<td>Change Directory</td>
+<td>Moves you to <code>/var/log</code> → <code>pwd</code> now shows <code>/var/log</code></td>
+</tr>
+<tr>
+<td><code>mkdir app</code></td>
+<td>Make Directory</td>
+<td>Creates folder <code>app</code> → <code>ls</code> shows it</td>
+</tr>
+<tr>
+<td><code>rmdir empty_dir</code></td>
+<td>Remove empty directory</td>
+<td>Deletes only if empty → Error if files inside</td>
+</tr>
+<tr>
+<td><code>touch file.txt</code></td>
+<td>Create empty file / Update timestamp</td>
+<td>File exists? → Update time. No? → Create empty file</td>
+</tr>
+<tr>
+<td><code>cp file.txt backup.txt</code></td>
+<td>Copy</td>
+<td>Reads file.txt → Writes identical content to backup.txt</td>
+</tr>
+<tr>
+<td><code>mv file.txt newname.txt</code></td>
+<td>Move/Rename</td>
+<td>Updates directory entry → Same inode, new name</td>
+</tr>
+<tr>
+<td><code>rm file.txt</code></td>
+<td>Remove</td>
+<td>Deletes file → Space freed (if no hard links)</td>
+</tr>
+<tr>
+<td><code>cat file.txt</code></td>
+<td>Concatenate/Print</td>
+<td>Reads entire file → Dumps to terminal</td>
+</tr>
+<tr>
+<td><code>less file.txt</code></td>
+<td>Page through file</td>
+<td>Opens interactive viewer → Scroll with arrows, <code>q</code> to quit</td>
+</tr>
+<tr>
+<td><code>head -20 log.txt</code></td>
+<td>First 20 lines</td>
+<td>Reads from start → Stops at line 20</td>
+</tr>
+<tr>
+<td><code>tail -20 log.txt</code></td>
+<td>Last 20 lines</td>
+<td>Seeks to end → Reads backwards 20 lines</td>
+</tr>
+<tr>
+<td><code>tail -f app.log</code></td>
+<td>Follow log</td>
+<td>Opens file → Watches for new lines → Prints in real-time</td>
+</tr>
+<tr>
+<td><code>ln file.txt hardlink</code></td>
+<td>Hard Link</td>
+<td>Same inode, same data, different name → Deleting one doesn't delete data</td>
+</tr>
+<tr>
+<td><code>ln -s file.txt symlink</code></td>
+<td>Symbolic Link</td>
+<td>Points to filename → Breaking original breaks symlink</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Absolute vs Relative Paths:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Absolute: /home/alice/projects/app.js  ← Starts from root `/`, works from anywhere
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Relative: ./app.js  or  ../config.js   ← Relative to current directory
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    ./  = current dir
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    ../ = parent dir
+</code></pre></div></p>
+<p><strong>Hard Link vs Symbolic Link:</strong>
+| | Hard Link | Symbolic Link |
+|---|---|---|
+| Points to | Inode (actual data) | File path (name) |
+| Cross filesystem? | No (same FS only) | Yes |
+| Original deleted? | Data still accessible | Broken link (dangling) |
+| Directory link? | No (usually) | Yes |
+| <code>ls -l</code> shows | Normal file | <code>symlink -&gt; target</code> |</p>
+<p><strong>cp vs mv:</strong>
+- <code>cp</code> = duplicate data (new inode, new blocks).
+- <code>mv</code> = rename directory entry (same inode, instant even for huge files).</p>
+<hr />
+<h1 id="priority-2-file-permissions">PRIORITY 2 — FILE PERMISSIONS<a class="headerlink" href="#priority-2-file-permissions" title="Permanent link">&para;</a></h1>
+<h2 id="4-linux-permissions">4. Linux Permissions<a class="headerlink" href="#4-linux-permissions" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Every file has 3 permission groups × 3 actions = 9 permission bits.</p>
+<p><strong>Permission Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>User tries to read /etc/shadow → 
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    → Are you owner? → No → 
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    → Are you in owner&#39;s group? → No → 
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    → Check &quot;others&quot; permissions → r-- → 
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    → Read allowed? → Yes for read, No for write
+</code></pre></div></p>
+<p><strong>The 9 Bits:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-rwxr-xr--  1 alice dev  1234 Jan 15 10:00 script.sh
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a> │││││││││
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a> │││││││└┴─ Others:  r--  (read only)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a> │││││└┴─── Group:   r-x  (read + execute)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a> │││└┴───── User:    rwx  (read + write + execute)
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a> │└───────── File type: - = file, d = directory, l = symlink
+</code></pre></div></p>
+<p><strong>Numeric Notation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Read=4, Write=2, Execute=1 → Sum them
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>rwx = 4+2+1 = 7
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>r-x = 4+0+1 = 5
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>r-- = 4+0+0 = 4
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>chmod 755 file → rwxr-xr-x
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>chmod 644 file → rw-r--r--
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>chmod 600 file → rw------- (owner only)
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>chmod 777 file → rwxrwxrwx (everyone — dangerous!)
+</code></pre></div></p>
+<p><strong>Commands:</strong>
+| Command | Flow |
+|---------|------|
+| <code>chmod 755 script.sh</code> | Change mode → Owner: rwx, Group: r-x, Others: r-x |
+| <code>chmod u+x script.sh</code> | Add execute (+x) for user (u) |
+| <code>chown alice:dev file.txt</code> | Change owner to alice, group to dev |
+| <code>chgrp dev file.txt</code> | Change group to dev |
+| <code>umask 022</code> | New files get 644 (666-022), dirs get 755 (777-022) |</p>
+<p><strong>chmod vs chown:</strong>
+- <code>chmod</code> = WHAT can be done (permissions).
+- <code>chown</code> = WHO can do it (owner/group).</p>
+<hr />
+<h1 id="priority-3-process-management">PRIORITY 3 — PROCESS MANAGEMENT<a class="headerlink" href="#priority-3-process-management" title="Permanent link">&para;</a></h1>
+<h2 id="5-processes">5. Processes<a class="headerlink" href="#5-processes" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Process = running instance of a program. Everything in Linux is a process.</p>
+<p><strong>Process Lifecycle Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Program on disk (binary) → fork() creates copy → exec() loads new program → 
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    → Process runs → exits → Parent calls wait() → Process cleaned up
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    → Parent doesn&#39;t wait? → Zombie process
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    → Parent dies first? → Orphan adopted by init (PID 1)
+</code></pre></div></p>
+<p><strong>Key Concepts:</strong>
+| Term | Meaning | Flow |
+|------|---------|------|
+| <strong>PID</strong> | Process ID | Unique number assigned at creation → <code>ps</code> shows it |
+| <strong>PPID</strong> | Parent PID | Who spawned this process → <code>pstree</code> shows tree |
+| <strong>Foreground</strong> | Attached to terminal | <code>python app.py</code> → Blocks terminal → Ctrl+C kills it |
+| <strong>Background</strong> | Detached from terminal | <code>python app.py &amp;</code> → Terminal free → <code>jobs</code> lists it |
+| <strong>Daemon</strong> | Background service | Starts at boot → No terminal → <code>systemd</code> manages it |
+| <strong>Zombie</strong> | Dead but not reaped | Process exited → Parent hasn't called wait() → Still in process table |
+| <strong>Orphan</strong> | Parent died | Parent crashed → Adopted by init (PID 1) → init calls wait() → Cleaned up |</p>
+<p><strong>Commands:</strong>
+| Command | Flow |
+|---------|------|
+| <code>ps aux</code> | Snapshot of all processes → CPU%, MEM%, PID, Command |
+| <code>top</code> | Interactive process viewer → Updates every few seconds → Sort by CPU/MEM |
+| <code>htop</code> | Better top → Colors, mouse support, tree view |
+| <code>pstree</code> | Show process tree → Parent-child relationships |
+| <code>jobs</code> | List background jobs in current shell |
+| <code>bg %1</code> | Resume job 1 in background |
+| <code>fg %1</code> | Bring job 1 to foreground |</p>
+<p><strong>Zombie vs Orphan:</strong>
+- Zombie = Dead child, living parent forgot to clean up. Harmless but leaks PID.
+- Orphan = Living child, parent died. init adopts and cleans up properly.</p>
+<p><strong>High CPU Process:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>top → Sort by CPU% (press P) → Identify PID → 
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    → ps -fp &lt;PID&gt; → See command details → 
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    → strace -p &lt;PID&gt; → See what system calls it&#39;s making
+</code></pre></div></p>
+<hr />
+<h2 id="6-process-control">6. Process Control<a class="headerlink" href="#6-process-control" title="Permanent link">&para;</a></h2>
+<p><strong>Signals = Software Interrupts:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>User presses Ctrl+C → SIGINT sent to foreground process → Process catches or dies
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>User presses Ctrl+Z → SIGSTOP sent → Process paused → `fg` resumes it
+</code></pre></div></p>
+<p><strong>Signal Table:</strong>
+| Signal | Number | Action | Flow |
+|--------|--------|--------|------|
+| <strong>SIGTERM</strong> | 15 | Graceful shutdown | "Please exit" → Process can cleanup → Save state → Exit |
+| <strong>SIGKILL</strong> | 9 | Force kill | "Die now" → Kernel terminates immediately → No cleanup possible |
+| <strong>SIGINT</strong> | 2 | Interrupt (Ctrl+C) | "Stop running" → Process can handle or exit |
+| <strong>SIGSTOP</strong> | 19 | Pause (Ctrl+Z) | Freeze process → <code>SIGCONT</code> resumes |
+| <strong>SIGCONT</strong> | 18 | Continue | Resume paused process |</p>
+<p><strong>SIGTERM vs SIGKILL:</strong>
+- SIGTERM = polite ask. Process can save data, close files, clean up. Use first.
+- SIGKILL = murder. Immediate, uncatchable. Use when SIGTERM ignored.</p>
+<p><strong>Commands:</strong>
+| Command | Flow |
+|---------|------|
+| <code>kill 1234</code> | Send SIGTERM to PID 1234 → Graceful shutdown |
+| <code>kill -9 1234</code> | Send SIGKILL → Force kill immediately |
+| <code>killall python</code> | Kill all processes named "python" |
+| <code>pkill -f "app.py"</code> | Kill matching process by full command line |
+| <code>nice -n 10 python app.py</code> | Start with lower priority (higher nice = less CPU) |
+| <code>renice 5 -p 1234</code> | Change priority of running process |
+| <code>nohup python app.py &amp;</code> | No Hang Up → Ignores SIGHUP when terminal closes → Output to nohup.out |</p>
+<hr />
+<h1 id="priority-4-shell-basics">PRIORITY 4 — SHELL BASICS<a class="headerlink" href="#priority-4-shell-basics" title="Permanent link">&para;</a></h1>
+<h2 id="7-shell-operators">7. Shell Operators<a class="headerlink" href="#7-shell-operators" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Shell operators chain commands and control data flow.</p>
+<p><strong>Operator Flows:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Flow</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\|</code></td>
+<td>Pipe</td>
+<td>Command1 output → Command2 input</td>
+<td><code>cat log.txt \| grep ERROR</code> → Only error lines</td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td>Run next only if previous succeeds</td>
+<td><code>mkdir dir &amp;&amp; cd dir</code> → cd only if mkdir worked</td>
+</tr>
+<tr>
+<td><code>\|\|</code></td>
+<td>OR</td>
+<td>Run next only if previous fails</td>
+<td><code>command \|\| echo "Failed"</code> → Print error if command fails</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td>Sequence</td>
+<td>Run all, ignore success/failure</td>
+<td><code>cmd1 ; cmd2</code> → Run both regardless</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Redirect stdout</td>
+<td>Overwrite file with output</td>
+<td><code>echo "hi" &gt; file.txt</code> → file.txt = "hi"</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>Redirect stdout append</td>
+<td>Append to file</td>
+<td><code>echo "bye" &gt;&gt; file.txt</code> → file.txt = "hi</td>
+</tr>
+<tr>
+<td>bye"</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Redirect stdin</td>
+<td>File as input</td>
+<td><code>sort &lt; names.txt</code> → Sorts file contents</td>
+</tr>
+<tr>
+<td><code>2&gt;</code></td>
+<td>Redirect stderr</td>
+<td>Error to file</td>
+<td><code>python bad.py 2&gt; errors.log</code> → Errors saved, output shown</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>Background</td>
+<td>Run without blocking terminal</td>
+<td><code>python app.py &amp;</code> → Terminal free immediately</td>
+</tr>
+<tr>
+<td><code>2&gt;&amp;1</code></td>
+<td>Merge stderr to stdout</td>
+<td>Both outputs together</td>
+<td><code>cmd &gt; output.log 2&gt;&amp;1</code> → All output in one file</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>&amp;&amp;</code> vs <code>;</code>:</strong>
+- <code>&amp;&amp;</code> = conditional chain. <code>make &amp;&amp; make install</code> → Install only if build succeeds.
+- <code>;</code> = unconditional chain. <code>make ; make install</code> → Install even if build failed.</p>
+<p><strong><code>&gt;</code> vs <code>&gt;&gt;</code>:</strong>
+- <code>&gt;</code> = Overwrite (destroy old content).
+- <code>&gt;&gt;</code> = Append (keep old content, add new).</p>
+<hr />
+<h2 id="8-environment-variables">8. Environment Variables<a class="headerlink" href="#8-environment-variables" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Environment variables = configuration that programs inherit from the shell.</p>
+<p><strong>Key Variables:</strong>
+| Variable | Purpose | Example |
+|----------|---------|---------|
+| <strong>PATH</strong> | Where to find executables | <code>/usr/local/bin:/usr/bin:/bin</code> → <code>ls</code> found in /usr/bin |
+| <strong>HOME</strong> | Your home directory | <code>/home/alice</code> → <code>cd ~</code> goes here |
+| <strong>USER</strong> | Current username | <code>alice</code> |
+| <strong>PWD</strong> | Present Working Directory | <code>/home/alice/projects</code> |
+| <strong>SHELL</strong> | Current shell | <code>/bin/bash</code> |</p>
+<p><strong>PATH Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>User types &quot;git&quot; → Shell checks: /usr/local/bin/git? → No → 
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    → /usr/bin/git? → Yes → Execute /usr/bin/git
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    → Not found anywhere? → &quot;command not found&quot;
+</code></pre></div></p>
+<p><strong>Commands:</strong>
+| Command | Flow |
+|---------|------|
+| <code>env</code> | Show all environment variables |
+| <code>printenv PATH</code> | Show specific variable |
+| <code>export MY_VAR=hello</code> | Set variable → Available to child processes |
+| <code>MY_VAR=hello</code> | Set variable → Only in current shell, children don't see it |</p>
+<p><strong>Why <code>export</code>?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Without export: VAR=1 → Child process doesn&#39;t see VAR
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>With export:    export VAR=1 → Child process inherits VAR=1
+</code></pre></div></p>
+<hr />
+<h1 id="priority-5-text-processing">PRIORITY 5 — TEXT PROCESSING<a class="headerlink" href="#priority-5-text-processing" title="Permanent link">&para;</a></h1>
+<h2 id="9-grep">9. grep<a class="headerlink" href="#9-grep" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> grep = Global Regular Expression Print → Search text for patterns.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Input stream → grep scans line by line → Pattern match? → Print line → Continue
+</code></pre></div></p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>grep<span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="w"> </span>app.log<span class="w">              </span><span class="c1"># Find lines containing &quot;ERROR&quot;</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>app.log<span class="w">           </span><span class="c1"># Case-insensitive (-i)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;TODO&quot;</span><span class="w"> </span>./src<span class="w">              </span><span class="c1"># Recursive search in directory (-r)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>grep<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="w"> </span>app.js<span class="w">         </span><span class="c1"># Show line numbers (-n)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span><span class="w"> </span>app.log<span class="w">           </span><span class="c1"># Invert match — exclude DEBUG lines (-v)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;error|fail|crash&quot;</span><span class="w"> </span>log<span class="w">    </span><span class="c1"># Extended regex — match any of these (-E)</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>grep<span class="w"> </span><span class="s2">&quot;^2024-01&quot;</span><span class="w"> </span>log.txt<span class="w">           </span><span class="c1"># Lines starting with &quot;2024-01&quot; (^ = start)</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>grep<span class="w"> </span><span class="s2">&quot;\.com</span>$<span class="s2">&quot;</span><span class="w"> </span>urls.txt<span class="w">            </span><span class="c1"># Lines ending with &quot;.com&quot; ($ = end)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="10-find">10. find<a class="headerlink" href="#10-find" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> find = Search filesystem by name, type, size, time.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Start directory → Recurse into subdirs → Check criteria → Match? → Print path
+</code></pre></div></p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>find<span class="w"> </span>/var/log<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.log&quot;</span><span class="w">       </span><span class="c1"># Find files ending with .log</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-size<span class="w"> </span>+100M<span class="w">        </span><span class="c1"># Files over 100MB</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;node_modules&quot;</span><span class="w"> </span><span class="c1"># Find directories named node_modules</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>find<span class="w"> </span>.<span class="w"> </span>-mtime<span class="w"> </span>-7<span class="w">                  </span><span class="c1"># Modified in last 7 days</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.tmp&quot;</span><span class="w"> </span>-delete<span class="w">      </span><span class="c1"># Find and delete .tmp files</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.js&quot;</span><span class="w"> </span>-exec<span class="w"> </span>grep<span class="w"> </span>-l<span class="w"> </span><span class="s2">&quot;TODO&quot;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span><span class="w">  </span><span class="c1"># Find JS files containing &quot;TODO&quot;</span>
+</code></pre></div></p>
+<hr />
+<h2 id="11-awk">11. awk<a class="headerlink" href="#11-awk" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> awk = pattern scanning and processing language → Extract columns, calculate, filter.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Input line → Split by delimiter → Access fields ($1, $2, ...) → Apply action → Print result
+</code></pre></div></p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="w"> </span>file.txt<span class="w">         </span><span class="c1"># Print first column (space-delimited)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>awk<span class="w"> </span>-F<span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span>data.csv<span class="w">   </span><span class="c1"># Print second column (comma-delimited)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>awk<span class="w"> </span><span class="s1">&#39;{print $1, $3}&#39;</span><span class="w"> </span>file.txt<span class="w">     </span><span class="c1"># Print columns 1 and 3</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>awk<span class="w"> </span><span class="s1">&#39;$3 &gt; 100 {print $1}&#39;</span><span class="w"> </span>data<span class="w">    </span><span class="c1"># Print column 1 where column 3 &gt; 100</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>awk<span class="w"> </span><span class="s1">&#39;{sum += $2} END {print sum}&#39;</span><span class="w"> </span>nums<span class="w">  </span><span class="c1"># Sum column 2, print total</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>awk<span class="w"> </span><span class="s1">&#39;NR==1 {print}&#39;</span><span class="w"> </span>file.txt<span class="w">      </span><span class="c1"># Print first line (NR = line number)</span>
+</code></pre></div></p>
+<hr />
+<h2 id="12-sed">12. sed<a class="headerlink" href="#12-sed" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> sed = Stream Editor → Search and replace in streams.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Input line → Match pattern → Apply substitution → Output modified line
+</code></pre></div></p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sed<span class="w"> </span><span class="s1">&#39;s/foo/bar/&#39;</span><span class="w"> </span>file.txt<span class="w">         </span><span class="c1"># Replace first &quot;foo&quot; with &quot;bar&quot; per line</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sed<span class="w"> </span><span class="s1">&#39;s/foo/bar/g&#39;</span><span class="w"> </span>file.txt<span class="w">        </span><span class="c1"># Replace ALL &quot;foo&quot; with &quot;bar&quot; per line (g = global)</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/foo/bar/g&#39;</span><span class="w"> </span>file.txt<span class="w">     </span><span class="c1"># Edit file in-place (-i)</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>sed<span class="w"> </span><span class="s1">&#39;2d&#39;</span><span class="w"> </span>file.txt<span class="w">                 </span><span class="c1"># Delete line 2</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;5,10p&#39;</span><span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># Print only lines 5-10 (-n = suppress auto-print)</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>sed<span class="w"> </span><span class="s1">&#39;/^#/d&#39;</span><span class="w"> </span>file.txt<span class="w">              </span><span class="c1"># Delete lines starting with # (comments)</span>
+</code></pre></div></p>
+<p><strong>grep vs find:</strong>
+- <code>grep</code> = Search <strong>inside</strong> file content.
+- <code>find</code> = Search <strong>filesystem</strong> by name/type/size.</p>
+<p><strong>awk vs sed:</strong>
+- <code>awk</code> = Column-based processing, calculations, filtering by value.
+- <code>sed</code> = Line-based text transformation, search/replace, delete lines.</p>
+<hr />
+<h1 id="priority-6-pipes-redirection">PRIORITY 6 — PIPES &amp; REDIRECTION<a class="headerlink" href="#priority-6-pipes-redirection" title="Permanent link">&para;</a></h1>
+<h2 id="13-pipes">13. Pipes<a class="headerlink" href="#13-pipes" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Pipe = connect stdout of one command to stdin of another.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Command1 → stdout → [pipe] → stdin → Command2 → stdout → Terminal
+</code></pre></div></p>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>cat<span class="w"> </span>access.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;404&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span><span class="p">|</span><span class="w"> </span>uniq<span class="w"> </span>-c<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-rn
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># Read log → Filter 404s → Sort → Count unique → Sort by count (descending)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="c1"># List processes → Find python → Extract PIDs → Kill them all</span>
+</code></pre></div></p>
+<p><strong>Standard Streams:</strong>
+| Stream | Number | Default | Redirect |
+|--------|--------|---------|----------|
+| stdin  | 0 | Keyboard | <code>&lt; file</code> |
+| stdout | 1 | Terminal | <code>&gt; file</code> |
+| stderr | 2 | Terminal | <code>2&gt; file</code> |</p>
+<hr />
+<h2 id="14-redirection">14. Redirection<a class="headerlink" href="#14-redirection" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Redirection = Send output/input to files instead of terminal.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Command → stdout (1) → &gt; file.txt    (overwrite)
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Command → stdout (1) → &gt;&gt; file.txt   (append)
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Command → stderr (2) → 2&gt; errors.log (errors only)
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Command → stdout+stderr → &amp;&gt; all.log (both together)
+</code></pre></div></p>
+<p><strong><code>2&gt;&amp;1</code> Explained:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>`cmd &gt; output.log 2&gt;&amp;1` means:
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    1. stdout (1) → output.log
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    2. stderr (2) → wherever stdout (1) is going → also output.log
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    Result: Both stdout and stderr in output.log
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>Order matters! `cmd 2&gt;&amp;1 &gt; output.log` → stderr goes to terminal (where stdout currently is), then stdout redirected to file.
+</code></pre></div></p>
+<p><strong>Why pipes?</strong> Chain small tools into powerful workflows. Unix philosophy: "Do one thing well."</p>
+<hr />
+<h1 id="priority-7-disk-memory">PRIORITY 7 — DISK &amp; MEMORY<a class="headerlink" href="#priority-7-disk-memory" title="Permanent link">&para;</a></h1>
+<p><strong>Commands:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Flow</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>df -h</code></td>
+<td>Check filesystem usage</td>
+<td><code>/dev/sda1 50G 30G 20G 60% /</code> → Disk 60% full</td>
+</tr>
+<tr>
+<td><code>du -sh /var/log</code></td>
+<td>Directory size</td>
+<td>Recurse dir → Sum sizes → Show total human-readable</td>
+</tr>
+<tr>
+<td><code>free -h</code></td>
+<td>Memory usage</td>
+<td>Total RAM, used, free, shared, buffers, cache</td>
+</tr>
+<tr>
+<td><code>vmstat 1</code></td>
+<td>Virtual memory stats</td>
+<td>Every 1 sec: CPU, memory, IO, processes</td>
+</tr>
+<tr>
+<td><code>iostat</code></td>
+<td>Disk IO stats</td>
+<td>Read/write rates per device</td>
+</tr>
+</tbody>
+</table>
+<p><strong>df vs du:</strong>
+- <code>df</code> = Disk Free — how much space on filesystem (mount point level).
+- <code>du</code> = Disk Usage — how much space a directory tree uses.</p>
+<p><strong>Check Memory:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>free -h → Shows: total 16G, used 8G, free 2G, available 10G
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    → &quot;available&quot; includes cache that can be freed → More useful than &quot;free&quot;
+</code></pre></div></p>
+<hr />
+<h1 id="priority-8-networking-commands">PRIORITY 8 — NETWORKING COMMANDS<a class="headerlink" href="#priority-8-networking-commands" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Flow</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ping google.com</code></td>
+<td>Send ICMP echo → Wait reply → Measure RTT</td>
+<td>Is server reachable?</td>
+</tr>
+<tr>
+<td><code>curl -I https://api.com</code></td>
+<td>HTTP HEAD request → Show headers only</td>
+<td>Test API, check status</td>
+</tr>
+<tr>
+<td><code>curl -X POST -d '{"key":"val"}' https://api.com</code></td>
+<td>Send POST with JSON body</td>
+<td>API testing</td>
+</tr>
+<tr>
+<td><code>wget https://file.zip</code></td>
+<td>Download file</td>
+<td>Non-interactive download</td>
+</tr>
+<tr>
+<td><code>ss -tlnp</code></td>
+<td>Show TCP listening sockets + process names</td>
+<td>What's listening on which port?</td>
+</tr>
+<tr>
+<td><code>ip addr</code></td>
+<td>Show network interfaces and IPs</td>
+<td>What IPs does this machine have?</td>
+</tr>
+<tr>
+<td><code>ip route</code></td>
+<td>Show routing table</td>
+<td>How packets leave this machine</td>
+</tr>
+<tr>
+<td><code>nslookup google.com</code></td>
+<td>DNS query → Get IP address</td>
+<td>Resolve domain to IP</td>
+</tr>
+<tr>
+<td><code>dig google.com</code></td>
+<td>Detailed DNS query → Show all records</td>
+<td>Debug DNS issues</td>
+</tr>
+</tbody>
+</table>
+<p><strong>curl vs wget:</strong>
+- <code>curl</code> = Swiss army knife. Supports all HTTP methods, headers, auth, uploads. Interactive testing.
+- <code>wget</code> = Download specialist. Recursive downloads, resumes, mirrors. Non-interactive.</p>
+<p><strong>Test Server Reachable:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>ping server.com → 0% packet loss? → Reachable
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>ss -tlnp | grep :80 → LISTEN? → Web server running
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>curl -I http://server.com → 200 OK? → HTTP working
+</code></pre></div></p>
+<hr />
+<h1 id="priority-9-file-search-logs">PRIORITY 9 — FILE SEARCH &amp; LOGS<a class="headerlink" href="#priority-9-file-search-logs" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>locate app.conf</code></td>
+<td>Search prebuilt database → Instant results (run <code>updatedb</code> first)</td>
+</tr>
+<tr>
+<td><code>which python</code></td>
+<td>Search PATH → Find executable location → <code>/usr/bin/python</code></td>
+</tr>
+<tr>
+<td><code>whereis python</code></td>
+<td>Find binary, source, man page locations</td>
+</tr>
+<tr>
+<td><code>tail -f /var/log/app.log</code></td>
+<td>Open log → Watch for new lines → Print in real-time</td>
+</tr>
+<tr>
+<td><code>journalctl -u nginx</code></td>
+<td>View systemd logs for nginx service</td>
+</tr>
+<tr>
+<td><code>journalctl -f</code></td>
+<td>Follow all system logs (like tail -f for systemd)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Monitor Logs in Real-Time:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>tail -f /var/log/nginx/access.log | grep &quot;500&quot;
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a># Watch access log → Filter 500 errors → See them as they happen
+</code></pre></div></p>
+<p><strong>Locate Executable:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>which node → /usr/local/bin/node (the one that runs when you type &quot;node&quot;)
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>whereis node → /usr/local/bin/node /usr/local/lib/node (binary + libs)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-10-basic-shell-scripting">PRIORITY 10 — BASIC SHELL SCRIPTING<a class="headerlink" href="#priority-10-basic-shell-scripting" title="Permanent link">&para;</a></h1>
+<p><strong>1-liner:</strong> Shell script = text file with multiple commands that can be executed.</p>
+<p><strong>Script Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="ch">#!/bin/bash                    # Shebang — tells system which interpreter</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="w">                   </span><span class="c1"># Variable</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w">   </span><span class="c1"># Conditional</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="nv">$NAME</span><span class="s2">&quot;</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="k">else</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Who are you?&quot;</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="k">fi</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w">            </span><span class="c1"># Loop</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Number: </span><span class="nv">$i</span><span class="s2">&quot;</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="k">done</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="k">function</span><span class="w"> </span>greet<span class="o">()</span><span class="w"> </span><span class="o">{</span><span class="w">            </span><span class="c1"># Function</span>
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w">          </span><span class="c1"># $1 = first argument</span>
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a><span class="o">}</span>
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>greet<span class="w"> </span><span class="s2">&quot;Bob&quot;</span><span class="w">                   </span><span class="c1"># Call function</span>
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Exit code: </span><span class="nv">$?</span><span class="s2">&quot;</span><span class="w">          </span><span class="c1"># $? = exit code of last command (0 = success)</span>
+</code></pre></div></p>
+<p><strong>Positional Parameters:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>./script.sh arg1 arg2 arg3
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    $0 = ./script.sh
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>    $1 = arg1
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>    $2 = arg2
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>    $3 = arg3
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    $@ = all arguments
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    $# = number of arguments
+</code></pre></div></p>
+<p><strong>Exit Codes:</strong>
+| Code | Meaning |
+|------|---------|
+| 0 | Success |
+| 1 | General error |
+| 2 | Misuse of command |
+| 126 | Command not executable |
+| 127 | Command not found |
+| 130 | Ctrl+C (SIGINT) |
+| 137 | SIGKILL (kill -9) |</p>
+<hr />
+<h1 id="priority-11-package-management">PRIORITY 11 — PACKAGE MANAGEMENT<a class="headerlink" href="#priority-11-package-management" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Distro</th>
+<th>Command</th>
+<th>Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ubuntu/Debian</strong></td>
+<td><code>apt install nginx</code></td>
+<td>Search repo → Download → Install + dependencies</td>
+</tr>
+<tr>
+<td></td>
+<td><code>apt update</code></td>
+<td>Refresh package list from repos</td>
+</tr>
+<tr>
+<td></td>
+<td><code>apt upgrade</code></td>
+<td>Upgrade installed packages</td>
+</tr>
+<tr>
+<td></td>
+<td><code>dpkg -i package.deb</code></td>
+<td>Install local .deb file (no dependency resolution)</td>
+</tr>
+<tr>
+<td><strong>RHEL/CentOS</strong></td>
+<td><code>yum install nginx</code></td>
+<td>Search repo → Download → Install</td>
+</tr>
+<tr>
+<td></td>
+<td><code>dnf install nginx</code></td>
+<td>Modern replacement for yum (faster, better deps)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>rpm -i package.rpm</code></td>
+<td>Install local .rpm file</td>
+</tr>
+</tbody>
+</table>
+<p><strong>apt vs dpkg:</strong>
+- <code>apt</code> = High-level, handles dependencies, fetches from repos.
+- <code>dpkg</code> = Low-level, installs single package, no dependency resolution.</p>
+<hr />
+<h1 id="priority-12-linux-for-developers">PRIORITY 12 — LINUX FOR DEVELOPERS<a class="headerlink" href="#priority-12-linux-for-developers" title="Permanent link">&para;</a></h1>
+<p><strong>SSH Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Local machine → ssh user@server.com → 
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    → Server verifies identity (password or key) → 
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    → Encrypted session established → Remote shell access
+</code></pre></div></p>
+<p><strong>SSH Key Auth:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Local: ssh-keygen → Creates ~/.ssh/id_rsa (private) + id_rsa.pub (public)
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Local: ssh-copy-id user@server → Copies public key to server ~/.ssh/authorized_keys
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Next login: ssh user@server → Server checks key match → No password needed
+</code></pre></div></p>
+<p><strong>SCP Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Local → scp file.txt user@server:/home/user/ → File copied over SSH
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>Server → scp user@server:/var/log/app.log ./ → Download log file
+</code></pre></div></p>
+<p><strong>Cron Jobs:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>crontab -e → Edit cron table
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>Format: minute hour day month weekday command
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>Example: 0 2 * * * /backup.sh  → Run backup.sh at 2:00 AM daily
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>Example: */5 * * * * /health-check.sh → Run every 5 minutes
+</code></pre></div></p>
+<p><strong>Background Services:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>systemctl start nginx    → Start service
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>systemctl stop nginx     → Stop service
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>systemctl restart nginx  → Restart service
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>systemctl enable nginx   → Start on boot
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>systemctl status nginx   → Check status, logs, PID
+</code></pre></div></p>
+<hr />
+<h1 id="common-interview-scenarios-quick-answers">COMMON INTERVIEW SCENARIOS — QUICK ANSWERS<a class="headerlink" href="#common-interview-scenarios-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Kernel vs Shell?</td>
+<td>Kernel talks to hardware; Shell is user interface to kernel</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Linux directory structure?</td>
+<td>/bin=essential cmds, /etc=config, /var=logs, /tmp=temp, /proc=live process data</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Absolute vs Relative paths?</td>
+<td>Absolute starts with / (root); Relative starts from current dir (./ or ../)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Hard Link vs Symbolic Link?</td>
+<td>Hard link = same inode (data); Symlink = points to filename (breaks if target deleted)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>chmod vs chown?</td>
+<td>chmod = change permissions; chown = change owner/group</td>
+</tr>
+<tr>
+<td>6</td>
+<td>chmod 755?</td>
+<td>rwxr-xr-x → Owner: full, Group: read+execute, Others: read+execute</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Zombie vs Orphan?</td>
+<td>Zombie = dead child, parent didn't wait(); Orphan = parent died, adopted by init</td>
+</tr>
+<tr>
+<td>8</td>
+<td>SIGTERM vs SIGKILL?</td>
+<td>SIGTERM (15) = graceful, cleanup allowed; SIGKILL (9) = force, no cleanup</td>
+</tr>
+<tr>
+<td>9</td>
+<td>ps vs top?</td>
+<td>ps = snapshot of processes; top = interactive, real-time updating</td>
+</tr>
+<tr>
+<td>10</td>
+<td>kill vs kill -9?</td>
+<td>kill = SIGTERM (graceful); kill -9 = SIGKILL (force)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>grep vs find?</td>
+<td>grep = search inside files; find = search filesystem by name/type/size</td>
+</tr>
+<tr>
+<td>12</td>
+<td>awk vs sed?</td>
+<td>awk = column processing, calculations; sed = line-based search/replace</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Pipes vs Redirection?</td>
+<td>Pipe = connect commands (cmd1 | cmd2); Redirection = send to file (cmd &gt; file)</td>
+</tr>
+<tr>
+<td>14</td>
+<td>&gt; vs &gt;&gt;?</td>
+<td>&gt; = overwrite; &gt;&gt; = append</td>
+</tr>
+<tr>
+<td>15</td>
+<td>df vs du?</td>
+<td>df = disk free (filesystem level); du = disk usage (directory tree level)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>curl vs wget?</td>
+<td>curl = HTTP swiss army knife (all methods, headers); wget = download specialist</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Inspect running process?</td>
+<td>ps aux | grep <name> or top/htop → Find PID → cat /proc/<PID>/status</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Monitor logs real-time?</td>
+<td>tail -f /var/log/app.log or journalctl -f -u service</td>
+</tr>
+<tr>
+<td>19</td>
+<td>PATH variable?</td>
+<td>Colon-separated list of directories where shell looks for executables</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Debug Linux app?</td>
+<td>Check logs (journalctl/tail), check processes (ps/top), check resources (free/df), strace -p PID</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="revision-order-highest-roi">REVISION ORDER (Highest ROI)<a class="headerlink" href="#revision-order-highest-roi" title="Permanent link">&para;</a></h1>
+<ol>
+<li>File System Hierarchy (/bin, /etc, /var, /proc, /tmp)</li>
+<li>File Operations (ls, cd, cp, mv, rm, cat, less, head, tail)</li>
+<li>Hard Link vs Symbolic Link (inode vs filename pointer)</li>
+<li>Permissions (rwx, 755, 644, chmod, chown, umask)</li>
+<li>Process Lifecycle (fork → exec → run → exit → wait)</li>
+<li>Zombie vs Orphan (parent didn't wait vs parent died)</li>
+<li>Signals (SIGTERM=15 graceful, SIGKILL=9 force, SIGINT=Ctrl+C)</li>
+<li>Process Commands (ps, top, kill, killall, nohup, nice)</li>
+<li>Shell Operators (|, &amp;&amp;, ;, &gt;, &gt;&gt;, 2&gt;&amp;1)</li>
+<li>Environment Variables (PATH, HOME, export)</li>
+<li>grep (pattern matching, -i, -r, -n, regex basics)</li>
+<li>find (name, type, size, time, -exec)</li>
+<li>awk (columns $1, $2, -F delimiter, filtering)</li>
+<li>sed (s/old/new/g, -i in-place, delete lines)</li>
+<li>Pipes &amp; Redirection (connect commands, stdout/stderr)</li>
+<li>Disk &amp; Memory (df, du, free, vmstat)</li>
+<li>Networking (ping, curl, ss, ip, dig)</li>
+<li>Log Monitoring (tail -f, journalctl)</li>
+<li>Shell Scripting (variables, if, for, functions, $1, $?)</li>
+<li>Package Management (apt vs dpkg, yum vs rpm)</li>
+</ol>
+<hr />
+<h1 id="hands-on-practice-tasks">HANDS-ON PRACTICE TASKS<a class="headerlink" href="#hands-on-practice-tasks" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p><strong>Navigate &amp; Manipulate Files:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>cd /var/log → ls -la → cat syslog → less auth.log → head -50 syslog → tail -f syslog
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Permissions:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>touch script.sh → chmod 755 script.sh → chown user:group script.sh → ls -l script.sh
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Links:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>echo &quot;data&quot; &gt; original.txt → ln original.txt hardlink → ln -s original.txt symlink → 
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>ls -li → rm original.txt → cat hardlink (works) → cat symlink (broken)
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Process Monitoring:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>python -m http.server 8000 &amp; → ps aux | grep python → top → kill -15 &lt;PID&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Text Processing Pipeline:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>cat access.log | grep &quot;404&quot; | awk &#39;{print $1}&#39; | sort | uniq -c | sort -rn
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a># Most frequent IPs causing 404 errors
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Disk &amp; Memory:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>df -h → du -sh /home → free -h → vmstat 1 5
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Network Debug:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>ping 8.8.8.8 → curl -I https://google.com → ss -tlnp → dig google.com
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Log Monitoring:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>tail -f /var/log/syslog | grep &quot;error&quot; → Ctrl+C to stop
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Shell Script:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You passed </span><span class="nv">$#</span><span class="s2"> arguments&quot;</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="k">for</span><span class="w"> </span>arg<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Arg: </span><span class="nv">$arg</span><span class="s2">&quot;</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="k">done</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Cron Job:</strong>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>crontab -e → Add: */5 * * * * echo $(date) &gt;&gt; /tmp/heartbeat.log → 
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>→ Saves heartbeat every 5 minutes
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<p><strong>REMEMBER:</strong> Interviewers care about:
+1. <strong>Can you navigate a Linux system confidently?</strong> (Know the filesystem, basic commands)
+2. <strong>Do you understand permissions?</strong> (rwx, numeric, security implications)
+3. <strong>Can you debug a running system?</strong> (ps, top, logs, network, disk)
+4. <strong>Can you chain commands?</strong> (Pipes, redirection, text processing)
+5. <strong>Do you understand processes?</strong> (Lifecycle, signals, zombies, background)</p>
+<p>Tell the story of what happens when you run a command — where the data flows, what the kernel does, what the output means.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../git/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Git">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Git
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../software-engineering/" class="md-footer__link md-footer__link--next" aria-label="Next: Software Engineering">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Software Engineering
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

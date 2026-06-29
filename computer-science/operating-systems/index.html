@@ -1,0 +1,3391 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/operating-systems/">
+      
+      
+        <link rel="prev" href="../dsa/">
+      
+      
+        <link rel="next" href="../computer-networks/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Operating Systems - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operating-systems-interview-notes-system-first-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operating Systems
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-to-operating-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. INTRODUCTION TO OPERATING SYSTEMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. PROCESSES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. THREADS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cpu-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. CPU SCHEDULING
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-process-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. PROCESS SYNCHRONIZATION
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deadlocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DEADLOCKS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. MEMORY MANAGEMENT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-paging-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. PAGING (Deep Dive)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-virtual-memory-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. VIRTUAL MEMORY (Deep Dive)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-page-replacement-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. PAGE REPLACEMENT ALGORITHMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-file-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. FILE SYSTEMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-disk-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. DISK SCHEDULING
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-system-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. SYSTEM CALLS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-interrupts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. INTERRUPTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-io-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. I/O MANAGEMENT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-ipc-inter-process-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. IPC (INTER-PROCESS COMMUNICATION)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-3-backendsystem-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRIORITY 3 — BACKEND/SYSTEM DESIGN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRIORITY 3 — BACKEND/SYSTEM DESIGN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronization-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchronization Primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-mapping-mmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Mapping (mmap)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-on-write-fork-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy-on-Write (fork efficiency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-switching-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Switching (Complete)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kernel Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-4-modern-os-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRIORITY 4 — MODERN OS CONCEPTS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRIORITY 4 — MODERN OS CONCEPTS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-cfs-completely-fair-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux CFS (Completely Fair Scheduler)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numa-non-uniform-memory-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NUMA (Non-Uniform Memory Access)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#huge-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Huge Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-coherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Coherence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LINUX CONCEPTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRACTICAL COMMANDS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-complete-workflow-what-happens-when-you-run-a-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 THE COMPLETE WORKFLOW: "What happens when you run a program?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-what-happens-after-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 COMPLETE WORKFLOW: "What happens after fork()?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-answer-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 QUICK ANSWER CHEAT SHEET
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skip-these-unless-systemskernel-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ SKIP THESE (Unless Systems/Kernel Role)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-to-operating-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. INTRODUCTION TO OPERATING SYSTEMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. PROCESSES
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-threads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. THREADS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cpu-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. CPU SCHEDULING
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-process-synchronization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. PROCESS SYNCHRONIZATION
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deadlocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DEADLOCKS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. MEMORY MANAGEMENT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-paging-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. PAGING (Deep Dive)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-virtual-memory-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. VIRTUAL MEMORY (Deep Dive)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-page-replacement-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. PAGE REPLACEMENT ALGORITHMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-file-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. FILE SYSTEMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-disk-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. DISK SCHEDULING
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-system-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. SYSTEM CALLS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-interrupts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. INTERRUPTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-io-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. I/O MANAGEMENT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-ipc-inter-process-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. IPC (INTER-PROCESS COMMUNICATION)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-3-backendsystem-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRIORITY 3 — BACKEND/SYSTEM DESIGN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRIORITY 3 — BACKEND/SYSTEM DESIGN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#synchronization-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synchronization Primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-mapping-mmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Mapping (mmap)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-on-write-fork-efficiency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy-on-Write (fork efficiency)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrency-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrency Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context-switching-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context Switching (Complete)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kernel Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#priority-4-modern-os-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRIORITY 4 — MODERN OS CONCEPTS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PRIORITY 4 — MODERN OS CONCEPTS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtualization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux-cfs-completely-fair-scheduler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux CFS (Completely Fair Scheduler)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numa-non-uniform-memory-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NUMA (Non-Uniform Memory Access)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#huge-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Huge Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-coherence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cache Coherence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LINUX CONCEPTS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practical-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRACTICAL COMMANDS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-complete-workflow-what-happens-when-you-run-a-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 THE COMPLETE WORKFLOW: "What happens when you run a program?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-what-happens-after-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 COMPLETE WORKFLOW: "What happens after fork()?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-answer-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔥 QUICK ANSWER CHEAT SHEET
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skip-these-unless-systemskernel-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ❌ SKIP THESE (Unless Systems/Kernel Role)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="operating-systems-interview-notes-system-first-approach">🖥️ Operating Systems — Interview Notes (System-First Approach)<a class="headerlink" href="#operating-systems-interview-notes-system-first-approach" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-introduction-to-operating-systems">1. INTRODUCTION TO OPERATING SYSTEMS<a class="headerlink" href="#1-introduction-to-operating-systems" title="Permanent link">&para;</a></h2>
+<p><strong>What is an OS?</strong>
+→ Software that manages hardware resources and provides services to applications.</p>
+<p><strong>Why can't apps directly access hardware?</strong>
+→ Security (malware protection), stability (crash isolation), fairness (resource sharing).</p>
+<p><strong>Types:</strong>
+- <strong>Batch:</strong> Jobs queued, executed sequentially (old mainframes)
+- <strong>Multiprogramming:</strong> CPU switches to another job while one waits for I/O
+- <strong>Multitasking:</strong> Rapid switching gives illusion of parallel execution
+- <strong>Time Sharing:</strong> Each user gets a time slice (Unix terminals)
+- <strong>Real-Time:</strong> Guaranteed response time (airbag systems, pacemakers)
+- <strong>Distributed:</strong> Multiple machines appear as one (Google File System)</p>
+<p><strong>User Mode vs Kernel Mode:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User Mode: App runs here — restricted (can&#39;t touch hardware directly)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓ System Call (trap)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Kernel Mode: OS runs here — full control (memory, CPU, I/O)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓ Return
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>User Mode: App continues
+</code></pre></div>
+→ Mode bit in CPU: 0 = kernel, 1 = user. Violation = trap → OS kills app.</p>
+<hr />
+<h2 id="2-processes">2. PROCESSES<a class="headerlink" href="#2-processes" title="Permanent link">&para;</a></h2>
+<p><strong>Program vs Process:</strong>
+- Program: Static file on disk (recipe)
+- Process: Program in execution (cooking the recipe)</p>
+<p><strong>Process Life Cycle:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>New → Ready → Running → Waiting → Terminated
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>         ↑___________|
+</code></pre></div>
+- <strong>New:</strong> Being created
+- <strong>Ready:</strong> Waiting for CPU
+- <strong>Running:</strong> Executing on CPU
+- <strong>Waiting:</strong> Blocked for I/O
+- <strong>Terminated:</strong> Finished</p>
+<p><strong>Process Control Block (PCB):</strong>
+→ OS data structure storing process state: PID, registers, memory info, open files, scheduling info.</p>
+<p><strong>Context Switching:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Process A running → Timer interrupt → Save A&#39;s state to PCB → Load B&#39;s state from PCB → Process B running
+</code></pre></div>
+<strong>Why expensive?</strong> Save/restore registers, cache invalidation, TLB flush.</p>
+<p><strong>Process Creation (fork()):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Parent Process
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    ↓ fork()
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Parent continues ←──┬──→ Child Process (copy of parent, new PID)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                    │
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            Copy-on-Write: Pages shared until either writes
+</code></pre></div></p>
+<p><strong>Process Termination:</strong>
+- Normal: exit() called
+- Abnormal: killed by OS/signal</p>
+<p><strong>Zombie Process:</strong>
+→ Child terminated but parent hasn't called wait(). PCB remains.
+<strong>Orphan Process:</strong>
+→ Parent terminated before child. Child adopted by init (PID 1).
+<strong>Daemon Process:</strong>
+→ Background service (sshd, nginx). Parent = init, no terminal.</p>
+<hr />
+<h2 id="3-threads">3. THREADS<a class="headerlink" href="#3-threads" title="Permanent link">&para;</a></h2>
+<p><strong>Process vs Thread:</strong>
+| Process | Thread |
+|---------|--------|
+| Separate address space | Shares address space |
+| Heavy (PCB, memory tables) | Light (registers + stack) |
+| IPC needed for communication | Direct memory access |
+| OS manages | Can be user/kernel managed |</p>
+<p><strong>Why threads are lighter:</strong>
+→ Share code, data, heap. Only need own stack + registers.</p>
+<p><strong>When processes over threads:</strong>
+→ Security isolation (Chrome tabs), different privilege levels, crash containment.</p>
+<p><strong>Thread Lifecycle:</strong>
+New → Ready → Running → Blocked → Terminated</p>
+<p><strong>Thread Pools:</strong>
+→ Pre-created threads waiting for tasks. Avoids creation overhead.</p>
+<hr />
+<h2 id="4-cpu-scheduling">4. CPU SCHEDULING<a class="headerlink" href="#4-cpu-scheduling" title="Permanent link">&para;</a></h2>
+<p><strong>Metrics:</strong>
+- <strong>Waiting Time:</strong> Time in ready queue
+- <strong>Turnaround Time:</strong> Submission to completion
+- <strong>Response Time:</strong> Submission to first response
+- <strong>Throughput:</strong> Processes completed per unit time
+- <strong>CPU Utilization:</strong> % time CPU is busy</p>
+<p><strong>Algorithms:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>How It Works</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FCFS</strong></td>
+<td>First come, first served</td>
+<td>Simple</td>
+<td>Convoy effect (short jobs wait behind long)</td>
+</tr>
+<tr>
+<td><strong>SJF</strong></td>
+<td>Shortest job first</td>
+<td>Min avg waiting time</td>
+<td>Need to know burst time, starvation of long jobs</td>
+</tr>
+<tr>
+<td><strong>SRTF</strong></td>
+<td>Preemptive SJF</td>
+<td>Better response</td>
+<td>More context switches</td>
+</tr>
+<tr>
+<td><strong>Priority</strong></td>
+<td>Higher priority runs first</td>
+<td>Important jobs first</td>
+<td>Starvation of low priority</td>
+</tr>
+<tr>
+<td><strong>Round Robin</strong></td>
+<td>Time slice (quantum) each</td>
+<td>Fair, good response</td>
+<td>High context switching if quantum too small</td>
+</tr>
+<tr>
+<td><strong>MLQ</strong></td>
+<td>Multiple ready queues (fixed)</td>
+<td>Separates job types</td>
+<td>Rigid</td>
+</tr>
+<tr>
+<td><strong>MLFQ</strong></td>
+<td>Queues with dynamic priority</td>
+<td>Adapts to behavior</td>
+<td>Complex</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why Round Robin?</strong> Time-sharing systems. Fair, responsive.
+<strong>Which minimizes waiting time?</strong> SJF (theoretically optimal).</p>
+<hr />
+<h2 id="5-process-synchronization">5. PROCESS SYNCHRONIZATION<a class="headerlink" href="#5-process-synchronization" title="Permanent link">&para;</a></h2>
+<p><strong>Critical Section:</strong>
+→ Code segment accessing shared resource. Only one process at a time.</p>
+<p><strong>Race Condition:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Balance = 100
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Process A: read(100) → add(50) → write(150)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Process B: read(100) → subtract(30) → write(70)
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Result: 70 (not 120) — A&#39;s update lost!
+</code></pre></div></p>
+<p><strong>Mutual Exclusion:</strong>
+→ Only one process in critical section at a time.</p>
+<p><strong>Busy Waiting:</strong>
+→ Process spins checking condition. Wastes CPU.</p>
+<p><strong>Spin Lock:</strong>
+→ Busy-wait lock. Use when wait time &lt; context switch cost.</p>
+<p><strong>Mutex:</strong>
+→ Binary lock (0/1). Lock → enter CS → Unlock.</p>
+<p><strong>Semaphore:</strong>
+→ Integer variable + two atomic ops:
+- wait(P): decrement, block if negative
+- signal(V): increment, wake if waiting</p>
+<p><strong>Binary Semaphore:</strong> Value 0 or 1 (like mutex)
+<strong>Counting Semaphore:</strong> Value 0 to N (e.g., limit 10 DB connections)</p>
+<p><strong>Monitor:</strong>
+→ High-level construct: mutex + condition variables. Java synchronized blocks.</p>
+<p><strong>Producer-Consumer Problem:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Buffer (size N)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Producer: produce item → wait(empty) → wait(mutex) → add → signal(mutex) → signal(full)
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Consumer: wait(full) → wait(mutex) → remove → signal(mutex) → signal(empty) → consume
+</code></pre></div></p>
+<p><strong>Readers-Writers Problem:</strong>
+→ Multiple readers simultaneously, but writers need exclusive access.</p>
+<p><strong>Dining Philosophers:</strong>
+→ 5 philosophers, 5 chopsticks. Deadlock if all pick left first. Solution: Pick lower-numbered first.</p>
+<p><strong>Mutex vs Semaphore:</strong>
+| Mutex | Semaphore |
+|-------|-----------|
+| Owner must unlock | Any process can signal |
+| Binary only | Can be counting |
+| For mutual exclusion | For resource counting |</p>
+<hr />
+<h2 id="6-deadlocks">6. DEADLOCKS<a class="headerlink" href="#6-deadlocks" title="Permanent link">&para;</a></h2>
+<p><strong>Four Necessary Conditions (ALL must hold):</strong>
+1. <strong>Mutual Exclusion:</strong> Resource non-sharable
+2. <strong>Hold and Wait:</strong> Holding one, waiting for another
+3. <strong>No Preemption:</strong> Can't forcefully take resource
+4. <strong>Circular Wait:</strong> Circular chain of waiting</p>
+<p><strong>Deadlock Handling:</strong>
+- <strong>Prevention:</strong> Break one condition (e.g., request all resources at once)
+- <strong>Avoidance:</strong> Banker's Algorithm — safe state check before granting
+- <strong>Detection:</strong> Resource allocation graph cycle detection
+- <strong>Recovery:</strong> Kill process, preempt resources</p>
+<p><strong>Banker's Algorithm:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Before granting request:
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>1. Pretend to allocate
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>2. Check if safe state exists (some order finishes all)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>3. If safe → grant; else → make process wait
+</code></pre></div></p>
+<p><strong>How databases avoid deadlocks:</strong>
+→ Timeout + rollback, lock ordering, optimistic locking (no locks, check at commit).</p>
+<p><strong>Deadlock vs Starvation:</strong>
+- Deadlock: Everyone waiting, no progress
+- Starvation: One process never gets resource (unfair scheduling)</p>
+<hr />
+<h2 id="7-memory-management">7. MEMORY MANAGEMENT<a class="headerlink" href="#7-memory-management" title="Permanent link">&para;</a></h2>
+<p><strong>Logical Address:</strong> Address generated by CPU (what program sees)
+<strong>Physical Address:</strong> Actual RAM location (what hardware sees)</p>
+<p><strong>Address Translation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>CPU → Logical Address → MMU → Physical Address → RAM
+</code></pre></div></p>
+<p><strong>Memory Allocation:</strong>
+- <strong>Contiguous:</strong> Process gets one continuous block
+- <strong>Non-contiguous:</strong> Process scattered across memory (paging)</p>
+<p><strong>Fragmentation:</strong>
+- <strong>Internal:</strong> Wasted space inside allocated block (paging)
+- <strong>External:</strong> Wasted space between allocated blocks (segmentation)</p>
+<p><strong>Paging:</strong>
+→ Divide memory into fixed-size pages (logical) and frames (physical).</p>
+<p><strong>Segmentation:</strong>
+→ Divide by logical units: code segment, data segment, stack segment.</p>
+<p><strong>Virtual Memory:</strong>
+→ Illusion of infinite RAM. Uses disk as extension.</p>
+<p><strong>Demand Paging:</strong>
+→ Load page only when needed (lazy loading).</p>
+<p><strong>Page Fault:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>CPU wants page X → Check page table → Not in RAM (valid bit = 0)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    ↓
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Page Fault Trap → OS finds free frame → Load page from disk → Update page table → Restart instruction
+</code></pre></div></p>
+<p><strong>Swapping:</strong>
+→ Move entire process to disk when RAM full.</p>
+<p><strong>Thrashing:</strong>
+→ Excessive page faults. CPU busy swapping, not computing. Fix: reduce processes or increase RAM.</p>
+<p><strong>Why virtual memory?</strong>
+→ Larger address space, isolation, sharing, simplified loading.</p>
+<hr />
+<h2 id="8-paging-deep-dive">8. PAGING (Deep Dive)<a class="headerlink" href="#8-paging-deep-dive" title="Permanent link">&para;</a></h2>
+<p><strong>Page Table:</strong>
+→ Maps page number → frame number. Per process.</p>
+<p><strong>Frame:</strong> Physical memory block (e.g., 4KB)
+<strong>Page:</strong> Logical memory block (same size as frame)</p>
+<p><strong>Address Translation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Logical Address: [Page Number | Offset]
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>                    ↓
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>              Page Table
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>                    ↓
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Physical Address: [Frame Number | Offset]
+</code></pre></div></p>
+<p><strong>TLB (Translation Lookaside Buffer):</strong>
+→ Hardware cache for page table entries. Speeds up translation.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>CPU wants address → Check TLB → Hit? → Use frame directly
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>                                    Miss? → Check page table → Update TLB
+</code></pre></div>
+<strong>Why TLB?</strong> Page table in RAM = 2 memory accesses per fetch. TLB = near CPU, nanoseconds.</p>
+<p><strong>Multi-Level Paging:</strong>
+→ Page table too big. Use page directory → page table → frame.</p>
+<p><strong>Huge Pages:</strong>
+→ 2MB/1GB pages instead of 4KB. Fewer TLB entries, faster for large DB buffers.</p>
+<hr />
+<h2 id="9-virtual-memory-deep-dive">9. VIRTUAL MEMORY (Deep Dive)<a class="headerlink" href="#9-virtual-memory-deep-dive" title="Permanent link">&para;</a></h2>
+<p><strong>Address Space:</strong>
+→ Range of addresses a process can use (0 to 2^64 - 1 on 64-bit).</p>
+<p><strong>Copy-on-Write (fork):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Parent Process (pages in RAM)
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    ↓ fork()
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Child shares parent&#39;s pages (read-only)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    ↓ Child writes to page X
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>OS copies page X → gives child own copy
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Parent&#39;s page X unchanged
+</code></pre></div>
+→ Efficient: Only modified pages copied.</p>
+<p><strong>Shared Memory:</strong>
+→ Two processes map same physical pages. Fast IPC (no kernel copy).</p>
+<p><strong>Memory Mapping (mmap):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>File on Disk ←───mmap──→ Process Address Space
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    ↑                          ↓
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    └──── Page Fault loads ────┘
+</code></pre></div>
+→ File appears as memory. Lazy loading. Shared libraries use this.</p>
+<p><strong>What happens when RAM is full?</strong>
+→ Page replacement algorithm selects victim page → Write to disk (if dirty) → Load new page.</p>
+<hr />
+<h2 id="10-page-replacement-algorithms">10. PAGE REPLACEMENT ALGORITHMS<a class="headerlink" href="#10-page-replacement-algorithms" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>How It Works</th>
+<th>Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FIFO</strong></td>
+<td>Oldest page out</td>
+<td>Belady's anomaly (more frames = more faults)</td>
+</tr>
+<tr>
+<td><strong>LRU</strong></td>
+<td>Least recently used out</td>
+<td>Near-optimal, needs tracking</td>
+</tr>
+<tr>
+<td><strong>Optimal</strong></td>
+<td>Farthest future use out</td>
+<td>Theoretical, not implementable</td>
+</tr>
+<tr>
+<td><strong>Clock</strong></td>
+<td>Second chance (reference bit)</td>
+<td>Approximation of LRU, efficient</td>
+</tr>
+<tr>
+<td><strong>LFU</strong></td>
+<td>Least frequently used out</td>
+<td>Stale data stays if used heavily once</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why not FIFO?</strong> Belady's anomaly — counterintuitive behavior.
+<strong>Why LRU widely used?</strong> Good approximation of optimal, practical to implement.</p>
+<hr />
+<h2 id="11-file-systems">11. FILE SYSTEMS<a class="headerlink" href="#11-file-systems" title="Permanent link">&para;</a></h2>
+<p><strong>File:</strong> Named collection of data
+<strong>Directory:</strong> Named collection of files</p>
+<p><strong>Inode:</strong>
+→ Data structure storing file metadata: size, permissions, timestamps, pointers to data blocks.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Filename → Directory → Inode Number → Inode Table → Data Blocks
+</code></pre></div></p>
+<p><strong>File Allocation:</strong>
+- <strong>Contiguous:</strong> One continuous block (fast seek, fragmentation)
+- <strong>Linked:</strong> Blocks linked via pointers (no fragmentation, slow seek)
+- <strong>Indexed:</strong> Index block points to all data blocks (best balance)</p>
+<p><strong>Journaling:</strong>
+→ Log changes before applying. Crash recovery: replay log.</p>
+<p><strong>Mounting:</strong>
+→ Attach filesystem to directory tree. /dev/sda1 → /home</p>
+<p><strong>Permissions:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>-rwxr-xr--  owner  group  others
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a> r=read, w=write, x=execute
+</code></pre></div></p>
+<p><strong>How Linux locates a file:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>/home/user/file.txt
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    ↓
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>/ → inode of root → dentry → inode of home → dentry → inode of user → dentry → inode of file.txt → data blocks
+</code></pre></div></p>
+<hr />
+<h2 id="12-disk-scheduling">12. DISK SCHEDULING<a class="headerlink" href="#12-disk-scheduling" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>How It Works</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FCFS</strong></td>
+<td>Request order</td>
+<td>Fair</td>
+<td>Long seeks</td>
+</tr>
+<tr>
+<td><strong>SSTF</strong></td>
+<td>Shortest seek first</td>
+<td>Better throughput</td>
+<td>Starvation</td>
+</tr>
+<tr>
+<td><strong>SCAN</strong> (Elevator)</td>
+<td>Arm moves back and forth</td>
+<td>No starvation, good avg</td>
+<td>Wait at ends</td>
+</tr>
+<tr>
+<td><strong>C-SCAN</strong></td>
+<td>Circular SCAN (return to start)</td>
+<td>Uniform wait</td>
+<td>Empty trip back</td>
+</tr>
+<tr>
+<td><strong>LOOK</strong></td>
+<td>SCAN but only to last request</td>
+<td>More efficient</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>C-LOOK</strong></td>
+<td>C-SCAN but only to last request</td>
+<td>Best of both</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why SCAN &gt; FCFS?</strong> Reduces total head movement, better throughput.</p>
+<hr />
+<h2 id="13-system-calls">13. SYSTEM CALLS<a class="headerlink" href="#13-system-calls" title="Permanent link">&para;</a></h2>
+<p><strong>What is a System Call?</strong>
+→ Request from user program to kernel for privileged operation.</p>
+<p><strong>Trap:</strong>
+→ Software-generated interrupt switching to kernel mode.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>App calls read()
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    ↓
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Library wrapper puts args in registers
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    ↓
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>SYSCALL instruction (trap)
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    ↓
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>CPU switches to kernel mode
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    ↓
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>Kernel handler executes read()
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    ↓
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>Return to user mode with result
+</code></pre></div></p>
+<p><strong>Why expensive?</strong> Mode switch, cache effects, security checks.</p>
+<p><strong>Common Calls:</strong>
+| Call | What It Does |
+|------|-------------|
+| fork() | Create child process |
+| exec() | Replace process image |
+| wait() | Wait for child termination |
+| open() | Open file |
+| read() | Read from file |
+| write() | Write to file |
+| close() | Close file |
+| mmap() | Map file to memory |</p>
+<p><strong>System Call vs Function Call:</strong>
+| System Call | Function Call |
+|-------------|-------------|
+| Kernel mode switch | User mode only |
+| Privileged operations | Regular computation |
+| Expensive | Cheap |
+| OS provides | Library provides |</p>
+<hr />
+<h2 id="14-interrupts">14. INTERRUPTS<a class="headerlink" href="#14-interrupts" title="Permanent link">&para;</a></h2>
+<p><strong>Hardware Interrupt:</strong>
+→ External device signals CPU (keyboard press, disk ready).</p>
+<p><strong>Software Interrupt (Trap):</strong>
+→ Program triggers (system call, division by zero).</p>
+<p><strong>What happens:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Device signals → CPU stops current → Save state → Run interrupt handler → Restore state → Resume
+</code></pre></div></p>
+<p><strong>Interrupt Vector:</strong>
+→ Table of handler addresses. IRQ 1 = keyboard handler.</p>
+<p><strong>Interrupt Handler:</strong>
+→ Quick execution or schedule deferred work (top-half/bottom-half in Linux).</p>
+<hr />
+<h2 id="15-io-management">15. I/O MANAGEMENT<a class="headerlink" href="#15-io-management" title="Permanent link">&para;</a></h2>
+<p><strong>Polling:</strong>
+→ CPU repeatedly checks device status. Wastes cycles.</p>
+<p><strong>Interrupt-Driven I/O:</strong>
+→ Device interrupts when ready. CPU does other work meanwhile.</p>
+<p><strong>DMA (Direct Memory Access):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>CPU tells DMA: &quot;Transfer 1KB from disk to addr 0x1000&quot;
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    ↓
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>DMA does transfer independently
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    ↓
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>DMA interrupts CPU: &quot;Done!&quot;
+</code></pre></div>
+→ CPU free during transfer. Used for bulk I/O.</p>
+<p><strong>Buffering:</strong>
+→ Temporary storage area. Decouples producer/consumer speeds.</p>
+<p><strong>Spooling:</strong>
+→ Queue print jobs. Printer works independently.</p>
+<p><strong>Caching:</strong>
+→ Keep frequently accessed data in fast memory.</p>
+<hr />
+<h2 id="16-ipc-inter-process-communication">16. IPC (INTER-PROCESS COMMUNICATION)<a class="headerlink" href="#16-ipc-inter-process-communication" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>How It Works</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pipes</strong></td>
+<td>Unidirectional, parent-child</td>
+<td>ls | grep</td>
+</tr>
+<tr>
+<td><strong>Named Pipes</strong></td>
+<td>Unidirectional, any processes</td>
+<td>Cross-process communication</td>
+</tr>
+<tr>
+<td><strong>Shared Memory</strong></td>
+<td>Common memory region</td>
+<td>Fastest, needs synchronization</td>
+</tr>
+<tr>
+<td><strong>Message Queues</strong></td>
+<td>Structured message passing</td>
+<td>Decoupled communication</td>
+</tr>
+<tr>
+<td><strong>Sockets</strong></td>
+<td>Network or local endpoints</td>
+<td>Cross-machine or local</td>
+</tr>
+<tr>
+<td><strong>Signals</strong></td>
+<td>Async notification</td>
+<td>Kill, interrupt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why shared memory?</strong>
+→ No kernel copy. Direct memory access. Fastest IPC.</p>
+<p><strong>Pipes vs Sockets:</strong>
+- Pipes: Local only, simpler
+- Sockets: Local + network, more flexible</p>
+<hr />
+<h2 id="priority-3-backendsystem-design">PRIORITY 3 — BACKEND/SYSTEM DESIGN<a class="headerlink" href="#priority-3-backendsystem-design" title="Permanent link">&para;</a></h2>
+<h3 id="synchronization-primitives">Synchronization Primitives<a class="headerlink" href="#synchronization-primitives" title="Permanent link">&para;</a></h3>
+<p><strong>Read-Write Lock:</strong>
+→ Multiple readers OR one writer. Good for read-heavy data.</p>
+<p><strong>Atomic Operations:</strong>
+→ Indivisible hardware instructions (test-and-set, compare-and-swap).</p>
+<p><strong>CAS (Compare-And-Swap):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Expected = current value
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>New = desired value
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>If memory == expected: memory = new (success)
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>Else: fail, retry
+</code></pre></div>
+→ Lock-free programming foundation.</p>
+<h3 id="memory-mapping-mmap">Memory Mapping (mmap)<a class="headerlink" href="#memory-mapping-mmap" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>fd = open(&quot;file.txt&quot;)
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>mmap(addr, length, prot, flags, fd, offset)
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    ↓
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>File mapped to virtual address space
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    ↓
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>Access as array — page faults load from disk
+</code></pre></div>
+<p><strong>Shared Libraries:</strong>
+→ libc.so mapped into every process. Shared read-only pages.</p>
+<h3 id="copy-on-write-fork-efficiency">Copy-on-Write (fork efficiency)<a class="headerlink" href="#copy-on-write-fork-efficiency" title="Permanent link">&para;</a></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Parent: pages marked read-only
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    ↓ fork()
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Child: shares same pages
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    ↓ Either writes
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>OS: copies only modified page
+</code></pre></div>
+→ fork() of large process is fast (no immediate copy).</p>
+<h3 id="concurrency-issues">Concurrency Issues<a class="headerlink" href="#concurrency-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Thread Safety:</strong>
+→ Correct behavior with multiple threads. Use locks, atomics, or immutable data.</p>
+<p><strong>Lock Contention:</strong>
+→ Multiple threads waiting for same lock. Solution: finer locks, lock-free.</p>
+<p><strong>False Sharing:</strong>
+→ Two threads modify different variables on same cache line. Cache invalidates unnecessarily. Fix: pad to cache line size (64 bytes).</p>
+<h3 id="context-switching-complete">Context Switching (Complete)<a class="headerlink" href="#context-switching-complete" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>1. Save CPU registers to PCB (kernel stack)
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>2. Update PCB state (Running → Ready/Blocked)
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>3. Move PCB to appropriate queue
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>4. Select next process (scheduler)
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>5. Update PCB state (Ready → Running)
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>6. Restore registers from PCB
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>7. Jump to saved PC
+</code></pre></div>
+<h3 id="kernel-architecture">Kernel Architecture<a class="headerlink" href="#kernel-architecture" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Structure</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Monolithic</strong></td>
+<td>All in one kernel space</td>
+<td>Linux, early Windows</td>
+</tr>
+<tr>
+<td><strong>Microkernel</strong></td>
+<td>Minimal kernel, services in user space</td>
+<td>Minix, QNX</td>
+</tr>
+<tr>
+<td><strong>Hybrid</strong></td>
+<td>Mix of both</td>
+<td>Windows NT, macOS (XNU)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Linux:</strong> Monolithic with loadable modules.
+<strong>Windows:</strong> Hybrid (NT kernel + user services).
+<strong>macOS:</strong> Hybrid (XNU = Mach microkernel + BSD layer).</p>
+<hr />
+<h2 id="priority-4-modern-os-concepts">PRIORITY 4 — MODERN OS CONCEPTS<a class="headerlink" href="#priority-4-modern-os-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="virtualization">Virtualization<a class="headerlink" href="#virtualization" title="Permanent link">&para;</a></h3>
+<p><strong>Hypervisor:</strong>
+→ Software creating/running VMs.</p>
+<p><strong>Type 1 (Bare Metal):</strong>
+→ Runs directly on hardware. VMware ESXi, Xen, Hyper-V.</p>
+<p><strong>Type 2 (Hosted):</strong>
+→ Runs on host OS. VMware Workstation, VirtualBox.</p>
+<p><strong>Guest OS:</strong>
+→ OS running inside VM. Thinks it has real hardware.</p>
+<h3 id="containers">Containers<a class="headerlink" href="#containers" title="Permanent link">&para;</a></h3>
+<p><strong>Namespace:</strong>
+→ Isolation of PID, network, mount, user. Process sees only its namespace.</p>
+<p><strong>cgroups:</strong>
+→ Limit CPU, memory, I/O per group of processes.</p>
+<p><strong>Container Isolation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>App + Libraries → Container Runtime (Docker) → Host OS Kernel
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    ↓
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Namespaces isolate view
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>cgroups limit resources
+</code></pre></div>
+→ Shares host kernel. Lightweight vs VMs.</p>
+<h3 id="linux-cfs-completely-fair-scheduler">Linux CFS (Completely Fair Scheduler)<a class="headerlink" href="#linux-cfs-completely-fair-scheduler" title="Permanent link">&para;</a></h3>
+<p>→ Each task gets "virtual runtime" proportional to weight.
+→ Pick task with smallest vruntime. Fair share of CPU.</p>
+<h3 id="numa-non-uniform-memory-access">NUMA (Non-Uniform Memory Access)<a class="headerlink" href="#numa-non-uniform-memory-access" title="Permanent link">&para;</a></h3>
+<p>→ Multi-CPU systems: each CPU has local RAM.
+→ Accessing remote CPU's RAM = slower.
+→ OS tries to allocate memory on same node as CPU.</p>
+<h3 id="huge-pages">Huge Pages<a class="headerlink" href="#huge-pages" title="Permanent link">&para;</a></h3>
+<p>→ Why databases use them: Fewer TLB entries, fewer page faults, better performance for large contiguous memory.</p>
+<h3 id="cache-coherence">Cache Coherence<a class="headerlink" href="#cache-coherence" title="Permanent link">&para;</a></h3>
+<p>→ Multiple CPU cores have separate caches. Coherence protocol (MESI) ensures all see same value.</p>
+<hr />
+<h2 id="linux-concepts">LINUX CONCEPTS<a class="headerlink" href="#linux-concepts" title="Permanent link">&para;</a></h2>
+<p><strong>Process IDs:</strong>
+- PID: Process ID
+- PPID: Parent PID
+- PID 1: init/systemd</p>
+<p><strong>Signals:</strong>
+- SIGKILL (9): Force kill, can't catch
+- SIGTERM (15): Graceful shutdown
+- SIGSEGV: Segmentation fault</p>
+<p><strong>/proc:</strong>
+→ Virtual filesystem exposing kernel data. /proc/PID/ for process info.</p>
+<p><strong>Process Tree:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>systemd (1)
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>  ├─ sshd
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>  │   └─ bash
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>  │       └─ python app.py
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>  └─ nginx
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>      ├─ worker 1
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>      └─ worker 2
+</code></pre></div></p>
+<p><strong>File Permissions:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>-rwxr-xr--  user group others
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>chmod 754 file
+</code></pre></div></p>
+<p><strong>Environment Variables:</strong>
+→ KEY=VALUE pairs. PATH, HOME, etc. Inherited by child processes.</p>
+<p><strong>Background Processes:</strong>
+→ <code>command &amp;</code> — runs detached. <code>fg</code> to bring back.</p>
+<hr />
+<h2 id="practical-commands">PRACTICAL COMMANDS<a class="headerlink" href="#practical-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ps</code></td>
+<td>List processes</td>
+</tr>
+<tr>
+<td><code>top</code> / <code>htop</code></td>
+<td>Real-time process viewer</td>
+</tr>
+<tr>
+<td><code>kill PID</code></td>
+<td>Send signal to process</td>
+</tr>
+<tr>
+<td><code>killall name</code></td>
+<td>Kill by name</td>
+</tr>
+<tr>
+<td><code>nice</code> / <code>renice</code></td>
+<td>Adjust priority</td>
+</tr>
+<tr>
+<td><code>free</code></td>
+<td>Memory usage</td>
+</tr>
+<tr>
+<td><code>vmstat</code></td>
+<td>Virtual memory stats</td>
+</tr>
+<tr>
+<td><code>iostat</code></td>
+<td>I/O statistics</td>
+</tr>
+<tr>
+<td><code>strace</code></td>
+<td>Trace system calls</td>
+</tr>
+<tr>
+<td><code>lsof</code></td>
+<td>List open files</td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td>Disk free space</td>
+</tr>
+<tr>
+<td><code>du</code></td>
+<td>Directory usage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="the-complete-workflow-what-happens-when-you-run-a-program">🔄 THE COMPLETE WORKFLOW: "What happens when you run a program?"<a class="headerlink" href="#the-complete-workflow-what-happens-when-you-run-a-program" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>1. SHELL PARSING
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>   You type: ./myapp
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>   Shell parses command, finds executable
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>2. FORK()
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>   Shell forks → Parent shell + Child shell (identical)
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>3. EXEC()
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>   Child calls execve(&quot;./myapp&quot;)
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>   Replaces child memory with myapp&#39;s code/data
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>4. LOADER
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>   OS loader:
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>   - Allocates virtual address space
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>   - Maps executable segments (text, data, bss)
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>   - Maps shared libraries (ld-linux.so)
+<a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>   - Sets up stack, heap
+<a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>   - Jumps to _start
+<a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>
+<a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>5. RUNTIME INITIALIZATION
+<a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>   - Dynamic linker resolves symbols
+<a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>   - Constructors run
+<a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>   - main() called
+<a id="__codelineno-26-24" name="__codelineno-26-24" href="#__codelineno-26-24"></a>
+<a id="__codelineno-26-25" name="__codelineno-26-25" href="#__codelineno-26-25"></a>6. EXECUTION
+<a id="__codelineno-26-26" name="__codelineno-26-26" href="#__codelineno-26-26"></a>   Process runs in user mode
+<a id="__codelineno-26-27" name="__codelineno-26-27" href="#__codelineno-26-27"></a>   System calls trap to kernel
+<a id="__codelineno-26-28" name="__codelineno-26-28" href="#__codelineno-26-28"></a>
+<a id="__codelineno-26-29" name="__codelineno-26-29" href="#__codelineno-26-29"></a>7. TERMINATION
+<a id="__codelineno-26-30" name="__codelineno-26-30" href="#__codelineno-26-30"></a>   main() returns → exit() → Kernel frees resources
+<a id="__codelineno-26-31" name="__codelineno-26-31" href="#__codelineno-26-31"></a>   Parent wait() collects status
+<a id="__codelineno-26-32" name="__codelineno-26-32" href="#__codelineno-26-32"></a>   If parent dead: child → orphan → adopted by init
+<a id="__codelineno-26-33" name="__codelineno-26-33" href="#__codelineno-26-33"></a>   If parent doesn&#39;t wait: zombie briefly
+</code></pre></div>
+<hr />
+<h2 id="complete-workflow-what-happens-after-fork">🔄 COMPLETE WORKFLOW: "What happens after fork()?"<a class="headerlink" href="#complete-workflow-what-happens-after-fork" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Parent Process (PID 100)
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    ↓ fork()
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    ↓
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>Kernel:
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>  1. Allocates new PID (101)
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>  2. Creates child PCB
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>  3. Copies parent&#39;s page table (COW)
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>  4. Marks all pages read-only
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>  5. Adds child to ready queue
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>    ↓
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>Parent returns: PID = 101 (child&#39;s PID)
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>Child returns: PID = 0
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>    ↓
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>Both continue from same instruction after fork()
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>    ↓
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>Whoever writes first → Page fault → OS copies page → marks writable
+</code></pre></div>
+<hr />
+<h2 id="quick-answer-cheat-sheet">🔥 QUICK ANSWER CHEAT SHEET<a class="headerlink" href="#quick-answer-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What does OS do?</td>
+<td>Manages hardware, provides services, isolates processes</td>
+</tr>
+<tr>
+<td>Why can't apps access hardware directly?</td>
+<td>Security, stability, fairness</td>
+</tr>
+<tr>
+<td>What is PCB?</td>
+<td>Process metadata: PID, registers, memory, files, state</td>
+</tr>
+<tr>
+<td>Why context switching expensive?</td>
+<td>Save/restore registers, cache/TLB flush</td>
+</tr>
+<tr>
+<td>Program vs Process?</td>
+<td>Program = file; Process = execution instance</td>
+</tr>
+<tr>
+<td>Zombie vs Orphan?</td>
+<td>Zombie = dead, parent didn't wait; Orphan = parent died, adopted by init</td>
+</tr>
+<tr>
+<td>Why threads lighter?</td>
+<td>Share address space, only need stack+registers</td>
+</tr>
+<tr>
+<td>When processes over threads?</td>
+<td>Security isolation, crash containment</td>
+</tr>
+<tr>
+<td>Why Round Robin?</td>
+<td>Fair time-sharing, responsive</td>
+</tr>
+<tr>
+<td>What is race condition?</td>
+<td>Unpredictable result from interleaved access</td>
+</tr>
+<tr>
+<td>Mutex vs Semaphore?</td>
+<td>Mutex = binary, owner unlocks; Semaphore = counting, any signals</td>
+</tr>
+<tr>
+<td>Explain deadlock</td>
+<td>Circular wait for resources, all 4 conditions hold</td>
+</tr>
+<tr>
+<td>How DBs avoid deadlocks?</td>
+<td>Timeouts, lock ordering, optimistic locking</td>
+</tr>
+<tr>
+<td>Why virtual memory?</td>
+<td>Larger space, isolation, sharing, simplified loading</td>
+</tr>
+<tr>
+<td>What happens in page fault?</td>
+<td>Trap → find frame → load from disk → update table → restart</td>
+</tr>
+<tr>
+<td>Internal vs External fragmentation?</td>
+<td>Internal = wasted inside block; External = wasted between blocks</td>
+</tr>
+<tr>
+<td>Why TLB?</td>
+<td>Cache page table entries, avoid 2 memory accesses</td>
+</tr>
+<tr>
+<td>How address translation works?</td>
+<td>Page number → frame via page table; offset stays same</td>
+</tr>
+<tr>
+<td>What happens when RAM full?</td>
+<td>Page replacement → swap victim to disk</td>
+</tr>
+<tr>
+<td>Why not FIFO?</td>
+<td>Belady's anomaly</td>
+</tr>
+<tr>
+<td>Why LRU?</td>
+<td>Near-optimal, practical</td>
+</tr>
+<tr>
+<td>What is inode?</td>
+<td>File metadata + pointers to data blocks</td>
+</tr>
+<tr>
+<td>How Linux locates file?</td>
+<td>Path → directories → inodes → data blocks</td>
+</tr>
+<tr>
+<td>Why SCAN &gt; FCFS?</td>
+<td>Less head movement, better throughput</td>
+</tr>
+<tr>
+<td>System call vs function call?</td>
+<td>System call = kernel mode switch; Function call = user mode</td>
+</tr>
+<tr>
+<td>Why system call expensive?</td>
+<td>Mode switch, security checks, cache effects</td>
+</tr>
+<tr>
+<td>What happens during interrupt?</td>
+<td>Save state → run handler → restore state</td>
+</tr>
+<tr>
+<td>Why DMA?</td>
+<td>CPU free during bulk transfer</td>
+</tr>
+<tr>
+<td>Why shared memory fastest IPC?</td>
+<td>No kernel copy, direct access</td>
+</tr>
+<tr>
+<td>Pipes vs Sockets?</td>
+<td>Pipes = local only; Sockets = local + network</td>
+</tr>
+<tr>
+<td>User vs Kernel mode?</td>
+<td>User = restricted; Kernel = full hardware access</td>
+</tr>
+<tr>
+<td>How scheduler decides?</td>
+<td>Algorithm + priority + queue</td>
+</tr>
+<tr>
+<td>Why fork() uses COW?</td>
+<td>Avoid copying all pages immediately</td>
+</tr>
+<tr>
+<td>How mmap works?</td>
+<td>File mapped to address space, page faults load lazily</td>
+</tr>
+<tr>
+<td>How Linux isolates containers?</td>
+<td>Namespaces (view) + cgroups (resources)</td>
+</tr>
+<tr>
+<td>Why locks in multithreading?</td>
+<td>Prevent race conditions on shared data</td>
+</tr>
+<tr>
+<td>Deadlock vs Starvation?</td>
+<td>Deadlock = no progress; Starvation = one process excluded</td>
+</tr>
+<tr>
+<td>What is Copy-on-Write?</td>
+<td>Share pages until write, then copy only modified page</td>
+</tr>
+<tr>
+<td>How does exec() work?</td>
+<td>Replaces process image, keeps PID</td>
+</tr>
+<tr>
+<td>Why are threads faster?</td>
+<td>Less creation overhead, shared memory</td>
+</tr>
+<tr>
+<td>What is context switching?</td>
+<td>Saving one process state, loading another</td>
+</tr>
+<tr>
+<td>What is virtual memory?</td>
+<td>Illusion of large RAM using disk</td>
+</tr>
+<tr>
+<td>Explain paging</td>
+<td>Fixed-size blocks: pages (logical) → frames (physical)</td>
+</tr>
+<tr>
+<td>What is TLB?</td>
+<td>Cache for page table entries</td>
+</tr>
+<tr>
+<td>Mutex vs Semaphore?</td>
+<td>Mutex = 1 owner; Semaphore = N permits</td>
+</tr>
+<tr>
+<td>What is thrashing?</td>
+<td>Excessive page faults, CPU busy swapping</td>
+</tr>
+<tr>
+<td>How does CFS work?</td>
+<td>Pick task with smallest virtual runtime</td>
+</tr>
+<tr>
+<td>What is NUMA?</td>
+<td>CPU has local RAM; remote access slower</td>
+</tr>
+<tr>
+<td>Why huge pages?</td>
+<td>Fewer TLB entries, better for large memory</td>
+</tr>
+<tr>
+<td>What is cache coherence?</td>
+<td>All CPU caches see same value</td>
+</tr>
+<tr>
+<td>Monolithic vs Microkernel?</td>
+<td>Mono = all in kernel; Micro = minimal kernel, services user-space</td>
+</tr>
+<tr>
+<td>How containers differ from VMs?</td>
+<td>Containers share kernel; VMs have own kernel</td>
+</tr>
+<tr>
+<td>What is a daemon?</td>
+<td>Background process, no terminal, parent = init</td>
+</tr>
+<tr>
+<td>What is spooling?</td>
+<td>Queue I/O jobs for independent processing</td>
+</tr>
+<tr>
+<td>What is journaling?</td>
+<td>Log changes before applying for crash recovery</td>
+</tr>
+<tr>
+<td>What is an atomic operation?</td>
+<td>Indivisible, hardware-guaranteed</td>
+</tr>
+<tr>
+<td>What is CAS?</td>
+<td>Compare-And-Swap: lock-free synchronization</td>
+</tr>
+<tr>
+<td>What is false sharing?</td>
+<td>Different vars on same cache line cause invalidation</td>
+</tr>
+<tr>
+<td>What is lock contention?</td>
+<td>Multiple threads waiting for same lock</td>
+</tr>
+<tr>
+<td>What is thread safety?</td>
+<td>Correct behavior under concurrent access</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="skip-these-unless-systemskernel-role">❌ SKIP THESE (Unless Systems/Kernel Role)<a class="headerlink" href="#skip-these-unless-systemskernel-role" title="Permanent link">&para;</a></h2>
+<p>Linux kernel source internals, kernel module dev, device drivers, bootloader/BIOS, advanced NUMA, ext4 B-tree internals, interrupt controller architecture, scheduler implementation, SLAB/SLUB allocators, real-time kernel internals</p>
+<hr />
+<p><strong>Revision Order:</strong> Processes → Threads → CPU Scheduling → Synchronization → Deadlocks → Memory Management → Paging → Virtual Memory → Page Replacement → System Calls → IPC → File Systems → Disk Scheduling → Interrupts → I/O → Kernel Architecture → Linux Process Management → Containers/Virtualization</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../dsa/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Data Structures &amp; Algorithms">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Data Structures & Algorithms
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../computer-networks/" class="md-footer__link md-footer__link--next" aria-label="Next: Computer Networks">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Computer Networks
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

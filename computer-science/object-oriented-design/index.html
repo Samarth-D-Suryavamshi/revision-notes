@@ -1,0 +1,2387 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/object-oriented-design/">
+      
+      
+        <link rel="prev" href="../oop/">
+      
+      
+        <link rel="next" href="../design-patterns/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Object-Oriented Design - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#oodlld-interview-notes-system-flow-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Object-Oriented Design
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="oodlld-interview-notes-system-flow-approach">OOD/LLD Interview Notes — System Flow Approach<a class="headerlink" href="#oodlld-interview-notes-system-flow-approach" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="priority-1-ood-fundamentals">Priority 1 — OOD Fundamentals<a class="headerlink" href="#priority-1-ood-fundamentals" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduction-to-object-oriented-design">1. Introduction to Object-Oriented Design<a class="headerlink" href="#1-introduction-to-object-oriented-design" title="Permanent link">&para;</a></h2>
+<p><strong>OOD vs OOP</strong> → OOP is the <em>tool</em> (classes, objects), OOD is the <em>process</em> (how to design them).</p>
+<p><strong>HLD vs LLD</strong> → HLD = "How many servers?" | LLD = "What classes handle payment?"</p>
+<p><strong>Design Flow</strong> → Requirements → Identify Classes → Assign Responsibilities → Define Relationships → Apply Patterns → Evaluate</p>
+<p><strong>Trade-offs</strong> → Speed vs Maintainability, Complexity vs Flexibility, Memory vs Performance</p>
+<hr />
+<h2 id="2-requirement-analysis">2. Requirement Analysis<a class="headerlink" href="#2-requirement-analysis" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Interviewer asks → You ask "Who uses it? What do they do? Any constraints?" → List actors → List use cases → Identify functional vs non-functional</p>
+<p><strong>Functional</strong> = What the system does ("User can book a ticket")
+<strong>Non-Functional</strong> = How well it does it ("Booking completes in &lt;2s")
+<strong>Assumptions</strong> = Things you assume exist ("User is already registered")
+<strong>Constraints</strong> = Limitations ("Only credit card payments")</p>
+<p><strong>Ambiguous Requirements</strong> → Ask clarifying questions, state assumptions explicitly, don't guess silently.</p>
+<hr />
+<h2 id="3-identifying-classes">3. Identifying Classes<a class="headerlink" href="#3-identifying-classes" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Read requirement → "Who/what are the nouns?" → Categorize them</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entity</strong></td>
+<td>User, Book, Order</td>
+<td>Has identity, persists</td>
+</tr>
+<tr>
+<td><strong>Value Object</strong></td>
+<td>Address, Money, Date</td>
+<td>Immutable, no identity, compared by value</td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>PaymentService, NotificationService</td>
+<td>Stateless, business logic</td>
+</tr>
+<tr>
+<td><strong>Manager</strong></td>
+<td>OrderManager, InventoryManager</td>
+<td>Coordinates multiple objects</td>
+</tr>
+<tr>
+<td><strong>Controller</strong></td>
+<td>BookingController, AuthController</td>
+<td>Handles requests, delegates</td>
+</tr>
+<tr>
+<td><strong>Repository</strong></td>
+<td>UserRepository, BookRepository</td>
+<td>Data access abstraction</td>
+</tr>
+<tr>
+<td><strong>Utility</strong></td>
+<td>DateUtils, StringUtils</td>
+<td>Static helper methods</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Good Class</strong> = Single purpose, clear name, well-defined responsibility, cohesive.</p>
+<hr />
+<h2 id="4-object-responsibilities">4. Object Responsibilities<a class="headerlink" href="#4-object-responsibilities" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Class created → What does it know? What can it do? → Should it do this or delegate?</p>
+<p><strong>Single Responsibility</strong> → A class should have ONE reason to change. Example: <code>Book</code> manages book data, <code>BookService</code> manages book operations.</p>
+<p><strong>Information Expert (GRASP)</strong> → Assign responsibility to the class that has the information needed. Example: <code>Order</code> calculates total price because it has <code>items[]</code>.</p>
+<p><strong>Cohesion</strong> = How related the class's responsibilities are. High cohesion = focused class.</p>
+<hr />
+<h2 id="5-relationships-between-classes">5. Relationships Between Classes<a class="headerlink" href="#5-relationships-between-classes" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Two classes interact → How tightly are they bound?</p>
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th>Strength</th>
+<th>Example</th>
+<th>"Has-a" or "Is-a"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Association</strong></td>
+<td>Weak</td>
+<td><code>User</code> has <code>Order</code> (independent)</td>
+<td>Has-a</td>
+</tr>
+<tr>
+<td><strong>Aggregation</strong></td>
+<td>Medium</td>
+<td><code>Department</code> has <code>Employee</code> (employees exist without dept)</td>
+<td>Has-a (loose)</td>
+</tr>
+<tr>
+<td><strong>Composition</strong></td>
+<td>Strong</td>
+<td><code>Car</code> has <code>Engine</code> (engine dies with car)</td>
+<td>Has-a (strong)</td>
+</tr>
+<tr>
+<td><strong>Dependency</strong></td>
+<td>Very Weak</td>
+<td><code>OrderService</code> uses <code>PaymentGateway</code> (passed as param)</td>
+<td>Uses-a</td>
+</tr>
+<tr>
+<td><strong>Inheritance</strong></td>
+<td>Strong</td>
+<td><code>SavingsAccount</code> extends <code>BankAccount</code></td>
+<td>Is-a</td>
+</tr>
+<tr>
+<td><strong>Realization</strong></td>
+<td>Medium</td>
+<td><code>PayPalPayment</code> implements <code>Payment</code> interface</td>
+<td>Implements</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Inheritance vs Composition</strong> → Prefer composition. Inheritance breaks if parent changes. Composition: <code>Car</code> <em>has</em> <code>Engine</code> (can swap engines) vs <code>Car</code> <em>is</em> <code>Vehicle</code> (fixed hierarchy).</p>
+<hr />
+<h1 id="priority-2-uml-basics">Priority 2 — UML Basics<a class="headerlink" href="#priority-2-uml-basics" title="Permanent link">&para;</a></h1>
+<h2 id="6-uml-fundamentals">6. UML Fundamentals<a class="headerlink" href="#6-uml-fundamentals" title="Permanent link">&para;</a></h2>
+<p><strong>When to use</strong> → Communicate design, document, plan before coding.</p>
+<p><strong>Types:</strong> Structural (Class, Object) | Behavioral (Sequence, Use Case, Activity, State) | Implementation (Component, Deployment)</p>
+<hr />
+<h2 id="7-class-diagram-highest-priority">7. Class Diagram (Highest Priority)<a class="headerlink" href="#7-class-diagram-highest-priority" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Design classes → Draw boxes → Add attributes/methods → Connect with relationships</p>
+<p><strong>Syntax:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>+------------------+
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>|    ClassName     |  ← Top: Name
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>| - privateAttr    |  ← Middle: Attributes (-private, #protected, +public)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>| + publicMethod() |  ← Bottom: Methods
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+------------------+
+</code></pre></div></p>
+<p><strong>Relationships in UML:</strong>
+- Association: <code>——</code> (solid line)
+- Aggregation: <code>◇——</code> (empty diamond)
+- Composition: <code>◆——</code> (filled diamond)
+- Inheritance: <code>——▷</code> (arrow to parent)
+- Realization: <code>---▷</code> (dashed arrow to interface)
+- Dependency: <code>---▷</code> (dashed arrow, labeled «use»)</p>
+<p><strong>Multiplicity:</strong> <code>1..*</code> = one or more, <code>0..1</code> = optional, <code>1</code> = exactly one</p>
+<p><strong>Example — Library System:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[Member] 1 ———— * [Borrowing] * ———— 1 [Book]
+</code></pre></div>
+One member has many borrowings. Each borrowing links one book.</p>
+<hr />
+<h2 id="8-sequence-diagram">8. Sequence Diagram<a class="headerlink" href="#8-sequence-diagram" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> User action → Object 1 calls Object 2 → Object 2 returns → Object 1 responds to user</p>
+<p><strong>Elements:</strong>
+- <strong>Lifeline</strong> = Vertical dashed line (object's timeline)
+- <strong>Message</strong> = Horizontal arrow (method call)
+- <strong>Activation Bar</strong> = Rectangle on lifeline (object is active/processing)
+- <strong>Return Message</strong> = Dashed arrow (return value)</p>
+<p><strong>Example — Place Order:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>User → OrderController: placeOrder()
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>OrderController → OrderService: createOrder()
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>OrderService → PaymentService: processPayment()
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>PaymentService → PaymentService: validate()
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>PaymentService → OrderService: return paymentResult
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>OrderService → OrderController: return order
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>OrderController → User: orderConfirmation
+</code></pre></div></p>
+<hr />
+<h2 id="9-use-case-diagram">9. Use Case Diagram<a class="headerlink" href="#9-use-case-diagram" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Who interacts with the system? What do they do?</p>
+<p><strong>Elements:</strong>
+- <strong>Actor</strong> = Stick figure (user, external system)
+- <strong>Use Case</strong> = Oval (action: "Place Order", "Cancel Booking")
+- <strong>Relationships</strong> = <code>&lt;&lt;include&gt;&gt;</code> (mandatory), <code>&lt;&lt;extend&gt;&gt;</code> (optional)</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[Customer] ———→ (Browse Products)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>[Customer] ———→ (Place Order) &lt;&lt;include&gt;&gt; (Process Payment)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[Admin] ———→ (Manage Inventory)
+</code></pre></div></p>
+<hr />
+<h2 id="10-activity-diagram-basic">10. Activity Diagram (Basic)<a class="headerlink" href="#10-activity-diagram-basic" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Start → Action → Decision → Parallel actions → End</p>
+<p><strong>Elements:</strong>
+- Start/End: ● / ◉
+- Action: Rectangle
+- Decision: ◇ (diamond)
+- Fork/Join: ▬ (horizontal bar) for parallel activities</p>
+<p><strong>Example — Order Processing:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>● → [Receive Order] → ◇{valid?} → Yes → [Process Payment] → [Ship Order] → ◉
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                      ↓ No
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                    [Reject Order] → ◉
+</code></pre></div></p>
+<hr />
+<h2 id="11-state-machine-diagram-basic">11. State Machine Diagram (Basic)<a class="headerlink" href="#11-state-machine-diagram-basic" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Object created → Events change its state → Object destroyed</p>
+<p><strong>Elements:</strong>
+- States: Rounded rectangles
+- Transitions: Arrows labeled with event</p>
+<p><strong>Example — Order States:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[Created] —pay→ [Paid] —ship→ [Shipped] —deliver→ [Delivered]
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   ↓
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a> cancel
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>   ↓
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>[Cancelled]
+</code></pre></div></p>
+<hr />
+<h1 id="priority-3-design-principles">Priority 3 — Design Principles<a class="headerlink" href="#priority-3-design-principles" title="Permanent link">&para;</a></h1>
+<h2 id="solid-principles">SOLID Principles<a class="headerlink" href="#solid-principles" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Write code → Check against SOLID → Refactor if violated</p>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>Definition</th>
+<th>Violation Example</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SRP</strong></td>
+<td>One class, one reason to change</td>
+<td><code>User</code> class handles auth + profile + notifications</td>
+<td>Split into <code>AuthService</code>, <code>ProfileService</code>, <code>NotificationService</code></td>
+</tr>
+<tr>
+<td><strong>OCP</strong></td>
+<td>Open for extension, closed for modification</td>
+<td>Add <code>if-else</code> for new payment type</td>
+<td>Use <code>Payment</code> interface + new implementations</td>
+</tr>
+<tr>
+<td><strong>LSP</strong></td>
+<td>Child class should substitute parent</td>
+<td><code>Square</code> extends <code>Rectangle</code> (setWidth breaks area)</td>
+<td>Redesign hierarchy or use composition</td>
+</tr>
+<tr>
+<td><strong>ISP</strong></td>
+<td>Don't force clients to depend on unused methods</td>
+<td><code>Printer</code> interface has <code>print()</code>, <code>scan()</code>, <code>fax()</code></td>
+<td>Split into <code>Printer</code>, <code>Scanner</code>, <code>Fax</code> interfaces</td>
+</tr>
+<tr>
+<td><strong>DIP</strong></td>
+<td>Depend on abstractions, not concretions</td>
+<td><code>OrderService</code> creates <code>PayPalPayment</code> directly</td>
+<td><code>OrderService</code> depends on <code>Payment</code> interface, injected at runtime</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="grasp-principles">GRASP Principles<a class="headerlink" href="#grasp-principles" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>When to Apply</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Information Expert</strong></td>
+<td>Who should do the work?</td>
+<td><code>Order</code> calculates total (has items)</td>
+</tr>
+<tr>
+<td><strong>Creator</strong></td>
+<td>Who creates object X?</td>
+<td><code>Order</code> creates <code>OrderItem</code> (contains it)</td>
+</tr>
+<tr>
+<td><strong>Controller</strong></td>
+<td>Who handles the request?</td>
+<td><code>BookingController</code> handles booking requests</td>
+</tr>
+<tr>
+<td><strong>Low Coupling</strong></td>
+<td>Minimize dependencies</td>
+<td><code>OrderService</code> uses <code>Payment</code> interface, not <code>PayPalPayment</code></td>
+</tr>
+<tr>
+<td><strong>High Cohesion</strong></td>
+<td>Keep related things together</td>
+<td><code>InvoiceService</code> only handles invoices</td>
+</tr>
+<tr>
+<td><strong>Polymorphism</strong></td>
+<td>Use interfaces for varying behavior</td>
+<td><code>Notification</code> interface → <code>EmailNotification</code>, <code>SMSNotification</code></td>
+</tr>
+<tr>
+<td><strong>Pure Fabrication</strong></td>
+<td>Create a class that doesn't represent a real concept</td>
+<td><code>PaymentProcessor</code> (no real-world entity)</td>
+</tr>
+<tr>
+<td><strong>Indirection</strong></td>
+<td>Introduce intermediary to reduce coupling</td>
+<td><code>Repository</code> between service and database</td>
+</tr>
+<tr>
+<td><strong>Protected Variations</strong></td>
+<td>Protect from future changes</td>
+<td><code>Cache</code> interface → can swap Redis/Memcached without changing service</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="dry-kiss-yagni">DRY, KISS, YAGNI<a class="headerlink" href="#dry-kiss-yagni" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>DRY</strong> = Extract common logic. Don't copy-paste validation code across 5 classes.</li>
+<li><strong>KISS</strong> = Simple solution first. Don't use microservices for a blog.</li>
+<li><strong>YAGNI</strong> = Don't build features "just in case". No "future-proof" over-engineering.</li>
+</ul>
+<hr />
+<h2 id="composition-over-inheritance">Composition Over Inheritance<a class="headerlink" href="#composition-over-inheritance" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Need to reuse behavior → Ask: "Is-a or Has-a?" → Prefer Has-a</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// BAD: Inheritance</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kd">class</span> <span class="nc">Bird</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kd">class</span> <span class="nc">Penguin</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Bird</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Penguins can&#39;t fly!</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// GOOD: Composition</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kd">interface</span> <span class="nc">Flyable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kd">class</span> <span class="nc">Sparrow</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Flyable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fly</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">class</span> <span class="nc">Penguin</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// No fly behavior</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>When Inheritance is OK</strong> = True "is-a" relationship that won't change (e.g., <code>SavingsAccount</code> is a <code>BankAccount</code>).</p>
+<hr />
+<h1 id="priority-4-low-level-design-concepts">Priority 4 — Low-Level Design Concepts<a class="headerlink" href="#priority-4-low-level-design-concepts" title="Permanent link">&para;</a></h1>
+<h2 id="class-design">Class Design<a class="headerlink" href="#class-design" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Define class → What data? What operations? How to protect data?</p>
+<ul>
+<li><strong>Encapsulation</strong> = Private fields + public getters/setters. Control access.</li>
+<li><strong>Validation</strong> = Validate in constructor/setters. <code>new User("", -1)</code> should throw.</li>
+<li><strong>Access Modifiers</strong> = <code>private</code> (class), <code>protected</code> (package+subclass), <code>public</code> (all)</li>
+</ul>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">class</span> <span class="nc">User</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">;</span><span class="w">          </span><span class="c1">// Encapsulated</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">User</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">email</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">email</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="s">&quot;@&quot;</span><span class="p">))</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">();</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">();</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">email</span><span class="p">;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="c1">// getters only (immutable) or getters+setters (mutable)</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="interface-design">Interface Design<a class="headerlink" href="#interface-design" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Multiple implementations expected → Define interface → Code to interface</p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">interface</span> <span class="nc">Payment</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">pay</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kd">class</span> <span class="nc">PayPalPayment</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Payment</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kd">class</span> <span class="nc">StripePayment</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Payment</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">// Service depends on abstraction</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kd">class</span> <span class="nc">OrderService</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Payment</span><span class="w"> </span><span class="n">payment</span><span class="p">;</span><span class="w"> </span><span class="c1">// Not PayPalPayment!</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">OrderService</span><span class="p">(</span><span class="n">Payment</span><span class="w"> </span><span class="n">payment</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">payment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">payment</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="object-collaboration">Object Collaboration<a class="headerlink" href="#object-collaboration" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Object A needs something done → Passes message to Object B → B does it or delegates further</p>
+<ul>
+<li><strong>Message Passing</strong> = Calling methods on other objects</li>
+<li><strong>Delegation</strong> = Object A asks Object B to do the work (B has the expertise)</li>
+</ul>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">class</span> <span class="nc">Order</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="n">items</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getTotal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">items</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">mapToDouble</span><span class="p">(</span><span class="n">Item</span><span class="p">::</span><span class="n">getPrice</span><span class="p">).</span><span class="na">sum</span><span class="p">();</span><span class="w"> </span><span class="c1">// Delegates to Item</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="dependency-injection">Dependency Injection<a class="headerlink" href="#dependency-injection" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Class needs dependency → Don't create it inside → Receive it from outside</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>How</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Constructor</strong></td>
+<td>Pass via constructor</td>
+<td><code>new OrderService(new PayPalPayment())</code></td>
+</tr>
+<tr>
+<td><strong>Setter</strong></td>
+<td>Pass via setter</td>
+<td><code>service.setPayment(new StripePayment())</code></td>
+</tr>
+<tr>
+<td><strong>Interface</strong></td>
+<td>Class implements interface that provides dependency</td>
+<td>Rare in interviews</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Benefit</strong> = Easy to swap implementations, testable (mock dependencies).</p>
+<hr />
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong> Error occurs → Catch at right level → Return meaningful error or recover</p>
+<ul>
+<li><strong>Exceptions</strong> = For exceptional cases (network down, invalid input)</li>
+<li><strong>Validation</strong> = Check before operation (null checks, range checks)</li>
+<li><strong>Error Objects</strong> = Return result+error instead of throwing (e.g., <code>Result&lt;T, Error&gt;</code>)</li>
+</ul>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">Result</span><span class="o">&lt;</span><span class="n">Order</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">placeOrder</span><span class="p">(</span><span class="n">OrderRequest</span><span class="w"> </span><span class="n">req</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">req</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="s">&quot;Invalid request&quot;</span><span class="p">);</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">PaymentException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="na">error</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Result</span><span class="p">.</span><span class="na">success</span><span class="p">(</span><span class="n">order</span><span class="p">);</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h1 id="priority-5-design-patterns">Priority 5 — Design Patterns<a class="headerlink" href="#priority-5-design-patterns" title="Permanent link">&para;</a></h1>
+<h2 id="creational-patterns">Creational Patterns<a class="headerlink" href="#creational-patterns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>When to Use</th>
+<th>System Flow</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Singleton</strong></td>
+<td>One instance only</td>
+<td><code>getInstance()</code> → Create if null → Return instance</td>
+<td><code>DatabaseConnection</code>, <code>Logger</code></td>
+</tr>
+<tr>
+<td><strong>Factory Method</strong></td>
+<td>Don't know exact type at compile time</td>
+<td><code>createProduct()</code> → Returns <code>Product</code> interface</td>
+<td><code>NotificationFactory.create("email")</code> → <code>EmailNotification</code></td>
+</tr>
+<tr>
+<td><strong>Abstract Factory</strong></td>
+<td>Families of related objects</td>
+<td><code>createUI()</code> → Returns <code>WindowsButton</code> + <code>WindowsTextBox</code> together</td>
+<td>Cross-platform UI</td>
+</tr>
+<tr>
+<td><strong>Builder</strong></td>
+<td>Complex object with many optional params</td>
+<td><code>new Builder().setName().setAge().setAddress().build()</code></td>
+<td><code>HttpRequest</code>, <code>PizzaOrder</code></td>
+</tr>
+<tr>
+<td><strong>Prototype</strong></td>
+<td>Clone existing object</td>
+<td><code>original.clone()</code> → New object with same state</td>
+<td><code>GameCharacter</code> template</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="structural-patterns">Structural Patterns<a class="headerlink" href="#structural-patterns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>When to Use</th>
+<th>System Flow</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adapter</strong></td>
+<td>Incompatible interfaces</td>
+<td><code>OldAPI</code> → <code>Adapter</code> → <code>NewInterface</code></td>
+<td><code>LegacyPaymentAdapter</code> wraps old payment system</td>
+</tr>
+<tr>
+<td><strong>Bridge</strong></td>
+<td>Separate abstraction from implementation</td>
+<td><code>RemoteControl</code> (abstraction) → <code>Device</code> (implementation)</td>
+<td>TV remote controls different TV brands</td>
+</tr>
+<tr>
+<td><strong>Composite</strong></td>
+<td>Tree structure, treat individual and group same</td>
+<td><code>File</code> and <code>Folder</code> both implement <code>FileSystemComponent</code></td>
+<td>File system, Organization hierarchy</td>
+</tr>
+<tr>
+<td><strong>Decorator</strong></td>
+<td>Add behavior dynamically</td>
+<td><code>Coffee</code> → <code>MilkDecorator</code> → <code>SugarDecorator</code> → <code>getCost()</code></td>
+<td>Java I/O streams (<code>BufferedReader</code> wraps <code>FileReader</code>)</td>
+</tr>
+<tr>
+<td><strong>Facade</strong></td>
+<td>Simplify complex subsystem</td>
+<td><code>User</code> → <code>BookingFacade</code> → (Payment + Inventory + Notification)</td>
+<td><code>HomeTheaterFacade</code> (turns on TV + sound + lights)</td>
+</tr>
+<tr>
+<td><strong>Proxy</strong></td>
+<td>Control access to object</td>
+<td><code>Client</code> → <code>Proxy</code> → (check access) → <code>RealSubject</code></td>
+<td><code>ImageProxy</code> (loads image only when displayed)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="behavioral-patterns">Behavioral Patterns<a class="headerlink" href="#behavioral-patterns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>When to Use</th>
+<th>System Flow</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strategy</strong></td>
+<td>Multiple algorithms, interchangeable</td>
+<td><code>Context</code> → <code>setStrategy(A)</code> → <code>execute()</code> → Uses algorithm A</td>
+<td><code>PaymentContext</code> → <code>setStrategy(PayPal)</code> → <code>pay()</code></td>
+</tr>
+<tr>
+<td><strong>Observer</strong></td>
+<td>One change → many notifications</td>
+<td><code>Subject</code> state changes → <code>notify()</code> → All <code>Observer</code>s updated</td>
+<td><code>Newsletter</code> → notifies all <code>Subscriber</code>s</td>
+</tr>
+<tr>
+<td><strong>Command</strong></td>
+<td>Encapsulate request as object</td>
+<td><code>Client</code> → <code>Command</code> → <code>Invoker</code> → <code>Receiver.execute()</code></td>
+<td>Undo/Redo, Job queue</td>
+</tr>
+<tr>
+<td><strong>State</strong></td>
+<td>Object behavior changes with state</td>
+<td><code>Context</code> → <code>setState(Active)</code> → <code>doAction()</code> behaves differently</td>
+<td><code>Order</code> → <code>PendingState</code> → <code>PaidState</code> → <code>ShippedState</code></td>
+</tr>
+<tr>
+<td><strong>Iterator</strong></td>
+<td>Traverse collection without exposing internals</td>
+<td><code>collection.iterator()</code> → <code>hasNext()</code> → <code>next()</code></td>
+<td>Java <code>List.iterator()</code></td>
+</tr>
+<tr>
+<td><strong>Template Method</strong></td>
+<td>Common skeleton, varying steps</td>
+<td><code>AbstractClass.templateMethod()</code> → calls <code>step1()</code> (fixed) + <code>step2()</code> (override)</td>
+<td><code>DataExporter</code> → <code>fetchData()</code> (common) + <code>format()</code> (CSV/JSON vary)</td>
+</tr>
+<tr>
+<td><strong>Chain of Responsibility</strong></td>
+<td>Pass request along chain until handled</td>
+<td><code>Handler1.handle()</code> → Can't? → <code>Handler2.handle()</code> → ...</td>
+<td><code>Logger</code> → <code>INFO</code> → <code>DEBUG</code> → <code>ERROR</code> handlers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-6-common-lld-problems-system-flows">Priority 6 — Common LLD Problems (System Flows)<a class="headerlink" href="#priority-6-common-lld-problems-system-flows" title="Permanent link">&para;</a></h1>
+<h2 id="1-parking-lot-system">1. Parking Lot System<a class="headerlink" href="#1-parking-lot-system" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Vehicle enters → Gate scans ticket/vehicle → ParkingManager finds spot 
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>→ SpotAllocationStrategy (nearest/available) → Assigns spot → Ticket generated
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>→ Vehicle parks → Later: Vehicle exits → Payment calculated (hourly/daily)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>→ Payment processed → Spot freed → Ticket closed
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>Vehicle</code> (car/bike/truck), <code>ParkingSpot</code> (small/medium/large), <code>ParkingFloor</code>, <code>Ticket</code>, <code>Payment</code>, <code>ParkingManager</code>, <code>SpotAllocationStrategy</code> (Strategy pattern)</p>
+<p><strong>Patterns:</strong> Strategy (allocation), Singleton (manager), Factory (spot creation)</p>
+<hr />
+<h2 id="2-library-management-system">2. Library Management System<a class="headerlink" href="#2-library-management-system" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Member searches book → BookCatalog checks availability → Available? 
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>→ Librarian issues book → BorrowingRecord created → Due date set
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>→ Member returns → Fine calculated (if overdue) → Book back to catalog
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>Book</code>, <code>Member</code>, <code>Librarian</code>, <code>BorrowingRecord</code>, <code>BookCatalog</code>, <code>FineCalculator</code></p>
+<p><strong>Patterns:</strong> Singleton (catalog), Strategy (fine calculation)</p>
+<hr />
+<h2 id="3-atm-system">3. ATM System<a class="headerlink" href="#3-atm-system" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>User inserts card → CardReader validates → PIN entered → PIN verified 
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>→ Account accessed → Select transaction (withdraw/deposit/balance) 
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>→ Transaction processed → Cash dispensed/updated → Card ejected → Receipt
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>Card</code>, <code>Account</code>, <code>ATM</code>, <code>CashDispenser</code>, <code>Transaction</code> (withdraw/deposit/balance), <code>PINValidator</code></p>
+<p><strong>Patterns:</strong> State (ATM states: Idle → CardInserted → PINVerified → Transaction → Idle), Command (transactions)</p>
+<p><strong>State Machine:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>[Idle] —insertCard→ [CardInserted] —enterPIN→ [PINVerified] 
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>—selectTransaction→ [Processing] —complete→ [Idle]
+</code></pre></div></p>
+<hr />
+<h2 id="4-elevator-system">4. Elevator System<a class="headerlink" href="#4-elevator-system" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Request made (floor, direction) → Request added to queue 
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>→ ElevatorScheduler picks elevator (nearest/busy) → Elevator moves 
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>→ Stops at floor → Doors open/close → Continue to next request
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>Elevator</code>, <code>Floor</code>, <code>Request</code>, <code>ElevatorScheduler</code>, <code>ElevatorController</code></p>
+<p><strong>Patterns:</strong> Strategy (scheduling algorithm: FCFS, SCAN, LOOK), Observer (status updates)</p>
+<p><strong>Scheduling:</strong>
+- <strong>FCFS</strong> = First come first served (simple, inefficient)
+- <strong>SCAN</strong> = Elevator goes up, then down (like disk arm)
+- <strong>LOOK</strong> = SCAN but only goes to last request in each direction</p>
+<hr />
+<h2 id="5-movie-ticket-booking-system">5. Movie Ticket Booking System<a class="headerlink" href="#5-movie-ticket-booking-system" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>User selects movie → Selects theatre → Selects showtime → Seat selection 
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>→ Seat lock (5 min timer) → Payment → Booking confirmed → Ticket generated
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>→ Seat permanently booked
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>Movie</code>, <code>Theatre</code>, <code>Screen</code>, <code>Show</code>, <code>Seat</code>, <code>Booking</code>, <code>Payment</code>, <code>SeatLock</code></p>
+<p><strong>Patterns:</strong> State (booking: Pending → Locked → Paid → Confirmed → Cancelled), Observer (seat availability), Singleton (booking manager)</p>
+<hr />
+<h2 id="6-hotel-management-system">6. Hotel Management System<a class="headerlink" href="#6-hotel-management-system" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Guest searches → Checks room availability → Selects room type 
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>→ Reservation created → Payment → Booking confirmed → Check-in 
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>→ Room assigned → Stay → Check-out → Billing → Room freed
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>Guest</code>, <code>Room</code> (types: single/double/suite), <code>Reservation</code>, <code>Booking</code>, <code>Payment</code>, <code>Billing</code>, <code>RoomInventory</code></p>
+<p><strong>Patterns:</strong> Factory (room creation), Strategy (pricing: seasonal/loyalty)</p>
+<hr />
+<h2 id="7-cab-booking-system-uberola">7. Cab Booking System (Uber/Ola)<a class="headerlink" href="#7-cab-booking-system-uberola" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Rider requests ride → Location sent → Matching algorithm finds nearest drivers 
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>→ Driver notified → Driver accepts → Trip created → Driver arrives 
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>→ Ride starts → GPS tracking → Ride ends → Fare calculated (distance + time + surge) 
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>→ Payment → Rating
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>Rider</code>, <code>Driver</code>, <code>Trip</code>, <code>Location</code>, <code>MatchingStrategy</code>, <code>PricingStrategy</code>, <code>Payment</code></p>
+<p><strong>Patterns:</strong> Strategy (matching: nearest/rating-based, pricing: distance/time/surge), Observer (location updates), Singleton (trip manager)</p>
+<hr />
+<h2 id="8-food-delivery-system-swiggyzomato">8. Food Delivery System (Swiggy/Zomato)<a class="headerlink" href="#8-food-delivery-system-swiggyzomato" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>User browses restaurants → Selects items → Cart created → Places order 
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>→ Restaurant accepts → DeliveryPartner assigned (nearest/available) 
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>→ Partner picks up → Real-time tracking → Delivered → Payment → Rating
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>User</code>, <code>Restaurant</code>, <code>Menu</code>, <code>Item</code>, <code>Cart</code>, <code>Order</code>, <code>DeliveryPartner</code>, <code>Payment</code>, <code>Notification</code></p>
+<p><strong>Patterns:</strong> Observer (order status updates), Strategy (delivery assignment), State (order: Placed → Accepted → Prepared → PickedUp → Delivered)</p>
+<hr />
+<h2 id="9-online-shopping-system-amazon">9. Online Shopping System (Amazon)<a class="headerlink" href="#9-online-shopping-system-amazon" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>User browses → Adds to cart → Cart checkout → Address selection 
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>→ Payment → Order created → Inventory updated → Notification sent 
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>→ Order shipped → Delivered → Return possible (within window)
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>User</code>, <code>Product</code>, <code>Category</code>, <code>Cart</code>, <code>CartItem</code>, <code>Order</code>, <code>OrderItem</code>, <code>Inventory</code>, <code>Payment</code>, <code>Shipment</code></p>
+<p><strong>Patterns:</strong> Singleton (cart per user), Observer (inventory low stock), Strategy (payment methods), Factory (shipment types)</p>
+<hr />
+<h2 id="10-splitwise">10. Splitwise<a class="headerlink" href="#10-splitwise" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>User creates group → Adds members → Adds expense → Selects split type 
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>→ (Equal/Exact/Percentage) → Balances calculated → Simplified debts 
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>→ Settlement initiated → Payment recorded → Balances updated
+</code></pre></div></p>
+<p><strong>Key Classes:</strong> <code>User</code>, <code>Group</code>, <code>Expense</code>, <code>Split</code> (Equal/Exact/Percentage), <code>BalanceSheet</code>, <code>Settlement</code>, <code>Transaction</code></p>
+<p><strong>Patterns:</strong> Strategy (split types), Observer (balance updates), Singleton (balance manager)</p>
+<p><strong>Split Types:</strong>
+- <strong>Equal</strong> = Total / members
+- <strong>Exact</strong> = Each pays specific amount
+- <strong>Percentage</strong> = Each pays % of total</p>
+<p><strong>Simplify Debts:</strong> A owes B 100, B owes C 100 → A owes C 100 directly.</p>
+<hr />
+<h1 id="priority-7-design-evaluation">Priority 7 — Design Evaluation<a class="headerlink" href="#priority-7-design-evaluation" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow:</strong> Design complete → Ask these questions → Refactor if needed</p>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Check</th>
+<th>Example Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Extensibility</strong></td>
+<td>Can I add new feature without changing existing code?</td>
+<td>Use interfaces for payment types</td>
+</tr>
+<tr>
+<td><strong>Maintainability</strong></td>
+<td>Can another dev understand this in 6 months?</td>
+<td>Clear naming, single responsibility</td>
+</tr>
+<tr>
+<td><strong>Reusability</strong></td>
+<td>Can this component be used elsewhere?</td>
+<td>Generic <code>Payment</code> interface, not <code>PayPalPayment</code></td>
+</tr>
+<tr>
+<td><strong>Testability</strong></td>
+<td>Can I unit test this?</td>
+<td>Dependency injection, no static dependencies</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Will this work with 10x data?</td>
+<td>Avoid O(n²) loops, use efficient data structures</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Is the code self-explanatory?</td>
+<td>Meaningful names, small methods</td>
+</tr>
+<tr>
+<td><strong>Low Coupling</strong></td>
+<td>Do classes depend too much on each other?</td>
+<td>Interfaces, events, message queues</td>
+</tr>
+<tr>
+<td><strong>High Cohesion</strong></td>
+<td>Are class responsibilities focused?</td>
+<td><code>InvoiceService</code> only handles invoices</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interview Response:</strong> "My design uses Strategy for extensibility, follows SRP for maintainability, and uses DI for testability."</p>
+<hr />
+<h1 id="common-interview-scenarios-quick-checklist">Common Interview Scenarios — Quick Checklist<a class="headerlink" href="#common-interview-scenarios-quick-checklist" title="Permanent link">&para;</a></h1>
+<ol>
+<li><strong>Gather requirements</strong> → Ask "Who? What? Constraints?"</li>
+<li><strong>Identify entities</strong> → Nouns from requirements</li>
+<li><strong>Draw class diagram</strong> → Boxes, attributes, relationships</li>
+<li><strong>Define relationships</strong> → Association/Aggregation/Composition/Inheritance</li>
+<li><strong>Apply patterns</strong> → Strategy? Observer? Factory? State?</li>
+<li><strong>Sequence diagram</strong> → For key flow (e.g., place order)</li>
+<li><strong>Justify decisions</strong> → "I used composition because..."</li>
+<li><strong>Apply SOLID</strong> → "SRP: Each class has one job"</li>
+<li><strong>Discuss trade-offs</strong> → "This is simple now but can extend via..."</li>
+<li><strong>Handle new requirements</strong> → "Add new implementation of X interface"</li>
+</ol>
+<hr />
+<h1 id="quick-reference-pattern-problem-mapping">Quick Reference: Pattern → Problem Mapping<a class="headerlink" href="#quick-reference-pattern-problem-mapping" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Multiple payment methods</td>
+<td>Strategy</td>
+</tr>
+<tr>
+<td>Notification system (email/SMS/push)</td>
+<td>Observer + Strategy</td>
+</tr>
+<tr>
+<td>Undo/Redo functionality</td>
+<td>Command</td>
+</tr>
+<tr>
+<td>Object states with different behavior</td>
+<td>State</td>
+</tr>
+<tr>
+<td>Only one DB connection</td>
+<td>Singleton</td>
+</tr>
+<tr>
+<td>Complex object with optional params</td>
+<td>Builder</td>
+</tr>
+<tr>
+<td>Incompatible API needs to work</td>
+<td>Adapter</td>
+</tr>
+<tr>
+<td>Add features dynamically</td>
+<td>Decorator</td>
+</tr>
+<tr>
+<td>Simplify complex subsystem</td>
+<td>Facade</td>
+</tr>
+<tr>
+<td>Control access to expensive object</td>
+<td>Proxy</td>
+</tr>
+<tr>
+<td>One change → many updates</td>
+<td>Observer</td>
+</tr>
+<tr>
+<td>Families of related objects</td>
+<td>Abstract Factory</td>
+</tr>
+<tr>
+<td>Don't know type at compile time</td>
+<td>Factory Method</td>
+</tr>
+<tr>
+<td>Tree structure (file system)</td>
+<td>Composite</td>
+</tr>
+<tr>
+<td>Varying algorithms</td>
+<td>Strategy</td>
+</tr>
+<tr>
+<td>Common process, varying steps</td>
+<td>Template Method</td>
+</tr>
+<tr>
+<td>Pass request along handlers</td>
+<td>Chain of Responsibility</td>
+</tr>
+<tr>
+<td>Traverse collection</td>
+<td>Iterator</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="quick-reference-solid-violations-fixes">Quick Reference: SOLID Violations → Fixes<a class="headerlink" href="#quick-reference-solid-violations-fixes" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Smell</th>
+<th>Violation</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>God class (500+ lines)</td>
+<td>SRP</td>
+<td>Split into focused classes</td>
+</tr>
+<tr>
+<td><code>if-else</code> for types</td>
+<td>OCP</td>
+<td>Use interface + polymorphism</td>
+</tr>
+<tr>
+<td><code>instanceof</code> checks</td>
+<td>LSP</td>
+<td>Rethink hierarchy or use composition</td>
+</tr>
+<tr>
+<td>Fat interface</td>
+<td>ISP</td>
+<td>Split into smaller interfaces</td>
+</tr>
+<tr>
+<td><code>new</code> inside business logic</td>
+<td>DIP</td>
+<td>Inject dependencies</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="final-tip-interview-flow">Final Tip: Interview Flow<a class="headerlink" href="#final-tip-interview-flow" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>1. CLARIFY (2-3 min)     → Ask questions, state assumptions
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>2. IDENTIFY (3-5 min)    → List classes, relationships
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>3. DESIGN (10-15 min)    → Class diagram, key flows
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>4. PATTERNS (5 min)      → Where to apply, why
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>5. EVALUATE (3-5 min)    → SOLID, extensibility, trade-offs
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>6. EXTEND (if time)      → &quot;What if we add X?&quot;
+</code></pre></div>
+<p><strong>Always think:</strong> "How does the data flow?" not "What is the theory?"</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../oop/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Object-Oriented Programming">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Object-Oriented Programming
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../design-patterns/" class="md-footer__link md-footer__link--next" aria-label="Next: Design Patterns">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Design Patterns
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

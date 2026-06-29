@@ -1,0 +1,2588 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/data/ai-ml-dl/">
+      
+      
+        <link rel="prev" href="../data-analytics/">
+      
+      
+        <link rel="next" href="../../resources/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>AI • ML • DL - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-machine-learning-deep-learning-interview-notes-system-flow-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AI • ML • DL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../computer-science/" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ai-machine-learning-deep-learning-interview-notes-system-flow-approach">AI / Machine Learning / Deep Learning Interview Notes — System Flow Approach<a class="headerlink" href="#ai-machine-learning-deep-learning-interview-notes-system-flow-approach" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="priority-1-mathematics">Priority 1 — Mathematics<a class="headerlink" href="#priority-1-mathematics" title="Permanent link">&para;</a></h1>
+<h2 id="linear-algebra">Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permanent link">&para;</a></h2>
+<p><strong>Vectors &amp; Matrices</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Vector = [1, 2, 3] → Point in space, direction + magnitude
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Matrix = [[1,2], [3,4], [5,6]] → Grid of numbers, transforms data
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Matrix Multiplication: A(m×n) × B(n×p) = C(m×p)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  Row of A dot Column of B → Each cell of C
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Use: Feature vectors, image pixels, word embeddings, neural network weights
+</code></pre></div></p>
+<p><strong>Eigenvalues &amp; Eigenvectors</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>A × v = λ × v
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Matrix A transforms vector v → v only scales by λ (no rotation)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Eigenvalue λ = how much v stretches/shrinks
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Eigenvector v = direction that doesn&#39;t change under transformation
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Use: PCA (find principal directions), PageRank, stability analysis
+</code></pre></div></p>
+<p><strong>SVD (Singular Value Decomposition)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>A = U × Σ × Vᵀ
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>U = left singular vectors (rows)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Σ = singular values (importance of each component)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Vᵀ = right singular vectors (columns)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Use: Dimensionality reduction, recommendation systems, image compression
+</code></pre></div></p>
+<h2 id="calculus">Calculus<a class="headerlink" href="#calculus" title="Permanent link">&para;</a></h2>
+<p><strong>Derivatives &amp; Gradients</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Derivative = Rate of change = Slope of curve
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Partial Derivative = Derivative w.r.t one variable, others constant
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Gradient = Vector of all partial derivatives = Direction of steepest ascent
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Use: Gradient descent → Move opposite to gradient → Minimize loss
+</code></pre></div></p>
+<p><strong>Chain Rule</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>dL/dw = dL/dy × dy/dz × dz/dw
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Loss → Output → Activation → Weight
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Use: Backpropagation computes gradients through layers
+</code></pre></div></p>
+<h2 id="probability-statistics">Probability &amp; Statistics<a class="headerlink" href="#probability-statistics" title="Permanent link">&para;</a></h2>
+<p><strong>Bayes' Theorem</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>P(A|B) = P(B|A) × P(A) / P(B)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Posterior = Likelihood × Prior / Evidence
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Use: Spam filter, medical diagnosis, belief updating
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Example: P(Cancer|Positive) = P(Positive|Cancer) × P(Cancer) / P(Positive)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-2-python-for-ml">Priority 2 — Python for ML<a class="headerlink" href="#priority-2-python-for-ml" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow — ML Project:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span><span class="o">,</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span><span class="o">,</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># 1. Load</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># 2. Explore</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">(),</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># 3. Preprocess</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">();</span> <span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># 4. Train</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1"># 5. Evaluate</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="c1"># 6. Deploy</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;model.pkl&#39;</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h1 id="priority-3-data-preprocessing">Priority 3 — Data Preprocessing<a class="headerlink" href="#priority-3-data-preprocessing" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow — Raw Data → ML-Ready:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Raw Data → Inspect → Handle Missing → Encode Categorical → Scale → Split → Cross-Validate
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Detection</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Missing Values</strong></td>
+<td><code>df.isnull().sum()</code></td>
+<td>Mean/median (numerical), mode (categorical), drop (&lt;5%)</td>
+</tr>
+<tr>
+<td><strong>Encoding</strong></td>
+<td><code>df.dtypes</code> object columns</td>
+<td>One-hot (nominal), Label (ordinal), Target encoding (high cardinality)</td>
+</tr>
+<tr>
+<td><strong>Scaling</strong></td>
+<td>Different units</td>
+<td>Standardization (z-score: mean=0, std=1), Normalization (0-1)</td>
+</tr>
+<tr>
+<td><strong>Class Imbalance</strong></td>
+<td><code>df['target'].value_counts()</code></td>
+<td>SMOTE (oversample minority), undersample, class weights</td>
+</tr>
+<tr>
+<td><strong>Data Leakage</strong></td>
+<td>Train score &gt;&gt; Test score</td>
+<td>Split BEFORE any transformation, no future data in train</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Train/Test Split vs Cross-Validation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Train/Test: 80% train, 20% test → One evaluation (risk: lucky/unlucky split)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>K-Fold CV: Data → 5 folds → Train on 4, test on 1 → Repeat 5 times → Average score
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Use CV for: Hyperparameter tuning, model selection, robust performance estimate
+</code></pre></div></p>
+<hr />
+<h1 id="priority-4-ml-fundamentals">Priority 4 — ML Fundamentals<a class="headerlink" href="#priority-4-ml-fundamentals" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What</th>
+<th>Labels?</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supervised</strong></td>
+<td>Learn from labeled data</td>
+<td>Yes</td>
+<td>Spam detection, house price</td>
+</tr>
+<tr>
+<td><strong>Unsupervised</strong></td>
+<td>Find patterns in unlabeled data</td>
+<td>No</td>
+<td>Clustering customers, anomaly detection</td>
+</tr>
+<tr>
+<td><strong>Semi-Supervised</strong></td>
+<td>Few labels + lots of unlabeled</td>
+<td>Partial</td>
+<td>Image classification with limited labels</td>
+</tr>
+<tr>
+<td><strong>Reinforcement</strong></td>
+<td>Learn by trial and error</td>
+<td>Reward signal</td>
+<td>Game playing, robotics, recommendation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-5-supervised-learning-algorithms">Priority 5 — Supervised Learning Algorithms<a class="headerlink" href="#priority-5-supervised-learning-algorithms" title="Permanent link">&para;</a></h1>
+<h2 id="regression">Regression<a class="headerlink" href="#regression" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>How it works</th>
+<th>When to use</th>
+<th>Regularization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Linear Regression</strong></td>
+<td>y = w₁x₁ + w₂x₂ + b</td>
+<td>Linear relationships, baseline</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Ridge (L2)</strong></td>
+<td>Same + λ×Σw²</td>
+<td>Multicollinearity, prevent overfit</td>
+<td>L2 penalty</td>
+</tr>
+<tr>
+<td><strong>Lasso (L1)</strong></td>
+<td>Same + λ×Σ|w|</td>
+<td>Feature selection (shrinks some to 0)</td>
+<td>L1 penalty</td>
+</tr>
+<tr>
+<td><strong>Elastic Net</strong></td>
+<td>L1 + L2 combined</td>
+<td>Many features, some correlated</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<p><strong>L1 vs L2 Regularization:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>L1 (Lasso): Penalty = λ × |w| → Sparse weights (feature selection)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>L2 (Ridge): Penalty = λ × w² → Small weights (smooth, no zeros)
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>L1: &quot;Which features matter?&quot; → Some become exactly 0
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>L2: &quot;Make all features small&quot; → None become 0, all shrink
+</code></pre></div></p>
+<h2 id="classification">Classification<a class="headerlink" href="#classification" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>How it works</th>
+<th>Strengths</th>
+<th>Weaknesses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Logistic Regression</strong></td>
+<td>Sigmoid of linear combo</td>
+<td>Fast, interpretable, probabilistic</td>
+<td>Linear boundaries only</td>
+</tr>
+<tr>
+<td><strong>Decision Tree</strong></td>
+<td>Recursive feature split</td>
+<td>Interpretable, handles non-linearity</td>
+<td>Overfits easily</td>
+</tr>
+<tr>
+<td><strong>Random Forest</strong></td>
+<td>100+ trees, majority vote</td>
+<td>Robust, handles missing, feature importance</td>
+<td>Slow, less interpretable</td>
+</tr>
+<tr>
+<td><strong>SVM</strong></td>
+<td>Find hyperplane with max margin</td>
+<td>Effective high-dim, kernel trick</td>
+<td>Slow on large data</td>
+</tr>
+<tr>
+<td><strong>KNN</strong></td>
+<td>K nearest neighbors vote</td>
+<td>Simple, no training</td>
+<td>Slow prediction, sensitive to scale</td>
+</tr>
+<tr>
+<td><strong>Naive Bayes</strong></td>
+<td>Bayes + feature independence</td>
+<td>Fast, text classification</td>
+<td>Independence assumption</td>
+</tr>
+<tr>
+<td><strong>Gradient Boosting</strong></td>
+<td>Sequential trees correcting errors</td>
+<td>High accuracy, handles complex patterns</td>
+<td>Prone to overfit, slow training</td>
+</tr>
+<tr>
+<td><strong>XGBoost</strong></td>
+<td>Optimized gradient boosting</td>
+<td>Fast, regularized, handles missing</td>
+<td>Hyperparameter tuning needed</td>
+</tr>
+<tr>
+<td><strong>LightGBM</strong></td>
+<td>Leaf-wise tree growth</td>
+<td>Faster than XGBoost, less memory</td>
+<td>Can overfit on small data</td>
+</tr>
+<tr>
+<td><strong>CatBoost</strong></td>
+<td>Handles categorical natively</td>
+<td>No encoding needed, robust</td>
+<td>Slower than LightGBM</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decision Tree vs Random Forest vs XGBoost:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Decision Tree: Single tree, overfits, interpretable
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Random Forest: 100 trees (bagging), reduces variance, robust
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>XGBoost: Trees in sequence (boosting), reduces bias, highest accuracy
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Bagging (Random Forest): Train trees in parallel on random subsets → Average
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Boosting (XGBoost): Train tree 1 → Find errors → Train tree 2 on errors → ... → Weighted sum
+</code></pre></div></p>
+<hr />
+<h1 id="priority-6-unsupervised-learning">Priority 6 — Unsupervised Learning<a class="headerlink" href="#priority-6-unsupervised-learning" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>How it works</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>K-Means</strong></td>
+<td>Assign to nearest centroid, update centroids, repeat</td>
+<td>Spherical clusters, known K</td>
+</tr>
+<tr>
+<td><strong>Hierarchical</strong></td>
+<td>Merge closest clusters bottom-up or split top-down</td>
+<td>Unknown K, dendrogram visualization</td>
+</tr>
+<tr>
+<td><strong>DBSCAN</strong></td>
+<td>Density-based, core points + border points</td>
+<td>Arbitrary shapes, noise detection</td>
+</tr>
+<tr>
+<td><strong>PCA</strong></td>
+<td>Find directions of max variance → project</td>
+<td>Dimensionality reduction, visualization</td>
+</tr>
+<tr>
+<td><strong>t-SNE</strong></td>
+<td>Preserve local neighborhoods in low-dim</td>
+<td>Visualization (not for generalization)</td>
+</tr>
+<tr>
+<td><strong>UMAP</strong></td>
+<td>Preserve both local and global structure</td>
+<td>Faster than t-SNE, better global structure</td>
+</tr>
+</tbody>
+</table>
+<p><strong>K-Means Algorithm:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>1. Pick K random centroids
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>2. Assign each point to nearest centroid
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>3. Update centroids = mean of assigned points
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>4. Repeat 2-3 until convergence
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Choose K: Elbow method (plot inertia vs K, pick elbow)
+</code></pre></div></p>
+<p><strong>PCA Intuition:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Data in 3D → Find direction with max variance (PC1) → Project → Find next orthogonal direction (PC2) → Project
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Result: 3D → 2D with minimal information loss
+</code></pre></div></p>
+<hr />
+<h1 id="priority-7-model-evaluation">Priority 7 — Model Evaluation<a class="headerlink" href="#priority-7-model-evaluation" title="Permanent link">&para;</a></h1>
+<h2 id="regression-metrics">Regression Metrics<a class="headerlink" href="#regression-metrics" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Formula</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MAE</strong></td>
+<td>Mean of |actual - predicted|</td>
+<td>Robust to outliers, same units as target</td>
+</tr>
+<tr>
+<td><strong>MSE</strong></td>
+<td>Mean of (actual - predicted)²</td>
+<td>Penalizes large errors</td>
+</tr>
+<tr>
+<td><strong>RMSE</strong></td>
+<td>√MSE</td>
+<td>Same units as target, penalizes large errors</td>
+</tr>
+<tr>
+<td><strong>R²</strong></td>
+<td>1 - (SS_res / SS_tot)</td>
+<td>Proportion variance explained (1 = perfect)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="classification-metrics">Classification Metrics<a class="headerlink" href="#classification-metrics" title="Permanent link">&para;</a></h2>
+<p><strong>Confusion Matrix:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>              Predicted
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>              Pos    Neg
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Actual Pos    TP     FN
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>       Neg    FP     TN
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>Precision = TP / (TP + FP) → &quot;Of predicted positive, how many are correct?&quot;
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>Recall    = TP / (TP + FN) → &quot;Of actual positive, how many did we catch?&quot;
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>F1        = 2 × (P × R) / (P + R) → Harmonic mean
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>Accuracy  = (TP + TN) / Total → Misleading if imbalanced
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Optimize</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Medical diagnosis (cancer)</td>
+<td>High Recall (don't miss sick patients)</td>
+</tr>
+<tr>
+<td>Spam filter</td>
+<td>High Precision (don't flag important emails)</td>
+</tr>
+<tr>
+<td>Balanced dataset</td>
+<td>Accuracy or F1</td>
+</tr>
+<tr>
+<td>Imbalanced dataset</td>
+<td>F1, ROC-AUC, PR-AUC</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ROC vs PR Curve:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ROC: TPR vs FPR → Good for balanced data
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>PR: Precision vs Recall → Better for imbalanced data (focus on minority class)
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>AUC = Area Under Curve → 1.0 = perfect, 0.5 = random
+</code></pre></div></p>
+<hr />
+<h1 id="priority-8-feature-engineering">Priority 8 — Feature Engineering<a class="headerlink" href="#priority-8-feature-engineering" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Raw Features → Select (which matter?) → Extract (create new) → Transform (scale/encode) → Model
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>What</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Feature Selection</strong></td>
+<td>Remove irrelevant/redundant</td>
+<td>Correlation, mutual info, L1 regularization</td>
+</tr>
+<tr>
+<td><strong>Feature Extraction</strong></td>
+<td>Create new from existing</td>
+<td>Polynomial features, interaction terms</td>
+</tr>
+<tr>
+<td><strong>PCA</strong></td>
+<td>Reduce dimensions</td>
+<td>100 features → 10 principal components</td>
+</tr>
+<tr>
+<td><strong>One-Hot Encoding</strong></td>
+<td>Categorical → binary columns</td>
+<td>Color: [R,G,B] → [1,0,0], [0,1,0], [0,0,1]</td>
+</tr>
+<tr>
+<td><strong>Label Encoding</strong></td>
+<td>Categorical → integers</td>
+<td>Low=0, Medium=1, High=2</td>
+</tr>
+<tr>
+<td><strong>Target Encoding</strong></td>
+<td>Category → mean target value</td>
+<td>City "NYC" → avg house price in NYC</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-9-deep-learning">Priority 9 — Deep Learning<a class="headerlink" href="#priority-9-deep-learning" title="Permanent link">&para;</a></h1>
+<h2 id="neural-network-basics">Neural Network Basics<a class="headerlink" href="#neural-network-basics" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — Forward Propagation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Input x → Weighted sum (z = Wx + b) → Activation (a = σ(z)) → Output ŷ
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Layer 1: x → z₁ = W₁x + b₁ → a₁ = ReLU(z₁)
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>Layer 2: a₁ → z₂ = W₂a₁ + b₂ → a₂ = ReLU(z₂)
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>Layer N: aₙ₋₁ → zₙ = Wₙaₙ₋₁ + bₙ → ŷ = Softmax(zₙ)
+</code></pre></div></p>
+<p><strong>Backpropagation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>1. Forward pass: Compute ŷ and loss L
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>2. Backward pass: Compute ∂L/∂w for each weight (chain rule)
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>3. Update: w = w - α × ∂L/∂w (gradient descent)
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>4. Repeat
+</code></pre></div></p>
+<p><strong>Activation Functions:</strong>
+| Function | Formula | Use | Problem |
+|----------|---------|-----|---------|
+| <strong>Sigmoid</strong> | 1/(1+e⁻ˣ) | Output layer (binary) | Vanishing gradient |
+| <strong>Tanh</strong> | (eˣ-e⁻ˣ)/(eˣ+e⁻ˣ) | Hidden layers | Vanishing gradient |
+| <strong>ReLU</strong> | max(0,x) | Hidden layers (default) | Dying ReLU (x&lt;0 = 0) |
+| <strong>Leaky ReLU</strong> | max(0.01x, x) | Hidden layers | Fixes dying ReLU |
+| <strong>Softmax</strong> | eˣⁱ/Σeˣʲ | Output layer (multi-class) | — |</p>
+<p><strong>Loss Functions:</strong>
+| Problem | Loss | Formula |
+|---------|------|---------|
+| Regression | MSE | Mean of (y - ŷ)² |
+| Binary Classification | Binary Cross-Entropy | -[y log(ŷ) + (1-y) log(1-ŷ)] |
+| Multi-class | Categorical Cross-Entropy | -Σ yᵢ log(ŷᵢ) |</p>
+<p><strong>Optimizers:</strong>
+| Optimizer | How | Use |
+|-----------|-----|-----|
+| <strong>SGD</strong> | w = w - α×gradient | Simple, needs tuning |
+| <strong>Momentum</strong> | SGD + velocity (accumulated gradients) | Faster convergence |
+| <strong>Adam</strong> | Adaptive learning per parameter + momentum | Default choice, works well |
+| <strong>RMSprop</strong> | Adaptive learning per parameter | RNNs, sequences |</p>
+<p><strong>Batch Normalization:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Normalize layer inputs (mean=0, std=1) → Learn scale + shift
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Why? Faster training, higher learning rates, less sensitive to initialization
+</code></pre></div></p>
+<p><strong>Dropout:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Training: Randomly set 20-50% of neurons to 0 → Prevent co-adaptation
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Testing: Use all neurons (scale weights)
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Why? Regularization, prevents overfitting
+</code></pre></div></p>
+<hr />
+<h1 id="priority-10-cnn-computer-vision">Priority 10 — CNN (Computer Vision)<a class="headerlink" href="#priority-10-cnn-computer-vision" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow — Image Classification:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Image (224×224×3) → Conv Layer (filters detect edges) → ReLU → Pooling (reduce size)
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>                  → Conv Layer (filters detect shapes) → ReLU → Pooling
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>                  → Conv Layer (filters detect objects) → ReLU → Pooling
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>                  → Flatten → Dense → Softmax → Class probabilities
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>What</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Convolution</strong></td>
+<td>Slide filter over image, compute dot product</td>
+<td>Detect local features (edges, textures)</td>
+</tr>
+<tr>
+<td><strong>Filter/Kernel</strong></td>
+<td>Small weight matrix (3×3, 5×5)</td>
+<td>Learnable feature detector</td>
+</tr>
+<tr>
+<td><strong>Padding</strong></td>
+<td>Add zeros around image</td>
+<td>Preserve spatial dimensions</td>
+</tr>
+<tr>
+<td><strong>Stride</strong></td>
+<td>Step size of filter</td>
+<td>Downsample, reduce computation</td>
+</tr>
+<tr>
+<td><strong>Pooling</strong></td>
+<td>Max/Avg over region (2×2)</td>
+<td>Reduce dimensions, translation invariance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Transfer Learning:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Pre-trained model (ImageNet, 1000 classes) → Remove last layer → Add new layer for your classes
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>→ Freeze early layers (generic features) → Fine-tune last layers (task-specific)
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>Why? Needs less data, faster training, better accuracy
+</code></pre></div></p>
+<hr />
+<h1 id="priority-11-rnn-sequences">Priority 11 — RNN (Sequences)<a class="headerlink" href="#priority-11-rnn-sequences" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow — Text Generation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>&quot;The cat sat...&quot; → RNN processes word by word → Hidden state carries context → Predict next word
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Problem: Long sequences → Gradient vanishes → Forget early words
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>How</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LSTM</strong></td>
+<td>Cell state + gates (forget, input, output) → Control information flow</td>
+<td>Long sequences, text, speech</td>
+</tr>
+<tr>
+<td><strong>GRU</strong></td>
+<td>Simplified LSTM (2 gates instead of 3)</td>
+<td>Faster, similar performance</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LSTM vs GRU:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>LSTM: More parameters, better for long sequences, slower
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>GRU: Fewer parameters, faster, good for medium sequences
+</code></pre></div></p>
+<hr />
+<h1 id="priority-12-transformers">Priority 12 — Transformers<a class="headerlink" href="#priority-12-transformers" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow — Self-Attention:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Input: &quot;The cat sat&quot;
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>For each word, compute:
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>  Query (Q) = What am I looking for?
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>  Key (K) = What do I contain?
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>  Value (V) = What information do I have?
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>Attention(Q,K,V) = softmax(QKᵀ/√d) × V
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>Result: Each word gets a weighted sum of all words (context-aware representation)
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>&quot;sat&quot; attends strongly to &quot;cat&quot; (subject-verb relationship)
+</code></pre></div></p>
+<p><strong>Multi-Head Attention:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Instead of one attention, run 8 (or 16) in parallel → Each head learns different relationships
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>→ Concatenate → Linear projection
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>Head 1: Subject-verb relationships
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>Head 2: Pronoun-antecedent
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>Head 3: Adjective-noun
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>...
+</code></pre></div></p>
+<p><strong>Transformer Architecture:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Encoder (BERT): Bidirectional attention → Understand context
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>  Input → Embedding + Positional Encoding → Multi-Head Attention → Feed Forward → Output
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>Decoder (GPT): Causal (left-to-right) attention → Generate text
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>  Input → Masked Multi-Head Attention → Cross-Attention → Feed Forward → Output
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Type</th>
+<th>Architecture</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BERT</strong></td>
+<td>Encoder-only</td>
+<td>Bidirectional</td>
+<td>Classification, NER, QA</td>
+</tr>
+<tr>
+<td><strong>GPT</strong></td>
+<td>Decoder-only</td>
+<td>Causal (left-to-right)</td>
+<td>Text generation, chat</td>
+</tr>
+<tr>
+<td><strong>T5</strong></td>
+<td>Encoder-Decoder</td>
+<td>Both directions</td>
+<td>Translation, summarization</td>
+</tr>
+<tr>
+<td><strong>Llama</strong></td>
+<td>Decoder-only</td>
+<td>Optimized GPT</td>
+<td>Open-source LLM</td>
+</tr>
+<tr>
+<td><strong>Mistral</strong></td>
+<td>Decoder-only</td>
+<td>Sparse attention</td>
+<td>Efficient, long context</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-13-nlp">Priority 13 — NLP<a class="headerlink" href="#priority-13-nlp" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow — Text Processing Pipeline:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Raw Text → Tokenization → Normalization → Vectorization → Model
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>What</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tokenization</strong></td>
+<td>Split text into tokens</td>
+<td>"Hello world" → ["Hello", "world"]</td>
+</tr>
+<tr>
+<td><strong>Stemming</strong></td>
+<td>Cut suffixes (crude)</td>
+<td>"running" → "run", "better" → "better"</td>
+</tr>
+<tr>
+<td><strong>Lemmatization</strong></td>
+<td>Dictionary-based root word</td>
+<td>"running" → "run", "better" → "good"</td>
+</tr>
+<tr>
+<td><strong>TF-IDF</strong></td>
+<td>Word importance = frequency in doc / rarity across docs</td>
+<td>"the" = low, "neural" = high</td>
+</tr>
+<tr>
+<td><strong>Word2Vec</strong></td>
+<td>Word embeddings via context prediction</td>
+<td>"king" - "man" + "woman" ≈ "queen"</td>
+</tr>
+<tr>
+<td><strong>FastText</strong></td>
+<td>Word2Vec + subword info</td>
+<td>Handles rare words, out-of-vocabulary</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Embeddings:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Word → Dense vector (e.g., 300-dim) → Similar words = close in vector space
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>&quot;King&quot; ≈ [0.2, -0.5, 0.8, ...]
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>&quot;Queen&quot; ≈ [0.3, -0.4, 0.9, ...] (close to King)
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>&quot;Apple&quot; ≈ [-0.8, 0.2, -0.1, ...] (far from King)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-14-computer-vision">Priority 14 — Computer Vision<a class="headerlink" href="#priority-14-computer-vision" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>What</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Classification</strong></td>
+<td>What's in the image?</td>
+<td>CNN → Softmax</td>
+</tr>
+<tr>
+<td><strong>Object Detection</strong></td>
+<td>Where are objects?</td>
+<td>YOLO (single pass), Faster R-CNN (two-stage)</td>
+</tr>
+<tr>
+<td><strong>Segmentation</strong></td>
+<td>Pixel-level classification</td>
+<td>U-Net, Mask R-CNN</td>
+</tr>
+</tbody>
+</table>
+<p><strong>YOLO vs Faster R-CNN:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>YOLO: Single forward pass → Predicts boxes + classes simultaneously → Fast (real-time)
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>Faster R-CNN: Propose regions → Classify each → Accurate but slow
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>YOLO for: Real-time (self-driving, surveillance)
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>Faster R-CNN for: Accuracy-critical (medical imaging)
+</code></pre></div></p>
+<p><strong>Vision Transformers (ViT):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Image → Split into patches (16×16) → Flatten patches → Add position embedding → Transformer encoder → Classify
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>vs CNN: ViT needs more data but scales better, captures global context
+</code></pre></div></p>
+<hr />
+<h1 id="priority-15-generative-ai">Priority 15 — Generative AI<a class="headerlink" href="#priority-15-generative-ai" title="Permanent link">&para;</a></h1>
+<h2 id="llms">LLMs<a class="headerlink" href="#llms" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — Text Generation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Prompt → Tokenize → Pass through Transformer layers → Predict next token → Sample (temperature, top-p)
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>→ Append to sequence → Repeat until stop token
+</code></pre></div></p>
+<p><strong>Temperature vs Top-p:</strong>
+| Parameter | Effect | Value |
+|-----------|--------|-------|
+| <strong>Temperature</strong> | Randomness of sampling | 0 = deterministic, 1 = creative, &gt;1 = random |
+| <strong>Top-p (nucleus)</strong> | Cumulative probability threshold | 0.9 = sample from top 90% probable tokens |</p>
+<p><strong>Prompt Engineering:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Zero-shot: &quot;Classify this review as positive or negative: ...&quot;
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Few-shot: &quot;Here are 3 examples... Now classify: ...&quot;
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>Chain-of-Thought: &quot;Let&#39;s think step by step...&quot; → Better reasoning
+</code></pre></div></p>
+<h2 id="rag-retrieval-augmented-generation">RAG (Retrieval-Augmented Generation)<a class="headerlink" href="#rag-retrieval-augmented-generation" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>User Query → Embed query → Search vector DB (top-k relevant docs) → Retrieve chunks
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>         → Concatenate query + chunks → LLM generates answer with context
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>Why? Grounds LLM in facts, reduces hallucinations, uses private data
+</code></pre></div></p>
+<h2 id="fine-tuning-vs-prompt-engineering">Fine-Tuning vs Prompt Engineering<a class="headerlink" href="#fine-tuning-vs-prompt-engineering" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>What</th>
+<th>Cost</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prompt Engineering</strong></td>
+<td>Craft better prompts</td>
+<td>Zero</td>
+<td>Quick experiments, general tasks</td>
+</tr>
+<tr>
+<td><strong>RAG</strong></td>
+<td>Add external knowledge</td>
+<td>Low</td>
+<td>Domain-specific Q&amp;A</td>
+</tr>
+<tr>
+<td><strong>Fine-Tuning</strong></td>
+<td>Train model weights on your data</td>
+<td>High</td>
+<td>Specific style, behavior, tasks</td>
+</tr>
+<tr>
+<td><strong>LoRA</strong></td>
+<td>Fine-tune low-rank adapters</td>
+<td>Medium</td>
+<td>Efficient fine-tuning, smaller footprint</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LoRA (Low-Rank Adaptation):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Instead of updating all billions of parameters → Add small trainable matrices (A, B) to each layer
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>→ Only train A and B (millions of params) → Merge at inference
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>Much cheaper than full fine-tuning, same quality
+</code></pre></div></p>
+<h2 id="ai-agents">AI Agents<a class="headerlink" href="#ai-agents" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>User Request → Agent plans → Tool 1 (search) → Observation → Tool 2 (calculate) → Observation
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>         → Tool 3 (API call) → Observation → Synthesize → Final Answer
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>Tools: Search, calculator, code interpreter, API calls, database queries
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>MCP (Model Context Protocol): Standard way for models to use external tools
+</code></pre></div></p>
+<hr />
+<h1 id="priority-16-mlops">Priority 16 — MLOps<a class="headerlink" href="#priority-16-mlops" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow — ML Pipeline:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Data Collection → Preprocessing → Feature Engineering → Training → Evaluation → Model Registry
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>                                                                           ↓
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>Deployment (API/Container) → Monitoring → Drift Detection → Retrain → Redeploy
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+<th>Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MLflow</strong></td>
+<td>Track experiments, model registry, deployments</td>
+<td>Experiment tracking</td>
+</tr>
+<tr>
+<td><strong>Docker</strong></td>
+<td>Containerize model + dependencies</td>
+<td>Reproducible environments</td>
+</tr>
+<tr>
+<td><strong>Kubernetes</strong></td>
+<td>Orchestrate containers at scale</td>
+<td>Auto-scaling, rolling updates</td>
+</tr>
+<tr>
+<td><strong>Feature Store</strong></td>
+<td>Centralized feature management</td>
+<td>Feast, Tecton</td>
+</tr>
+<tr>
+<td><strong>CI/CD for ML</strong></td>
+<td>Automate training, testing, deployment</td>
+<td>GitHub Actions + MLflow</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Drift Detection:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Data Drift: Input distribution changes (new user demographics)
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Concept Drift: Relationship between input and output changes (seasonality)
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>Monitor: Distribution of features, prediction confidence, accuracy over time
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>Trigger: Retrain when drift exceeds threshold
+</code></pre></div></p>
+<hr />
+<h1 id="priority-17-responsible-ai">Priority 17 — Responsible AI<a class="headerlink" href="#priority-17-responsible-ai" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>What</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bias</strong></td>
+<td>Model favors certain groups</td>
+<td>Balanced datasets, fairness constraints, auditing</td>
+</tr>
+<tr>
+<td><strong>Fairness</strong></td>
+<td>Equal outcomes across demographics</td>
+<td>Demographic parity, equalized odds</td>
+</tr>
+<tr>
+<td><strong>Explainability</strong></td>
+<td>Understand why model predicted X</td>
+<td>SHAP, LIME, attention weights</td>
+</tr>
+<tr>
+<td><strong>Privacy</strong></td>
+<td>Protect sensitive data</td>
+<td>Differential privacy, federated learning</td>
+</tr>
+<tr>
+<td><strong>Hallucinations</strong></td>
+<td>LLM generates false information</td>
+<td>RAG, fact-checking, human-in-the-loop</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SHAP vs LIME:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>SHAP: Game-theoretic, consistent, global + local explanations
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>LIME: Local approximation, faster, less consistent
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>Use SHAP for: Feature importance, model debugging
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>Use LIME for: Quick local explanations
+</code></pre></div></p>
+<hr />
+<h1 id="common-interview-questions-quick-answers">Common Interview Questions — Quick Answers<a class="headerlink" href="#common-interview-questions-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>One-Liner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bias vs Variance</td>
+<td>Bias = underfitting (too simple). Variance = overfitting (too complex). Trade-off: sweet spot</td>
+</tr>
+<tr>
+<td>Overfitting vs Underfitting</td>
+<td>Overfit = memorizes training, bad on test. Underfit = too simple, bad on both. Fix: regularization, more data, simpler model</td>
+</tr>
+<tr>
+<td>L1 vs L2</td>
+<td>L1 = sparse weights (feature selection). L2 = small weights (smooth). Elastic Net = both</td>
+</tr>
+<tr>
+<td>Decision Tree vs Random Forest</td>
+<td>Tree = single, overfits. Forest = 100 trees (bagging), robust, reduces variance</td>
+</tr>
+<tr>
+<td>Random Forest vs XGBoost</td>
+<td>Forest = parallel trees (bagging). XGBoost = sequential trees (boosting), higher accuracy</td>
+</tr>
+<tr>
+<td>Precision vs Recall</td>
+<td>Precision = of predicted positive, how many correct? Recall = of actual positive, how many caught?</td>
+</tr>
+<tr>
+<td>ROC vs PR</td>
+<td>ROC = TPR vs FPR (balanced). PR = Precision vs Recall (imbalanced)</td>
+</tr>
+<tr>
+<td>PCA intuition</td>
+<td>Find directions of max variance → Project data → Reduce dimensions with minimal loss</td>
+</tr>
+<tr>
+<td>Backpropagation</td>
+<td>Forward pass computes loss → Backward pass computes gradients (chain rule) → Update weights</td>
+</tr>
+<tr>
+<td>CNN vs Transformer</td>
+<td>CNN = local features, translation invariant, good for images. Transformer = global attention, good for sequences</td>
+</tr>
+<tr>
+<td>LSTM vs GRU</td>
+<td>LSTM = 3 gates, better for long sequences. GRU = 2 gates, faster, similar performance</td>
+</tr>
+<tr>
+<td>Attention mechanism</td>
+<td>Each token computes relevance to all others → Weighted sum → Context-aware representation</td>
+</tr>
+<tr>
+<td>How GPT works</td>
+<td>Decoder-only transformer → Causal attention → Predict next token → Sample → Repeat</td>
+</tr>
+<tr>
+<td>What is RAG?</td>
+<td>Retrieve relevant docs → Add to prompt → LLM generates grounded answer</td>
+</tr>
+<tr>
+<td>Fine-tuning vs Prompt Engineering</td>
+<td>Prompt = zero cost, quick. Fine-tuning = train weights, expensive, behavior change</td>
+</tr>
+<tr>
+<td>Embeddings vs Vector DB</td>
+<td>Embeddings = dense vectors. Vector DB = stores + searches vectors by similarity</td>
+</tr>
+<tr>
+<td>Temperature vs Top-p</td>
+<td>Temperature = randomness (0=deterministic). Top-p = cumulative probability cutoff</td>
+</tr>
+<tr>
+<td>Hallucinations</td>
+<td>LLM generates plausible but false info. Fix: RAG, fact-checking, grounding</td>
+</tr>
+<tr>
+<td>AI Agents</td>
+<td>LLM + tools (search, calculator, APIs) + planning + memory → Autonomous task completion</td>
+</tr>
+<tr>
+<td>MLOps pipeline</td>
+<td>Data → Preprocess → Train → Evaluate → Deploy → Monitor → Retrain</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="quick-reference-when-to-use-what-algorithm">Quick Reference: When to Use What Algorithm<a class="headerlink" href="#quick-reference-when-to-use-what-algorithm" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Algorithm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tabular data, baseline</td>
+<td>XGBoost, LightGBM</td>
+</tr>
+<tr>
+<td>Text classification</td>
+<td>BERT fine-tuning, Logistic Regression + TF-IDF</td>
+</tr>
+<tr>
+<td>Text generation</td>
+<td>GPT, Llama</td>
+</tr>
+<tr>
+<td>Image classification</td>
+<td>ResNet, ViT, transfer learning</td>
+</tr>
+<tr>
+<td>Object detection</td>
+<td>YOLO (real-time), Faster R-CNN (accuracy)</td>
+</tr>
+<tr>
+<td>Recommendation</td>
+<td>Matrix factorization, two-tower neural networks</td>
+</tr>
+<tr>
+<td>Anomaly detection</td>
+<td>Isolation Forest, Autoencoders</td>
+</tr>
+<tr>
+<td>Time series</td>
+<td>LSTM, Prophet, ARIMA</td>
+</tr>
+<tr>
+<td>Clustering</td>
+<td>K-Means (spherical), DBSCAN (arbitrary), Hierarchical (unknown K)</td>
+</tr>
+<tr>
+<td>Dimensionality reduction</td>
+<td>PCA (linear), t-SNE/UMAP (non-linear visualization)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="final-tip-interview-flow-for-ml-questions">Final Tip: Interview Flow for ML Questions<a class="headerlink" href="#final-tip-interview-flow-for-ml-questions" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>1. Understand problem → Classification? Regression? Clustering?
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>2. Explore data → Distributions, missing, correlations, imbalance
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>3. Preprocess → Handle missing, encode, scale, split
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>4. Model selection → Baseline (Logistic/Linear) → Complex (XGBoost/Neural Net)
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>5. Evaluate → Right metric for problem, cross-validation
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>6. Interpret → Feature importance, SHAP, business impact
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>7. Deploy → API, monitoring, drift detection
+</code></pre></div>
+<p><strong>Always remember:</strong> Start simple, establish baseline, iterate. No model is perfect — explain trade-offs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../data-analytics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Data Analytics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Data Analytics
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../resources/" class="md-footer__link md-footer__link--next" aria-label="Next: Resources">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Resources
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

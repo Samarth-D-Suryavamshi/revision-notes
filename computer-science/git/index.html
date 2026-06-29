@@ -1,0 +1,2168 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/git/">
+      
+      
+        <link rel="prev" href="../backend-fundamentals/">
+      
+      
+        <link rel="next" href="../linux/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Git - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git-version-control-interview-notes-system-flow-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="git-version-control-interview-notes-system-flow-approach">Git &amp; Version Control Interview Notes — System Flow Approach<a class="headerlink" href="#git-version-control-interview-notes-system-flow-approach" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="priority-1-version-control-fundamentals">Priority 1 — Version Control Fundamentals<a class="headerlink" href="#priority-1-version-control-fundamentals" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduction-to-version-control">1. Introduction to Version Control<a class="headerlink" href="#1-introduction-to-version-control" title="Permanent link">&para;</a></h2>
+<p><strong>What is VCS?</strong> → Tracks every change to code. Like "Save As" but automatic and smart.</p>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>You write code → Save file → VCS snapshots the change → You can go back to any snapshot
+</code></pre></div></p>
+<p><strong>Types:</strong>
+| Type | How it works | Example |
+|------|-------------|---------|
+| <strong>Local</strong> | One machine, no sharing | RCS (ancient) |
+| <strong>Centralized</strong> | One central server, everyone pushes/pulls | SVN, Perforce |
+| <strong>Distributed</strong> | Everyone has full copy of history | Git |</p>
+<p><strong>Git vs GitHub vs GitLab vs Bitbucket:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Git = Engine (tool on your laptop)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>GitHub/GitLab/Bitbucket = Garage (hosting platform with UI, PRs, CI/CD)
+</code></pre></div></p>
+<p><strong>Why Git is distributed?</strong> → Every clone is a FULL backup. Work offline. No single point of failure.</p>
+<p><strong>Repository</strong> = Project folder tracked by Git.</p>
+<p><strong>System Flow — Git Areas:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Working Directory → git add → Staging Area (Index) → git commit → Local Repository → git push → Remote Repository
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Working Directory: Files you edit now
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Staging Area: Files you want in next commit (snapshot preview)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Local Repository: Committed history on your machine
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Remote Repository: Shared history on GitHub/GitLab
+</code></pre></div></p>
+<hr />
+<h2 id="2-git-architecture-internals">2. Git Architecture (Internals)<a class="headerlink" href="#2-git-architecture-internals" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — What happens when you commit?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>File content → SHA-1 hash → Blob object stored in .git/objects/
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Directory structure → Tree object (points to blobs + subtrees)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Commit object → Points to tree + parent commit + author + message + timestamp
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>HEAD → Points to latest commit on current branch
+</code></pre></div></p>
+<p><strong>Git Objects:</strong>
+| Object | What it stores | Analogy |
+|--------|---------------|---------|
+| <strong>Blob</strong> | File content (not filename) | File body |
+| <strong>Tree</strong> | Directory listing (blobs + subtrees) | Folder structure |
+| <strong>Commit</strong> | Tree + parent + metadata | Snapshot pointer |
+| <strong>Tag</strong> | Named reference to a commit | Bookmark |</p>
+<p><strong>Key Insight:</strong> Git stores <strong>snapshots</strong>, not diffs. Every commit is a full picture of the project at that moment.</p>
+<p><strong>HEAD</strong> = Pointer to current branch's latest commit. <code>HEAD~1</code> = parent commit.</p>
+<p><strong>Refs</strong> = Pointers (branches, tags, HEAD). Stored as files in <code>.git/refs/</code>.</p>
+<p><strong>Why Git is fast?</strong> → Snapshots + SHA-1 addressing + compression (pack files). Deduplication: same content = same hash = stored once.</p>
+<p><strong>Why Git is immutable?</strong> → Objects are identified by hash. Changing content changes hash → new object. Old objects remain.</p>
+<hr />
+<h2 id="3-git-workflow">3. Git Workflow<a class="headerlink" href="#3-git-workflow" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — Daily Workflow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git clone &lt;url&gt;          → Download entire repo + history
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git status               → What&#39;s changed? (red = unstaged, green = staged)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>[edit files]             → Working directory changes
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git add &lt;file&gt;           → Move to staging area
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>git add .                → Stage all changes
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>git commit -m &quot;msg&quot;      → Save snapshot to local repo
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>git push origin main     → Upload to remote
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>git pull origin main     → Download + merge remote changes
+</code></pre></div></p>
+<p><strong>git add internal flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>File modified → git add → Git computes SHA-1 of content → Stores blob in .git/objects/ → Adds entry to staging index
+</code></pre></div></p>
+<p><strong>git pull vs git fetch:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git fetch origin main    → Downloads remote commits → Updates remote-tracking branch → Does NOT touch your working branch
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git pull origin main     → git fetch + git merge → Downloads AND merges into current branch
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Downloads?</th>
+<th>Merges?</th>
+<th>Safe?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fetch</code></td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes (preview changes)</td>
+</tr>
+<tr>
+<td><code>pull</code></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Risk (auto-merge conflicts)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Best practice:</strong> <code>git fetch</code> first → review → then <code>git merge</code> or <code>git rebase</code>.</p>
+<hr />
+<h1 id="priority-2-branching-merging">Priority 2 — Branching &amp; Merging<a class="headerlink" href="#priority-2-branching-merging" title="Permanent link">&para;</a></h1>
+<h2 id="4-branches">4. Branches<a class="headerlink" href="#4-branches" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>main branch (stable) → git branch feature → feature branch (isolated work) → git merge feature → back to main
+</code></pre></div></p>
+<p><strong>How branches work internally?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Branch = File in .git/refs/heads/ containing a commit hash
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>main   → abc123 (latest commit hash)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>feature→ def456 (different commit hash)
+</code></pre></div></p>
+<p>Branches are just <strong>lightweight pointers</strong>. Switching branches = moving HEAD to a different commit.</p>
+<p><strong>Commands:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>branch<span class="w"> </span>feature<span class="w">          </span><span class="c1"># Create branch</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>switch<span class="w"> </span>feature<span class="w">          </span><span class="c1"># Switch to branch (modern, preferred)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>feature<span class="w">        </span><span class="c1"># Old way (also switches)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>git<span class="w"> </span>branch<span class="w"> </span>-m<span class="w"> </span>new-name<span class="w">      </span><span class="c1"># Rename</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature<span class="w">       </span><span class="c1"># Delete (merged)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>git<span class="w"> </span>branch<span class="w"> </span>-D<span class="w"> </span>feature<span class="w">       </span><span class="c1"># Force delete (unmerged)</span>
+</code></pre></div></p>
+<p><strong>Tracking Branches:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>origin/main  → Remote branch (what&#39;s on GitHub)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>main         → Local branch (what&#39;s on your machine)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>git branch -u origin/main   # Set upstream tracking
+</code></pre></div></p>
+<hr />
+<h2 id="5-merge">5. Merge<a class="headerlink" href="#5-merge" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>main: A---B---C
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>             feature:      D---E
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>                                       F (merge commit)
+</code></pre></div></p>
+<p><strong>Fast-Forward Merge:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>main: A---B---C
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>feature:       D---E
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>No new commits on main since branch → Just move main pointer to E
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Result: A---B---C---D---E (linear, no merge commit)
+</code></pre></div></p>
+<p><strong>Three-Way Merge:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>main:    A---B---C
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>              feature:      D---E
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>                                       M (merge commit with 2 parents)
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Merge Type</th>
+<th>When</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fast-Forward</strong></td>
+<td>No diverging commits on target</td>
+<td>Linear history, no merge commit</td>
+</tr>
+<tr>
+<td><strong>Three-Way</strong></td>
+<td>Both branches have new commits</td>
+<td>Merge commit, preserves branch history</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Merge Conflicts:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Same file, same lines changed in both branches → Git can&#39;t decide → Conflict markers appear
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Your changes (current branch)
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>=======
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>Their changes (branch being merged)
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature
+</code></pre></div></p>
+<p><strong>Resolution flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Conflict detected → Open file → Edit and remove markers → git add &lt;file&gt; → git commit
+</code></pre></div></p>
+<hr />
+<h2 id="6-rebase">6. Rebase<a class="headerlink" href="#6-rebase" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Before rebase:
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>main:    A---B---C
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>              feature:      D---E
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>After git rebase main:
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>main:    A---B---C
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>                  feature:          D&#39;---E&#39; (replayed on top of C)
+</code></pre></div></p>
+<p><strong>What rebase does:</strong>
+1. Saves your branch commits as patches
+2. Moves branch pointer to target branch tip
+3. Re-applies patches one by one</p>
+<p><strong>Result:</strong> Linear history (no merge commits). Clean log.</p>
+<p><strong>Interactive Rebase:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~3<span class="w">    </span><span class="c1"># Last 3 commits</span>
+</code></pre></div></p>
+<p><strong>Operations in interactive mode:</strong>
+| Command | Action |
+|---------|--------|
+| <code>pick</code> | Keep commit as-is |
+| <code>reword</code> | Edit commit message |
+| <code>squash</code> | Combine with previous commit |
+| <code>fixup</code> | Like squash, discard message |
+| <code>drop</code> | Remove commit |
+| <code>reorder</code> | Change order in file |</p>
+<p><strong>Merge vs Rebase:</strong>
+| Aspect | Merge | Rebase |
+|--------|-------|--------|
+| History | Preserves branch structure | Linear, rewritten |
+| Safety | Safe for shared branches | Dangerous for shared branches |
+| Use case | Public branches, team work | Private branches, cleaning history |
+| Conflicts | One merge conflict | May resolve conflicts per commit |</p>
+<p><strong>Golden Rule:</strong> Never rebase branches that others have pulled. It rewrites history → others' work breaks.</p>
+<hr />
+<h1 id="priority-3-history-manipulation">Priority 3 — History Manipulation<a class="headerlink" href="#priority-3-history-manipulation" title="Permanent link">&para;</a></h1>
+<h2 id="7-cherry-pick">7. Cherry Pick<a class="headerlink" href="#7-cherry-pick" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>main:    A---B---C---D
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>feature:      E---F---G
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>Need only F on main:
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>git checkout main
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>git cherry-pick &lt;F-commit-hash&gt;
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>main:    A---B---C---D---F&#39;
+</code></pre></div></p>
+<p><strong>When to use:</strong>
+- Bug fix committed to wrong branch → cherry-pick to release branch
+- Need ONE commit, not entire branch merge</p>
+<p><strong>Cherry Pick vs Merge:</strong>
+| Cherry Pick | Merge |
+|-------------|-------|
+| Copies ONE commit | Brings ALL commits |
+| New hash (different commit) | Preserves original hashes |
+| Use: selective fixes | Use: integrating feature branches |</p>
+<hr />
+<h2 id="8-reset">8. Reset<a class="headerlink" href="#8-reset" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Working Directory → Staging Area → Local Repository
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>       ↑               ↑              ↑
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    --hard          --mixed         --soft
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Reset Type</th>
+<th>Moves HEAD?</th>
+<th>Staging Area?</th>
+<th>Working Directory?</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Soft</strong></td>
+<td>Yes</td>
+<td>No change</td>
+<td>No change</td>
+<td>Undo commit, keep changes staged</td>
+</tr>
+<tr>
+<td><strong>Mixed</strong></td>
+<td>Yes</td>
+<td>Cleared</td>
+<td>No change</td>
+<td>Undo commit, unstage changes (default)</td>
+</tr>
+<tr>
+<td><strong>Hard</strong></td>
+<td>Yes</td>
+<td>Cleared</td>
+<td>Cleared</td>
+<td>Destroy all changes, go back to commit</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1<span class="w">     </span><span class="c1"># Undo last commit, changes stay staged (recommit)</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--mixed<span class="w"> </span>HEAD~1<span class="w">    </span><span class="c1"># Undo last commit, changes unstaged (re-add selectively)</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1<span class="w">     </span><span class="c1"># DESTROY last commit + changes (irreversible!)</span>
+</code></pre></div></p>
+<p><strong>System Flow — Soft Reset:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Commit C exists → git reset --soft HEAD~1 → Commit C gone → Changes still in staging area → Ready to recommit
+</code></pre></div></p>
+<p><strong>System Flow — Hard Reset:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Commit C exists → git reset --hard HEAD~1 → Commit C gone → Working directory wiped → Changes LOST (unless recovered via reflog)
+</code></pre></div></p>
+<hr />
+<h2 id="9-revert">9. Revert<a class="headerlink" href="#9-revert" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>main: A---B---C (bad commit)
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>git revert C
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>main: A---B---C---C&#39; (new commit that undoes C)
+</code></pre></div></p>
+<p><strong>What revert does:</strong> Creates a NEW commit that is the opposite of the target commit. Safe for shared branches because it doesn't rewrite history.</p>
+<p><strong>Reset vs Revert:</strong>
+| Reset | Revert |
+|-------|--------|
+| Removes commits from history | Adds new "undo" commit |
+| Rewrites history | Preserves history |
+| Dangerous on shared branches | Safe on shared branches |
+| <code>git reset --hard HEAD~1</code> | <code>git revert &lt;commit-hash&gt;</code> |</p>
+<p><strong>When to use revert?</strong> → Public/shared branches where history must be preserved.</p>
+<hr />
+<h2 id="10-amend">10. Amend<a class="headerlink" href="#10-amend" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Last commit has typo in message → git commit --amend -m &quot;fixed message&quot; → Same commit, new message
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Forgot to add file → git add forgotten.txt → git commit --amend --no-edit → Same commit, extra file
+</code></pre></div></p>
+<p><strong>What it does:</strong> Replaces the last commit with a new one (new hash).</p>
+<p><strong>Caution:</strong> Only amend commits that haven't been pushed. Amending pushed commits = history rewrite.</p>
+<hr />
+<h1 id="priority-4-temporary-work">Priority 4 — Temporary Work<a class="headerlink" href="#priority-4-temporary-work" title="Permanent link">&para;</a></h1>
+<h2 id="11-stash">11. Stash<a class="headerlink" href="#11-stash" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Working on feature → Boss says fix urgent bug → git stash → Switch to main → Fix bug → git stash pop → Continue feature
+</code></pre></div></p>
+<p><strong>What stash does:</strong> Saves working directory + staging area → Cleans working directory → You can switch branches → Later restore.</p>
+<p><strong>Commands:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>stash<span class="w">                    </span><span class="c1"># Save current work</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>git<span class="w"> </span>stash<span class="w"> </span>push<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="w">     </span><span class="c1"># Save with message</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>git<span class="w"> </span>stash<span class="w"> </span>list<span class="w">               </span><span class="c1"># View all stashes</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                </span><span class="c1"># Apply latest stash + DELETE it from list</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>git<span class="w"> </span>stash<span class="w"> </span>apply<span class="w">              </span><span class="c1"># Apply latest stash + KEEP it in list</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span><span class="w">     </span><span class="c1"># Delete specific stash</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>git<span class="w"> </span>stash<span class="w"> </span>clear<span class="w">              </span><span class="c1"># Delete all stashes</span>
+</code></pre></div></p>
+<p><strong>Pop vs Apply:</strong>
+| Pop | Apply |
+|-----|-------|
+| Applies + removes from stash list | Applies + keeps in stash list |
+| One-time use | Can apply same stash multiple times |</p>
+<p><strong>Stash is NOT a commit.</strong> It's a stack of temporary snapshots.</p>
+<hr />
+<h1 id="priority-5-tags-releases">Priority 5 — Tags &amp; Releases<a class="headerlink" href="#priority-5-tags-releases" title="Permanent link">&para;</a></h1>
+<h2 id="12-tags">12. Tags<a class="headerlink" href="#12-tags" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Code ready for release → git tag v1.0.0 → Push tags → GitHub creates release → Users download v1.0.0
+</code></pre></div></p>
+<p><strong>Types:</strong>
+| Type | What it stores | Use |
+|------|---------------|-----|
+| <strong>Lightweight</strong> | Just a commit pointer | Quick bookmark |
+| <strong>Annotated</strong> | Pointer + tagger info + message + GPG sign | Official releases |</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>tag<span class="w"> </span>v1.0.0<span class="w">                    </span><span class="c1"># Lightweight</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.0.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release&quot;</span><span class="w">    </span><span class="c1"># Annotated</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v1.0.0<span class="w">            </span><span class="c1"># Push one tag</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags<span class="w">            </span><span class="c1"># Push all tags</span>
+</code></pre></div>
+<p><strong>Branch vs Tag:</strong>
+| Branch | Tag |
+|--------|-----|
+| Moves forward with commits | Fixed to one commit |
+| Used for ongoing work | Used for marking releases |
+| <code>main</code>, <code>feature-x</code> | <code>v1.0.0</code>, <code>release-2024</code> |</p>
+<p><strong>Semantic Versioning:</strong> <code>MAJOR.MINOR.PATCH</code> (e.g., <code>v2.1.3</code>)
+- MAJOR = Breaking changes
+- MINOR = New features, backward compatible
+- PATCH = Bug fixes</p>
+<hr />
+<h1 id="priority-6-remote-repositories">Priority 6 — Remote Repositories<a class="headerlink" href="#priority-6-remote-repositories" title="Permanent link">&para;</a></h1>
+<h2 id="13-remote-operations">13. Remote Operations<a class="headerlink" href="#13-remote-operations" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Your laptop (local) ←→ origin (your fork) ←→ upstream (original repo)
+</code></pre></div></p>
+<p><strong>Key Concepts:</strong>
+| Term | Meaning |
+|------|---------|
+| <strong>origin</strong> | Default name for your remote repo |
+| <strong>upstream</strong> | Original repo you forked from |
+| <strong>Remote-tracking branch</strong> | Local copy of remote branch (e.g., <code>origin/main</code>) |</p>
+<p><strong>Commands:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                     </span><span class="c1"># List remotes</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>&lt;url&gt;<span class="w">     </span><span class="c1"># Add upstream remote</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>git<span class="w"> </span>fetch<span class="w"> </span>upstream<span class="w">                </span><span class="c1"># Download upstream changes</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>git<span class="w"> </span>merge<span class="w"> </span>upstream/main<span class="w">           </span><span class="c1"># Merge upstream into local main</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w">              </span><span class="c1"># Push to your fork</span>
+</code></pre></div></p>
+<p><strong>Fork Workflow (Open Source):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Fork repo → Clone YOUR fork → Create branch → Make changes → Push to YOUR fork → Open Pull Request → upstream maintainer reviews → Merge
+</code></pre></div></p>
+<hr />
+<h1 id="priority-7-collaboration-workflow">Priority 7 — Collaboration Workflow<a class="headerlink" href="#priority-7-collaboration-workflow" title="Permanent link">&para;</a></h1>
+<h2 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Feature branch ready → git push origin feature → Open PR on GitHub → Code review → CI checks pass → Approved → Merge to main → Delete branch
+</code></pre></div></p>
+<p><strong>Why PRs?</strong> → Code review, discussion, CI validation, approval gate before merging.</p>
+<h2 id="branching-strategies">Branching Strategies<a class="headerlink" href="#branching-strategies" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Flow</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Feature Branch</strong></td>
+<td><code>main</code> + <code>feature/*</code> branches → PR → merge</td>
+<td>Small teams, simple projects</td>
+</tr>
+<tr>
+<td><strong>Git Flow</strong></td>
+<td><code>main</code> (production) + <code>develop</code> (integration) + <code>feature/*</code> + <code>release/*</code> + <code>hotfix/*</code></td>
+<td>Large teams, scheduled releases</td>
+</tr>
+<tr>
+<td><strong>GitHub Flow</strong></td>
+<td><code>main</code> + <code>feature/*</code> → PR → merge → deploy</td>
+<td>CI/CD, continuous deployment</td>
+</tr>
+<tr>
+<td><strong>Trunk-Based</strong></td>
+<td>Everyone commits to <code>main</code> → short-lived branches (&lt;1 day) → feature flags</td>
+<td>High velocity, experienced teams</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Git Flow vs GitHub Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Git Flow:        main ← release ← develop ← feature → merge back
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>GitHub Flow:     main ← feature → PR → merge → deploy immediately
+</code></pre></div></p>
+<p><strong>Startup choice?</strong> → GitHub Flow. Simple, fast, continuous deployment.</p>
+<hr />
+<h1 id="priority-8-history-inspection">Priority 8 — History Inspection<a class="headerlink" href="#priority-8-history-inspection" title="Permanent link">&para;</a></h1>
+<h2 id="key-commands">Key Commands<a class="headerlink" href="#key-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it shows</th>
+<th>System Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git log</code></td>
+<td>Commit history (oldest→newest or newest→oldest)</td>
+<td><code>git log --oneline --graph --all</code></td>
+</tr>
+<tr>
+<td><code>git log --oneline</code></td>
+<td>One line per commit</td>
+<td>Quick overview</td>
+</tr>
+<tr>
+<td><code>git log --graph</code></td>
+<td>ASCII graph of branches</td>
+<td>Visual branch structure</td>
+</tr>
+<tr>
+<td><code>git diff</code></td>
+<td>Changes between commits/working dir</td>
+<td><code>git diff HEAD~1</code> = last commit changes</td>
+</tr>
+<tr>
+<td><code>git show &lt;hash&gt;</code></td>
+<td>Full details of one commit</td>
+<td>Commit + diff</td>
+</tr>
+<tr>
+<td><code>git blame &lt;file&gt;</code></td>
+<td>Who changed each line + when</td>
+<td>Track down bug introducer</td>
+</tr>
+<tr>
+<td><code>git reflog</code></td>
+<td>ALL HEAD movements (even "lost" commits)</td>
+<td>Safety net for recovery</td>
+</tr>
+</tbody>
+</table>
+<p><strong>git log vs git reflog:</strong>
+| git log | git reflog |
+|---------|-----------|
+| Commit history (DAG) | HEAD movement history |
+| Only reachable commits | Includes orphaned commits |
+| Shared across clones | Local only |
+| <code>git log</code> | <code>git reflog</code> |</p>
+<p><strong>Recover lost commit:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>git<span class="w"> </span>reflog<span class="w">                          </span><span class="c1"># Find commit hash before reset</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>&lt;hash&gt;<span class="w">                 </span><span class="c1"># View it</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>recovery-branch<span class="w">     </span><span class="c1"># Create branch from it</span>
+</code></pre></div></p>
+<hr />
+<h1 id="priority-9-undoing-mistakes">Priority 9 — Undoing Mistakes<a class="headerlink" href="#priority-9-undoing-mistakes" title="Permanent link">&para;</a></h1>
+<h2 id="recovery-scenarios">Recovery Scenarios<a class="headerlink" href="#recovery-scenarios" title="Permanent link">&para;</a></h2>
+<p><strong>Scenario 1: Deleted file (not committed)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>git<span class="w"> </span>restore<span class="w"> </span>&lt;file&gt;<span class="w">                  </span><span class="c1"># Restore from staging area</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>git<span class="w"> </span>restore<span class="w"> </span>--source<span class="o">=</span>HEAD<span class="w"> </span>&lt;file&gt;<span class="w">   </span><span class="c1"># Restore from last commit</span>
+</code></pre></div></p>
+<p><strong>Scenario 2: Accidentally committed to wrong branch</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1<span class="w">             </span><span class="c1"># Undo commit, keep changes</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>correct-branch
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;message&quot;</span>
+</code></pre></div></p>
+<p><strong>Scenario 3: Hard reset gone wrong</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>git<span class="w"> </span>reflog<span class="w">                          </span><span class="c1"># Find commit before reset</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>&lt;commit-hash&gt;<span class="w">     </span><span class="c1"># Go back to it</span>
+</code></pre></div></p>
+<p><strong>Scenario 4: Detached HEAD</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>What: HEAD points directly to commit, not branch
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>How: git checkout &lt;commit-hash&gt;
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>Fix: git checkout -b new-branch     # Create branch from detached state
+</code></pre></div></p>
+<p><strong>Recovery Cheat Sheet:</strong>
+| Mistake | Recovery |
+|---------|----------|
+| Deleted uncommitted file | <code>git restore &lt;file&gt;</code> |
+| Deleted committed file | <code>git checkout HEAD -- &lt;file&gt;</code> |
+| Bad commit message | <code>git commit --amend</code> |
+| Committed to wrong branch | <code>git reset --soft HEAD~1</code> → switch → recommit |
+| Hard reset lost work | <code>git reflog</code> → find hash → <code>git checkout -b recovery &lt;hash&gt;</code> |
+| Merge conflict resolved wrong | <code>git merge --abort</code> (if not committed yet) |
+| Pushed bad commit | <code>git revert &lt;hash&gt;</code> (don't reset!) |</p>
+<hr />
+<h1 id="priority-10-git-internals-basic">Priority 10 — Git Internals (Basic)<a class="headerlink" href="#priority-10-git-internals-basic" title="Permanent link">&para;</a></h1>
+<h2 id="how-git-actually-works">How Git Actually Works<a class="headerlink" href="#how-git-actually-works" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — Commit Internals:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>You: git commit -m &quot;fix bug&quot;
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>Git internally:
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>1. For each staged file → compute SHA-1 hash of content → store as blob object
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>2. Create tree object → lists all blobs + filenames + permissions
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>3. Create commit object → tree hash + parent commit hash + author + message + timestamp
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>4. Update branch ref → point to new commit hash
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>5. Move HEAD → point to new commit
+</code></pre></div></p>
+<p><strong>Snapshots vs Deltas:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Delta (SVN): Store change from previous version
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>  v1: file.txt = &quot;hello&quot;
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>  v2: file.txt = &quot;hello world&quot; → store &quot;+ world&quot;
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>Snapshot (Git): Store full content each time
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>  v1: blob_a = &quot;hello&quot;
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>  v2: blob_b = &quot;hello world&quot; (both stored independently)
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>Optimization: Same content = same hash = stored once (deduplication)
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>Pack files compress similar blobs later (background gc)
+</code></pre></div></p>
+<p><strong>DAG (Directed Acyclic Graph):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>Commit A → Commit B → Commit C
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>                ↘ Commit D → Commit E (merge)
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>                        ↘ Commit F
+</code></pre></div></p>
+<p>No cycles allowed (can't be its own ancestor). Every commit has 1+ parents.</p>
+<p><strong>Why Git is immutable?</strong> → Objects are keyed by hash. Changing content = new hash = new object. Old objects stay until garbage collection.</p>
+<p><strong>Pack Files:</strong> Background process (<code>git gc</code>) finds similar blobs, stores one full + deltas for others. Transparent to users.</p>
+<hr />
+<h1 id="common-interview-scenarios-quick-answers">Common Interview Scenarios — Quick Answers<a class="headerlink" href="#common-interview-scenarios-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>One-Liner Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Git vs GitHub</td>
+<td>Git = tool, GitHub = hosting platform</td>
+</tr>
+<tr>
+<td>Working vs Staging vs Repo</td>
+<td>Working = edited files, Staging = next commit preview, Repo = committed history</td>
+</tr>
+<tr>
+<td>What happens during commit?</td>
+<td>Blobs → Tree → Commit object → Update branch ref → Move HEAD</td>
+</tr>
+<tr>
+<td>Branch vs Tag</td>
+<td>Branch moves forward, Tag is fixed</td>
+</tr>
+<tr>
+<td>Merge vs Rebase</td>
+<td>Merge preserves history, Rebase rewrites for linear history</td>
+</tr>
+<tr>
+<td>Fast-forward vs 3-way</td>
+<td>FF = no diverge, linear. 3-way = both changed, merge commit</td>
+</tr>
+<tr>
+<td>Pull vs Fetch</td>
+<td>Fetch downloads only, Pull downloads + merges</td>
+</tr>
+<tr>
+<td>Reset vs Revert</td>
+<td>Reset removes commits (dangerous), Revert adds undo commit (safe)</td>
+</tr>
+<tr>
+<td>Cherry-pick vs Merge</td>
+<td>Cherry-pick copies ONE commit, Merge brings ALL</td>
+</tr>
+<tr>
+<td>Soft vs Mixed vs Hard</td>
+<td>Soft=keep staged, Mixed=unstage, Hard=destroy everything</td>
+</tr>
+<tr>
+<td>Stash vs Commit</td>
+<td>Stash = temporary, no message, not in history. Commit = permanent snapshot</td>
+</tr>
+<tr>
+<td>Pop vs Apply</td>
+<td>Pop applies + deletes stash, Apply applies + keeps stash</td>
+</tr>
+<tr>
+<td>Why interactive rebase?</td>
+<td>Clean history: squash, reword, reorder, drop commits</td>
+</tr>
+<tr>
+<td>Detached HEAD?</td>
+<td>HEAD points to commit, not branch. Create branch to save work</td>
+</tr>
+<tr>
+<td>Recover deleted commits?</td>
+<td><code>git reflog</code> → find hash → <code>git checkout -b recovery &lt;hash&gt;</code></td>
+</tr>
+<tr>
+<td>How Git detects conflicts?</td>
+<td>Same file, overlapping lines changed in both branches</td>
+</tr>
+<tr>
+<td>Why avoid rebasing public?</td>
+<td>Rewrites commit hashes → others' references break</td>
+</tr>
+<tr>
+<td>How branches stored?</td>
+<td>Files in <code>.git/refs/heads/</code> containing commit hashes</td>
+</tr>
+<tr>
+<td>What is reflog?</td>
+<td>Local log of ALL HEAD movements, including "lost" commits</td>
+</tr>
+<tr>
+<td>Typical team workflow?</td>
+<td>Pull main → Branch → Commit → Push → PR → Review → Merge → Delete branch</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="quick-command-reference">Quick Command Reference<a class="headerlink" href="#quick-command-reference" title="Permanent link">&para;</a></h1>
+<h2 id="daily-commands">Daily Commands<a class="headerlink" href="#daily-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>git<span class="w"> </span>status,<span class="w"> </span>git<span class="w"> </span>add,<span class="w"> </span>git<span class="w"> </span>commit,<span class="w"> </span>git<span class="w"> </span>push,<span class="w"> </span>git<span class="w"> </span>pull,<span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</code></pre></div>
+<h2 id="branching">Branching<a class="headerlink" href="#branching" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>git<span class="w"> </span>branch,<span class="w"> </span>git<span class="w"> </span>switch,<span class="w"> </span>git<span class="w"> </span>checkout,<span class="w"> </span>git<span class="w"> </span>merge,<span class="w"> </span>git<span class="w"> </span>rebase
+</code></pre></div>
+<h2 id="history">History<a class="headerlink" href="#history" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>git<span class="w"> </span>log,<span class="w"> </span>git<span class="w"> </span>diff,<span class="w"> </span>git<span class="w"> </span>show,<span class="w"> </span>git<span class="w"> </span>blame,<span class="w"> </span>git<span class="w"> </span>reflog
+</code></pre></div>
+<h2 id="undo">Undo<a class="headerlink" href="#undo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--soft/--mixed/--hard,<span class="w"> </span>git<span class="w"> </span>revert,<span class="w"> </span>git<span class="w"> </span>restore,<span class="w"> </span>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>&lt;file&gt;
+</code></pre></div>
+<h2 id="temporary">Temporary<a class="headerlink" href="#temporary" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>git<span class="w"> </span>stash,<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>pop,<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>apply,<span class="w"> </span>git<span class="w"> </span>stash<span class="w"> </span>list
+</code></pre></div>
+<h2 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v1.0.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release&quot;</span>,<span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<h2 id="remote">Remote<a class="headerlink" href="#remote" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>git<span class="w"> </span>remote<span class="w"> </span>-v,<span class="w"> </span>git<span class="w"> </span>fetch,<span class="w"> </span>git<span class="w"> </span>pull,<span class="w"> </span>git<span class="w"> </span>push,<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>&lt;url&gt;
+</code></pre></div>
+<hr />
+<h1 id="final-tip-interview-flow-for-git-questions">Final Tip: Interview Flow for Git Questions<a class="headerlink" href="#final-tip-interview-flow-for-git-questions" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>1. Start with areas: Working → Staging → Local → Remote
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>2. Explain what happens internally (blobs, trees, commits)
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>3. Compare options (merge vs rebase, reset vs revert)
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>4. Mention safety (never rebase public, use revert not reset on shared)
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>5. Give real scenario (&quot;If I&#39;m on a team, I&#39;d use...&quot;)
+</code></pre></div>
+<p><strong>Always remember:</strong> Git stores snapshots, not diffs. Everything is an object with a hash. Branches are just pointers.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../backend-fundamentals/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Backend Fundamentals">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Backend Fundamentals
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../linux/" class="md-footer__link md-footer__link--next" aria-label="Next: Linux">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Linux
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

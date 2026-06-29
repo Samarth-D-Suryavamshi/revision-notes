@@ -1,0 +1,4454 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/programming/language-specific/">
+      
+      
+        <link rel="prev" href="../programming-fundamentals/">
+      
+      
+        <link rel="next" href="../../data/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Language Specific - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#language-specific-interview-notes-system-first-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Language Specific
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../computer-science/" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer-science/mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JAVA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JAVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-jvm-jdk-jre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. JVM, JDK, JRE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-collections-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. COLLECTIONS FRAMEWORK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GENERICS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. EXCEPTION HANDLING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-streams-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. STREAMS API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-jvm-memory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. JVM MEMORY LAYOUT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-garbage-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. GARBAGE COLLECTION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. MULTITHREADING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-concurrency-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. CONCURRENCY UTILITIES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-java-8-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. JAVA 8+ FEATURES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PYTHON
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PYTHON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-python-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. PYTHON FUNDAMENTALS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. MEMORY MANAGEMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-gil-global-interpreter-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GIL (Global Interpreter Lock)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-iterators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ITERATORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-generators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. GENERATORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-decorators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DECORATORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-context-managers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. CONTEXT MANAGERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-async-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ASYNC PROGRAMMING
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. STL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-smart-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. SMART POINTERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-raii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RAII
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-move-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MOVE SEMANTICS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-modern-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. MODERN C++
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-language-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CROSS-LANGUAGE COMPARISON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-java-execute-a-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does Java execute a program?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-hashmap-work-internally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does HashMap work internally?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-pythons-gil-affect-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does Python's GIL affect threading?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-c-raii-work-with-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does C++ RAII work with exceptions?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-answer-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUICK ANSWER CHEAT SHEET
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skip-these-unless-runtimecompiler-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SKIP THESE (Unless Runtime/Compiler Role)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JAVA
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JAVA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-jvm-jdk-jre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. JVM, JDK, JRE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-collections-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. COLLECTIONS FRAMEWORK
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-generics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GENERICS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-exception-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. EXCEPTION HANDLING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-streams-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. STREAMS API
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-jvm-memory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. JVM MEMORY LAYOUT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-garbage-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. GARBAGE COLLECTION
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-multithreading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. MULTITHREADING
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-concurrency-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. CONCURRENCY UTILITIES
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-java-8-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. JAVA 8+ FEATURES
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PYTHON
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PYTHON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-python-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. PYTHON FUNDAMENTALS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. MEMORY MANAGEMENT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-gil-global-interpreter-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. GIL (Global Interpreter Lock)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-iterators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. ITERATORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-generators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. GENERATORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-decorators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DECORATORS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-context-managers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. CONTEXT MANAGERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-async-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. ASYNC PROGRAMMING
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. STL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-smart-pointers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. SMART POINTERS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-raii" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RAII
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-move-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. MOVE SEMANTICS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-modern-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. MODERN C++
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cross-language-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CROSS-LANGUAGE COMPARISON
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-java-execute-a-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does Java execute a program?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-hashmap-work-internally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does HashMap work internally?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-pythons-gil-affect-threading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does Python's GIL affect threading?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-workflow-how-does-c-raii-work-with-exceptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        COMPLETE WORKFLOW: "How does C++ RAII work with exceptions?"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-answer-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QUICK ANSWER CHEAT SHEET
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skip-these-unless-runtimecompiler-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SKIP THESE (Unless Runtime/Compiler Role)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="language-specific-interview-notes-system-first-approach">Language-Specific — Interview Notes (System-First Approach)<a class="headerlink" href="#language-specific-interview-notes-system-first-approach" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="java">JAVA<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-jvm-jdk-jre">1. JVM, JDK, JRE<a class="headerlink" href="#1-jvm-jdk-jre" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>JDK (Java Development Kit)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  |
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  +-- JRE (Java Runtime Environment)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  |     |
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  |     +-- JVM (Java Virtual Machine)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  |     |     |
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  |     |     +-- Class Loader
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  |     |     +-- Runtime Data Areas (Heap, Stack, Metaspace)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  |     |     +-- Execution Engine (Interpreter + JIT)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  |     |     +-- Garbage Collector
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>  |     |
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>  |     +-- Java Class Libraries
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  |
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  +-- Development Tools (javac, jdb, javadoc)
+</code></pre></div>
+<p><strong>JDK vs JRE vs JVM:</strong>
+| JDK | JRE | JVM |
+|-----|-----|-----|
+| Develop + Run | Run only | Execute bytecode |
+| Includes JRE + tools | Includes JVM + libraries | Abstract machine |</p>
+<p><strong>How Java executes code:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Hello.java -&gt; javac -&gt; Hello.class (bytecode)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    |
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>java Hello -&gt; JVM loads -&gt; Class Loader -&gt; Bytecode Verifier -&gt; JIT Compiler -&gt; Native Machine Code -&gt; Execute
+</code></pre></div></p>
+<p><strong>What happens after <code>java Main</code>?</strong>
+1. JVM starts, creates main thread
+2. Bootstrap Class Loader loads core classes (java.lang.*)
+3. Extension Class Loader loads extension libraries
+4. Application Class Loader loads user classes
+5. Bytecode verifier checks validity
+6. Interpreter executes bytecode (hot paths JIT-compiled)
+7. Main method invoked</p>
+<hr />
+<h3 id="2-collections-framework">2. COLLECTIONS FRAMEWORK<a class="headerlink" href="#2-collections-framework" title="Permanent link">&para;</a></h3>
+<p><strong>Hierarchy:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Iterable
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  |
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  +-- Collection
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  |     |
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  |     +-- List (ordered, duplicates)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  |     |     +-- ArrayList (dynamic array, fast random access)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  |     |     +-- LinkedList (doubly linked, fast insert/delete)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  |     |     +-- Vector (synchronized, legacy)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  |     |     +-- Stack (LIFO, legacy)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  |     |
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  |     +-- Set (unique)
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  |     |     +-- HashSet (hash table, O(1))
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  |     |     +-- LinkedHashSet (insertion order)
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>  |     |     +-- TreeSet (sorted, Red-Black tree, O(log n))
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  |     |
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>  |     +-- Queue (FIFO)
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>  |           +-- PriorityQueue (heap, priority order)
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>  |           +-- LinkedList (as queue)
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>  |           +-- ArrayDeque (resizable array, faster than Stack)
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>  |
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>  +-- Map (key-value)
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        +-- HashMap (hash table, O(1), not thread-safe)
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>        +-- LinkedHashMap (insertion/access order)
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>        +-- TreeMap (sorted, Red-Black tree)
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>        +-- Hashtable (synchronized, legacy)
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>        +-- ConcurrentHashMap (thread-safe, fine-grained locks)
+</code></pre></div></p>
+<p><strong>ArrayList vs LinkedList:</strong>
+| ArrayList | LinkedList |
+|-----------|-----------|
+| Dynamic array | Doubly linked list |
+| Fast get(i): O(1) | Slow get(i): O(n) |
+| Slow insert middle: O(n) | Fast insert middle: O(1) |
+| Cache-friendly | More memory overhead |</p>
+<p><strong>HashMap internals:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Key -&gt; hashCode() -&gt; hash() -&gt; index = (n-1) &amp; hash
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    |
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Bucket (array of Node&lt;K,V&gt;)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    |
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    +-- null? -&gt; Store new node
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    +-- collision? -&gt; Linked list (treeify if &gt; 8)
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    |
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    Load factor 0.75 -&gt; Resize (double capacity) when 75% full
+</code></pre></div></p>
+<p><strong>HashMap vs ConcurrentHashMap:</strong>
+| HashMap | ConcurrentHashMap |
+|---------|-------------------|
+| Not thread-safe | Thread-safe |
+| Null key/value allowed | Null not allowed |
+| Fast | Slightly slower (segment locks) |
+| Fail-fast iterator | Weakly consistent iterator |</p>
+<p><strong>HashSet vs LinkedHashSet vs TreeSet:</strong>
+| HashSet | LinkedHashSet | TreeSet |
+|---------|---------------|---------|
+| Unordered | Insertion order | Sorted (natural/comparator) |
+| O(1) ops | O(1) ops | O(log n) ops |
+| Hash table | Hash table + linked list | Red-Black tree |</p>
+<hr />
+<h3 id="3-generics">3. GENERICS<a class="headerlink" href="#3-generics" title="Permanent link">&para;</a></h3>
+<p><strong>Why Generics?</strong>
+→ Type safety at compile time. No ClassCastException at runtime.</p>
+<p><strong>Type Erasure:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1">// At runtime: List (raw type), String info erased</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">// Compiler inserts casts automatically</span>
+</code></pre></div>
+→ Java replaces generic types with Object (or first bound). Bytecode has no generics.</p>
+<p><strong>Wildcards:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Number</span><span class="o">&gt;</span><span class="w">  </span><span class="c1">// Can read Number, can&#39;t add (covariant)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">List</span><span class="o">&lt;?</span><span class="w"> </span><span class="kd">super</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w">   </span><span class="c1">// Can add Integer, read as Object (contravariant)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">List</span><span class="o">&lt;?&gt;</span><span class="w">                 </span><span class="c1">// Unbounded, read-only</span>
+</code></pre></div></p>
+<p><strong>PECS Principle:</strong>
+→ Producer Extends, Consumer Super
+- Producer (read): <code>? extends T</code>
+- Consumer (write): <code>? super T</code></p>
+<hr />
+<h3 id="4-exception-handling">4. EXCEPTION HANDLING<a class="headerlink" href="#4-exception-handling" title="Permanent link">&para;</a></h3>
+<p><strong>Hierarchy:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Throwable
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  |
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  +-- Error (unchecked, don&#39;t catch)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  |     +-- OutOfMemoryError
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  |     +-- StackOverflowError
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  |
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  +-- Exception
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>        |
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>        +-- RuntimeException (unchecked)
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        |     +-- NullPointerException
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>        |     +-- ArrayIndexOutOfBoundsException
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>        |     +-- IllegalArgumentException
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        |
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        +-- Checked (must handle or declare)
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>              +-- IOException
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>              +-- SQLException
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>              +-- ClassNotFoundException
+</code></pre></div></p>
+<p><strong>Checked vs Unchecked:</strong>
+| Checked | Unchecked |
+|---------|-----------|
+| Compile-time check | Runtime |
+| External conditions | Programming errors |
+| IOException, SQLException | NullPointerException, IllegalArgumentException |
+| Must catch or throws | Optional |</p>
+<p><strong>throw vs throws:</strong>
+- throw: Actually throw an exception instance
+- throws: Declare that method might throw (for checked exceptions)</p>
+<p><strong>finally:</strong>
+→ Always executes (even if exception thrown, return called). Use for cleanup (close resources).</p>
+<hr />
+<h3 id="5-streams-api">5. STREAMS API<a class="headerlink" href="#5-streams-api" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">nums</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">    </span><span class="c1">// keep even</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w">             </span><span class="c1">// square</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">.</span><span class="na">sorted</span><span class="p">()</span><span class="w">                     </span><span class="c1">// sort</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w"> </span><span class="c1">// [4, 16]</span>
+</code></pre></div>
+<p><strong>Stream vs Collection:</strong>
+| Collection | Stream |
+|-----------|--------|
+| Stores data | Computes on demand |
+| Eager evaluation | Lazy evaluation |
+| Can traverse multiple times | Single-use |
+| External iteration | Internal iteration |</p>
+<p><strong>map vs flatMap:</strong>
+- map: Transform each element (1-to-1)
+- flatMap: Transform + flatten (1-to-many)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">nested</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">nested</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">flatMap</span><span class="p">(</span><span class="n">List</span><span class="p">::</span><span class="n">stream</span><span class="p">).</span><span class="na">collect</span><span class="p">(...);</span><span class="w"> </span><span class="c1">// [1,2,3,4]</span>
+</code></pre></div>
+<p><strong>Why Streams are lazy?</strong>
+→ Intermediate operations (filter, map) don't execute until terminal operation (collect, forEach) called. Enables optimization (fuse operations, short-circuit).</p>
+<hr />
+<h3 id="6-jvm-memory-layout">6. JVM MEMORY LAYOUT<a class="headerlink" href="#6-jvm-memory-layout" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>JVM Memory
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  |
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  +-- Heap (all objects, shared across threads)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  |     |
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>  |     +-- Young Generation
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  |     |     +-- Eden (new objects)
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>  |     |     +-- Survivor 0
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>  |     |     +-- Survivor 1
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>  |     |
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>  |     +-- Old Generation (long-lived objects)
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>  |
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>  +-- Stack (per thread, method frames, local variables)
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>  |     +-- Local variables
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>  |     +-- Operand stack
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>  |     +-- Frame data
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>  |
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>  +-- Metaspace (class metadata, replaces PermGen)
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>  |
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>  +-- Program Counter (per thread, current instruction)
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>  |
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>  +-- Native Method Stack (native code)
+</code></pre></div>
+<p><strong>Heap vs Stack:</strong>
+| Heap | Stack |
+|------|-------|
+| All objects | Primitive locals, references |
+| Shared (all threads) | Per thread |
+| Managed by GC | Auto-managed (push/pop) |
+| Slower allocation | Fast allocation |
+| Larger | Smaller |</p>
+<hr />
+<h3 id="7-garbage-collection">7. GARBAGE COLLECTION<a class="headerlink" href="#7-garbage-collection" title="Permanent link">&para;</a></h3>
+<p><strong>How GC works:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1. Mark: Identify reachable objects (from GC roots: stack refs, static fields)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>2. Sweep: Remove unreachable objects
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>3. Compact: Move surviving objects to reduce fragmentation (optional)
+</code></pre></div></p>
+<p><strong>Generational Hypothesis:</strong>
+→ Most objects die young. Few survive long.</p>
+<p><strong>Young Generation (Minor GC):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Eden (new objects) -&gt; fills up -&gt; Minor GC
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    |
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Survivors moved to S0 or S1
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>After several survivals -&gt; Promoted to Old Gen
+</code></pre></div></p>
+<p><strong>Old Generation (Major GC / Full GC):</strong>
+→ Full GC scans entire heap. STW (Stop The World) pause. Expensive.</p>
+<p><strong>Garbage Collectors:</strong>
+| Collector | Use Case | Characteristics |
+|-----------|----------|----------------|
+| Serial | Single-threaded apps | Simple, STW |
+| Parallel | Throughput-focused | Multi-threaded, STW |
+| CMS | Low latency (deprecated) | Concurrent, less STW |
+| G1 GC | Balanced (default Java 9+) | Region-based, predictable pauses |
+| ZGC | Ultra-low latency (&lt;10ms) | Concurrent, scalable |
+| Shenandoah | Low latency | Concurrent, region-based |</p>
+<p><strong>Why Full GC expensive?</strong>
+→ Scans entire heap, long STW pause, all threads stopped.</p>
+<hr />
+<h3 id="8-multithreading">8. MULTITHREADING<a class="headerlink" href="#8-multithreading" title="Permanent link">&para;</a></h3>
+<p><strong>Creating Threads:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// Way 1: extends Thread</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">class</span> <span class="nc">MyThread</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Thread</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1">// Way 2: implements Runnable</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="kd">class</span> <span class="nc">MyTask</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">MyTask</span><span class="p">()).</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1">// Way 3: implements Callable (returns result)</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">Callable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;result&quot;</span><span class="p">;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+</code></pre></div></p>
+<p><strong>Runnable vs Callable:</strong>
+| Runnable | Callable |
+|----------|----------|
+| void run() | T call() throws Exception |
+| No return | Returns result |
+| No checked exceptions | Can throw checked |</p>
+<p><strong>synchronized vs Lock:</strong>
+| synchronized | Lock (ReentrantLock) |
+|-------------|----------------------|
+| Built-in keyword | Explicit object |
+| Auto-release (block end) | Manual lock/unlock |
+| No fairness option | Can be fair |
+| No try-lock | tryLock() available |
+| No interruptible | lockInterruptibly() |</p>
+<p><strong>volatile vs synchronized:</strong>
+| volatile | synchronized |
+|----------|--------------|
+| Visibility only (read from main memory) | Visibility + atomicity |
+| No mutual exclusion | Mutual exclusion |
+| Use: flag variables | Use: compound operations |
+| i++ NOT atomic | i++ atomic within block |</p>
+<p><strong>Executor Framework:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">executor</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
+</code></pre></div></p>
+<p><strong>Thread Pools:</strong>
+| Type | Behavior |
+|------|----------|
+| FixedThreadPool | Fixed N threads, queue excess |
+| CachedThreadPool | Create as needed, reuse idle |
+| SingleThreadExecutor | One thread, sequential |
+| ScheduledThreadPool | Delayed/periodic execution |
+| WorkStealingPool | ForkJoinPool, work-stealing |</p>
+<p><strong>CompletableFuture (async programming):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fetchUser</span><span class="p">())</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getName</span><span class="p">())</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="p">.</span><span class="na">thenAccept</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="p">.</span><span class="na">exceptionally</span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Error: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="na">getMessage</span><span class="p">());</span>
+</code></pre></div></p>
+<hr />
+<h3 id="9-concurrency-utilities">9. CONCURRENCY UTILITIES<a class="headerlink" href="#9-concurrency-utilities" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Utility</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CountDownLatch</td>
+<td>Wait for N events</td>
+</tr>
+<tr>
+<td>CyclicBarrier</td>
+<td>Synchronize N threads at barrier</td>
+</tr>
+<tr>
+<td>Semaphore</td>
+<td>Control access to N resources</td>
+</tr>
+<tr>
+<td>AtomicInteger/AtomicLong</td>
+<td>Lock-free atomic operations</td>
+</tr>
+<tr>
+<td>ConcurrentHashMap</td>
+<td>Thread-safe map</td>
+</tr>
+<tr>
+<td>CopyOnWriteArrayList</td>
+<td>Thread-safe list (read-heavy)</td>
+</tr>
+<tr>
+<td>BlockingQueue</td>
+<td>Thread-safe queue</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="10-java-8-features">10. JAVA 8+ FEATURES<a class="headerlink" href="#10-java-8-features" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lambda</td>
+<td><code>(x, y) -&gt; x + y</code> - anonymous function</td>
+</tr>
+<tr>
+<td>Functional Interface</td>
+<td>Single abstract method interface (<code>@FunctionalInterface</code>)</td>
+</tr>
+<tr>
+<td>Method Reference</td>
+<td><code>String::length</code> - shorthand for lambda</td>
+</tr>
+<tr>
+<td>Optional</td>
+<td><code>Optional&lt;T&gt;</code> - avoid null checks</td>
+</tr>
+<tr>
+<td>Streams</td>
+<td>Functional data processing pipeline</td>
+</tr>
+<tr>
+<td>Default Methods</td>
+<td>Interface methods with default implementation</td>
+</tr>
+<tr>
+<td>New Date/Time API</td>
+<td><code>LocalDate</code>, <code>LocalTime</code>, <code>ZonedDateTime</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="python">PYTHON<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-python-fundamentals">1. PYTHON FUNDAMENTALS<a class="headerlink" href="#1-python-fundamentals" title="Permanent link">&para;</a></h3>
+<p><strong>Object Model:</strong>
+→ Everything is an object. Variables are references to objects.</p>
+<p><strong>Dynamic Typing:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>      <span class="c1"># x references int object 5</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;hi&quot;</span>   <span class="c1"># x now references str object &quot;hi&quot;</span>
+</code></pre></div></p>
+<p><strong>Duck Typing:</strong>
+→ "If it walks like a duck and quacks like a duck, it's a duck."
+→ No type checking. Call method, handle AttributeError if missing.</p>
+<p><strong>LEGB Rule (Variable Resolution):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>L - Local (function scope)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>E - Enclosing (outer function)
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>G - Global (module level)
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>B - Built-in (print, len, etc.)
+</code></pre></div>
+→ Python searches in L -&gt; E -&gt; G -&gt; B order.</p>
+<hr />
+<h3 id="2-memory-management">2. MEMORY MANAGEMENT<a class="headerlink" href="#2-memory-management" title="Permanent link">&para;</a></h3>
+<p><strong>Reference Counting:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># ref count = 1</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>          <span class="c1"># ref count = 2</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">del</span> <span class="n">a</span>          <span class="c1"># ref count = 1</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="k">del</span> <span class="n">b</span>          <span class="c1"># ref count = 0 -&gt; GC frees memory</span>
+</code></pre></div></p>
+<p><strong>Why Reference Counting alone insufficient?</strong>
+→ Circular references: <code>a.ref = b; b.ref = a</code> -&gt; ref count never reaches 0.</p>
+<p><strong>Garbage Collector (Generational):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Generation 0 (new objects) -&gt; survive -&gt; Generation 1 -&gt; survive -&gt; Generation 2
+</code></pre></div>
+→ GC runs more frequently on younger generations.</p>
+<p><strong>Object Interning:</strong>
+→ Small integers (-5 to 256) and short strings cached. <code>a = 5; b = 5</code> -&gt; same object.</p>
+<hr />
+<h3 id="3-gil-global-interpreter-lock">3. GIL (Global Interpreter Lock)<a class="headerlink" href="#3-gil-global-interpreter-lock" title="Permanent link">&para;</a></h3>
+<p><strong>What:</strong>
+→ Mutex protecting access to Python objects. Only one thread executes Python bytecode at a time.</p>
+<p><strong>Why GIL?</strong>
+→ Simplifies memory management (reference counting). Prevents race conditions on object access.</p>
+<p><strong>Impact:</strong>
+| Task Type | Effect |
+|-----------|--------|
+| CPU-bound | No speedup with threads (GIL serializes) |
+| I/O-bound | Threads useful (GIL released during I/O) |</p>
+<p><strong>Threads vs Processes in Python:</strong>
+| Threads | Processes |
+|---------|-----------|
+| Shared memory | Separate memory |
+| GIL limited | No GIL, true parallelism |
+| Good for I/O | Good for CPU |
+| threading module | multiprocessing module |</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># CPU-bound: Use processes</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">heavy_compute</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># I/O-bound: Use threads or asyncio</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    <span class="n">ex</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fetch_url</span><span class="p">,</span> <span class="n">urls</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="4-iterators">4. ITERATORS<a class="headerlink" href="#4-iterators" title="Permanent link">&para;</a></h3>
+<p><strong>Iterator Protocol:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyIterator</span><span class="p">:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        <span class="k">if</span> <span class="n">no_more</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">StopIteration</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>        <span class="k">return</span> <span class="n">next_value</span>
+</code></pre></div></p>
+<p><strong>Iterable vs Iterator:</strong>
+| Iterable | Iterator |
+|----------|----------|
+| Has <strong>iter</strong>() | Has <strong>iter</strong>() + <strong>next</strong>() |
+| Can loop over | Can loop over + remembers state |
+| list, tuple, dict | Generator, file objects |</p>
+<hr />
+<h3 id="5-generators">5. GENERATORS<a class="headerlink" href="#5-generators" title="Permanent link">&para;</a></h3>
+<p><strong>What:</strong>
+→ Functions that yield values lazily. Memory efficient.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>        <span class="k">yield</span> <span class="n">a</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># Usage: for num in fibonacci(1000000): print(num)  # Uses O(1) memory</span>
+</code></pre></div>
+<p><strong>Generator vs List:</strong>
+| Generator | List |
+|-----------|------|
+| Lazy evaluation | Eager evaluation |
+| O(1) memory | O(n) memory |
+| Single iteration | Multiple iterations |
+| Values computed on demand | All values stored |</p>
+<p><strong>Generator Expression:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">squares</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">))</span>  <span class="c1"># Generator</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)]</span>  <span class="c1"># List (uses memory)</span>
+</code></pre></div></p>
+<hr />
+<h3 id="6-decorators">6. DECORATORS<a class="headerlink" href="#6-decorators" title="Permanent link">&para;</a></h3>
+<p><strong>What:</strong>
+→ Higher-order function that wraps another function.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Took </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>        <span class="k">return</span> <span class="n">result</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="k">return</span> <span class="n">wrapper</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="nd">@timer</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">slow_func</span><span class="p">():</span> <span class="o">...</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="c1"># Equivalent: slow_func = timer(slow_func)</span>
+</code></pre></div>
+<p><strong>How it works internally:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>1. Define wrapper function
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>2. wrapper calls original func
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>3. Return wrapper (replaces original name)
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>4. @syntax is syntactic sugar for reassignment
+</code></pre></div></p>
+<hr />
+<h3 id="7-context-managers">7. CONTEXT MANAGERS<a class="headerlink" href="#7-context-managers" title="Permanent link">&para;</a></h3>
+<p><strong>What:</strong>
+→ Manage resources (files, locks, connections) with setup/cleanup.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="c1"># f.close() called automatically, even if exception</span>
+</code></pre></div>
+<p><strong>How it works:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">File</span><span class="p">:</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>      <span class="c1"># setup</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># cleanup</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></p>
+<p><strong>Why use?</strong>
+→ Guaranteed cleanup, readable, exception-safe.</p>
+<hr />
+<h3 id="8-async-programming">8. ASYNC PROGRAMMING<a class="headerlink" href="#8-async-programming" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>        <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>            <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">]</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<p><strong>asyncio vs Threads:</strong>
+| asyncio | Threads |
+|---------|---------|
+| Single thread, event loop | Multiple threads |
+| Cooperative multitasking | Preemptive multitasking |
+| await yields control | OS switches threads |
+| Great for many connections | Good for parallel CPU |
+| No GIL issues (one thread) | GIL limits CPU parallelism |</p>
+<p><strong>When asyncio?</strong>
+→ Thousands of concurrent connections (web servers, chat). Less overhead than threads.</p>
+<hr />
+<h2 id="c">C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-stl">1. STL<a class="headerlink" href="#1-stl" title="Permanent link">&para;</a></h3>
+<p><strong>Containers:</strong>
+| Container | Underlying | Use Case |
+|-----------|-----------|----------|
+| vector | Dynamic array | Default, fast random access |
+| list | Doubly linked list | Frequent insert/delete middle |
+| deque | Double-ended queue | Fast push/pop both ends |
+| set | Red-Black tree | Sorted unique elements |
+| map | Red-Black tree | Sorted key-value |
+| unordered_set | Hash table | Fast lookup, unordered |
+| unordered_map | Hash table | Fast key-value, unordered |
+| queue | Adapter (deque/list) | FIFO |
+| stack | Adapter (deque/list) | LIFO |
+| priority_queue | Heap | Max/min element access |</p>
+<p><strong>vector vs list:</strong>
+| vector | list |
+|--------|------|
+| Contiguous memory | Scattered nodes |
+| O(1) random access | O(n) random access |
+| O(n) insert middle | O(1) insert middle (with iterator) |
+| Cache-friendly | Cache-unfriendly |
+| May reallocate | Stable iterators |</p>
+<p><strong>map vs unordered_map:</strong>
+| map | unordered_map |
+|-----|---------------|
+| Sorted | Unordered |
+| O(log n) | O(1) average |
+| Tree-based | Hash-based |
+| Custom comparator | Hash function |</p>
+<p><strong>Algorithms:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">sort</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span><span class="w">                    </span><span class="c1">// O(n log n)</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">lower_bound</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">          </span><span class="c1">// First &gt;= x, O(log n)</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">upper_bound</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">          </span><span class="c1">// First &gt; x, O(log n)</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="n">binary_search</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">        </span><span class="c1">// Exists? O(log n)</span>
+</code></pre></div></p>
+<hr />
+<h3 id="2-smart-pointers">2. SMART POINTERS<a class="headerlink" href="#2-smart-pointers" title="Permanent link">&para;</a></h3>
+<p><strong>Why Smart Pointers?</strong>
+→ Automatic memory management. Prevent leaks, dangling pointers, double-free.</p>
+<table>
+<thead>
+<tr>
+<th>Pointer</th>
+<th>Ownership</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unique_ptr</td>
+<td>Exclusive</td>
+<td>Sole owner, auto-delete</td>
+</tr>
+<tr>
+<td>shared_ptr</td>
+<td>Shared</td>
+<td>Multiple owners, reference counted</td>
+</tr>
+<tr>
+<td>weak_ptr</td>
+<td>Non-owning</td>
+<td>Break cycles, observe without keeping alive</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="c1">// res owns resource exclusively</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="c1">// Cannot copy, only move</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="c1">// Both own, ref count = 2</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="c1">// Last one destroyed -&gt; resource freed</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="c1">// Doesn&#39;t affect ref count</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="c1">// Must lock() to get shared_ptr before use</span>
+</code></pre></div>
+<p><strong>shared_ptr vs unique_ptr:</strong>
+| unique_ptr | shared_ptr |
+|-----------|-----------|
+| Zero overhead | Reference count overhead |
+| Move-only | Copyable |
+| Single owner | Shared ownership |
+| Preferred default | When shared needed |</p>
+<hr />
+<h3 id="3-raii">3. RAII<a class="headerlink" href="#3-raii" title="Permanent link">&para;</a></h3>
+<p><strong>Resource Acquisition Is Initialization:</strong>
+→ Acquire resource in constructor. Release in destructor. Guaranteed cleanup.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">FileHandle</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="kt">FILE</span><span class="o">*</span><span class="w"> </span><span class="n">file</span><span class="p">;</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="n">FileHandle</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="o">~</span><span class="n">FileHandle</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="w"> </span><span class="n">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// guaranteed cleanup</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">    </span><span class="c1">// No manual close needed, exception-safe</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">};</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="c1">// Usage:</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">    </span><span class="n">FileHandle</span><span class="w"> </span><span class="n">fh</span><span class="p">(</span><span class="s">&quot;data.txt&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// opens</span>
+<a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">    </span><span class="c1">// ... use fh ...</span>
+<a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="p">}</span><span class="w"> </span><span class="c1">// fh destroyed, file closed automatically (even if exception thrown)</span>
+</code></pre></div>
+<p><strong>Why important?</strong>
+→ Exception safety, no resource leaks, deterministic cleanup.</p>
+<hr />
+<h3 id="4-move-semantics">4. MOVE SEMANTICS<a class="headerlink" href="#4-move-semantics" title="Permanent link">&para;</a></h3>
+<p><strong>Why introduced?</strong>
+→ Avoid expensive copies of temporary objects.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">createList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">};</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w">  </span><span class="c1">// Move (not copy) - v is about to be destroyed</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="p">}</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createList</span><span class="p">();</span><span class="w">  </span><span class="c1">// Move constructor called</span>
+</code></pre></div>
+<p><strong>Copy vs Move:</strong>
+| Copy | Move |
+|------|------|
+| Duplicate data | Transfer ownership |
+| Source unchanged | Source left in valid but unspecified state |
+| Deep copy for pointers | Steal pointer, null out source |
+| Expensive | Cheap |</p>
+<p><strong>Rvalue References:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w">  </span><span class="c1">// Takes temporary (rvalue)</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w">  </span><span class="c1">// Takes lvalue or const rvalue</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getData</span><span class="p">();</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="n">process</span><span class="p">(</span><span class="n">getData</span><span class="p">());</span><span class="w">  </span><span class="c1">// Calls rvalue ref version (move)</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">};</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="n">process</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">data</span><span class="p">));</span><span class="w">  </span><span class="c1">// Explicitly move from data</span>
+</code></pre></div></p>
+<p><strong>Perfect Forwarding:</strong>
+→ Preserve value category (lvalue/rvalue) when passing arguments.</p>
+<hr />
+<h3 id="5-modern-c">5. MODERN C++<a class="headerlink" href="#5-modern-c" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>Type inference: <code>auto x = 5;</code></td>
+</tr>
+<tr>
+<td>constexpr</td>
+<td>Compile-time computation</td>
+</tr>
+<tr>
+<td>Range-based for</td>
+<td><code>for (auto&amp; x : container)</code></td>
+</tr>
+<tr>
+<td>Lambda</td>
+<td><code>[capture](params) -&gt; return_type { body }</code></td>
+</tr>
+<tr>
+<td>enum class</td>
+<td>Type-safe enums</td>
+</tr>
+<tr>
+<td>nullptr</td>
+<td>Type-safe null pointer</td>
+</tr>
+<tr>
+<td>Smart pointers</td>
+<td>unique_ptr, shared_ptr, weak_ptr</td>
+</tr>
+<tr>
+<td>Move semantics</td>
+<td>Transfer instead of copy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cross-language-comparison">CROSS-LANGUAGE COMPARISON<a class="headerlink" href="#cross-language-comparison" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Java</th>
+<th>Python</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory</td>
+<td>GC (automatic)</td>
+<td>GC (ref counting + generational)</td>
+<td>Manual / Smart pointers</td>
+</tr>
+<tr>
+<td>Exceptions</td>
+<td>Checked + Unchecked</td>
+<td>Only unchecked</td>
+<td>No checked exceptions</td>
+</tr>
+<tr>
+<td>Collections</td>
+<td>Rich framework (Collections)</td>
+<td>Built-in (list, dict, set)</td>
+<td>STL</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Threads + ExecutorService</td>
+<td>Threads + asyncio + multiprocessing</td>
+<td>Threads + async</td>
+</tr>
+<tr>
+<td>Null Safety</td>
+<td>Optional</td>
+<td>None (use checks)</td>
+<td>nullptr</td>
+</tr>
+<tr>
+<td>Generics</td>
+<td>Type erasure</td>
+<td>Duck typing</td>
+<td>Templates</td>
+</tr>
+<tr>
+<td>Lambdas</td>
+<td>Java 8+</td>
+<td>Always</td>
+<td>C++11+</td>
+</tr>
+<tr>
+<td>Pass by</td>
+<td>Value (primitives) / Reference (objects)</td>
+<td>Reference (always)</td>
+<td>Value (default) / Reference (explicit)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="complete-workflow-how-does-java-execute-a-program">COMPLETE WORKFLOW: "How does Java execute a program?"<a class="headerlink" href="#complete-workflow-how-does-java-execute-a-program" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>1. Write: Hello.java
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>   public class Hello { public static void main(String[] args) { ... } }
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>2. Compile: javac Hello.java
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>   -&gt; Hello.class (bytecode)
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>3. Run: java Hello
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>   |
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>   a. JVM Bootstrap
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>      - Create JVM instance
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>      - Initialize system classes
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>   |
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>   b. Class Loading
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>      - Bootstrap Class Loader: java.lang.*, java.util.*
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>      - Extension Class Loader: extension libraries
+<a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>      - Application Class Loader: user classes (Hello.class)
+<a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>   |
+<a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a>   c. Linking
+<a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a>      - Verification: Bytecode valid?
+<a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a>      - Preparation: Allocate static fields
+<a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a>      - Resolution: Resolve symbolic references
+<a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a>   |
+<a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a>   d. Initialization
+<a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a>      - Execute static initializers
+<a id="__codelineno-33-25" name="__codelineno-33-25" href="#__codelineno-33-25"></a>      - Set static field values
+<a id="__codelineno-33-26" name="__codelineno-33-26" href="#__codelineno-33-26"></a>   |
+<a id="__codelineno-33-27" name="__codelineno-33-27" href="#__codelineno-33-27"></a>   e. Execution
+<a id="__codelineno-33-28" name="__codelineno-33-28" href="#__codelineno-33-28"></a>      - Find main(String[])
+<a id="__codelineno-33-29" name="__codelineno-33-29" href="#__codelineno-33-29"></a>      - Create main thread
+<a id="__codelineno-33-30" name="__codelineno-33-30" href="#__codelineno-33-30"></a>      - Allocate stack frame
+<a id="__codelineno-33-31" name="__codelineno-33-31" href="#__codelineno-33-31"></a>      - Execute bytecode (interpreter)
+<a id="__codelineno-33-32" name="__codelineno-33-32" href="#__codelineno-33-32"></a>      - Hot methods JIT-compiled to native code
+<a id="__codelineno-33-33" name="__codelineno-33-33" href="#__codelineno-33-33"></a>   |
+<a id="__codelineno-33-34" name="__codelineno-33-34" href="#__codelineno-33-34"></a>   f. During Execution
+<a id="__codelineno-33-35" name="__codelineno-33-35" href="#__codelineno-33-35"></a>      - Objects allocated on Heap
+<a id="__codelineno-33-36" name="__codelineno-33-36" href="#__codelineno-33-36"></a>      - Local variables on Stack
+<a id="__codelineno-33-37" name="__codelineno-33-37" href="#__codelineno-33-37"></a>      - GC runs in background
+<a id="__codelineno-33-38" name="__codelineno-33-38" href="#__codelineno-33-38"></a>   |
+<a id="__codelineno-33-39" name="__codelineno-33-39" href="#__codelineno-33-39"></a>   g. Termination
+<a id="__codelineno-33-40" name="__codelineno-33-40" href="#__codelineno-33-40"></a>      - main() returns
+<a id="__codelineno-33-41" name="__codelineno-33-41" href="#__codelineno-33-41"></a>      - Non-daemon threads finish
+<a id="__codelineno-33-42" name="__codelineno-33-42" href="#__codelineno-33-42"></a>      - JVM shuts down
+</code></pre></div>
+<hr />
+<h2 id="complete-workflow-how-does-hashmap-work-internally">COMPLETE WORKFLOW: "How does HashMap work internally?"<a class="headerlink" href="#complete-workflow-how-does-hashmap-work-internally" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>1. put(&quot;key&quot;, 100)
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>   |
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>   a. hash = hash(&quot;key&quot;)  // hashCode() ^ (hashCode() &gt;&gt;&gt; 16)
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>   |
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>   b. index = (n - 1) &amp; hash  // n = table length (power of 2)
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>   |
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>   c. table[index] == null?
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>      Yes: Create new Node, store at index
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>      No: Check key equality
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>         Match: Update value
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>         No match: Append to linked list
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>   |
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>   d. Size &gt; threshold (load factor 0.75 * capacity)?
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>      Yes: Resize (double capacity), rehash all entries
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>2. get(&quot;key&quot;)
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a>   |
+<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a>   a. hash = hash(&quot;key&quot;)
+<a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a>   b. index = (n - 1) &amp; hash
+<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a>   c. Traverse bucket (list or tree)
+<a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a>   d. Return matching Node&#39;s value
+<a id="__codelineno-34-24" name="__codelineno-34-24" href="#__codelineno-34-24"></a>
+<a id="__codelineno-34-25" name="__codelineno-34-25" href="#__codelineno-34-25"></a>3. Collision Handling
+<a id="__codelineno-34-26" name="__codelineno-34-26" href="#__codelineno-34-26"></a>   - &lt; 8 nodes in bucket: Linked list
+<a id="__codelineno-34-27" name="__codelineno-34-27" href="#__codelineno-34-27"></a>   - &gt;= 8 nodes: Convert to Red-Black tree (O(log n) vs O(n))
+<a id="__codelineno-34-28" name="__codelineno-34-28" href="#__codelineno-34-28"></a>   - &lt;= 6 nodes: Convert back to list
+</code></pre></div>
+<hr />
+<h2 id="complete-workflow-how-does-pythons-gil-affect-threading">COMPLETE WORKFLOW: "How does Python's GIL affect threading?"<a class="headerlink" href="#complete-workflow-how-does-pythons-gil-affect-threading" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Thread 1: CPU work
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    |
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>    acquire GIL
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>    execute 100 bytecode instructions (or timeout)
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>    release GIL
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>    |
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>Thread 2: CPU work
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>    |
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>    acquire GIL
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>    execute 100 bytecode instructions
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>    release GIL
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>    |
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>Result: Threads alternate, NOT parallel for CPU work
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>I/O Operation:
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>Thread 1: read file
+<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>    |
+<a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>    acquire GIL
+<a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a>    start I/O
+<a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a>    release GIL (I/O doesn&#39;t need GIL)
+<a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a>    |
+<a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a>Thread 2: CPU work
+<a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>    |
+<a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a>    acquire GIL
+<a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a>    execute bytecode (while Thread 1 waits for I/O)
+<a id="__codelineno-35-26" name="__codelineno-35-26" href="#__codelineno-35-26"></a>    |
+<a id="__codelineno-35-27" name="__codelineno-35-27" href="#__codelineno-35-27"></a>Result: Threads overlap during I/O, useful for I/O-bound
+<a id="__codelineno-35-28" name="__codelineno-35-28" href="#__codelineno-35-28"></a>
+<a id="__codelineno-35-29" name="__codelineno-35-29" href="#__codelineno-35-29"></a>Solution for CPU-bound:
+<a id="__codelineno-35-30" name="__codelineno-35-30" href="#__codelineno-35-30"></a>- multiprocessing: Separate processes, each with own GIL
+<a id="__codelineno-35-31" name="__codelineno-35-31" href="#__codelineno-35-31"></a>- C extensions: Release GIL during C code
+<a id="__codelineno-35-32" name="__codelineno-35-32" href="#__codelineno-35-32"></a>- asyncio: Single thread, cooperative multitasking
+</code></pre></div>
+<hr />
+<h2 id="complete-workflow-how-does-c-raii-work-with-exceptions">COMPLETE WORKFLOW: "How does C++ RAII work with exceptions?"<a class="headerlink" href="#complete-workflow-how-does-c-raii-work-with-exceptions" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">    </span><span class="n">DatabaseConnection</span><span class="w"> </span><span class="n">conn</span><span class="p">(</span><span class="s">&quot;db&quot;</span><span class="p">);</span><span class="w">      </span><span class="c1">// ctor: connect</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="n">FileHandle</span><span class="w"> </span><span class="n">file</span><span class="p">(</span><span class="s">&quot;data.txt&quot;</span><span class="p">);</span><span class="w">        </span><span class="c1">// ctor: open</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">    </span><span class="n">LockGuard</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mutex</span><span class="p">);</span><span class="w">              </span><span class="c1">// ctor: acquire lock</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">    </span><span class="n">riskyOperation</span><span class="p">();</span><span class="w">                   </span><span class="c1">// might throw!</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="p">}</span><span class="w"> </span><span class="c1">// All destructors called in reverse order, guaranteed!</span>
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="w">  </span><span class="c1">// lock released -&gt; file closed -&gt; connection closed</span>
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>
+<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="c1">// Even if riskyOperation() throws:</span>
+<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="c1">//   Stack unwinding happens</span>
+<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="c1">//   Local objects destroyed</span>
+<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="c1">//   No leaks, no dangling locks</span>
+<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a><span class="c1">//   Exception propagates to caller</span>
+</code></pre></div>
+<hr />
+<h2 id="quick-answer-cheat-sheet">QUICK ANSWER CHEAT SHEET<a class="headerlink" href="#quick-answer-cheat-sheet" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JDK vs JRE vs JVM?</td>
+<td>JDK = develop+run; JRE = run; JVM = execute bytecode</td>
+</tr>
+<tr>
+<td>How Java executes code?</td>
+<td>javac -&gt; bytecode -&gt; Class Loader -&gt; Verifier -&gt; JIT -&gt; native code</td>
+</tr>
+<tr>
+<td>Heap vs Stack?</td>
+<td>Heap = all objects shared; Stack = per thread locals</td>
+</tr>
+<tr>
+<td>HashMap internals?</td>
+<td>Array of buckets, hash -&gt; index, linked list/tree for collisions</td>
+</tr>
+<tr>
+<td>HashMap vs ConcurrentHashMap?</td>
+<td>HashMap = not thread-safe; ConcurrentHashMap = fine-grained locks</td>
+</tr>
+<tr>
+<td>ArrayList vs LinkedList?</td>
+<td>ArrayList = fast get, slow insert; LinkedList = slow get, fast insert</td>
+</tr>
+<tr>
+<td>HashSet vs TreeSet?</td>
+<td>HashSet = unordered O(1); TreeSet = sorted O(log n)</td>
+</tr>
+<tr>
+<td>Why Generics?</td>
+<td>Type safety, no ClassCastException</td>
+</tr>
+<tr>
+<td>Type Erasure?</td>
+<td>Generics removed at runtime, replaced with Object</td>
+</tr>
+<tr>
+<td>extends vs super wildcard?</td>
+<td>extends = read (Producer); super = write (Consumer)</td>
+</tr>
+<tr>
+<td>Checked vs Unchecked?</td>
+<td>Checked = compile-time, external; Unchecked = runtime, programming error</td>
+</tr>
+<tr>
+<td>throw vs throws?</td>
+<td>throw = actually throw; throws = declare possibility</td>
+</tr>
+<tr>
+<td>Why finally?</td>
+<td>Guaranteed cleanup regardless of exception</td>
+</tr>
+<tr>
+<td>Stream vs Collection?</td>
+<td>Stream = lazy compute; Collection = stored data</td>
+</tr>
+<tr>
+<td>map vs flatMap?</td>
+<td>map = 1-to-1 transform; flatMap = 1-to-many + flatten</td>
+</tr>
+<tr>
+<td>Why Streams lazy?</td>
+<td>Intermediate ops deferred until terminal op, enables optimization</td>
+</tr>
+<tr>
+<td>Runnable vs Callable?</td>
+<td>Runnable = void, no exception; Callable = returns T, throws</td>
+</tr>
+<tr>
+<td>synchronized vs Lock?</td>
+<td>synchronized = auto-release; Lock = manual, more features</td>
+</tr>
+<tr>
+<td>volatile vs synchronized?</td>
+<td>volatile = visibility only; synchronized = visibility + atomicity</td>
+</tr>
+<tr>
+<td>How GC works?</td>
+<td>Mark reachable -&gt; Sweep unreachable -&gt; Compact (optional)</td>
+</tr>
+<tr>
+<td>Minor vs Major GC?</td>
+<td>Minor = Young Gen; Major/Full = entire heap</td>
+</tr>
+<tr>
+<td>Why Full GC expensive?</td>
+<td>Scans entire heap, long STW pause</td>
+</tr>
+<tr>
+<td>G1 vs ZGC?</td>
+<td>G1 = balanced, region-based; ZGC = ultra-low latency (&lt;10ms)</td>
+</tr>
+<tr>
+<td>CompletableFuture?</td>
+<td>Async programming, chain operations, handle exceptions</td>
+</tr>
+<tr>
+<td>CountDownLatch?</td>
+<td>Wait for N events before proceeding</td>
+</tr>
+<tr>
+<td>CyclicBarrier?</td>
+<td>Synchronize N threads at a point, reusable</td>
+</tr>
+<tr>
+<td>Java 8 features?</td>
+<td>Lambda, Streams, Optional, Default methods, Method refs</td>
+</tr>
+<tr>
+<td>Python LEGB?</td>
+<td>Local -&gt; Enclosing -&gt; Global -&gt; Built-in</td>
+</tr>
+<tr>
+<td>Duck Typing?</td>
+<td>If it has the method, use it. No type checking</td>
+</tr>
+<tr>
+<td>Python memory management?</td>
+<td>Reference counting + generational GC for cycles</td>
+</tr>
+<tr>
+<td>Why ref counting insufficient?</td>
+<td>Circular references never reach 0</td>
+</tr>
+<tr>
+<td>What is GIL?</td>
+<td>Mutex allowing only one thread to execute Python bytecode</td>
+</tr>
+<tr>
+<td>Why GIL?</td>
+<td>Simplifies reference counting, prevents race conditions</td>
+</tr>
+<tr>
+<td>Threads vs Processes Python?</td>
+<td>Threads = shared memory, GIL-limited; Processes = separate, parallel</td>
+</tr>
+<tr>
+<td>When asyncio?</td>
+<td>Many concurrent connections, less overhead than threads</td>
+</tr>
+<tr>
+<td>Generator vs List?</td>
+<td>Generator = lazy, O(1) memory; List = eager, O(n) memory</td>
+</tr>
+<tr>
+<td>How decorators work?</td>
+<td>Wrapper function replaces original, adds behavior</td>
+</tr>
+<tr>
+<td>Context managers?</td>
+<td><strong>enter</strong> setup, <strong>exit</strong> cleanup, guaranteed execution</td>
+</tr>
+<tr>
+<td>C++ vector vs list?</td>
+<td>vector = contiguous, fast access; list = linked, fast insert</td>
+</tr>
+<tr>
+<td>map vs unordered_map?</td>
+<td>map = sorted tree O(log n); unordered_map = hash O(1)</td>
+</tr>
+<tr>
+<td>Why Smart Pointers?</td>
+<td>Automatic memory management, prevent leaks</td>
+</tr>
+<tr>
+<td>unique_ptr vs shared_ptr?</td>
+<td>unique_ptr = exclusive, move-only; shared_ptr = shared, refcounted</td>
+</tr>
+<tr>
+<td>What is RAII?</td>
+<td>Acquire in constructor, release in destructor</td>
+</tr>
+<tr>
+<td>Why RAII important?</td>
+<td>Exception safety, deterministic cleanup, no leaks</td>
+</tr>
+<tr>
+<td>Copy vs Move?</td>
+<td>Copy = duplicate; Move = transfer ownership, cheap</td>
+</tr>
+<tr>
+<td>Why move semantics?</td>
+<td>Avoid expensive copies of temporaries</td>
+</tr>
+<tr>
+<td>Rvalue reference?</td>
+<td>&amp;&amp; binds to temporaries, enables move</td>
+</tr>
+<tr>
+<td>auto?</td>
+<td>Type inference at compile time</td>
+</tr>
+<tr>
+<td>constexpr?</td>
+<td>Compile-time computation</td>
+</tr>
+<tr>
+<td>Lambda capture?</td>
+<td>[ ] = none, [=] = by value, [&amp;] = by reference</td>
+</tr>
+<tr>
+<td>Pass by value vs reference?</td>
+<td>Value = copy; Reference = alias, no copy</td>
+</tr>
+<tr>
+<td>Mutable vs Immutable Python?</td>
+<td>Mutable = can change (list, dict); Immutable = can't (tuple, str, int)</td>
+</tr>
+<tr>
+<td>Python is pass by?</td>
+<td>Pass by object reference (like pass by value of reference)</td>
+</tr>
+<tr>
+<td>Java is pass by?</td>
+<td>Pass by value (primitives = copy, objects = reference copy)</td>
+</tr>
+<tr>
+<td>C++ is pass by?</td>
+<td>Pass by value (default), reference (explicit), pointer</td>
+</tr>
+<tr>
+<td>String immutable Java?</td>
+<td>Yes, for security, hash caching, thread safety</td>
+</tr>
+<tr>
+<td>StringBuilder vs StringBuffer?</td>
+<td>StringBuilder = faster, not thread-safe; StringBuffer = synchronized</td>
+</tr>
+<tr>
+<td>equals vs == Java?</td>
+<td>== = reference equality; equals = content equality</td>
+</tr>
+<tr>
+<td>hashCode vs equals?</td>
+<td>Equal objects must have same hashCode</td>
+</tr>
+<tr>
+<td>Comparable vs Comparator?</td>
+<td>Comparable = natural ordering (this vs other); Comparator = external ordering</td>
+</tr>
+<tr>
+<td>Comparable contract?</td>
+<td>sgn(x.compareTo(y)) == -sgn(y.compareTo(x)); transitive</td>
+</tr>
+<tr>
+<td>Cloneable interface?</td>
+<td>Marker for Object.clone() support</td>
+</tr>
+<tr>
+<td>Serializable interface?</td>
+<td>Marker for object serialization</td>
+</tr>
+<tr>
+<td>transient keyword?</td>
+<td>Field not serialized</td>
+</tr>
+<tr>
+<td>volatile keyword?</td>
+<td>Read from main memory, not cache</td>
+</tr>
+<tr>
+<td>final keyword?</td>
+<td>Variable = can't reassign; Method = can't override; Class = can't inherit</td>
+</tr>
+<tr>
+<td>static keyword?</td>
+<td>Belongs to class, not instance</td>
+</tr>
+<tr>
+<td>abstract class?</td>
+<td>Can't instantiate, may have abstract methods</td>
+</tr>
+<tr>
+<td>interface default method?</td>
+<td>Method with implementation in interface</td>
+</tr>
+<tr>
+<td>static method in interface?</td>
+<td>Utility method, not inherited</td>
+</tr>
+<tr>
+<td>functional interface?</td>
+<td>Single abstract method, lambda target</td>
+</tr>
+<tr>
+<td>method reference types?</td>
+<td>Static, Instance, Constructor, Arbitrary object</td>
+</tr>
+<tr>
+<td>Optional purpose?</td>
+<td>Avoid null, explicit absence handling</td>
+</tr>
+<tr>
+<td>Stream parallel?</td>
+<td>parallelStream() for parallel processing</td>
+</tr>
+<tr>
+<td>Collectors.toMap?</td>
+<td>Collect stream to Map</td>
+</tr>
+<tr>
+<td>Collectors.groupingBy?</td>
+<td>Group by key</td>
+</tr>
+<tr>
+<td>Collectors.partitioningBy?</td>
+<td>Partition by predicate</td>
+</tr>
+<tr>
+<td>Stream reduce?</td>
+<td>Combine elements to single result</td>
+</tr>
+<tr>
+<td>Stream collect?</td>
+<td>Mutable reduction to collection</td>
+</tr>
+<tr>
+<td>Stream flatMap?</td>
+<td>Map + flatten nested structures</td>
+</tr>
+<tr>
+<td>Stream peek?</td>
+<td>Inspect elements without consuming</td>
+</tr>
+<tr>
+<td>Stream distinct?</td>
+<td>Remove duplicates</td>
+</tr>
+<tr>
+<td>Stream sorted?</td>
+<td>Natural or custom order</td>
+</tr>
+<tr>
+<td>Stream limit/skip?</td>
+<td>Truncate or skip elements</td>
+</tr>
+<tr>
+<td>Stream findFirst/findAny?</td>
+<td>Return Optional of first/any match</td>
+</tr>
+<tr>
+<td>Stream anyMatch/allMatch/noneMatch?</td>
+<td>Short-circuit boolean checks</td>
+</tr>
+<tr>
+<td>Stream iterate/generate?</td>
+<td>Create infinite streams</td>
+</tr>
+<tr>
+<td>IntStream/LongStream/DoubleStream?</td>
+<td>Primitive specialized streams</td>
+</tr>
+<tr>
+<td>Boxing/unboxing?</td>
+<td>Primitive &lt;-&gt; Wrapper auto-conversion</td>
+</tr>
+<tr>
+<td>Autoboxing performance?</td>
+<td>Creates objects, use primitive streams for performance</td>
+</tr>
+<tr>
+<td>String pool?</td>
+<td>Interned strings in heap for reuse</td>
+</tr>
+<tr>
+<td>intern() method?</td>
+<td>Add string to pool manually</td>
+</tr>
+<tr>
+<td>Class Loader types?</td>
+<td>Bootstrap, Extension, Application, Custom</td>
+</tr>
+<tr>
+<td>Class Loader delegation?</td>
+<td>Parent-first delegation model</td>
+</tr>
+<tr>
+<td>Custom Class Loader?</td>
+<td>Load classes from non-standard sources</td>
+</tr>
+<tr>
+<td>Reflection?</td>
+<td>Inspect/modify classes at runtime</td>
+</tr>
+<tr>
+<td>Annotation?</td>
+<td>Metadata for compiler/runtime</td>
+</tr>
+<tr>
+<td>@Override?</td>
+<td>Compiler verifies method override</td>
+</tr>
+<tr>
+<td>@Deprecated?</td>
+<td>Mark obsolete</td>
+</tr>
+<tr>
+<td>@SuppressWarnings?</td>
+<td>Ignore compiler warnings</td>
+</tr>
+<tr>
+<td>@FunctionalInterface?</td>
+<td>Compiler verifies SAM</td>
+</tr>
+<tr>
+<td>@SafeVarargs?</td>
+<td>Suppress varargs warnings</td>
+</tr>
+<tr>
+<td>Java module system?</td>
+<td>JPMS, encapsulation at package level</td>
+</tr>
+<tr>
+<td>module-info.java?</td>
+<td>Declare module dependencies and exports</td>
+</tr>
+<tr>
+<td>requires transitive?</td>
+<td>Dependent modules get transitive dependency</td>
+</tr>
+<tr>
+<td>exports vs opens?</td>
+<td>exports = compile+runtime; opens = reflection only</td>
+</tr>
+<tr>
+<td>ServiceLoader?</td>
+<td>Load service implementations dynamically</td>
+</tr>
+<tr>
+<td>SPI?</td>
+<td>Service Provider Interface</td>
+</tr>
+<tr>
+<td>JDBC?</td>
+<td>Java database connectivity</td>
+</tr>
+<tr>
+<td>JNDI?</td>
+<td>Java naming and directory interface</td>
+</tr>
+<tr>
+<td>JMX?</td>
+<td>Java management extensions</td>
+</tr>
+<tr>
+<td>JNI?</td>
+<td>Java native interface</td>
+</tr>
+<tr>
+<td>NIO?</td>
+<td>Non-blocking I/O</td>
+</tr>
+<tr>
+<td>NIO.2?</td>
+<td>Path, Files, WatchService</td>
+</tr>
+<tr>
+<td>ByteBuffer?</td>
+<td>Direct buffer for I/O</td>
+</tr>
+<tr>
+<td>Channel?</td>
+<td>Connection to entity capable of I/O</td>
+</tr>
+<tr>
+<td>Selector?</td>
+<td>Multiplexed non-blocking I/O</td>
+</tr>
+<tr>
+<td>CompletableFuture thenCompose?</td>
+<td>Flatten nested futures</td>
+</tr>
+<tr>
+<td>CompletableFuture thenCombine?</td>
+<td>Combine two independent futures</td>
+</tr>
+<tr>
+<td>CompletableFuture allOf/anyOf?</td>
+<td>Wait for all/any to complete</td>
+</tr>
+<tr>
+<td>CompletableFuture exceptionally?</td>
+<td>Handle exception</td>
+</tr>
+<tr>
+<td>CompletableFuture handle?</td>
+<td>Handle success or exception</td>
+</tr>
+<tr>
+<td>CompletableFuture whenComplete?</td>
+<td>Side effect on completion</td>
+</tr>
+<tr>
+<td>ForkJoinPool?</td>
+<td>Work-stealing thread pool</td>
+</tr>
+<tr>
+<td>RecursiveTask?</td>
+<td>Task returning result for ForkJoin</td>
+</tr>
+<tr>
+<td>RecursiveAction?</td>
+<td>Task without result for ForkJoin</td>
+</tr>
+<tr>
+<td>StampedLock?</td>
+<td>Optimistic read locking</td>
+</tr>
+<tr>
+<td>ReadWriteLock?</td>
+<td>Multiple readers or one writer</td>
+</tr>
+<tr>
+<td>Condition?</td>
+<td>Wait/notify alternative with locks</td>
+</tr>
+<tr>
+<td>BlockingQueue types?</td>
+<td>ArrayBlockingQueue, LinkedBlockingQueue, PriorityBlockingQueue, SynchronousQueue, DelayQueue</td>
+</tr>
+<tr>
+<td>TransferQueue?</td>
+<td>Blocking queue with transfer</td>
+</tr>
+<tr>
+<td>ConcurrentLinkedQueue?</td>
+<td>Lock-free queue</td>
+</tr>
+<tr>
+<td>CopyOnWriteArrayList?</td>
+<td>Thread-safe, copy-on-write</td>
+</tr>
+<tr>
+<td>ConcurrentHashMap computeIfAbsent?</td>
+<td>Atomic compute if key absent</td>
+</tr>
+<tr>
+<td>ConcurrentHashMap merge?</td>
+<td>Atomic merge operation</td>
+</tr>
+<tr>
+<td>AtomicInteger?</td>
+<td>Lock-free integer operations</td>
+</tr>
+<tr>
+<td>AtomicReference?</td>
+<td>Lock-free reference operations</td>
+</tr>
+<tr>
+<td>CAS?</td>
+<td>Compare-And-Swap, lock-free primitive</td>
+</tr>
+<tr>
+<td>ABA problem?</td>
+<td>Value changed A-&gt;B-&gt;A, CAS succeeds incorrectly</td>
+</tr>
+<tr>
+<td>AtomicStampedReference?</td>
+<td>Solve ABA with version stamp</td>
+</tr>
+<tr>
+<td>LongAdder?</td>
+<td>Better than AtomicLong for high contention</td>
+</tr>
+<tr>
+<td>Exchanger?</td>
+<td>Thread pair exchange objects</td>
+</tr>
+<tr>
+<td>Phaser?</td>
+<td>Flexible barrier</td>
+</tr>
+<tr>
+<td>Semaphore?</td>
+<td>Control access to N resources</td>
+</tr>
+<tr>
+<td>CountDownLatch vs CyclicBarrier?</td>
+<td>Latch = one-time; Barrier = reusable</td>
+</tr>
+<tr>
+<td>ThreadLocal?</td>
+<td>Per-thread variable</td>
+</tr>
+<tr>
+<td>InheritableThreadLocal?</td>
+<td>Child threads inherit value</td>
+</tr>
+<tr>
+<td>ExecutorService shutdown?</td>
+<td>Graceful shutdown, wait for tasks</td>
+</tr>
+<tr>
+<td>ExecutorService shutdownNow?</td>
+<td>Attempt immediate shutdown</td>
+</tr>
+<tr>
+<td>Future get timeout?</td>
+<td>Wait with timeout, throw TimeoutException</td>
+</tr>
+<tr>
+<td>Future cancel?</td>
+<td>Cancel task, may interrupt</td>
+</tr>
+<tr>
+<td>ScheduledExecutorService?</td>
+<td>Delayed and periodic execution</td>
+</tr>
+<tr>
+<td>ThreadFactory?</td>
+<td>Custom thread creation</td>
+</tr>
+<tr>
+<td>UncaughtExceptionHandler?</td>
+<td>Handle uncaught thread exceptions</td>
+</tr>
+<tr>
+<td>Thread states?</td>
+<td>NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING, TERMINATED</td>
+</tr>
+<tr>
+<td>Thread join?</td>
+<td>Wait for thread to finish</td>
+</tr>
+<tr>
+<td>Thread interrupt?</td>
+<td>Request thread to stop, cooperative</td>
+</tr>
+<tr>
+<td>Thread yield?</td>
+<td>Hint to scheduler</td>
+</tr>
+<tr>
+<td>Thread priority?</td>
+<td>Hint to scheduler, platform-dependent</td>
+</tr>
+<tr>
+<td>Thread daemon?</td>
+<td>Background thread, JVM exits if only daemons</td>
+</tr>
+<tr>
+<td>Object wait/notify?</td>
+<td>Low-level thread coordination</td>
+</tr>
+<tr>
+<td>Object wait vs sleep?</td>
+<td>wait = release lock, notify to wake; sleep = hold lock, time wake</td>
+</tr>
+<tr>
+<td>IllegalMonitorStateException?</td>
+<td>wait/notify without owning monitor</td>
+</tr>
+<tr>
+<td>Spurious wakeup?</td>
+<td>wait() wakes without notify()</td>
+</tr>
+<tr>
+<td>Always wait in loop?</td>
+<td>while (!condition) wait();</td>
+</tr>
+<tr>
+<td>Double-checked locking?</td>
+<td>Lazy initialization with volatile</td>
+</tr>
+<tr>
+<td>Singleton pattern?</td>
+<td>One instance globally</td>
+</tr>
+<tr>
+<td>Enum singleton?</td>
+<td>Best Java singleton, serialization-safe</td>
+</tr>
+<tr>
+<td>Factory pattern?</td>
+<td>Create objects without exposing constructor</td>
+</tr>
+<tr>
+<td>Builder pattern?</td>
+<td>Step-by-step construction</td>
+</tr>
+<tr>
+<td>Strategy pattern?</td>
+<td>Interchangeable algorithms</td>
+</tr>
+<tr>
+<td>Observer pattern?</td>
+<td>Subscribe/notify</td>
+</tr>
+<tr>
+<td>Decorator pattern?</td>
+<td>Add behavior dynamically</td>
+</tr>
+<tr>
+<td>Adapter pattern?</td>
+<td>Convert interface</td>
+</tr>
+<tr>
+<td>Proxy pattern?</td>
+<td>Control access</td>
+</tr>
+<tr>
+<td>Command pattern?</td>
+<td>Encapsulate request</td>
+</tr>
+<tr>
+<td>Template method?</td>
+<td>Skeleton algorithm</td>
+</tr>
+<tr>
+<td>State pattern?</td>
+<td>Behavior changes with state</td>
+</tr>
+<tr>
+<td>Chain of Responsibility?</td>
+<td>Pass request along chain</td>
+</tr>
+<tr>
+<td>Iterator pattern?</td>
+<td>Traverse collection</td>
+</tr>
+<tr>
+<td>Memento pattern?</td>
+<td>Capture/restore state</td>
+</tr>
+<tr>
+<td>Mediator pattern?</td>
+<td>Centralize communication</td>
+</tr>
+<tr>
+<td>Flyweight pattern?</td>
+<td>Share common state</td>
+</tr>
+<tr>
+<td>Bridge pattern?</td>
+<td>Separate abstraction from implementation</td>
+</tr>
+<tr>
+<td>Composite pattern?</td>
+<td>Tree structure, uniform interface</td>
+</tr>
+<tr>
+<td>Visitor pattern?</td>
+<td>Add operations without modifying classes</td>
+</tr>
+<tr>
+<td>Interpreter pattern?</td>
+<td>Grammar evaluation</td>
+</tr>
+<tr>
+<td>Python GIL released when?</td>
+<td>I/O operations, sleep, C extensions</td>
+</tr>
+<tr>
+<td>Python <strong>name</strong> == "<strong>main</strong>"?</td>
+<td>Entry point check</td>
+</tr>
+<tr>
+<td>Python <strong>init</strong>?</td>
+<td>Constructor</td>
+</tr>
+<tr>
+<td>Python <strong>str</strong> vs <strong>repr</strong>?</td>
+<td><strong>str</strong> = readable; <strong>repr</strong> = unambiguous</td>
+</tr>
+<tr>
+<td>Python <strong>eq</strong>?</td>
+<td>Equality comparison</td>
+</tr>
+<tr>
+<td>Python <strong>hash</strong>?</td>
+<td>Hash for dict/set keys</td>
+</tr>
+<tr>
+<td>Python <strong>len</strong>?</td>
+<td>len() support</td>
+</tr>
+<tr>
+<td>Python <strong>getitem</strong>?</td>
+<td>[] indexing</td>
+</tr>
+<tr>
+<td>Python <strong>iter</strong>?</td>
+<td>Iterator protocol</td>
+</tr>
+<tr>
+<td>Python <strong>call</strong>?</td>
+<td>Make object callable</td>
+</tr>
+<tr>
+<td>Python <strong>enter</strong>/<strong>exit</strong>?</td>
+<td>Context manager protocol</td>
+</tr>
+<tr>
+<td>Python <strong>slots</strong>?</td>
+<td>Restrict attributes, save memory</td>
+</tr>
+<tr>
+<td>Python <strong>getattr</strong>?</td>
+<td>Dynamic attribute access</td>
+</tr>
+<tr>
+<td>Python <strong>setattr</strong>?</td>
+<td>Dynamic attribute assignment</td>
+</tr>
+<tr>
+<td>Python <strong>del</strong>?</td>
+<td>Destructor (avoid, use context managers)</td>
+</tr>
+<tr>
+<td>Python property decorator?</td>
+<td>Getter/setter as attribute</td>
+</tr>
+<tr>
+<td>Python @staticmethod?</td>
+<td>No instance/class access</td>
+</tr>
+<tr>
+<td>Python @classmethod?</td>
+<td>Access class, not instance</td>
+</tr>
+<tr>
+<td>Python @property?</td>
+<td>Getter decorator</td>
+</tr>
+<tr>
+<td>Python descriptor?</td>
+<td>Custom attribute access</td>
+</tr>
+<tr>
+<td>Python metaclass?</td>
+<td>Class of a class</td>
+</tr>
+<tr>
+<td>Python type() vs isinstance()?</td>
+<td>type = exact class; isinstance = inheritance-aware</td>
+</tr>
+<tr>
+<td>Python deepcopy?</td>
+<td>Recursive copy of object graph</td>
+</tr>
+<tr>
+<td>Python copy?</td>
+<td>Shallow copy</td>
+</tr>
+<tr>
+<td>Python pickle?</td>
+<td>Object serialization</td>
+</tr>
+<tr>
+<td>Python json?</td>
+<td>JSON serialization</td>
+</tr>
+<tr>
+<td>Python csv?</td>
+<td>CSV file handling</td>
+</tr>
+<tr>
+<td>Python re?</td>
+<td>Regular expressions</td>
+</tr>
+<tr>
+<td>Python collections?</td>
+<td>Specialized containers</td>
+</tr>
+<tr>
+<td>Python itertools?</td>
+<td>Iterator tools</td>
+</tr>
+<tr>
+<td>Python functools?</td>
+<td>Higher-order functions</td>
+</tr>
+<tr>
+<td>Python operator?</td>
+<td>Function versions of operators</td>
+</tr>
+<tr>
+<td>Python dataclasses?</td>
+<td>Auto-generated boilerplate classes</td>
+</tr>
+<tr>
+<td>Python typing?</td>
+<td>Type hints (not enforced at runtime)</td>
+</tr>
+<tr>
+<td>Python mypy?</td>
+<td>Static type checker</td>
+</tr>
+<tr>
+<td>Python pytest?</td>
+<td>Testing framework</td>
+</tr>
+<tr>
+<td>Python unittest?</td>
+<td>Built-in testing</td>
+</tr>
+<tr>
+<td>Python mock?</td>
+<td>Test doubles</td>
+</tr>
+<tr>
+<td>Python patch?</td>
+<td>Temporarily replace objects</td>
+</tr>
+<tr>
+<td>Python contextlib?</td>
+<td>Context manager utilities</td>
+</tr>
+<tr>
+<td>Python functools.lru_cache?</td>
+<td>Memoization decorator</td>
+</tr>
+<tr>
+<td>Python functools.partial?</td>
+<td>Pre-fill function arguments</td>
+</tr>
+<tr>
+<td>Python functools.reduce?</td>
+<td>Fold operation</td>
+</tr>
+<tr>
+<td>Python itertools.chain?</td>
+<td>Flatten iterables</td>
+</tr>
+<tr>
+<td>Python itertools.groupby?</td>
+<td>Group consecutive equal elements</td>
+</tr>
+<tr>
+<td>Python itertools.permutations?</td>
+<td>All permutations</td>
+</tr>
+<tr>
+<td>Python itertools.combinations?</td>
+<td>All combinations</td>
+</tr>
+<tr>
+<td>Python collections.Counter?</td>
+<td>Count hashable objects</td>
+</tr>
+<tr>
+<td>Python collections.defaultdict?</td>
+<td>Default value dict</td>
+</tr>
+<tr>
+<td>Python collections.OrderedDict?</td>
+<td>Remember insertion order (3.7+ built-in)</td>
+</tr>
+<tr>
+<td>Python collections.deque?</td>
+<td>Double-ended queue</td>
+</tr>
+<tr>
+<td>Python collections.namedtuple?</td>
+<td>Named tuple subclass</td>
+</tr>
+<tr>
+<td>Python heapq?</td>
+<td>Heap queue</td>
+</tr>
+<tr>
+<td>Python bisect?</td>
+<td>Binary search for lists</td>
+</tr>
+<tr>
+<td>Python array?</td>
+<td>Typed array</td>
+</tr>
+<tr>
+<td>Python struct?</td>
+<td>Parse binary data</td>
+</tr>
+<tr>
+<td>Python mmap?</td>
+<td>Memory-mapped files</td>
+</tr>
+<tr>
+<td>Python socket?</td>
+<td>Network programming</td>
+</tr>
+<tr>
+<td>Python urllib?</td>
+<td>URL handling</td>
+</tr>
+<tr>
+<td>Python http?</td>
+<td>HTTP client/server</td>
+</tr>
+<tr>
+<td>Python sqlite3?</td>
+<td>SQLite database</td>
+</tr>
+<tr>
+<td>Python threading?</td>
+<td>Thread-based parallelism</td>
+</tr>
+<tr>
+<td>Python multiprocessing?</td>
+<td>Process-based parallelism</td>
+</tr>
+<tr>
+<td>Python concurrent.futures?</td>
+<td>High-level async execution</td>
+</tr>
+<tr>
+<td>Python asyncio?</td>
+<td>Async I/O</td>
+</tr>
+<tr>
+<td>Python aiohttp?</td>
+<td>Async HTTP client/server</td>
+</tr>
+<tr>
+<td>Python requests?</td>
+<td>HTTP library</td>
+</tr>
+<tr>
+<td>Python flask?</td>
+<td>Web framework</td>
+</tr>
+<tr>
+<td>Python django?</td>
+<td>Web framework</td>
+</tr>
+<tr>
+<td>Python fastapi?</td>
+<td>Modern web framework</td>
+</tr>
+<tr>
+<td>Python sqlalchemy?</td>
+<td>ORM</td>
+</tr>
+<tr>
+<td>Python pandas?</td>
+<td>Data analysis</td>
+</tr>
+<tr>
+<td>Python numpy?</td>
+<td>Numerical computing</td>
+</tr>
+<tr>
+<td>C++ Rule of Three?</td>
+<td>Destructor, copy ctor, copy assignment</td>
+</tr>
+<tr>
+<td>C++ Rule of Five?</td>
+<td>+ move ctor, move assignment</td>
+</tr>
+<tr>
+<td>C++ Rule of Zero?</td>
+<td>Use smart pointers, no manual resource management</td>
+</tr>
+<tr>
+<td>C++ explicit constructor?</td>
+<td>Prevent implicit conversion</td>
+</tr>
+<tr>
+<td>C++ delete function?</td>
+<td>= delete to disable</td>
+</tr>
+<tr>
+<td>C++ default function?</td>
+<td>= default for compiler-generated</td>
+</tr>
+<tr>
+<td>C++ noexcept?</td>
+<td>Function doesn't throw</td>
+</tr>
+<tr>
+<td>C++ constexpr if?</td>
+<td>Compile-time conditional</td>
+</tr>
+<tr>
+<td>C++ static_assert?</td>
+<td>Compile-time assertion</td>
+</tr>
+<tr>
+<td>C++ decltype?</td>
+<td>Deduce expression type</td>
+</tr>
+<tr>
+<td>C++ typeid?</td>
+<td>Runtime type information</td>
+</tr>
+<tr>
+<td>C++ dynamic_cast?</td>
+<td>Safe downcast with runtime check</td>
+</tr>
+<tr>
+<td>C++ static_cast?</td>
+<td>Compile-time cast</td>
+</tr>
+<tr>
+<td>C++ reinterpret_cast?</td>
+<td>Low-level reinterpretation</td>
+</tr>
+<tr>
+<td>C++ const_cast?</td>
+<td>Add/remove const</td>
+</tr>
+<tr>
+<td>C++ SFINAE?</td>
+<td>Substitution Failure Is Not An Error</td>
+</tr>
+<tr>
+<td>C++ Concepts?</td>
+<td>C++20 compile-time constraints</td>
+</tr>
+<tr>
+<td>C++ Coroutines?</td>
+<td>C++20 suspendable functions</td>
+</tr>
+<tr>
+<td>C++ Modules?</td>
+<td>C++20 replacement for headers</td>
+</tr>
+<tr>
+<td>C++ Ranges?</td>
+<td>C++20 composable algorithms</td>
+</tr>
+<tr>
+<td>C++ std::span?</td>
+<td>Non-owning view of contiguous data</td>
+</tr>
+<tr>
+<td>C++ std::string_view?</td>
+<td>Non-owning view of string</td>
+</tr>
+<tr>
+<td>C++ std::optional?</td>
+<td>Optional value</td>
+</tr>
+<tr>
+<td>C++ std::variant?</td>
+<td>Type-safe union</td>
+</tr>
+<tr>
+<td>C++ std::any?</td>
+<td>Type-erased container</td>
+</tr>
+<tr>
+<td>C++ std::tuple?</td>
+<td>Fixed-size collection of values</td>
+</tr>
+<tr>
+<td>C++ std::function?</td>
+<td>Type-erased callable</td>
+</tr>
+<tr>
+<td>C++ std::bind?</td>
+<td>Partial function application</td>
+</tr>
+<tr>
+<td>C++ std::thread?</td>
+<td>OS thread</td>
+</tr>
+<tr>
+<td>C++ std::async?</td>
+<td>Async task</td>
+</tr>
+<tr>
+<td>C++ std::promise?</td>
+<td>Set value for future</td>
+</tr>
+<tr>
+<td>C++ std::future?</td>
+<td>Async result</td>
+</tr>
+<tr>
+<td>C++ std::shared_future?</td>
+<td>Multiple futures from one promise</td>
+</tr>
+<tr>
+<td>C++ std::mutex?</td>
+<td>Mutual exclusion</td>
+</tr>
+<tr>
+<td>C++ std::recursive_mutex?</td>
+<td>Reentrant mutex</td>
+</tr>
+<tr>
+<td>C++ std::timed_mutex?</td>
+<td>Mutex with timeout</td>
+</tr>
+<tr>
+<td>C++ std::lock_guard?</td>
+<td>RAII mutex lock</td>
+</tr>
+<tr>
+<td>C++ std::unique_lock?</td>
+<td>Flexible mutex lock</td>
+</tr>
+<tr>
+<td>C++ std::shared_lock?</td>
+<td>Shared mutex read lock</td>
+</tr>
+<tr>
+<td>C++ std::condition_variable?</td>
+<td>Thread synchronization</td>
+</tr>
+<tr>
+<td>C++ std::atomic?</td>
+<td>Lock-free atomic operations</td>
+</tr>
+<tr>
+<td>C++ std::memory_order?</td>
+<td>Memory ordering constraints</td>
+</tr>
+<tr>
+<td>C++ std::thread_local?</td>
+<td>Per-thread storage</td>
+</tr>
+<tr>
+<td>C++ std::this_thread?</td>
+<td>Current thread operations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="skip-these-unless-runtimecompiler-role">SKIP THESE (Unless Runtime/Compiler Role)<a class="headerlink" href="#skip-these-unless-runtimecompiler-role" title="Permanent link">&para;</a></h2>
+<p>Java: JVM bytecode verification internals, JIT optimization algorithms, GC implementation details, Java Memory Model specification
+Python: CPython source code, bytecode interpreter internals, reference counting implementation, C API
+C++: Template metaprogramming, expression templates, compiler optimization internals, ABI details, placement new</p>
+<hr />
+<p><strong>Revision Order:</strong></p>
+<p>Java: Fundamentals -&gt; Collections -&gt; Generics -&gt; Exceptions -&gt; Streams -&gt; JVM -&gt; GC -&gt; Multithreading -&gt; Concurrency -&gt; Java 8+
+Python: Fundamentals -&gt; Memory -&gt; GIL -&gt; Iterators -&gt; Generators -&gt; Decorators -&gt; Context Managers -&gt; asyncio
+C++: STL -&gt; Smart Pointers -&gt; RAII -&gt; Move Semantics -&gt; Modern C++</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../programming-fundamentals/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Programming Fundamentals">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Programming Fundamentals
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../data/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2247 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/mathematics/">
+      
+      
+        <link rel="prev" href="../cloud/">
+      
+      
+        <link rel="next" href="../../programming/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Mathematics - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mathematics-system-flow-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mathematics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-concept-traces-how-numbersdata-transform-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every concept traces how numbers/data transform step-by-step.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-concept-traces-how-numbersdata-transform-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every concept traces how numbers/data transform step-by-step.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="mathematics-system-flow-notes">MATHEMATICS — SYSTEM FLOW NOTES<a class="headerlink" href="#mathematics-system-flow-notes" title="Permanent link">&para;</a></h1>
+<h2 id="how-to-read-follow-the-arrow-flow-every-concept-traces-how-numbersdata-transform-step-by-step">How to read: Follow the arrow (→) flow. Every concept traces how numbers/data transform step-by-step.<a class="headerlink" href="#how-to-read-follow-the-arrow-flow-every-concept-traces-how-numbersdata-transform-step-by-step" title="Permanent link">&para;</a></h2>
+<hr />
+<h1 id="priority-1-mathematical-foundations">PRIORITY 1 — MATHEMATICAL FOUNDATIONS<a class="headerlink" href="#priority-1-mathematical-foundations" title="Permanent link">&para;</a></h1>
+<h2 id="1-number-systems">1. Number Systems<a class="headerlink" href="#1-number-systems" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Computers use binary (0/1) because transistors have 2 states: ON or OFF.</p>
+<p><strong>Decimal → Binary Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Convert 13 to binary:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    13 ÷ 2 = 6 remainder 1
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    6  ÷ 2 = 3 remainder 0
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    3  ÷ 2 = 1 remainder 1
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    1  ÷ 2 = 0 remainder 1
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    Read remainders bottom-up → 1101
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    Verify: 1×8 + 1×4 + 0×2 + 1×1 = 13 ✓
+</code></pre></div></p>
+<p><strong>Binary → Decimal Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1101 → 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 8 + 4 + 0 + 1 = 13
+</code></pre></div></p>
+<p><strong>Hexadecimal (Base-16) Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Binary: 1101 1110 1010 1100 → Group by 4 → DEAC (hex)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Why hex? Compact: 32-bit address = 8 hex chars vs 32 binary digits
+</code></pre></div></p>
+<p><strong>Signed Numbers — Two's Complement:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Store -5 in 8-bit:
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    Step 1: +5 in binary = 00000101
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    Step 2: Invert bits    = 11111010 (one&#39;s complement)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    Step 3: Add 1          = 11111011 (two&#39;s complement)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Why two&#39;s complement? Single representation of zero, simple arithmetic:
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    5 + (-5) = 00000101 + 11111011 = 00000000 (carry discarded) = 0 ✓
+</code></pre></div></p>
+<p><strong>One's Complement vs Two's Complement:</strong>
+| | One's Complement | Two's Complement |
+|---|---|---|
+| Zero | +0 (0000) and -0 (1111) — problem! | Single zero (0000) |
+| Arithmetic | End-around carry needed | Natural binary addition |
+| Range (8-bit) | -127 to +127 | -128 to +127 |
+| Used by | Old systems | Modern computers (x86, ARM) |</p>
+<hr />
+<h2 id="2-sets">2. Sets<a class="headerlink" href="#2-sets" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Set = unordered collection of distinct elements.</p>
+<p><strong>Operations Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>A = {1, 2, 3}, B = {2, 3, 4}
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Union (A ∪ B):        Combine all → {1, 2, 3, 4}
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Intersection (A ∩ B): Common only → {2, 3}
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Difference (A - B):   In A, not in B → {1}
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Symmetric Diff:       In A or B, not both → {1, 4}
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Cartesian Product:      All pairs (a,b) → {(1,2), (1,3), (1,4), (2,2), ...} — |A|×|B| = 12 pairs
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Power Set:            All subsets → {∅, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}} — 2³ = 8 subsets
+</code></pre></div></p>
+<p><strong>Set Difference vs Symmetric Difference:</strong>
+- A - B = Only A's unique elements (directional).
+- A Δ B = (A - B) ∪ (B - A) = Elements in exactly one set (bidirectional).</p>
+<hr />
+<h2 id="3-relations">3. Relations<a class="headerlink" href="#3-relations" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Relation = set of ordered pairs connecting elements from two sets.</p>
+<p><strong>Properties Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Relation R on set A:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    Reflexive:     ∀a ∈ A, (a,a) ∈ R      → Every element relates to itself
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    Symmetric:     (a,b) ∈ R → (b,a) ∈ R   → If a→b then b→a
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    Antisymmetric: (a,b) ∈ R and (b,a) ∈ R → a = b  → No two-way unless same
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    Transitive:    (a,b) ∈ R and (b,c) ∈ R → (a,c) ∈ R  → Chain works
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Equivalence Relation = Reflexive + Symmetric + Transitive → Partitions set into classes
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    Example: &quot;same age&quot; → Groups people by age
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>Partial Order = Reflexive + Antisymmetric + Transitive → Hierarchy, some incomparable
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    Example: &quot;divides&quot; on integers → 2 divides 4, but 2 and 3 incomparable
+</code></pre></div></p>
+<hr />
+<h2 id="4-functions">4. Functions<a class="headerlink" href="#4-functions" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Function = rule mapping each input to exactly one output.</p>
+<p><strong>Types Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Injective (One-to-One):   f(a) = f(b) → a = b
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    → No two inputs map to same output → |Domain| ≤ |Codomain|
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    → Example: f(x) = 2x (doubles are unique)
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Surjective (Onto):        Every y in codomain has some x where f(x) = y
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    → Covers entire codomain → |Range| = |Codomain|
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    → Example: f(x) = x mod 5 (outputs 0,1,2,3,4 — all covered)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Bijective:                Both injective AND surjective
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    → Perfect one-to-one pairing → Has inverse function
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    → Example: f(x) = x + 1 → f⁻¹(y) = y - 1
+</code></pre></div></p>
+<p><strong>Function Composition:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>f(x) = x + 2, g(x) = x × 3
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>(g ∘ f)(x) = g(f(x)) = g(x+2) = (x+2) × 3 = 3x + 6
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    → Right to left: f first, then g
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    → (f ∘ g)(x) = f(g(x)) = f(3x) = 3x + 2 → Different result!
+</code></pre></div></p>
+<hr />
+<h1 id="priority-2-logic-proofs">PRIORITY 2 — LOGIC &amp; PROOFS<a class="headerlink" href="#priority-2-logic-proofs" title="Permanent link">&para;</a></h1>
+<h2 id="5-mathematical-logic">5. Mathematical Logic<a class="headerlink" href="#5-mathematical-logic" title="Permanent link">&para;</a></h2>
+<p><strong>Truth Tables:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>P  Q  P∧Q  P∨Q  ¬P  P→Q
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>T  T   T    T    F    T
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>T  F   F    T    F    F
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>F  T   F    T    T    T
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>F  F   F    F    T    T
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Key: P→Q (Implication) is FALSE only when P=T, Q=F
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>     &quot;If it rains, ground is wet&quot; — Only false if it rains but ground is dry
+</code></pre></div></p>
+<p><strong>De Morgan's Laws:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>¬(P ∧ Q) = ¬P ∨ ¬Q    → &quot;Not both&quot; = &quot;At least one is not&quot;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>¬(P ∨ Q) = ¬P ∧ ¬Q    → &quot;Not either&quot; = &quot;Both are not&quot;
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Example: &quot;Not (rich AND happy)&quot; = &quot;Not rich OR not happy&quot;
+</code></pre></div></p>
+<p><strong>Quantifiers:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>∀x ∈ ℕ, x &gt; 0          → Universal: &quot;For ALL natural numbers, x &gt; 0&quot; (True)
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>∃x ∈ ℕ, x = 5          → Existential: &quot;There EXISTS a natural number equal to 5&quot; (True)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>¬(∀x P(x)) = ∃x ¬P(x)  → &quot;Not all are P&quot; = &quot;At least one is not P&quot;
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>¬(∃x P(x)) = ∀x ¬P(x)  → &quot;None are P&quot; = &quot;All are not P&quot;
+</code></pre></div></p>
+<p><strong>Implication vs Equivalence:</strong>
+- Implication (P → Q): If P then Q (one direction).
+- Equivalence (P ↔ Q): P if and only if Q (both directions).</p>
+<hr />
+<h2 id="6-proof-techniques">6. Proof Techniques<a class="headerlink" href="#6-proof-techniques" title="Permanent link">&para;</a></h2>
+<p><strong>Direct Proof:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Claim: If n is even, then n² is even.
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Proof: n even → n = 2k → n² = 4k² = 2(2k²) → n² is even ✓
+</code></pre></div></p>
+<p><strong>Proof by Contradiction:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Claim: √2 is irrational.
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Assume opposite: √2 = p/q (reduced fraction)
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    → 2 = p²/q² → p² = 2q² → p² even → p even → p = 2k
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    → 4k² = 2q² → q² = 2k² → q even → p and q both even → Contradiction!
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    → Original claim true ✓
+</code></pre></div></p>
+<p><strong>Contrapositive:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>P → Q is equivalent to ¬Q → ¬P
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>&quot;If it rains, ground is wet&quot; ≡ &quot;If ground is dry, it didn&#39;t rain&quot;
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Useful when direct proof is hard but contrapositive is easy.
+</code></pre></div></p>
+<p><strong>Mathematical Induction:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Claim: 1 + 2 + ... + n = n(n+1)/2
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Base case (n=1): 1 = 1(2)/2 = 1 ✓
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>Inductive step: Assume true for n=k → Prove for n=k+1
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    1 + 2 + ... + k + (k+1) = k(k+1)/2 + (k+1)
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>                            = (k+1)(k/2 + 1)
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>                            = (k+1)(k+2)/2 ✓
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>→ True for all n ≥ 1
+</code></pre></div></p>
+<p><strong>Contradiction vs Contrapositive:</strong>
+- Contradiction: Assume claim false → Derive absurdity → Claim must be true.
+- Contrapositive: Prove equivalent statement (¬Q → ¬P) instead of (P → Q).</p>
+<hr />
+<h1 id="priority-3-discrete-mathematics">PRIORITY 3 — DISCRETE MATHEMATICS<a class="headerlink" href="#priority-3-discrete-mathematics" title="Permanent link">&para;</a></h1>
+<h2 id="7-counting">7. Counting<a class="headerlink" href="#7-counting" title="Permanent link">&para;</a></h2>
+<p><strong>Permutation vs Combination:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Permutation (order matters): P(n,r) = n!/(n-r)!
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    → Arrange 3 people from 5 in a line: 5 × 4 × 3 = 60 ways
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    → President, VP, Secretary: Alice-Bob ≠ Bob-Alice
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Combination (order doesn&#39;t matter): C(n,r) = n!/(r!(n-r)!)
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    → Choose 3 people from 5 for a team: 10 ways
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    → Team {Alice, Bob, Carol} = {Bob, Carol, Alice}
+</code></pre></div></p>
+<p><strong>Pigeonhole Principle:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>10 pigeons, 9 holes → At least one hole has ≥ 2 pigeons
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    → 367 people → At least 2 share a birthday (365 days)
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    → Hash table with n buckets, n+1 items → Collision guaranteed
+</code></pre></div></p>
+<p><strong>Inclusion-Exclusion:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>|A ∪ B| = |A| + |B| - |A ∩ B|
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    → Students in Math OR CS = Math students + CS students - Both
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    → Without subtraction: Double-counted the intersection!
+</code></pre></div></p>
+<hr />
+<h2 id="8-recurrence-relations">8. Recurrence Relations<a class="headerlink" href="#8-recurrence-relations" title="Permanent link">&para;</a></h2>
+<p><strong>Fibonacci Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>F(0) = 0, F(1) = 1
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>F(n) = F(n-1) + F(n-2)
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34...
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>    → Each term = sum of previous two
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    → Golden ratio: F(n+1)/F(n) → 1.618... as n → ∞
+</code></pre></div></p>
+<p><strong>Master Theorem (for divide-and-conquer):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>T(n) = aT(n/b) + O(n^d)
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Compare a vs b^d:
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>    a &lt; b^d  → T(n) = O(n^d)          → Merge: a=2, b=2, d=1 → 2 = 2^1 → O(n log n)
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    a = b^d  → T(n) = O(n^d log n)    → Binary search: a=1, b=2, d=0 → 1 = 2^0 → O(log n)
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    a &gt; b^d  → T(n) = O(n^(log_b a))  → Strassen: a=7, b=2 → O(n^2.81)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-4-probability">PRIORITY 4 — PROBABILITY<a class="headerlink" href="#priority-4-probability" title="Permanent link">&para;</a></h1>
+<h2 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Probability = measure of uncertainty → 0 (impossible) to 1 (certain).</p>
+<p><strong>Conditional Probability:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>P(A|B) = P(A ∩ B) / P(B)
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    → &quot;Probability of A GIVEN B happened&quot;
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    → Deck of cards: P(King | Red) = P(King AND Red) / P(Red) = (2/52) / (26/52) = 2/26 = 1/13
+</code></pre></div></p>
+<p><strong>Bayes' Theorem:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>P(A|B) = P(B|A) × P(A) / P(B)
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Medical test example:
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    Disease prevalence P(D) = 1%
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    Test accuracy: P(T+|D) = 99% (true positive), P(T+|¬D) = 5% (false positive)
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    P(D|T+) = P(T+|D) × P(D) / P(T+)
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>             = 0.99 × 0.01 / (0.99×0.01 + 0.05×0.99)
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>             = 0.0099 / 0.0594
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>             = 16.7%
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>    → Even with 99% accurate test, only 16.7% chance you have disease!
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>    → Because disease is rare, false positives outnumber true positives
+</code></pre></div></p>
+<p><strong>Independent Events:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>P(A ∩ B) = P(A) × P(B)  → Knowing A doesn&#39;t change B&#39;s probability
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Coin flip: P(Head AND Head) = 0.5 × 0.5 = 0.25
+</code></pre></div></p>
+<hr />
+<h2 id="probability-distributions">Probability Distributions<a class="headerlink" href="#probability-distributions" title="Permanent link">&para;</a></h2>
+<p><strong>Discrete Distributions:</strong>
+| Distribution | What it models | Example |
+|--------------|---------------|---------|
+| <strong>Bernoulli</strong> | Single trial, 2 outcomes | Coin flip (1 trial) |
+| <strong>Binomial</strong> | n independent Bernoulli trials | 10 coin flips, count heads |
+| <strong>Poisson</strong> | Rare events in fixed interval | Emails received per hour |
+| <strong>Geometric</strong> | Trials until first success | Coin flips until first head |</p>
+<p><strong>Continuous Distributions:</strong>
+| Distribution | What it models | Key Property |
+|--------------|---------------|--------------|
+| <strong>Uniform</strong> | Equal probability everywhere | Die roll (discrete), random number generator |
+| <strong>Normal</strong> | Natural phenomena, central limit theorem | Bell curve, mean=median=mode |
+| <strong>Exponential</strong> | Time between events | Time until next customer arrives |</p>
+<p><strong>Normal Distribution:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Bell curve: μ (mean) at center, σ (std dev) controls width
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    68% within μ ± σ
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    95% within μ ± 2σ
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    99.7% within μ ± 3σ
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    → Standard Normal: μ=0, σ=1 → Z = (X - μ) / σ
+</code></pre></div></p>
+<hr />
+<h1 id="priority-5-statistics">PRIORITY 5 — STATISTICS<a class="headerlink" href="#priority-5-statistics" title="Permanent link">&para;</a></h1>
+<h2 id="descriptive-statistics">Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Permanent link">&para;</a></h2>
+<p><strong>Measures of Central Tendency:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Data: [1, 2, 2, 3, 100]
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Mean:   (1+2+2+3+100)/5 = 21.6        → Affected by outliers (100 pulls it up)
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>Median: Sort → [1,2,2,3,100] → Middle = 2  → Robust to outliers
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>Mode:   Most frequent = 2               → Only measure for categorical data
+</code></pre></div></p>
+<p><strong>Spread:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Variance: σ² = Σ(xᵢ - μ)² / N          → Average squared distance from mean
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Standard Deviation: σ = √σ²            → Same units as data, interpretable
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>Data: [2, 4, 4, 4, 5, 5, 7, 9]
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>Mean = 5, Variance = 4, Std Dev = 2
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    → Most values within 5 ± 2 = [3, 7]
+</code></pre></div></p>
+<p><strong>Percentiles &amp; IQR:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Q1 (25th percentile), Q2/Median (50th), Q3 (75th percentile)
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>IQR = Q3 - Q1 = middle 50% of data
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Outliers: Values &lt; Q1 - 1.5×IQR or &gt; Q3 + 1.5×IQR
+</code></pre></div></p>
+<h2 id="inferential-statistics">Inferential Statistics<a class="headerlink" href="#inferential-statistics" title="Permanent link">&para;</a></h2>
+<p><strong>Central Limit Theorem:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Take ANY distribution → Sample n items → Calculate mean → Repeat many times
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    → Distribution of sample means → Approaches NORMAL as n increases
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    → n ≥ 30 usually sufficient
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    → Why it matters: Can use normal-based stats even for non-normal populations
+</code></pre></div></p>
+<p><strong>Hypothesis Testing Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>1. State H₀ (null hypothesis: no effect) and H₁ (alternative: there is effect)
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>2. Choose significance level α (usually 0.05)
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>3. Collect data → Calculate test statistic
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>4. Calculate p-value: P(observing data | H₀ is true)
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>5. p-value &lt; α? → Reject H₀ → Effect is statistically significant
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>   p-value ≥ α? → Fail to reject H₀ → Not enough evidence
+</code></pre></div></p>
+<p><strong>p-value Interpretation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>p = 0.03 → If H₀ were true, only 3% chance of seeing this data
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    → &quot;Unlikely under null&quot; → Reject null → Result is significant
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>    NOT: &quot;Probability that H₀ is true is 3%&quot; (common misconception!)
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    It IS: &quot;Probability of this data assuming H₀&quot;
+</code></pre></div></p>
+<hr />
+<h1 id="priority-6-linear-algebra">PRIORITY 6 — LINEAR ALGEBRA<a class="headerlink" href="#priority-6-linear-algebra" title="Permanent link">&para;</a></h1>
+<h2 id="vectors">Vectors<a class="headerlink" href="#vectors" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Vector = ordered list of numbers → represents direction and magnitude.</p>
+<p><strong>Operations:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>v = [3, 4], w = [1, 2]
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Addition:     v + w = [4, 6]           → Component-wise
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Scalar mult:  2v = [6, 8]              → Scale each component
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>Dot product:  v · w = 3×1 + 4×2 = 11   → Scalar result
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>    → v · w = |v| |w| cos(θ) → Measures alignment
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>    → v · w = 0 → Perpendicular (orthogonal)
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>Cross product: v × w (3D only) → Perpendicular vector, magnitude = area of parallelogram
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>Magnitude:    |v| = √(3² + 4²) = 5    → Length of vector
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>Unit vector:   v̂ = v/|v| = [3/5, 4/5]  → Direction only, length = 1
+</code></pre></div></p>
+<hr />
+<h2 id="matrices">Matrices<a class="headerlink" href="#matrices" title="Permanent link">&para;</a></h2>
+<p><strong>Matrix Multiplication Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>A (2×3) × B (3×2) = C (2×2)
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>C[0][0] = A[0][0]×B[0][0] + A[0][1]×B[1][0] + A[0][2]×B[2][0]
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>        = row 0 of A · column 0 of B
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>C[i][j] = dot product of row i of A and column j of B
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>→ Inner dimensions must match: (m×n) × (n×p) = (m×p)
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>→ NOT commutative: A×B ≠ B×A (usually)
+</code></pre></div></p>
+<p><strong>Key Matrices:</strong>
+| Matrix | Property | Use |
+|--------|----------|-----|
+| <strong>Identity I</strong> | Diagonal = 1, rest = 0 | A × I = A (like multiplying by 1) |
+| <strong>Inverse A⁻¹</strong> | A × A⁻¹ = I | Solve Ax = b → x = A⁻¹b |
+| <strong>Transpose Aᵀ</strong> | Rows ↔ Columns | (AB)ᵀ = BᵀAᵀ |
+| <strong>Determinant</strong> | Scalar | det(A) = 0 → No inverse (singular) |</p>
+<p><strong>Eigenvalues &amp; Eigenvectors:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>A × v = λ × v
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    → Matrix A acts on vector v → Only scales it by λ (eigenvalue)
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    → v doesn&#39;t change direction, just length
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>Why matter in ML?
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>    → PCA: Find directions of maximum variance (eigenvectors of covariance matrix)
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>    → PageRank: Eigenvector of link matrix = page importance scores
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>    → Stability analysis: Eigenvalues tell if system grows or decays
+</code></pre></div></p>
+<hr />
+<h1 id="priority-7-calculus">PRIORITY 7 — CALCULUS<a class="headerlink" href="#priority-7-calculus" title="Permanent link">&para;</a></h1>
+<h2 id="differential-calculus">Differential Calculus<a class="headerlink" href="#differential-calculus" title="Permanent link">&para;</a></h2>
+<p><strong>Derivative = Rate of Change:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>f(x) = x² → f&#39;(x) = 2x
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>    → At x=3, slope = 6 → Function increasing steeply
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>    → At x=0, slope = 0 → Flat (local min/max)
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>    → At x=-2, slope = -4 → Function decreasing
+</code></pre></div></p>
+<p><strong>Partial Derivatives:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>f(x,y) = x²y + 3y
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>∂f/∂x = 2xy          → Rate of change in x direction (treat y as constant)
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>∂f/∂y = x² + 3       → Rate of change in y direction (treat x as constant)
+</code></pre></div></p>
+<p><strong>Chain Rule:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>f(g(x))&#39; = f&#39;(g(x)) × g&#39;(x)
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    → sin(x²)&#39; = cos(x²) × 2x
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>    → Neural networks: Layer 3 depends on Layer 2 depends on Layer 1 → Chain rule propagates gradients
+</code></pre></div></p>
+<p><strong>Gradient:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>∇f = [∂f/∂x, ∂f/∂y, ∂f/∂z] → Vector pointing in direction of steepest ascent
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>    → Gradient descent: Move OPPOSITE to gradient → Find minimum
+</code></pre></div></p>
+<h2 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h2>
+<p><strong>Gradient Descent Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Start at random point x₀
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Repeat:
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>    1. Compute gradient ∇f(x) → Direction of steepest increase
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>    2. Update: x = x - α × ∇f(x)  → Move opposite to gradient (α = learning rate)
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>    3. Until convergence (gradient ≈ 0)
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>    Like rolling a ball down a hill → Follows steepest path → Reaches valley (minimum)
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>    Local vs Global Minimum:
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>        → GD can get stuck in local valley → Not the deepest one
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>        → Solutions: Random restarts, momentum, adaptive learning rates
+</code></pre></div></p>
+<p><strong>Why Derivatives in ML?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Loss function L(θ) = how wrong model is for parameters θ
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    → Want to minimize L → Find θ where dL/dθ = 0
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>    → Derivative tells which direction to adjust θ → Backpropagation = chain rule applied
+</code></pre></div></p>
+<hr />
+<h1 id="priority-8-graph-theory">PRIORITY 8 — GRAPH THEORY<a class="headerlink" href="#priority-8-graph-theory" title="Permanent link">&para;</a></h1>
+<p><strong>1-liner:</strong> Graph = collection of nodes (vertices) connected by edges.</p>
+<p><strong>Types:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Undirected:  A — B — C    → Edge has no direction (friendship)
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Directed:    A → B → C    → Edge has direction (Twitter follow)
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>Weighted:    A —5→ B      → Edge has cost/distance
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>Tree:        Connected, no cycles, n-1 edges
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>DAG:         Directed Acyclic Graph → No cycles, topological sort possible
+</code></pre></div></p>
+<p><strong>Tree vs Graph:</strong>
+| | Tree | Graph |
+|---|---|---|
+| Cycles | No | Can have |
+| Edges | n-1 | Any number |
+| Root | Has one | No concept |
+| Path | Exactly one between any two nodes | Multiple or none |</p>
+<p><strong>DAG Applications:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Task scheduling: A → B means &quot;A must finish before B starts&quot;
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>    → Compile order: Parse → TypeCheck → Optimize → CodeGen
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    → Course prerequisites: CS101 → CS201 → CS301
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>    → Package dependencies: npm install order
+</code></pre></div></p>
+<hr />
+<h1 id="priority-9-boolean-algebra">PRIORITY 9 — BOOLEAN ALGEBRA<a class="headerlink" href="#priority-9-boolean-algebra" title="Permanent link">&para;</a></h1>
+<p><strong>1-liner:</strong> Boolean algebra = rules for manipulating true/false values → Foundation of digital circuits.</p>
+<p><strong>Laws:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>AND (·):  0·0=0, 0·1=0, 1·0=0, 1·1=1
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>OR (+):   0+0=0, 0+1=1, 1+0=1, 1+1=1
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>NOT (¬):  ¬0=1, ¬1=0
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>Distributive: A·(B+C) = A·B + A·C
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>Absorption:   A + A·B = A
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>Complement:   A + ¬A = 1,  A · ¬A = 0
+</code></pre></div></p>
+<p><strong>Simplification Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>F = A·B + A·¬B = A·(B + ¬B) = A·1 = A
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>    → Two branches simplify to just A!
+</code></pre></div></p>
+<hr />
+<h1 id="priority-10-number-theory">PRIORITY 10 — NUMBER THEORY<a class="headerlink" href="#priority-10-number-theory" title="Permanent link">&para;</a></h1>
+<p><strong>Euclidean Algorithm (GCD):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>GCD(48, 18):
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>    48 ÷ 18 = 2 remainder 12
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>    18 ÷ 12 = 1 remainder 6
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>    12 ÷ 6  = 2 remainder 0
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    → GCD = 6
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>    Key: GCD(a,b) = GCD(b, a mod b) → Repeat until remainder 0
+</code></pre></div></p>
+<p><strong>Modular Arithmetic:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>(a + b) mod m = ((a mod m) + (b mod m)) mod m
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>(a × b) mod m = ((a mod m) × (b mod m)) mod m
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>Applications:
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>    → Hash tables: index = hash(key) mod table_size
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>    → Clock arithmetic: 14:00 = 2:00 PM (14 mod 12 = 2)
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>    → Cryptography: RSA uses modular exponentiation
+</code></pre></div></p>
+<p><strong>Fast Exponentiation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>Compute 3^13 mod 7:
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>    13 = 1101 in binary
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>    3^1  mod 7 = 3
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>    3^2  mod 7 = 9 mod 7 = 2
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>    3^4  mod 7 = 2^2 mod 7 = 4
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>    3^8  mod 7 = 4^2 mod 7 = 2
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>    3^13 = 3^8 × 3^4 × 3^1 = 2 × 4 × 3 = 24 mod 7 = 3
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>    → O(log n) instead of O(n)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-11-optimization">PRIORITY 11 — OPTIMIZATION<a class="headerlink" href="#priority-11-optimization" title="Permanent link">&para;</a></h1>
+<p><strong>Convex vs Non-Convex:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>Convex function: Bowl shape → Any local minimum IS global minimum
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>    → Gradient descent guaranteed to find global min
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>    → Example: f(x) = x²
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>Non-convex: Multiple valleys → GD can get stuck in local minimum
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>    → Example: f(x) = x⁴ - 3x³ + 2 (neural network loss surfaces)
+</code></pre></div></p>
+<p><strong>Stochastic Gradient Descent (SGD):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>Standard GD: Compute gradient on ALL data → Accurate but slow
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>SGD:         Compute gradient on ONE random sample → Noisy but fast
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>Mini-batch:  Compute gradient on small batch (32-512 samples) → Balance
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>    → SGD noise helps escape local minima!
+</code></pre></div></p>
+<hr />
+<h1 id="priority-12-numerical-methods">PRIORITY 12 — NUMERICAL METHODS<a class="headerlink" href="#priority-12-numerical-methods" title="Permanent link">&para;</a></h1>
+<p><strong>Floating Point Issues:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>0.1 in binary: 0.0001100110011... (repeating!)
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>    → Can&#39;t represent exactly in finite bits → Rounding error
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>    → 0.1 + 0.2 = 0.30000000000000004
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>Overflow:  Number too large → Infinity
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>Underflow: Number too small → 0
+</code></pre></div></p>
+<p><strong>Numerical Stability:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>Unstable: x = 10^8, y = 10^8 + 1 → x - y = 0 (lost precision!)
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>Stable:   Compute difference before squaring, use Kahan summation
+</code></pre></div></p>
+<hr />
+<h1 id="priority-13-information-theory">PRIORITY 13 — INFORMATION THEORY<a class="headerlink" href="#priority-13-information-theory" title="Permanent link">&para;</a></h1>
+<p><strong>Entropy:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>H(X) = -Σ p(x) × log₂(p(x))
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>    → Measures uncertainty/randomness in a distribution
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>    → Fair coin: H = -0.5×log₂(0.5) - 0.5×log₂(0.5) = 1 bit
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>    → Biased coin (99% heads): H ≈ 0.08 bits (very predictable)
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>    → Uniform distribution: Maximum entropy (most uncertain)
+</code></pre></div></p>
+<p><strong>Information Gain (Decision Trees):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>IG = H(parent) - weighted_avg(H(children))
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>    → How much uncertainty is reduced by splitting on this feature?
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>    → Choose feature with highest IG → Best split
+</code></pre></div></p>
+<p><strong>Cross Entropy (ML Loss):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>H(p,q) = -Σ p(x) × log(q(x))
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>    → p = true distribution, q = predicted distribution
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>    → Measures how different q is from p
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>    → Lower = better prediction
+</code></pre></div></p>
+<hr />
+<h1 id="priority-14-cryptographic-mathematics">PRIORITY 14 — CRYPTOGRAPHIC MATHEMATICS<a class="headerlink" href="#priority-14-cryptographic-mathematics" title="Permanent link">&para;</a></h1>
+<p><strong>RSA High-Level Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>Key Generation:
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>    1. Pick two large primes p, q
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>    2. n = p × q, φ(n) = (p-1)(q-1)
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>    3. Choose e (public exponent, usually 65537)
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>    4. Find d where (e × d) mod φ(n) = 1 (private exponent)
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>Encryption: c = m^e mod n    (anyone can encrypt with public key)
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>Decryption: m = c^d mod n    (only holder of private key can decrypt)
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a>Why it works: (m^e)^d = m^(ed) = m^(kφ(n)+1) = m mod n (Euler&#39;s theorem)
+</code></pre></div></p>
+<p><strong>Diffie-Hellman Key Exchange:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>Goal: Two parties agree on secret key over public channel
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>Alice: Pick secret a → Compute A = g^a mod p → Send A to Bob
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>Bob:   Pick secret b → Compute B = g^b mod p → Send B to Alice
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>Alice computes: s = B^a mod p = (g^b)^a mod p = g^(ab) mod p
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>Bob computes:   s = A^b mod p = (g^a)^b mod p = g^(ab) mod p
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>
+<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>→ Both have same secret s! Attacker sees A and B but can&#39;t compute g^(ab) (discrete log problem)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-15-mathematical-modeling">PRIORITY 15 — MATHEMATICAL MODELING<a class="headerlink" href="#priority-15-mathematical-modeling" title="Permanent link">&para;</a></h1>
+<p><strong>Growth Models:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>Linear:     y = mx + b                    → Constant rate
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>Exponential: y = a × e^(rt)               → Proportional to current value (population, compound interest)
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>Logistic:   y = L / (1 + e^(-k(x-x₀)))    → S-curve, growth slows as approaching limit
+</code></pre></div></p>
+<hr />
+<h1 id="common-interview-scenarios-quick-answers">COMMON INTERVIEW SCENARIOS — QUICK ANSWERS<a class="headerlink" href="#common-interview-scenarios-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Binary vs Decimal?</td>
+<td>Binary: base-2 (0,1), computers use it; Decimal: base-10 (0-9), humans use it</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Two's Complement?</td>
+<td>Invert bits + 1 → Represents negatives; single zero, natural arithmetic</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Set Operations?</td>
+<td>Union=combine, Intersection=common, Difference=only in first, Cartesian=all pairs</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Function vs Relation?</td>
+<td>Function: each input → exactly one output; Relation: input can map to multiple outputs</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Permutation vs Combination?</td>
+<td>Permutation=order matters (arrangement); Combination=order doesn't matter (selection)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Conditional Probability?</td>
+<td>P(A|B) = P(A∩B)/P(B) → Probability of A given B happened</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Bayes' Theorem?</td>
+<td>P(A|B) = P(B|A)×P(A)/P(B) → Update belief given evidence</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Mean vs Median?</td>
+<td>Mean=average (sensitive to outliers); Median=middle value (robust)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Variance vs Std Dev?</td>
+<td>Variance=avg squared distance; Std Dev=√variance (same units as data)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Central Limit Theorem?</td>
+<td>Sample means approach normal distribution as sample size increases, regardless of population</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Matrix Multiplication?</td>
+<td>Row × Column dot products; (m×n)×(n×p)=(m×p); not commutative</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Dot vs Cross Product?</td>
+<td>Dot=scalar, measures alignment; Cross=vector (3D), perpendicular, area magnitude</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Eigenvalues/Eigenvectors?</td>
+<td>Av=λv → Matrix only scales vector, doesn't rotate; used in PCA, PageRank</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Derivative intuition?</td>
+<td>Instant rate of change; slope of tangent line; zero at local min/max</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Gradient Descent?</td>
+<td>Iteratively move opposite to gradient to minimize function; learning rate controls step size</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Prime algorithms?</td>
+<td>Sieve of Eratosthenes: mark multiples → unmarked = prime; O(n log log n)</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Euclidean Algorithm?</td>
+<td>GCD(a,b) = GCD(b, a mod b); repeat until remainder 0</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Modular Arithmetic?</td>
+<td>Clock arithmetic; (a+b) mod m = ((a mod m)+(b mod m)) mod m; used in hashing, crypto</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Floating Point Precision?</td>
+<td>0.1 has no finite binary representation → rounding errors accumulate</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Entropy in ML?</td>
+<td>Measures uncertainty; high entropy = unpredictable; used in decision trees, cross-entropy loss</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="revision-order-highest-roi">REVISION ORDER (Highest ROI)<a class="headerlink" href="#revision-order-highest-roi" title="Permanent link">&para;</a></h1>
+<ol>
+<li>Number Systems (binary, hex, two's complement)</li>
+<li>Sets &amp; Operations (union, intersection, Cartesian product)</li>
+<li>Functions (injective, surjective, bijective, composition)</li>
+<li>Logic &amp; Proofs (truth tables, De Morgan's, induction)</li>
+<li>Counting (permutations, combinations, pigeonhole)</li>
+<li>Recurrence Relations (Fibonacci, Master Theorem)</li>
+<li>Probability (conditional, Bayes', independence)</li>
+<li>Distributions (normal, binomial, uniform)</li>
+<li>Statistics (mean/median/mode, variance, CLT, p-value)</li>
+<li>Linear Algebra (vectors, matrices, eigenvalues)</li>
+<li>Calculus (derivatives, chain rule, gradient)</li>
+<li>Optimization (gradient descent, convexity)</li>
+<li>Graph Theory (tree vs graph, DAG, cycles)</li>
+<li>Boolean Algebra (laws, simplification)</li>
+<li>Number Theory (Euclidean, modular arithmetic, fast exp)</li>
+<li>Information Theory (entropy, information gain)</li>
+<li>Cryptography (RSA, Diffie-Hellman high-level)</li>
+<li>Numerical Methods (floating point, overflow/underflow)</li>
+</ol>
+<hr />
+<h1 id="hands-on-practice">HANDS-ON PRACTICE<a class="headerlink" href="#hands-on-practice" title="Permanent link">&para;</a></h1>
+<ol>
+<li><strong>Base Conversions:</strong> Decimal↔Binary↔Hex — implement without built-ins</li>
+<li><strong>Euclidean Algorithm:</strong> GCD iterative + recursive → Trace with (48,18)</li>
+<li><strong>Fast Modular Exponentiation:</strong> Compute a^b mod m in O(log b)</li>
+<li><strong>Matrix Operations:</strong> Multiply, transpose, determinant (2×2, 3×3)</li>
+<li><strong>Vector Math:</strong> Dot product, cross product, magnitude, unit vector</li>
+<li><strong>Monte Carlo:</strong> Estimate π by random points in unit square</li>
+<li><strong>Stats Calculator:</strong> Mean, median, mode, variance, std dev from data</li>
+<li><strong>Gradient Descent:</strong> Find minimum of f(x) = x² → Start random → Iterate → Converge to 0</li>
+<li><strong>Sieve of Eratosthenes:</strong> Generate primes up to N efficiently</li>
+<li><strong>Graph Traversal:</strong> BFS/DFS with mathematical interpretation (distances, components)</li>
+</ol>
+<hr />
+<p><strong>REMEMBER:</strong> Interviewers care about:
+1. <strong>Can you translate math to code?</strong> (Implement GCD, matrix multiply, gradient descent)
+2. <strong>Do you understand WHY?</strong> (Why two's complement, why gradient descent works, why Bayes matters)
+3. <strong>Can you connect to real applications?</strong> (Entropy in decision trees, eigenvalues in PCA, modular arithmetic in crypto)
+4. <strong>Do you know the trade-offs?</strong> (Mean vs median for outliers, SGD vs full GD, local vs global minima)</p>
+<p>Tell the story of how numbers transform — from input → through operations → to output.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../cloud/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cloud Computing">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Cloud Computing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../programming/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

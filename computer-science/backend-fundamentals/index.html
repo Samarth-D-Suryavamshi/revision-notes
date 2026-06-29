@@ -1,0 +1,2332 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/backend-fundamentals/">
+      
+      
+        <link rel="prev" href="../system-design/">
+      
+      
+        <link rel="next" href="../git/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Backend Fundamentals - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backend-fundamentals-system-flow-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backend Fundamentals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-concept-is-a-journey-of-a-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every concept is a journey of a request.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-concept-is-a-journey-of-a-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every concept is a journey of a request.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="backend-fundamentals-system-flow-notes">BACKEND FUNDAMENTALS — SYSTEM FLOW NOTES<a class="headerlink" href="#backend-fundamentals-system-flow-notes" title="Permanent link">&para;</a></h1>
+<h2 id="how-to-read-follow-the-arrow-flow-every-concept-is-a-journey-of-a-request">How to read: Follow the arrow (→) flow. Every concept is a journey of a request.<a class="headerlink" href="#how-to-read-follow-the-arrow-flow-every-concept-is-a-journey-of-a-request" title="Permanent link">&para;</a></h2>
+<hr />
+<h1 id="priority-1-web-backend-fundamentals">PRIORITY 1 — WEB &amp; BACKEND FUNDAMENTALS<a class="headerlink" href="#priority-1-web-backend-fundamentals" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduction-to-backend-development">1. Introduction to Backend Development<a class="headerlink" href="#1-introduction-to-backend-development" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Backend = the invisible engine that processes requests, talks to databases, and returns data.</p>
+<p><strong>Client-Server Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User opens app → Types URL → Browser sends HTTP Request → DNS resolves IP → 
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    → Request hits Load Balancer → Forwards to Backend Server → 
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    → Server processes (auth, business logic, DB query) → 
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    → Returns HTTP Response → Browser renders page
+</code></pre></div></p>
+<p><strong>Stateless vs Stateful:</strong>
+| Stateless | Stateful |
+|-----------|----------|
+| Server forgets you after each request | Server remembers you between requests |
+| Every request has all context needed | Session stored server-side |
+| REST APIs are stateless | WebSocket chat is stateful |
+| Scales horizontally easily | Harder to scale (sticky sessions needed) |</p>
+<p><strong>Monolithic vs Microservices:</strong>
+- Monolithic: One big app → All features in single codebase → Deploy together → Simple but rigid.
+- Microservices: App split into services → Auth Service, Order Service, Payment Service → Deploy independently → Complex but scalable.</p>
+<p><strong>Backend Responsibilities:</strong> Handle requests, authenticate users, process business logic, query databases, manage caching, ensure security, handle errors.</p>
+<hr />
+<h2 id="2-rest-apis-highest-priority">2. REST APIs (Highest Priority)<a class="headerlink" href="#2-rest-apis-highest-priority" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> REST = architectural style where everything is a resource, accessed via standard HTTP methods.</p>
+<p><strong>REST Principles (The 6 Constraints):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Principle</th>
+<th>What it means</th>
+<th>Flow Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Resource-Oriented</strong></td>
+<td>Everything is a resource (nouns, not verbs)</td>
+<td><code>/users/123</code> not <code>/getUser?id=123</code></td>
+</tr>
+<tr>
+<td><strong>Statelessness</strong></td>
+<td>Server has no memory of previous requests</td>
+<td>Each request has auth token + all data needed</td>
+</tr>
+<tr>
+<td><strong>Client-Server</strong></td>
+<td>UI and logic are separate</td>
+<td>Frontend team owns React; Backend owns API</td>
+</tr>
+<tr>
+<td><strong>Cacheability</strong></td>
+<td>Responses can be cached</td>
+<td><code>Cache-Control: max-age=3600</code> → CDN caches it</td>
+</tr>
+<tr>
+<td><strong>Uniform Interface</strong></td>
+<td>Same HTTP verbs for all resources</td>
+<td>GET /users, POST /users, DELETE /users/123</td>
+</tr>
+<tr>
+<td><strong>Layered System</strong></td>
+<td>Client doesn't know about intermediaries</td>
+<td>LB, CDN, API Gateway are invisible to client</td>
+</tr>
+</tbody>
+</table>
+<p><strong>API Design Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Design endpoints:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    GET    /api/v1/users          → List users (paginated)
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    GET    /api/v1/users/123      → Get user 123
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    POST   /api/v1/users          → Create user
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    PUT    /api/v1/users/123      → Replace user 123
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    PATCH  /api/v1/users/123      → Update user 123 partially
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    DELETE /api/v1/users/123      → Delete user 123
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Pagination: GET /users?page=2&amp;limit=20
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Filtering:  GET /users?role=admin&amp;status=active
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Sorting:    GET /users?sort=-created_at (descending)
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Versioning: /api/v1/... or Header: API-Version: v1
+</code></pre></div></p>
+<p><strong>REST vs RPC:</strong>
+- REST: Resource-centric, HTTP verbs, stateless, cacheable.
+- RPC: Action-centric, <code>/doSomething</code>, often uses POST only, tighter coupling.</p>
+<p><strong>REST vs GraphQL:</strong>
+- REST: Multiple endpoints, fixed response shape, over-fetching/under-fetching possible.
+- GraphQL: Single endpoint, client requests exact fields, no over-fetching, but caching is harder.</p>
+<hr />
+<h2 id="3-http-protocol">3. HTTP Protocol<a class="headerlink" href="#3-http-protocol" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> HTTP = the language browsers and servers speak to exchange data.</p>
+<p><strong>Request Lifecycle Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>User types &quot;google.com&quot; → Browser checks DNS cache → 
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    → DNS query → Gets IP (142.250.185.78) → 
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    → TCP handshake (SYN → SYN-ACK → ACK) → 
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    → TLS handshake (for HTTPS) → 
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    → HTTP Request sent → Server processes → 
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    → HTTP Response returned → Browser renders
+</code></pre></div></p>
+<p><strong>HTTP Versions:</strong>
+| Version | Key Feature | Flow |
+|---------|-------------|------|
+| <strong>HTTP/1.1</strong> | Persistent connections, pipelining | One request at a time per connection, head-of-line blocking |
+| <strong>HTTP/2</strong> | Multiplexing, binary framing, server push | Multiple requests share one connection, headers compressed (HPACK) |
+| <strong>HTTP/3</strong> | QUIC over UDP | Faster handshake, no head-of-line blocking, built-in encryption |</p>
+<p><strong>Why HTTP is Stateless:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Request 1: GET /profile → Server returns profile → Forgets you
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Request 2: GET /orders → Server has no idea who you are → You must send auth token again
+</code></pre></div>
+Stateless = simpler server, easier to scale, but client must carry identity every time.</p>
+<hr />
+<h2 id="4-http-methods">4. HTTP Methods<a class="headerlink" href="#4-http-methods" title="Permanent link">&para;</a></h2>
+<p><strong>The Methods:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Safe?</th>
+<th>Idempotent?</th>
+<th>Flow</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GET</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Read resource</td>
+<td><code>GET /users/123</code> → Returns user</td>
+</tr>
+<tr>
+<td><strong>POST</strong></td>
+<td>No</td>
+<td>No</td>
+<td>Create resource</td>
+<td><code>POST /users</code> → Body: user data → Creates user</td>
+</tr>
+<tr>
+<td><strong>PUT</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>Replace entire resource</td>
+<td><code>PUT /users/123</code> → Body: full user → Replaces</td>
+</tr>
+<tr>
+<td><strong>PATCH</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>Partial update</td>
+<td><code>PATCH /users/123</code> → Body: {name: "John"} → Updates name only</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>Remove resource</td>
+<td><code>DELETE /users/123</code> → User gone</td>
+</tr>
+<tr>
+<td><strong>OPTIONS</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>What methods are allowed?</td>
+<td>CORS preflight uses this</td>
+</tr>
+<tr>
+<td><strong>HEAD</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>GET without body</td>
+<td>Check if resource exists, get headers only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Safe = doesn't change server state.</strong>
+<strong>Idempotent = doing it multiple times = same result as once.</strong></p>
+<p><strong>PUT vs PATCH:</strong>
+- PUT: Send full object → Replaces everything → Missing fields = deleted.
+- PATCH: Send only changed fields → Partial update → Other fields untouched.</p>
+<p><strong>POST vs PUT:</strong>
+- POST: Create new, server assigns ID → Not idempotent (POST twice = 2 resources).
+- PUT: Update existing (or create at known URL) → Idempotent (PUT twice = same result).</p>
+<hr />
+<h2 id="5-http-status-codes">5. HTTP Status Codes<a class="headerlink" href="#5-http-status-codes" title="Permanent link">&para;</a></h2>
+<p><strong>The Codes (Memorize these):</strong></p>
+<p><strong>1xx — Informational</strong>
+- <code>100 Continue</code> → Server received headers, send body now.</p>
+<p><strong>2xx — Success</strong>
+| Code | Meaning | When to use |
+|------|---------|-------------|
+| <strong>200 OK</strong> | Generic success | GET returned data, PUT/PATCH succeeded |
+| <strong>201 Created</strong> | Resource created | POST succeeded, new resource born |
+| <strong>202 Accepted</strong> | Accepted for processing | Async job started (e.g., video processing) |
+| <strong>204 No Content</strong> | Success, nothing to return | DELETE succeeded, no body needed |</p>
+<p><strong>3xx — Redirection</strong>
+| Code | Meaning | Flow |
+|------|---------|------|
+| <strong>301 Moved Permanently</strong> | URL changed forever | Browser bookmarks new URL, SEO juice passes |
+| <strong>302 Found</strong> | Temporarily moved | Browser uses new URL this time, but keeps old bookmark |
+| <strong>304 Not Modified</strong> | Cache is still valid | Browser uses cached version, no download needed |</p>
+<p><strong>4xx — Client Error (You messed up)</strong>
+| Code | Meaning | When |
+|------|---------|------|
+| <strong>400 Bad Request</strong> | Malformed request | Invalid JSON, missing required field |
+| <strong>401 Unauthorized</strong> | Not authenticated | No token, invalid token, token expired |
+| <strong>403 Forbidden</strong> | No permission | Authenticated, but can't access this resource |
+| <strong>404 Not Found</strong> | Resource doesn't exist | <code>/users/999</code> when user 999 doesn't exist |
+| <strong>405 Method Not Allowed</strong> | Wrong HTTP method | <code>DELETE /users</code> when only GET/POST allowed |
+| <strong>409 Conflict</strong> | Resource conflict | Email already exists, duplicate entry |
+| <strong>422 Unprocessable Entity</strong> | Validation failed | Data format OK, but values invalid (e.g., negative age) |
+| <strong>429 Too Many Requests</strong> | Rate limited | Client sent too many requests, slow down |</p>
+<p><strong>5xx — Server Error (We messed up)</strong>
+| Code | Meaning | When |
+|------|---------|------|
+| <strong>500 Internal Server Error</strong> | Generic server crash | Uncaught exception, bug in code |
+| <strong>502 Bad Gateway</strong> | Upstream error | LB got invalid response from backend server |
+| <strong>503 Service Unavailable</strong> | Server overloaded | Maintenance, too much traffic, circuit breaker open |
+| <strong>504 Gateway Timeout</strong> | Upstream too slow | Backend didn't respond in time |</p>
+<p><strong>Quick Diffs:</strong>
+- <strong>401 vs 403:</strong> 401 = "Who are you?" (auth missing); 403 = "I know you, but you can't" (permission denied).
+- <strong>400 vs 422:</strong> 400 = "I can't read this" (malformed); 422 = "I read it, but it's wrong" (semantic error).
+- <strong>502 vs 503 vs 504:</strong> 502 = bad response from upstream; 503 = server can't handle request; 504 = upstream too slow.</p>
+<hr />
+<h1 id="priority-2-authentication-authorization">PRIORITY 2 — AUTHENTICATION &amp; AUTHORIZATION<a class="headerlink" href="#priority-2-authentication-authorization" title="Permanent link">&para;</a></h1>
+<h2 id="6-authentication-who-are-you">6. Authentication (Who are you?)<a class="headerlink" href="#6-authentication-who-are-you" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Authentication = proving identity (username + password, fingerprint, OTP).</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>User enters credentials → Server verifies against DB → 
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    → Match? → Generate token/session → Return to client
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    → No match? → 401 Unauthorized
+</code></pre></div></p>
+<p><strong>Password Hashing:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>User password: &quot;mypassword123&quot;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    → Server stores: bcrypt(&quot;mypassword123&quot; + salt) = &quot;$2b$10$...&quot;
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    → Even if DB leaks, attacker can&#39;t reverse hash
+</code></pre></div></p>
+<p><strong>Password Salting:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Without salt: hash(&quot;password&quot;) → Same for all users with &quot;password&quot; → Rainbow table attack easy
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>With salt: hash(&quot;password&quot; + random_salt) → Unique per user → Rainbow table useless
+</code></pre></div></p>
+<p><strong>MFA Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Step 1: Enter password → Valid? → Proceed to Step 2
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Step 2: Enter OTP from SMS/Authenticator → Valid? → Authenticated
+</code></pre></div></p>
+<p><strong>Authentication vs Authorization:</strong>
+- Authentication = "Who are you?" (login).
+- Authorization = "What can you do?" (permissions).</p>
+<hr />
+<h2 id="7-authorization-what-can-you-do">7. Authorization (What can you do?)<a class="headerlink" href="#7-authorization-what-can-you-do" title="Permanent link">&para;</a></h2>
+<p><strong>RBAC (Role-Based Access Control):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>User &quot;Alice&quot; → Role: &quot;Admin&quot; → Can: create, read, update, delete ALL
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>User &quot;Bob&quot;   → Role: &quot;Editor&quot; → Can: read, update OWN posts
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>User &quot;Carol&quot; → Role: &quot;Viewer&quot; → Can: read only
+</code></pre></div></p>
+<p><strong>ABAC (Attribute-Based):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Access granted if: (role == &quot;Manager&quot; AND department == &quot;Sales&quot; AND time &lt; 18:00)
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    → More granular, context-aware
+</code></pre></div></p>
+<p><strong>Where to check authorization?</strong>
+- Gateway level: Block early (performance).
+- Service level: Fine-grained control (security).
+- Both: Defense in depth.</p>
+<hr />
+<h2 id="8-sessions">8. Sessions<a class="headerlink" href="#8-sessions" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Session = server-side memory of who you are.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>User logs in → Server creates Session ID (random string) → 
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    → Stores in server memory/Redis: {session_id: {user_id: 123, role: &quot;admin&quot;}} → 
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    → Sends session_id in cookie → 
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    → Browser sends cookie with every request → 
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    → Server looks up session_id → Knows who you are
+</code></pre></div></p>
+<p><strong>Session Storage:</strong>
+- In-memory: Fast, but lost on restart, doesn't scale.
+- Redis: Shared across servers, TTL auto-expiry, scales horizontally.
+- Database: Persistent but slower.</p>
+<p><strong>Session Expiration:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Idle timeout: No activity for 30 min → Session destroyed
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Absolute timeout: Max 8 hours → Force re-login
+</code></pre></div></p>
+<hr />
+<h2 id="9-cookies">9. Cookies<a class="headerlink" href="#9-cookies" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Cookie = small text file browser stores and sends with every request to the domain.</p>
+<p><strong>Types:</strong>
+| Type | Flow | Use Case |
+|------|------|----------|
+| <strong>Session Cookie</strong> | Deleted when browser closes | Short-term login |
+| <strong>Persistent Cookie</strong> | Has Expires/Max-Age | "Remember me" for 7 days |</p>
+<p><strong>Security Attributes:</strong>
+| Attribute | What it does | Without it |
+|-----------|--------------|------------|
+| <strong>Secure</strong> | Only sent over HTTPS | Cookie sent over HTTP = intercepted |
+| <strong>HttpOnly</strong> | JS can't read cookie | XSS steals cookie via <code>document.cookie</code> |
+| <strong>SameSite=Strict</strong> | Cookie only sent to same origin | CSRF: evil.com sends request to bank.com with cookie |
+| <strong>SameSite=Lax</strong> | Cookie sent on top-level navigation | Balance between security and UX |
+| <strong>SameSite=None</strong> | Cookie sent everywhere | Needed for cross-site, must use Secure |</p>
+<p><strong>Cookies vs Sessions:</strong>
+- Cookie = storage mechanism (client-side or reference to server data).
+- Session = concept of server remembering you (stored via cookie ID or JWT).</p>
+<hr />
+<h2 id="10-jwt-json-web-token">10. JWT (JSON Web Token)<a class="headerlink" href="#10-jwt-json-web-token" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> JWT = self-contained token that carries user identity and claims, signed but not encrypted by default.</p>
+<p><strong>Structure (3 parts, dot-separated):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>eyJhbGciOiJIUzI1NiJ9.  → Header: {alg: &quot;HS256&quot;, typ: &quot;JWT&quot;}
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>eyJ1c2VyX2lkIjoxMjN9.  → Payload: {user_id: 123, role: &quot;admin&quot;, iat: 1234567890}
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>SflKxwRJSMeKKF2QT4fwpMe... → Signature: HMACSHA256(base64(header) + &quot;.&quot; + base64(payload), secret)
+</code></pre></div></p>
+<p><strong>Authentication Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>User logs in → Server verifies credentials → 
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    → Generates Access Token (JWT, expires 15 min) + Refresh Token (long-lived, stored in DB/Redis) → 
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    → Client stores Access Token in memory/localStorage → 
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    → Every request: Authorization: Bearer &lt;access_token&gt; → 
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    → Server verifies signature → Extracts claims → Knows user identity
+</code></pre></div></p>
+<p><strong>Access Token vs Refresh Token:</strong>
+| | Access Token | Refresh Token |
+|---|---|---|
+| Lifetime | Short (15 min) | Long (7 days) |
+| Purpose | Access APIs | Get new access token when old expires |
+| Storage | Client memory | HttpOnly cookie (secure) |
+| Revocation | Can't easily revoke | Stored in DB/Redis → Can revoke by deleting |</p>
+<p><strong>Why JWTs can't be easily revoked:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>JWT is self-contained → Server just verifies signature → No DB lookup → 
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    → To revoke: Need blacklist (Redis) → Defeats stateless purpose → 
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    → Solution: Short expiry + refresh token rotation
+</code></pre></div></p>
+<p><strong>Signing vs Encryption:</strong>
+- Signing = "I made this" (integrity) — anyone can read, but can't forge.
+- Encryption = "Only you can read this" (confidentiality) — JWE for encryption.</p>
+<hr />
+<h2 id="11-oauth-20-basic">11. OAuth 2.0 (Basic)<a class="headerlink" href="#11-oauth-20-basic" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> OAuth 2.0 = delegation protocol — you authorize App X to access your Google data without giving App X your password.</p>
+<p><strong>Actors:</strong>
+| Actor | Role |
+|-------|------|
+| <strong>Resource Owner</strong> | You (the user) |
+| <strong>Client</strong> | The app requesting access (e.g., "MyApp") |
+| <strong>Authorization Server</strong> | Google/Facebook — issues tokens |
+| <strong>Resource Server</strong> | Google APIs — holds your data |</p>
+<p><strong>Authorization Code Flow (Google Login):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>User clicks &quot;Login with Google&quot; → Redirected to Google → 
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    → User enters Google credentials → Google shows consent screen → 
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    → User approves → Google redirects back with ?code=xyz → 
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    → MyApp exchanges code + client_secret for Access Token → 
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    → MyApp uses Access Token to call Google APIs → Gets user profile → 
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    → MyApp creates local session/JWT for user
+</code></pre></div></p>
+<p><strong>OAuth vs JWT:</strong>
+- OAuth = protocol/framework for authorization.
+- JWT = token format that can be used WITHIN OAuth.
+- You can use OAuth without JWT (e.g., opaque tokens), and JWT without OAuth (e.g., custom auth).</p>
+<hr />
+<h1 id="priority-3-cross-origin-communication">PRIORITY 3 — CROSS-ORIGIN COMMUNICATION<a class="headerlink" href="#priority-3-cross-origin-communication" title="Permanent link">&para;</a></h1>
+<h2 id="12-cors-cross-origin-resource-sharing">12. CORS (Cross-Origin Resource Sharing)<a class="headerlink" href="#12-cors-cross-origin-resource-sharing" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> CORS = browser security feature that lets servers decide which other domains can access their APIs.</p>
+<p><strong>Same-Origin Policy:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Page from https://bank.com → Can fetch https://bank.com/api ✓
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Page from https://evil.com → Fetch https://bank.com/api ✗ (blocked by browser)
+</code></pre></div></p>
+<p><strong>CORS Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Browser sends Preflight (OPTIONS) → 
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    → Server responds with headers:
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>        Access-Control-Allow-Origin: https://frontend.com
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>        Access-Control-Allow-Methods: GET, POST, PUT
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>        Access-Control-Allow-Headers: Content-Type, Authorization
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    → Browser allows actual request
+</code></pre></div></p>
+<p><strong>Preflight Request:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Browser: OPTIONS /api/data
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    Origin: https://frontend.com
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    Access-Control-Request-Method: POST
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    Access-Control-Request-Headers: Content-Type
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>Server: 200 OK
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    Access-Control-Allow-Origin: https://frontend.com
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    Access-Control-Allow-Methods: POST
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>    Access-Control-Allow-Headers: Content-Type
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    Access-Control-Max-Age: 86400
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>Browser: Now sends actual POST request
+</code></pre></div></p>
+<p><strong>Why CORS exists:</strong> Prevent malicious websites from calling your APIs using your cookies.</p>
+<p><strong>Credentials:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Frontend: fetch(url, { credentials: &#39;include&#39; }) → Sends cookies
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>Server: Access-Control-Allow-Credentials: true → AND specific origin (not *)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-4-api-security">PRIORITY 4 — API SECURITY<a class="headerlink" href="#priority-4-api-security" title="Permanent link">&para;</a></h1>
+<h2 id="13-rate-limiting">13. Rate Limiting<a class="headerlink" href="#13-rate-limiting" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Rate limiting = throttle requests to prevent abuse and ensure fair usage.</p>
+<p><strong>Algorithms:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Flow</th>
+<th>Pros/Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fixed Window</strong></td>
+<td>Counter resets every minute → 100 req/min</td>
+<td>Simple, but burst at window edge</td>
+</tr>
+<tr>
+<td><strong>Sliding Window</strong></td>
+<td>Track requests in last 60 sec → Reject if &gt;100</td>
+<td>Smooth, but more memory</td>
+</tr>
+<tr>
+<td><strong>Token Bucket</strong></td>
+<td>Bucket has N tokens → Each request takes 1 → Refill at rate R</td>
+<td>Bursts allowed, smooth average</td>
+</tr>
+<tr>
+<td><strong>Leaky Bucket</strong></td>
+<td>Queue requests → Process at fixed rate</td>
+<td>Smooth output, but can queue indefinitely</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Token Bucket Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Bucket capacity: 10 tokens, refill: 1 token/sec
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    → Request 1: Bucket has 10 → Grant, bucket = 9
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    → Request 2: Bucket has 9 → Grant, bucket = 8
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    ...
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>    → Request 11: Bucket empty → Reject (429) or Queue
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    → After 1 sec: 1 token refilled → Next request granted
+</code></pre></div></p>
+<p><strong>Most common:</strong> Token Bucket (flexible bursts + smooth average).</p>
+<hr />
+<h2 id="14-api-security-basics">14. API Security Basics<a class="headerlink" href="#14-api-security-basics" title="Permanent link">&para;</a></h2>
+<p><strong>Security Checklist Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Request arrives → 
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    1. HTTPS? → No? → Reject (HSTS)
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    2. API Key valid? → No? → 401
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    3. Bearer Token valid? → No? → 401
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    4. Rate limit OK? → No? → 429
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    5. Input sanitized? → SQL injection attempt? → Reject
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    6. XSS attempt in payload? → Sanitize/escape
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>    7. CSRF token valid? → No? → Reject (for stateful forms)
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>    8. Authorization check → Role/permission OK? → No? → 403
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>    9. Process request → Log activity → Return response
+</code></pre></div></p>
+<p><strong>Quick Definitions:</strong>
+- <strong>API Key:</strong> Simple identifier for app/client (not user-specific).
+- <strong>Bearer Token:</strong> "Bearer of this token is authorized" — sent in Authorization header.
+- <strong>CSRF:</strong> Evil site tricks browser into sending authenticated request to your API.
+- <strong>XSS:</strong> Attacker injects malicious JS into your page → Steals cookies/session.
+- <strong>SQL Injection:</strong> <code>'; DROP TABLE users; --</code> → Always use parameterized queries.
+- <strong>Input Validation:</strong> Check type, length, format, range before processing.</p>
+<hr />
+<h1 id="priority-5-api-design-best-practices">PRIORITY 5 — API DESIGN BEST PRACTICES<a class="headerlink" href="#priority-5-api-design-best-practices" title="Permanent link">&para;</a></h1>
+<p><strong>Naming Conventions:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>✓ GET /users          (plural nouns)
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>✓ GET /users/123/orders (nested resources)
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>✗ GET /getUser        (no verbs in URL)
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>✗ GET /users/123/getOrders
+</code></pre></div></p>
+<p><strong>Error Responses:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">        </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INVALID_EMAIL&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">        </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Email format is invalid&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">        </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">        </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-15T10:30:00Z&quot;</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Idempotency:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>POST /payments (not idempotent) → Client retries → Double charge!
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Solution: Idempotency-Key: uuid-123 → Server checks key → Already processed? → Return same response
+</code></pre></div></p>
+<p><strong>Retry Safety:</strong>
+- GET = safe to retry anytime.
+- POST = not safe → Use idempotency key.
+- PUT/DELETE = idempotent → Retry OK.</p>
+<hr />
+<h1 id="priority-6-serialization-data-exchange">PRIORITY 6 — SERIALIZATION &amp; DATA EXCHANGE<a class="headerlink" href="#priority-6-serialization-data-exchange" title="Permanent link">&para;</a></h1>
+<h2 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> JSON = text format for data exchange — human-readable, language-agnostic.</p>
+<p><strong>Serialization Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Object (User {name: &quot;Alice&quot;, age: 30}) → JSON.stringify() → &#39;{&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:30}&#39; → Send over wire
+</code></pre></div>
+<strong>Deserialization Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>&#39;{&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:30}&#39; → JSON.parse() → Object {name: &quot;Alice&quot;, age: 30}
+</code></pre></div></p>
+<h2 id="protocol-buffers">Protocol Buffers<a class="headerlink" href="#protocol-buffers" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Protobuf = binary serialization format — smaller, faster than JSON, but needs schema.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Define .proto schema → Generate code (Java/Go/Python) → 
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    → Serialize object to binary → Send (smaller payload) → 
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    → Deserialize on other end using same schema
+</code></pre></div>
+<strong>Where used:</strong> gRPC, microservice internal communication, high-performance APIs.</p>
+<hr />
+<h1 id="priority-7-backend-performance">PRIORITY 7 — BACKEND PERFORMANCE<a class="headerlink" href="#priority-7-backend-performance" title="Permanent link">&para;</a></h1>
+<p><strong>Connection Pooling:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Without pool: Request → Create DB connection → Query → Close connection → (slow, expensive)
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>With pool:    Pool has 10 ready connections → Request borrows one → Query → Return to pool → (fast, reuse)
+</code></pre></div></p>
+<p><strong>Request Timeouts:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Client → Server → DB query taking 30 sec → Timeout after 5 sec → Return 504 → Client not stuck
+</code></pre></div></p>
+<p><strong>Compression:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Response: 1MB JSON → Gzip compress → 200KB → Browser decompresses → Faster transfer
+</code></pre></div></p>
+<p><strong>Caching Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Request → Check Redis cache → Hit? → Return cached data (1ms)
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>        → Miss? → Query DB → Store in Redis → Return data (100ms)
+</code></pre></div></p>
+<p><strong>Asynchronous Processing:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>User uploads video → API returns &quot;Processing started&quot; (202) → 
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    → Video queued → Worker processes → User polls /status or gets webhook → 
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    → Processing done → User notified
+</code></pre></div></p>
+<p><strong>Why Paginate?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>GET /users → 1 million users → Response = 500MB → Timeout, crash, bad UX
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>GET /users?page=1&amp;limit=20 → 20 users → 10KB → Fast, usable
+</code></pre></div></p>
+<hr />
+<h1 id="priority-8-backend-architecture">PRIORITY 8 — BACKEND ARCHITECTURE<a class="headerlink" href="#priority-8-backend-architecture" title="Permanent link">&para;</a></h1>
+<p><strong>Layered Architecture Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>HTTP Request → Controller (handles HTTP, validates input) → 
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    → Service (business logic, orchestration) → 
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>    → Repository (DB queries, data access) → 
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>    → Database → Response flows back up
+</code></pre></div></p>
+<p><strong>Why separate?</strong>
+| Layer | Responsibility | Change without affecting |
+|-------|---------------|--------------------------|
+| Controller | HTTP handling, routing | Service logic |
+| Service | Business rules, workflows | DB schema, HTTP details |
+| Repository | Data persistence | Business logic |</p>
+<p><strong>Middleware Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Request → AuthMiddleware → RateLimitMiddleware → LoggingMiddleware → 
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>    → ValidationMiddleware → Router → Controller
+</code></pre></div></p>
+<p><strong>Dependency Injection:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Without DI: Service creates new DatabaseConnection() → Tight coupling → Can&#39;t swap DB
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>With DI:    Service receives IDatabaseConnection → Runtime injection → Easy to swap/mock
+</code></pre></div></p>
+<hr />
+<h1 id="priority-9-backend-reliability">PRIORITY 9 — BACKEND RELIABILITY<a class="headerlink" href="#priority-9-backend-reliability" title="Permanent link">&para;</a></h1>
+<p><strong>Idempotency:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Retry POST /charge → Without idempotency key → Double charge
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>With idempotency key → Server sees duplicate → Returns same response → No double charge
+</code></pre></div></p>
+<p><strong>Retries with Exponential Backoff:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Request fails → Wait 1 sec → Retry → Fails → Wait 2 sec → Retry → Fails → Wait 4 sec → Retry
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>→ Max retries reached → Circuit breaker opens
+</code></pre></div></p>
+<p><strong>Circuit Breaker:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Normal: Request → Service → Response
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Fail threshold reached (e.g., 5 errors in 60 sec) → Circuit OPEN → 
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>    → Fast fail (don&#39;t call failing service) → After timeout → Half-open → 
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>    → Test request → Success? → Close circuit → Normal flow
+</code></pre></div></p>
+<p><strong>Health Checks:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>Load Balancer → GET /health → 
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>    → DB connection OK? → Cache OK? → Disk space OK? → 200 OK → Keep sending traffic
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    → DB down? → 503 → Stop sending traffic → Alert on-call
+</code></pre></div></p>
+<p><strong>Graceful Shutdown:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>SIGTERM received → Stop accepting new requests → Finish processing in-flight requests → 
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>    → Close DB connections → Flush logs → Exit cleanly
+</code></pre></div></p>
+<hr />
+<h1 id="priority-10-api-documentation-testing">PRIORITY 10 — API DOCUMENTATION &amp; TESTING<a class="headerlink" href="#priority-10-api-documentation-testing" title="Permanent link">&para;</a></h1>
+<p><strong>OpenAPI/Swagger Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>Write openapi.yaml → Auto-generates docs + client SDKs + server stubs → 
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>    → Frontend devs read docs → Know exact endpoints, params, responses
+</code></pre></div></p>
+<p><strong>Testing Tools:</strong>
+| Tool | Use |
+|------|-----|
+| <strong>Postman</strong> | Manual API testing, collections, environments |
+| <strong>cURL</strong> | Quick command-line testing |
+| <strong>Contract Testing</strong> | Ensure provider and consumer agree on API contract |</p>
+<hr />
+<h1 id="common-interview-scenarios-quick-answers">COMMON INTERVIEW SCENARIOS — QUICK ANSWERS<a class="headerlink" href="#common-interview-scenarios-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>What makes API RESTful?</td>
+<td>Resources, HTTP verbs, statelessness, uniform interface</td>
+</tr>
+<tr>
+<td>2</td>
+<td>REST vs GraphQL?</td>
+<td>REST = multiple endpoints, fixed shape; GraphQL = single endpoint, client picks fields</td>
+</tr>
+<tr>
+<td>3</td>
+<td>REST vs gRPC?</td>
+<td>REST = HTTP/JSON, human-readable; gRPC = HTTP/2 + Protobuf, binary, faster</td>
+</tr>
+<tr>
+<td>4</td>
+<td>PUT vs PATCH?</td>
+<td>PUT = full replace; PATCH = partial update</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GET vs POST?</td>
+<td>GET = read, idempotent, safe; POST = create, not idempotent</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Auth vs Authz?</td>
+<td>Auth = who are you; Authz = what can you do</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Cookies vs Sessions?</td>
+<td>Cookie = storage mechanism; Session = server memory of user (often via cookie)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>JWT vs Session-based?</td>
+<td>JWT = stateless, self-contained, scales well; Session = server-side, easy to revoke</td>
+</tr>
+<tr>
+<td>9</td>
+<td>OAuth vs JWT?</td>
+<td>OAuth = protocol; JWT = token format. OAuth can use JWT tokens</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Google Login flow?</td>
+<td>Redirect to Google → User consents → Code returned → Exchange code for token → Get profile</td>
+</tr>
+<tr>
+<td>11</td>
+<td>What is CORS?</td>
+<td>Browser security letting servers whitelist cross-origin requests</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Preflight request?</td>
+<td>Browser sends OPTIONS first to check if actual request is allowed</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Why rate limiting?</td>
+<td>Prevent abuse, DDoS, ensure fair usage, protect resources</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Secure REST API?</td>
+<td>HTTPS, auth tokens, input validation, rate limiting, CORS, least privilege</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Status codes for scenarios?</td>
+<td>200=OK, 201=Created, 400=Bad Request, 401=Unauth, 403=Forbidden, 404=Not Found, 500=Error</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Version APIs?</td>
+<td>URL (/v1/), Header (API-Version), or Content-Type (application/vnd.api.v1+json)</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Why stateless?</td>
+<td>Scales horizontally, no server memory needed, each request self-contained</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Expired JWT?</td>
+<td>Return 401 → Client uses refresh token → Get new access token → Retry original request</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Why HTTPS?</td>
+<td>Encrypts data in transit → Prevents MITM, eavesdropping, tampering</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Secure login system?</td>
+<td>HTTPS + password hashing (bcrypt+salt) + MFA + rate limiting + JWT (short access + refresh) + CSRF protection</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="revision-order-highest-roi">REVISION ORDER (Highest ROI)<a class="headerlink" href="#revision-order-highest-roi" title="Permanent link">&para;</a></h1>
+<ol>
+<li>HTTP Request Lifecycle (DNS → TCP → TLS → HTTP)</li>
+<li>HTTP Methods (GET/POST/PUT/PATCH/DELETE + idempotency)</li>
+<li>HTTP Status Codes (200, 201, 400, 401, 403, 404, 500, 502, 503, 504)</li>
+<li>REST Principles (6 constraints + resource naming)</li>
+<li>Authentication (password hashing, MFA)</li>
+<li>JWT (structure, access vs refresh, why hard to revoke)</li>
+<li>Sessions vs Cookies (flow, HttpOnly, Secure, SameSite)</li>
+<li>OAuth 2.0 (actors, authorization code flow)</li>
+<li>CORS (same-origin, preflight, headers)</li>
+<li>Rate Limiting (token bucket, why needed)</li>
+<li>API Security (HTTPS, XSS, CSRF, SQL injection, input validation)</li>
+<li>API Design (naming, versioning, pagination, error responses, idempotency)</li>
+<li>Backend Architecture (Controller → Service → Repository)</li>
+<li>Backend Performance (connection pooling, caching, compression, async)</li>
+<li>Backend Reliability (retries, circuit breaker, health checks, graceful shutdown)</li>
+<li>Serialization (JSON vs Protobuf)</li>
+<li>All comparison tables</li>
+<li>Common interview scenarios (20 questions)</li>
+</ol>
+<hr />
+<h1 id="hands-on-practice-projects">HANDS-ON PRACTICE PROJECTS<a class="headerlink" href="#hands-on-practice-projects" title="Permanent link">&para;</a></h1>
+<h2 id="1-user-authentication-service">1. User Authentication Service<a class="headerlink" href="#1-user-authentication-service" title="Permanent link">&para;</a></h2>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>POST /register → Validate input → Hash password (bcrypt) → Store in DB → 201 Created
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>POST /login → Verify password → Generate Access Token (JWT, 15min) + Refresh Token (7d, HttpOnly cookie) → 200 OK
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>POST /refresh → Verify refresh token → Generate new access token → 200 OK
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>POST /logout → Invalidate refresh token (delete from Redis) → Clear cookie → 200 OK
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>GET /profile → Verify access token → Return user data → 200 OK
+</code></pre></div></p>
+<h2 id="2-library-management-api">2. Library Management API<a class="headerlink" href="#2-library-management-api" title="Permanent link">&para;</a></h2>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>GET /books?page=1&amp;limit=20&amp;genre=fiction&amp;sort=-rating → 
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>    → Parse query params → Query DB with filters → Paginate → Return books
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>POST /books → Validate → Insert → 201
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>PUT /books/123 → Replace → 200
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>PATCH /books/123 → Partial update → 200
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>DELETE /books/123 → Delete → 204
+</code></pre></div></p>
+<h2 id="3-e-commerce-backend">3. E-commerce Backend<a class="headerlink" href="#3-e-commerce-backend" title="Permanent link">&para;</a></h2>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>GET /products (paginated, filtered)
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>POST /cart → Add item → JWT auth → Update cart in DB
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>POST /orders → Validate cart → Check stock → Create order → Payment (async) → 202 Accepted
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>GET /orders/456 → Auth → Check ownership → Return order
+</code></pre></div></p>
+<h2 id="4-url-shortener">4. URL Shortener<a class="headerlink" href="#4-url-shortener" title="Permanent link">&para;</a></h2>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>POST /shorten → body: {url: &quot;https://...&quot;} → Generate short code (base62) → Store mapping → Return short URL
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>GET /abc123 → Lookup code → 301 redirect to original URL → Increment click count
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>Rate limit: Token bucket per IP → 429 if exceeded
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>Cache: Redis stores popular URLs → 1ms response vs 10ms DB lookup
+</code></pre></div></p>
+<h2 id="5-blog-platform-api">5. Blog Platform API<a class="headerlink" href="#5-blog-platform-api" title="Permanent link">&para;</a></h2>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>GET /posts (public, paginated)
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>POST /posts → Auth (JWT) → Role check (Editor/Admin) → Create post → 201
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>PUT /posts/123 → Auth → Ownership check → Update → 200
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>DELETE /posts/123 → Auth → Admin OR Owner → Delete → 204
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>GET /posts/123/comments → Public → Return comments
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>POST /posts/123/comments → Auth → Create comment → 201
+</code></pre></div></p>
+<hr />
+<p><strong>REMEMBER:</strong> Interviewers care about:
+1. <strong>Can you trace a request end-to-end?</strong> (DNS → LB → Server → DB → Response)
+2. <strong>Why this status code / method / auth mechanism?</strong> (Trade-offs matter)
+3. <strong>What happens when things fail?</strong> (Timeouts, retries, circuit breakers)
+4. <strong>How do you scale?</strong> (Stateless, caching, connection pooling, async)</p>
+<p>Tell the story of a request's journey through your system.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../system-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: System Design">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                System Design
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../git/" class="md-footer__link md-footer__link--next" aria-label="Next: Git">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Git
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2346 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/software-engineering/">
+      
+      
+        <link rel="prev" href="../linux/">
+      
+      
+        <link rel="next" href="../concurrency/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Software Engineering - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#software-engineering-practices-interview-notes-system-flow-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software Engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="software-engineering-practices-interview-notes-system-flow-approach">Software Engineering Practices Interview Notes — System Flow Approach<a class="headerlink" href="#software-engineering-practices-interview-notes-system-flow-approach" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="priority-1-software-development-fundamentals">Priority 1 — Software Development Fundamentals<a class="headerlink" href="#priority-1-software-development-fundamentals" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduction-to-software-engineering">1. Introduction to Software Engineering<a class="headerlink" href="#1-introduction-to-software-engineering" title="Permanent link">&para;</a></h2>
+<p><strong>Programming vs Software Engineering</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Programming: Write code that works
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Software Engineering: Write code that works + is maintainable + scalable + testable + deployable + monitorable
+</code></pre></div></p>
+<p><strong>SDLC = Software Development Life Cycle</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Requirement Gathering → Feasibility → Design → Development → Testing → Deployment → Maintenance
+</code></pre></div></p>
+<p><strong>Functional vs Non-Functional Requirements</strong>
+| Functional | Non-Functional |
+|-----------|-----------------|
+| What system does | How well it does it |
+| "User can book ticket" | "Page loads in &lt;2s", "99.9% uptime" |</p>
+<p><strong>Quality Attributes</strong>
+| Attribute | Meaning | Example |
+|-----------|---------|---------|
+| <strong>Maintainability</strong> | Easy to modify | Clean code, tests, docs |
+| <strong>Extensibility</strong> | Easy to add features | Plugin architecture, interfaces |
+| <strong>Reliability</strong> | Works consistently | Error handling, retries |
+| <strong>Scalability</strong> | Handles growth | Horizontal scaling, caching |
+| <strong>Security</strong> | Protected from threats | Auth, encryption, input validation |</p>
+<hr />
+<h2 id="2-sdlc-models">2. SDLC Models<a class="headerlink" href="#2-sdlc-models" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — How each model handles development:</strong></p>
+<p><strong>Waterfall</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Requirements → Design → Code → Test → Deploy → Maintain
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>     ↓          ↓       ↓      ↓       ↓        ↓
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   Fixed    Fixed   Fixed  Fixed  Fixed    Fixed
+</code></pre></div>
+- Sequential, no going back
+- Use: Small projects, clear requirements, regulated industries (banking, healthcare)</p>
+<p><strong>Agile</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Sprint 1: Plan → Design → Code → Test → Review → Deploy
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Sprint 2: Plan → Design → Code → Test → Review → Deploy
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Sprint 3: Plan → Design → Code → Test → Review → Deploy
+</code></pre></div>
+- Iterative, continuous feedback
+- Use: Most product companies, evolving requirements</p>
+<p><strong>Comparison:</strong>
+| Waterfall | Agile |
+|-----------|-------|
+| Fixed scope, fixed timeline | Flexible scope, fixed sprints |
+| Changes are expensive | Changes welcomed |
+| Big bang delivery | Continuous delivery |
+| Heavy documentation | Working software over docs |
+| Customer sees product at end | Customer sees product every sprint |</p>
+<p><strong>Other Models:</strong>
+- <strong>Incremental</strong> = Build in chunks (core first, then features)
+- <strong>Iterative</strong> = Build rough version → refine → refine
+- <strong>Spiral</strong> = Risk-driven, cycles of planning + risk analysis + engineering + evaluation
+- <strong>V-Model</strong> = Verification (left) ↔ Validation (right), each dev phase has matching test phase</p>
+<hr />
+<h1 id="priority-2-agile-development">Priority 2 — Agile Development<a class="headerlink" href="#priority-2-agile-development" title="Permanent link">&para;</a></h1>
+<h2 id="3-agile-methodology">3. Agile Methodology<a class="headerlink" href="#3-agile-methodology" title="Permanent link">&para;</a></h2>
+<p><strong>Agile Manifesto (4 Values)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Individuals and interactions     &gt; Processes and tools
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Working software                 &gt; Comprehensive documentation
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Customer collaboration           &gt; Contract negotiation
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Responding to change             &gt; Following a plan
+</code></pre></div></p>
+<p><strong>12 Principles (Key Ones)</strong>
+- Deliver working software frequently (weeks, not months)
+- Welcome changing requirements
+- Business people and developers work together daily
+- Working software is primary measure of progress
+- Continuous attention to technical excellence
+- Simplicity — maximize work not done</p>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Backlog → Sprint Planning → Daily Standup → Sprint Execution → Sprint Review → Sprint Retrospective → Repeat
+</code></pre></div></p>
+<hr />
+<h2 id="4-scrum-framework">4. Scrum Framework<a class="headerlink" href="#4-scrum-framework" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — Scrum Cycle:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Product Backlog (all features) 
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    ↓
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Sprint Planning (2 weeks worth) → Sprint Backlog
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ↓
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Daily Scrum (15 min standup) → What did I do? What will I do? Any blockers?
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    ↓
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Sprint Execution (2 weeks)
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    ↓
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Sprint Review (demo to stakeholders)
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    ↓
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>Sprint Retrospective (what went well? what to improve?)
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    ↓
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>Increment (shippable product)
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>    ↓
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>Repeat
+</code></pre></div></p>
+<p><strong>Roles:</strong>
+| Role | Responsibility |
+|------|---------------|
+| <strong>Product Owner</strong> | Owns backlog, prioritizes features, speaks for customer |
+| <strong>Scrum Master</strong> | Removes blockers, facilitates ceremonies, protects team |
+| <strong>Dev Team</strong> | Self-organizing, cross-functional, delivers increment |</p>
+<p><strong>Artifacts:</strong>
+| Artifact | What it is |
+|----------|-----------|
+| <strong>Product Backlog</strong> | All features, bugs, tech debt (prioritized) |
+| <strong>Sprint Backlog</strong> | Items committed for current sprint |
+| <strong>Increment</strong> | Potentially shippable work at sprint end |</p>
+<p><strong>Ceremonies:</strong>
+| Ceremony | Duration | Purpose |
+|----------|----------|---------|
+| Sprint Planning | 2-4 hrs | What to build this sprint? |
+| Daily Standup | 15 min | Sync, unblock |
+| Sprint Review | 1-2 hrs | Demo to stakeholders |
+| Sprint Retrospective | 1 hr | Team improvement |</p>
+<p><strong>Scrum vs Agile:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Agile = Philosophy (values + principles)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Scrum = Framework (roles + ceremonies + artifacts that implement Agile)
+</code></pre></div></p>
+<hr />
+<h2 id="5-kanban">5. Kanban<a class="headerlink" href="#5-kanban" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Backlog → To Do → In Progress → Code Review → Testing → Done
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>              ↑         ↑           ↑
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>           WIP limit  WIP limit   WIP limit
+</code></pre></div></p>
+<p><strong>Key Concepts:</strong>
+- <strong>Visual board</strong> = See all work at a glance
+- <strong>WIP limits</strong> = Max items per column (prevents overload)
+- <strong>Continuous flow</strong> = No sprints, work pulled when capacity available</p>
+<p><strong>Scrum vs Kanban:</strong>
+| Scrum | Kanban |
+|-------|--------|
+| Fixed sprints (2 weeks) | Continuous flow |
+| Roles defined (PO, SM, Dev) | No required roles |
+| Sprint backlog commitment | No commitment, pull when ready |
+| Sprint review/retro | Continuous improvement |
+| Use: Product teams | Use: Support/ops teams |</p>
+<hr />
+<h1 id="priority-3-version-control-collaboration">Priority 3 — Version Control &amp; Collaboration<a class="headerlink" href="#priority-3-version-control-collaboration" title="Permanent link">&para;</a></h1>
+<h2 id="6-code-reviews">6. Code Reviews<a class="headerlink" href="#6-code-reviews" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Dev writes code → Self-review → Create PR → Automated checks (CI) → Peer review → Address comments → Approve → Merge
+</code></pre></div></p>
+<p><strong>What to check in code review:</strong>
+| Category | Check |
+|----------|-------|
+| <strong>Correctness</strong> | Does it work? Edge cases handled? |
+| <strong>Design</strong> | SOLID principles? Appropriate patterns? |
+| <strong>Readability</strong> | Clear naming? Comments where needed? |
+| <strong>Tests</strong> | Unit tests present? Cover edge cases? |
+| <strong>Security</strong> | No secrets? Input validated? |
+| <strong>Performance</strong> | N+1 queries? Unnecessary loops? |</p>
+<p><strong>Best Practices:</strong>
+- Keep PRs small (&lt;400 lines)
+- Respond within 24 hours
+- Be constructive, not critical
+- Explain WHY, not just WHAT</p>
+<hr />
+<h2 id="7-branching-strategies">7. Branching Strategies<a class="headerlink" href="#7-branching-strategies" title="Permanent link">&para;</a></h2>
+<p>(See Git notes for detail — quick reference here)</p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Flow</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Feature Branch</strong></td>
+<td><code>main</code> + <code>feature/*</code> → PR → merge</td>
+<td>Small teams</td>
+</tr>
+<tr>
+<td><strong>GitHub Flow</strong></td>
+<td><code>main</code> + short-lived branches → PR → merge → deploy</td>
+<td>CI/CD, continuous deploy</td>
+</tr>
+<tr>
+<td><strong>Git Flow</strong></td>
+<td><code>main</code> + <code>develop</code> + <code>feature</code> + <code>release</code> + <code>hotfix</code></td>
+<td>Scheduled releases, large teams</td>
+</tr>
+<tr>
+<td><strong>Trunk-Based</strong></td>
+<td>Everyone commits to <code>main</code>, feature flags</td>
+<td>High velocity, experienced teams</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-4-testing">Priority 4 — Testing<a class="headerlink" href="#priority-4-testing" title="Permanent link">&para;</a></h1>
+<h2 id="8-testing-fundamentals">8. Testing Fundamentals<a class="headerlink" href="#8-testing-fundamentals" title="Permanent link">&para;</a></h2>
+<p><strong>Verification vs Validation</strong>
+| Verification | Validation |
+|-------------|-----------|
+| "Are we building it RIGHT?" | "Are we building the RIGHT thing?" |
+| Code review, static analysis | User acceptance testing |
+| Process compliance | Product meets needs |</p>
+<p><strong>Test Pyramid</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>        /\
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>       /  \\      E2E Tests (few, slow, expensive)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>      /____\
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>     /      \\    Integration Tests (some, medium)
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    /________\
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>   /          \\  Unit Tests (many, fast, cheap)
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>  /____________\
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Count</th>
+<th>Speed</th>
+<th>Cost</th>
+<th>What it tests</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unit</strong></td>
+<td>Many</td>
+<td>Fast (&lt;1s)</td>
+<td>Low</td>
+<td>Single function/class</td>
+</tr>
+<tr>
+<td><strong>Integration</strong></td>
+<td>Some</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Components together</td>
+</tr>
+<tr>
+<td><strong>E2E</strong></td>
+<td>Few</td>
+<td>Slow</td>
+<td>High</td>
+<td>Full user journey</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why automate?</strong> → Fast feedback, repeatable, catches regressions, frees humans for exploratory testing.</p>
+<hr />
+<h2 id="9-unit-testing">9. Unit Testing<a class="headerlink" href="#9-unit-testing" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Write function → Write test (input → expected output) → Run test → Pass/Fail → Refactor → Repeat
+</code></pre></div></p>
+<p><strong>Key Concepts:</strong>
+| Concept | Definition | Example |
+|---------|-----------|---------|
+| <strong>Test Case</strong> | Input + expected output | <code>add(2,3)</code> should return <code>5</code> |
+| <strong>Assertion</strong> | Check expected vs actual | <code>assertEquals(5, result)</code> |
+| <strong>Mock</strong> | Fake object that verifies interactions | Mock <code>PaymentGateway</code> to verify <code>process()</code> called once |
+| <strong>Stub</strong> | Fake object that returns canned data | Stub <code>Database</code> to return fake user |
+| <strong>Fixture</strong> | Setup data for tests | Create test user before each test |</p>
+<p><strong>Mock vs Stub:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Mock: &quot;Did you call me? How many times?&quot; (verification)
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Stub: &quot;Here&#39;s fake data when called&quot; (state)
+</code></pre></div></p>
+<p><strong>Why mocks?</strong> → Isolate unit under test. Don't test database/network in unit tests.</p>
+<p><strong>AAA Pattern:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@Test</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">shouldCalculateTotal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="c1">// Arrange</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">Cart</span><span class="w"> </span><span class="n">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Cart</span><span class="p">();</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="n">cart</span><span class="p">.</span><span class="na">addItem</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Item</span><span class="p">(</span><span class="s">&quot;Book&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10.0</span><span class="p">));</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="c1">// Act</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cart</span><span class="p">.</span><span class="na">getTotal</span><span class="p">();</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">    </span><span class="c1">// Assert</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="n">assertEquals</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span><span class="w"> </span><span class="n">total</span><span class="p">);</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h2 id="10-integration-testing">10. Integration Testing<a class="headerlink" href="#10-integration-testing" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Start test DB → Seed data → Call API endpoint → Verify response + DB state → Clean up
+</code></pre></div></p>
+<p><strong>What to verify:</strong>
+- API request/response contracts
+- Database read/write operations
+- External service interactions (with test doubles)
+- Authentication/authorization flows</p>
+<p><strong>Unit vs Integration:</strong>
+| Unit | Integration |
+|------|-------------|
+| One class/function | Multiple components |
+| Mocks dependencies | Real or test DB/services |
+| Fast (&lt;100ms) | Slower (seconds) |
+| "Does this work in isolation?" | "Do these work together?" |</p>
+<hr />
+<h2 id="11-end-to-end-testing">11. End-to-End Testing<a class="headerlink" href="#11-end-to-end-testing" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Browser opens → Navigate to login → Enter credentials → Click login → Verify dashboard loads → Click menu → Verify page → Logout
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Selenium</strong></td>
+<td>Legacy, cross-browser</td>
+</tr>
+<tr>
+<td><strong>Cypress</strong></td>
+<td>Modern, developer-friendly, fast</td>
+</tr>
+<tr>
+<td><strong>Playwright</strong></td>
+<td>Microsoft, auto-wait, parallel</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-regression-testing">12. Regression Testing<a class="headerlink" href="#12-regression-testing" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>New feature added → Run full test suite → Old tests still pass? → Yes: safe to deploy. No: regression detected
+</code></pre></div></p>
+<p><strong>Purpose:</strong> Ensure new changes don't break existing functionality.
+<strong>Automation:</strong> Run on every PR via CI pipeline.</p>
+<hr />
+<h2 id="13-performance-testing">13. Performance Testing<a class="headerlink" href="#13-performance-testing" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>What it does</th>
+<th>System Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Load</strong></td>
+<td>Normal expected traffic</td>
+<td>1000 users → measure response time</td>
+</tr>
+<tr>
+<td><strong>Stress</strong></td>
+<td>Beyond normal capacity</td>
+<td>Keep increasing load until system breaks</td>
+</tr>
+<tr>
+<td><strong>Spike</strong></td>
+<td>Sudden traffic burst</td>
+<td>0 → 10000 users instantly</td>
+</tr>
+<tr>
+<td><strong>Soak</strong></td>
+<td>Sustained load over time</td>
+<td>1000 users for 24 hours → memory leaks?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-5-cicd">Priority 5 — CI/CD<a class="headerlink" href="#priority-5-cicd" title="Permanent link">&para;</a></h1>
+<h2 id="14-continuous-integration-ci">14. Continuous Integration (CI)<a class="headerlink" href="#14-continuous-integration-ci" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Dev pushes code → Webhook triggers → Pull code → Build → Run unit tests → Run integration tests → Static analysis → Report → Pass/Fail
+</code></pre></div></p>
+<p><strong>Why on every commit?</strong> → Catch issues early. Fix when context is fresh. Prevents "works on my machine."</p>
+<hr />
+<h2 id="15-continuous-delivery-cd">15. Continuous Delivery (CD)<a class="headerlink" href="#15-continuous-delivery-cd" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>CI passes → Deploy to staging → Run E2E tests → Manual approval → Deploy to production
+</code></pre></div></p>
+<p><strong>Key:</strong> Production deployment is automated but requires manual trigger.</p>
+<hr />
+<h2 id="16-continuous-deployment">16. Continuous Deployment<a class="headerlink" href="#16-continuous-deployment" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>CI passes → Deploy to staging → E2E tests pass → Auto-deploy to production → Monitor → Rollback if alerts fire
+</code></pre></div></p>
+<p><strong>Key:</strong> Fully automated. No manual approval. Requires robust tests + monitoring + rollback.</p>
+<p><strong>CD vs CD:</strong>
+| Continuous Delivery | Continuous Deployment |
+|-------------------|----------------------|
+| Auto everything EXCEPT final production push | Auto everything INCLUDING production |
+| Manual gate before prod | No manual gate |
+| Safer for regulated industries | Requires mature testing + monitoring |</p>
+<hr />
+<h2 id="17-cicd-tools">17. CI/CD Tools<a class="headerlink" href="#17-cicd-tools" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Platform</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td>GitHub</td>
+<td>Tight GitHub integration, free for public repos</td>
+</tr>
+<tr>
+<td><strong>Jenkins</strong></td>
+<td>Self-hosted</td>
+<td>Full control, complex pipelines, enterprise</td>
+</tr>
+<tr>
+<td><strong>GitLab CI</strong></td>
+<td>GitLab</td>
+<td>Built-in, integrated with GitLab features</td>
+</tr>
+<tr>
+<td><strong>CircleCI</strong></td>
+<td>Cloud</td>
+<td>Fast, easy setup, good for startups</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-6-build-dependency-management">Priority 6 — Build &amp; Dependency Management<a class="headerlink" href="#priority-6-build-dependency-management" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Source code → Build tool compiles → Runs tests → Packages → Publishes artifact → Deploys
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Language</th>
+<th>What it manages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Maven</strong></td>
+<td>Java</td>
+<td>Dependencies (pom.xml), build lifecycle, plugins</td>
+</tr>
+<tr>
+<td><strong>Gradle</strong></td>
+<td>Java/Kotlin</td>
+<td>Dependencies (build.gradle), faster builds, scripting</td>
+</tr>
+<tr>
+<td><strong>npm</strong></td>
+<td>JavaScript</td>
+<td>Packages (package.json), scripts, lock file</td>
+</tr>
+<tr>
+<td><strong>pip</strong></td>
+<td>Python</td>
+<td>Packages (requirements.txt), virtual envs</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maven vs Gradle:</strong>
+| Maven | Gradle |
+|-------|--------|
+| XML config (verbose) | Groovy/Kotlin DSL (concise) |
+| Convention over config | Flexible, scriptable |
+| Slower builds | Faster (incremental, parallel) |
+| Mature ecosystem | Modern, Android default |</p>
+<p><strong>Semantic Versioning (SemVer)</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>MAJOR.MINOR.PATCH
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  2  .  1  .  3
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>MAJOR: Breaking changes (API changes)
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>MINOR: New features, backward compatible
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>PATCH: Bug fixes
+</code></pre></div></p>
+<hr />
+<h1 id="priority-7-logging">Priority 7 — Logging<a class="headerlink" href="#priority-7-logging" title="Permanent link">&para;</a></h1>
+<h2 id="18-logging-fundamentals">18. Logging Fundamentals<a class="headerlink" href="#18-logging-fundamentals" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Code executes → Logger writes message → Appender sends to file/stdout/ELK → Log rotates → Old logs archived/deleted
+</code></pre></div></p>
+<p><strong>Log Levels (When to use):</strong>
+| Level | When to Use | Example |
+|-------|-------------|---------|
+| <strong>TRACE</strong> | Detailed execution flow | "Entering method X with params Y" |
+| <strong>DEBUG</strong> | Development debugging | "Query returned 5 results" |
+| <strong>INFO</strong> | Normal operations | "User logged in", "Order placed" |
+| <strong>WARN</strong> | Unexpected but handled | "Slow query detected", "Retry attempt 2" |
+| <strong>ERROR</strong> | Failed operation | "Payment failed", "DB connection lost" |
+| <strong>FATAL</strong> | System crash | "Out of memory", "Disk full" |</p>
+<p><strong>Structured Logging:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1">// Instead of: &quot;User john logged in at 10:00&quot;</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="p">{</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-15T10:00:00Z&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;User logged in&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span><span class="nt">&quot;userId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">  </span><span class="nt">&quot;correlationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;abc-123&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">  </span><span class="nt">&quot;service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;auth-service&quot;</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Correlation ID:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Request enters → Generate correlation-id → Pass through all services → All logs tagged with same ID → Trace full request path
+</code></pre></div></p>
+<p><strong>What NEVER to log:</strong>
+- Passwords, tokens, API keys
+- PII (SSN, credit card numbers)
+- Sensitive business data</p>
+<p><strong>Log Rotation:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>app.log (current) → app.log.1 (yesterday) → app.log.2.gz (compressed) → ... → Delete after 30 days
+</code></pre></div></p>
+<hr />
+<h1 id="priority-8-monitoring-observability">Priority 8 — Monitoring &amp; Observability<a class="headerlink" href="#priority-8-monitoring-observability" title="Permanent link">&para;</a></h1>
+<h2 id="19-monitoring">19. Monitoring<a class="headerlink" href="#19-monitoring" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>App emits metrics → Collector (Prometheus) → Dashboard (Grafana) → Alert rules → Notification (PagerDuty/Slack) → On-call responds
+</code></pre></div></p>
+<p><strong>Key Definitions:</strong>
+| Term | Definition | Example |
+|------|-----------|---------|
+| <strong>SLI</strong> | Service Level Indicator | "Request latency", "Error rate" |
+| <strong>SLO</strong> | Service Level Objective | "P95 latency &lt; 200ms", "Error rate &lt; 0.1%" |
+| <strong>SLA</strong> | Service Level Agreement | "99.9% uptime or refund" (contract with customer) |</p>
+<p><strong>Hierarchy:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>SLI (metric) → SLO (target) → SLA (contract)
+</code></pre></div></p>
+<p><strong>What to monitor:</strong>
+| Category | Metrics |
+|----------|---------|
+| <strong>Performance</strong> | Response time, throughput, CPU, memory |
+| <strong>Reliability</strong> | Error rate, uptime, crash count |
+| <strong>Business</strong> | Orders/min, signups/day, revenue |
+| <strong>Infrastructure</strong> | Disk usage, network I/O, queue depth |</p>
+<p><strong>Monitoring vs Logging:</strong>
+| Monitoring | Logging |
+|-----------|---------|
+| "Is the system healthy?" | "What happened in detail?" |
+| Metrics, dashboards, alerts | Text records of events |
+| Aggregated numbers | Individual events |
+| "Error rate is 5%" | "User X got error Y at time Z" |</p>
+<hr />
+<h2 id="20-observability">20. Observability<a class="headerlink" href="#20-observability" title="Permanent link">&para;</a></h2>
+<p><strong>Three Pillars:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Logs: &quot;What happened?&quot; (text events)
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Metrics: &quot;How is it performing?&quot; (numbers over time)
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>Traces: &quot;Where did the request go?&quot; (request path across services)
+</code></pre></div></p>
+<p><strong>System Flow — Observability Stack:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>App → Logs (ELK: Elasticsearch + Logstash + Kibana)
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    → Metrics (Prometheus + Grafana)
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    → Traces (OpenTelemetry + Jaeger/Zipkin)
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prometheus</strong></td>
+<td>Metrics collection, alerting</td>
+</tr>
+<tr>
+<td><strong>Grafana</strong></td>
+<td>Dashboards, visualization</td>
+</tr>
+<tr>
+<td><strong>ELK Stack</strong></td>
+<td>Log aggregation, search, visualization</td>
+</tr>
+<tr>
+<td><strong>OpenTelemetry</strong></td>
+<td>Standard for traces, metrics, logs</td>
+</tr>
+<tr>
+<td><strong>Jaeger/Zipkin</strong></td>
+<td>Distributed tracing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Trace Example:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>[Gateway] → [Auth Service] → [User Service] → [Database]
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>   5ms         15ms            25ms             10ms
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>   Total: 55ms
+</code></pre></div></p>
+<hr />
+<h1 id="priority-9-software-quality">Priority 9 — Software Quality<a class="headerlink" href="#priority-9-software-quality" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Write code → Code review → Static analysis → Run tests → Merge → Monitor in prod → Refactor when needed
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Definition</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clean Code</strong></td>
+<td>Readable, maintainable, well-tested code</td>
+<td>Meaningful names, small functions</td>
+</tr>
+<tr>
+<td><strong>Code Smell</strong></td>
+<td>Indicator of deeper problem</td>
+<td>Long method, duplicated code, god class</td>
+</tr>
+<tr>
+<td><strong>Refactoring</strong></td>
+<td>Improving code without changing behavior</td>
+<td>Extract method, rename variable</td>
+</tr>
+<tr>
+<td><strong>Technical Debt</strong></td>
+<td>Shortcut taken now, cost later</td>
+<td>Skipping tests, hardcoded values</td>
+</tr>
+<tr>
+<td><strong>Static Analysis</strong></td>
+<td>Automated code quality checks</td>
+<td>SonarQube, ESLint, SpotBugs</td>
+</tr>
+<tr>
+<td><strong>Linting</strong></td>
+<td>Style/format enforcement</td>
+<td>Prettier, Checkstyle</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Common Code Smells:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Long Method (&gt;50 lines) → Extract smaller methods
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Duplicated Code → Extract common logic
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>God Class (&gt;500 lines) → Split responsibilities
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>Magic Numbers → Named constants
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>Feature Envy → Method belongs in different class
+</code></pre></div></p>
+<p><strong>Technical Debt Quadrant:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Deliberate + Prudent: &quot;We know, we&#39;ll fix later&quot; (OK)
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>Deliberate + Reckless: &quot;We don&#39;t have time for tests&quot; (BAD)
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>Inadvertent + Prudent: &quot;Now we know better, let&#39;s refactor&quot; (OK)
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>Inadvertent + Reckless: &quot;We didn&#39;t know any better&quot; (BAD)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-10-release-management">Priority 10 — Release Management<a class="headerlink" href="#priority-10-release-management" title="Permanent link">&para;</a></h1>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>Code ready → Version bump (SemVer) → Build artifact → Deploy to staging → Test → Deploy to production → Monitor
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Deployment Strategy</th>
+<th>How it works</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Blue-Green</strong></td>
+<td>Two identical environments. Route traffic to one. Deploy to other. Switch traffic. Instant rollback = switch back.</td>
+<td>High resource cost (2x infra)</td>
+</tr>
+<tr>
+<td><strong>Canary</strong></td>
+<td>Deploy to small % of users (5%). Monitor. Gradually increase to 100%.</td>
+<td>Low risk, gradual exposure</td>
+</tr>
+<tr>
+<td><strong>Rolling</strong></td>
+<td>Replace instances one by one. No extra infra.</td>
+<td>Medium risk, longer deployment</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rollback Strategy:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Deploy fails → Monitor detects → Auto-rollback to previous version → Alert team → Investigate
+</code></pre></div></p>
+<hr />
+<h1 id="priority-11-documentation">Priority 11 — Documentation<a class="headerlink" href="#priority-11-documentation" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>README</strong></td>
+<td>Project overview, setup, usage</td>
+<td>GitHub repo front page</td>
+</tr>
+<tr>
+<td><strong>API Docs</strong></td>
+<td>How to use the API</td>
+<td>OpenAPI/Swagger spec</td>
+</tr>
+<tr>
+<td><strong>Code Docs</strong></td>
+<td>Inline explanations</td>
+<td>Javadoc, docstrings</td>
+</tr>
+<tr>
+<td><strong>Architecture Docs</strong></td>
+<td>System design, decisions</td>
+<td>ADR, C4 diagrams</td>
+</tr>
+<tr>
+<td><strong>ADR</strong></td>
+<td>Record why decisions were made</td>
+<td>"Why we chose PostgreSQL over MongoDB"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ADR Template:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Title: Use Redis for caching
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Status: Accepted
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>Context: High read load, low write
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>Decision: Use Redis with TTL
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>Consequences: Faster reads, eventual consistency
+</code></pre></div></p>
+<hr />
+<h1 id="priority-12-engineering-best-practices">Priority 12 — Engineering Best Practices<a class="headerlink" href="#priority-12-engineering-best-practices" title="Permanent link">&para;</a></h1>
+<p><strong>Quick Reference:</strong>
+| Practice | What it means | Example |
+|----------|-------------|---------|
+| <strong>DRY</strong> | Don't Repeat Yourself | Extract common validation logic |
+| <strong>KISS</strong> | Keep It Simple, Stupid | Simple loop vs over-engineered stream pipeline |
+| <strong>YAGNI</strong> | You Aren't Gonna Need It | Don't build feature until requested |
+| <strong>SOLID</strong> | Design principles (see OOD notes) | Single responsibility, open-closed, etc. |
+| <strong>Separation of Concerns</strong> | Each module does one thing | UI layer ≠ Business logic ≠ Data access |
+| <strong>Code Reviews</strong> | Peer review before merge | PR process |
+| <strong>Pair Programming</strong> | Two devs, one keyboard | Knowledge sharing, fewer bugs |</p>
+<hr />
+<h1 id="common-interview-scenarios-quick-answers">Common Interview Scenarios — Quick Answers<a class="headerlink" href="#common-interview-scenarios-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>One-Liner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDLC phases</td>
+<td>Requirements → Feasibility → Design → Dev → Test → Deploy → Maintain</td>
+</tr>
+<tr>
+<td>Waterfall vs Agile</td>
+<td>Waterfall = sequential, fixed scope. Agile = iterative, flexible scope</td>
+</tr>
+<tr>
+<td>Agile vs Scrum</td>
+<td>Agile = philosophy. Scrum = framework implementing Agile</td>
+</tr>
+<tr>
+<td>Scrum roles</td>
+<td>PO (backlog), SM (facilitate), Dev Team (build)</td>
+</tr>
+<tr>
+<td>Sprint Planning</td>
+<td>Team commits to sprint backlog from product backlog</td>
+</tr>
+<tr>
+<td>Unit vs Integration</td>
+<td>Unit = one component. Integration = components together</td>
+</tr>
+<tr>
+<td>Mock vs Stub</td>
+<td>Mock = verify interactions. Stub = provide fake data</td>
+</tr>
+<tr>
+<td>CI vs CD</td>
+<td>CI = auto build+test. CD = auto deploy (delivery = manual gate, deployment = fully auto)</td>
+</tr>
+<tr>
+<td>Why automate testing?</td>
+<td>Fast feedback, repeatable, catches regressions</td>
+</tr>
+<tr>
+<td>Why CI/CD?</td>
+<td>Reduce manual errors, faster delivery, consistent process</td>
+</tr>
+<tr>
+<td>Logging vs Monitoring</td>
+<td>Logging = what happened. Monitoring = is it healthy?</td>
+</tr>
+<tr>
+<td>Logs vs Metrics vs Traces</td>
+<td>Logs = events. Metrics = numbers. Traces = request path</td>
+</tr>
+<tr>
+<td>Log levels</td>
+<td>TRACE→DEBUG→INFO→WARN→ERROR→FATAL</td>
+</tr>
+<tr>
+<td>What not to log</td>
+<td>Passwords, tokens, PII, credit cards</td>
+</tr>
+<tr>
+<td>Debug production issue</td>
+<td>Check logs → metrics → traces → reproduce locally → fix → deploy</td>
+</tr>
+<tr>
+<td>Monitor backend service</td>
+<td>Latency, error rate, throughput, CPU, memory, queue depth</td>
+</tr>
+<tr>
+<td>Technical Debt</td>
+<td>Shortcuts taken now that cost later</td>
+</tr>
+<tr>
+<td>Code Smells</td>
+<td>Indicators of deeper problems (long methods, duplication, god classes)</td>
+</tr>
+<tr>
+<td>SemVer</td>
+<td>MAJOR.MINOR.PATCH (breaking.features.fixes)</td>
+</tr>
+<tr>
+<td>Blue-Green vs Canary</td>
+<td>Blue-Green = instant switch, 2x infra. Canary = gradual rollout, 1x infra</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="debugging-production-issues-system-flow">Debugging Production Issues — System Flow<a class="headerlink" href="#debugging-production-issues-system-flow" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Alert fires (P99 latency &gt; 500ms)
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>    ↓
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>Check dashboard (Grafana) → Is it widespread or specific endpoint?
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>    ↓
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>Check logs (ELK) → Search correlation ID → Find error stack trace
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>    ↓
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>Check traces (Jaeger) → Which service is slow? Database? External API?
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>    ↓
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>Check metrics (Prometheus) → CPU spike? Memory leak? DB connections exhausted?
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>    ↓
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>Reproduce locally with same data → Root cause identified
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>    ↓
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>Fix → Deploy → Monitor → Resolve incident
+</code></pre></div>
+<hr />
+<h1 id="final-tip-interview-flow-for-se-practices-questions">Final Tip: Interview Flow for SE Practices Questions<a class="headerlink" href="#final-tip-interview-flow-for-se-practices-questions" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>1. Start with SDLC/Agile context (how team works)
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>2. Explain testing strategy (pyramid, unit + integration + E2E)
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>3. Describe CI/CD pipeline (build → test → deploy)
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>4. Mention monitoring (logs + metrics + traces)
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>5. Discuss code quality (reviews, clean code, tech debt management)
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>6. Give real example from your project
+</code></pre></div>
+<p><strong>Always remember:</strong> Interviewers want to hear that you think beyond "it works on my machine." Show you care about the full lifecycle: code → test → deploy → monitor → maintain.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../linux/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Linux">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Linux
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../concurrency/" class="md-footer__link md-footer__link--next" aria-label="Next: Concurrency">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Concurrency
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

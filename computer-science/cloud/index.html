@@ -1,0 +1,2265 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/cloud/">
+      
+      
+        <link rel="prev" href="../concurrency/">
+      
+      
+        <link rel="next" href="../mathematics/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Cloud Computing - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cloud-computing-system-flow-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cloud Computing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-concept-traces-a-requests-journey-through-the-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every concept traces a request's journey through the cloud.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-read-follow-the-arrow-flow-every-concept-traces-a-requests-journey-through-the-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to read: Follow the arrow (→) flow. Every concept traces a request's journey through the cloud.
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cloud-computing-system-flow-notes">CLOUD COMPUTING — SYSTEM FLOW NOTES<a class="headerlink" href="#cloud-computing-system-flow-notes" title="Permanent link">&para;</a></h1>
+<h2 id="how-to-read-follow-the-arrow-flow-every-concept-traces-a-requests-journey-through-the-cloud">How to read: Follow the arrow (→) flow. Every concept traces a request's journey through the cloud.<a class="headerlink" href="#how-to-read-follow-the-arrow-flow-every-concept-traces-a-requests-journey-through-the-cloud" title="Permanent link">&para;</a></h2>
+<hr />
+<h1 id="priority-1-cloud-fundamentals">PRIORITY 1 — CLOUD FUNDAMENTALS<a class="headerlink" href="#priority-1-cloud-fundamentals" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduction-to-cloud-computing">1. Introduction to Cloud Computing<a class="headerlink" href="#1-introduction-to-cloud-computing" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Cloud = rent someone else's computers (AWS/Azure/GCP) instead of buying your own.</p>
+<p><strong>On-Premises vs Cloud Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>On-Premises:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    Need server → Buy hardware ($10K) → Wait 2 weeks delivery → 
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    → Install in data center → Configure → Use → Maintain forever → 
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    → Peak traffic? → Buy more (over-provision) → Idle 70% of time → Waste money
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Cloud:
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    Need server → Open AWS console → Click launch → Server ready in 2 min → 
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    → Pay per hour → Peak traffic? → Auto-scale up → Traffic drops? → Auto-scale down → 
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    → Pay only for what you use
+</code></pre></div></p>
+<p><strong>Cloud Types:</strong>
+| Type | Flow | Example |
+|------|------|---------|
+| <strong>Public</strong> | Anyone rents shared infrastructure | AWS, Azure, GCP |
+| <strong>Private</strong> | You own the cloud (on-prem or hosted) | OpenStack in your data center |
+| <strong>Hybrid</strong> | Sensitive data on private → Public for burst | Bank: core DB private, marketing site public |
+| <strong>Multi-Cloud</strong> | Use AWS + Azure + GCP → Avoid vendor lock-in | Netflix on AWS + backup on GCP |</p>
+<p><strong>Service Models (The Pizza Analogy):</strong>
+| Model | You manage | Provider manages | Pizza Analogy |
+|-------|-----------|------------------|---------------|
+| <strong>IaaS</strong> | OS, App, Data | Hardware, Network, Virtualization | They provide kitchen, you cook |
+| <strong>PaaS</strong> | App, Data | OS, Runtime, Middleware, Hardware | They provide kitchen + ingredients, you bake |
+| <strong>SaaS</strong> | Nothing (just use it) | Everything | They deliver cooked pizza, you eat |
+| <strong>FaaS</strong> | Function code only | Everything else | They provide kitchen, you just add toppings |</p>
+<p><strong>Examples:</strong>
+- IaaS: AWS EC2, Azure VMs — you manage OS, patches, security.
+- PaaS: Heroku, AWS Elastic Beanstalk — you deploy code, they manage runtime.
+- SaaS: Gmail, Slack, Salesforce — login and use.
+- FaaS: AWS Lambda — upload function, runs on trigger, pay per invocation.</p>
+<p><strong>Why migrate to cloud?</strong> No upfront cost, instant scaling, global reach, managed services, pay-as-you-go.</p>
+<hr />
+<h2 id="2-cloud-architecture-basics">2. Cloud Architecture Basics<a class="headerlink" href="#2-cloud-architecture-basics" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Cloud architecture = how compute, storage, network, and security work together.</p>
+<p><strong>Request Flow Through Cloud Architecture:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User Request → DNS → CDN (cached?) → 
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    → Load Balancer → Auto Scaling Group → 
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    → EC2 Instance (Compute) → 
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    → Application Code → 
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    → Database (RDS/DynamoDB) → 
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    → Response back up the chain
+</code></pre></div></p>
+<p><strong>Components:</strong>
+| Component | Role | Example |
+|-----------|------|---------|
+| <strong>Compute</strong> | Run your code | EC2, Lambda, ECS |
+| <strong>Storage</strong> | Store data | S3, EBS, EFS |
+| <strong>Networking</strong> | Connect everything | VPC, Subnets, Security Groups, LB |
+| <strong>Databases</strong> | Persist structured data | RDS (SQL), DynamoDB (NoSQL) |
+| <strong>Security</strong> | Control access | IAM, Encryption, WAF |
+| <strong>Scalability</strong> | Handle more load | Auto Scaling, Load Balancer |
+| <strong>High Availability</strong> | Survive failures | Multi-AZ, Multi-Region |</p>
+<hr />
+<h1 id="priority-2-virtualization">PRIORITY 2 — VIRTUALIZATION<a class="headerlink" href="#priority-2-virtualization" title="Permanent link">&para;</a></h1>
+<h2 id="3-virtual-machines">3. Virtual Machines<a class="headerlink" href="#3-virtual-machines" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> VM = software computer running inside a physical computer.</p>
+<p><strong>VM Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Physical Server (Host) → Hypervisor installed → 
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    → VM1: Ubuntu + 2GB RAM + 2 CPU → Guest OS thinks it owns hardware
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    → VM2: Windows + 4GB RAM + 2 CPU → Completely isolated from VM1
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    → VM3: CentOS + 2GB RAM + 1 CPU → All share physical resources
+</code></pre></div></p>
+<p><strong>Hypervisor Types:</strong>
+| Type | Name | Flow | Speed | Example |
+|------|------|------|-------|---------|
+| <strong>Type 1</strong> | Bare Metal | Hypervisor → Directly on hardware → VMs | Fast | VMware ESXi, Hyper-V, KVM |
+| <strong>Type 2</strong> | Hosted | Host OS → Hypervisor → VMs | Slower (extra layer) | VirtualBox, VMware Workstation |</p>
+<p><strong>VM vs Physical Machine:</strong>
+- Physical: One OS, one machine, dedicated hardware.
+- VM: Multiple OS on one machine, shared hardware, isolated, snapshot/clone capable.</p>
+<p><strong>Why VMs slower than containers?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>VM: App → Guest OS → Hypervisor → Host OS → Hardware (4 layers)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Container: App → Container Runtime → Host OS → Hardware (3 layers, shares kernel)
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    → VMs need full OS per instance → Heavy (GBs)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    → Containers share host kernel → Light (MBs)
+</code></pre></div></p>
+<hr />
+<h2 id="4-containers">4. Containers<a class="headerlink" href="#4-containers" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Container = lightweight, portable package of app + dependencies sharing the host OS kernel.</p>
+<p><strong>Container Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Host OS (Linux Kernel) → 
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    → Container Runtime (Docker) → 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        → Namespace isolation (PID, Network, Mount) → Container thinks it&#39;s alone
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        → cgroup limits (CPU: 0.5 core, RAM: 512MB) → Can&#39;t hog resources
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        → Container 1: Node.js app + dependencies
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        → Container 2: Python app + dependencies
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        → Container 3: Nginx + config
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    → All share same kernel → No guest OS overhead
+</code></pre></div></p>
+<p><strong>VM vs Container:</strong>
+| | VM | Container |
+|---|---|---|
+| Size | GBs (full OS) | MBs (app + libs) |
+| Boot time | Minutes | Seconds |
+| Isolation | Strong (hardware-level) | Process-level (weaker) |
+| OS | Each VM has own OS | Share host kernel |
+| Use case | Different OS needs, strong isolation | Microservices, same OS, fast scaling |</p>
+<p><strong>How containers isolated?</strong>
+- <strong>Namespaces:</strong> PID (process IDs), Network (interfaces), Mount (filesystem), User (UIDs) — each container sees its own isolated view.
+- <strong>cgroups:</strong> Control groups — limit CPU, memory, disk I/O per container.</p>
+<hr />
+<h1 id="priority-3-docker">PRIORITY 3 — DOCKER<a class="headerlink" href="#priority-3-docker" title="Permanent link">&para;</a></h1>
+<h2 id="docker-architecture">Docker Architecture<a class="headerlink" href="#docker-architecture" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Docker = platform to build, ship, and run containers.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Developer writes Dockerfile → docker build → Docker Image (blueprint) → 
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    → docker push → Docker Hub (registry) → 
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    → docker pull → Any machine → docker run → Container (running instance)
+</code></pre></div></p>
+<p><strong>Components:</strong>
+| Component | What it is | Flow |
+|-----------|-----------|------|
+| <strong>Docker Engine</strong> | Runtime that runs containers | Docker Daemon listens → Client sends commands |
+| <strong>Docker Client</strong> | CLI you type into | <code>docker run</code> → Client talks to Daemon via socket |
+| <strong>Docker Daemon</strong> | Background service | Receives commands → Manages containers, images, networks, volumes |
+| <strong>Docker Hub</strong> | Public registry | Store images → <code>docker pull nginx</code> → Downloads from Hub |
+| <strong>Image</strong> | Read-only blueprint | Layers stacked → Base OS → Dependencies → App code |
+| <strong>Container</strong> | Running instance of image | Image + writable layer → Processes running → Isolated |
+| <strong>Volume</strong> | Persistent storage | Container writes to volume → Data survives container deletion |
+| <strong>Network</strong> | Container communication | Bridge (default), Host, None, Custom → Containers talk via IPs |</p>
+<p><strong>Image vs Container:</strong>
+- Image = Class (blueprint, read-only, stored).
+- Container = Object (running instance, writable layer on top, ephemeral).</p>
+<hr />
+<h2 id="dockerfile">Dockerfile<a class="headerlink" href="#dockerfile" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> Dockerfile = recipe to build a Docker image layer by layer.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Dockerfile instructions → Each instruction creates a layer → Cached if unchanged → 
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    → Final image = stacked layers → Smaller, faster builds
+</code></pre></div></p>
+<p><strong>Instructions:</strong>
+| Instruction | Flow | Example |
+|-------------|------|---------|
+| <code>FROM node:18</code> | Start from base image | Like inheritance — base OS + Node.js pre-installed |
+| <code>RUN npm install</code> | Execute command during build | Creates new layer with installed packages |
+| <code>COPY . /app</code> | Copy files from host to image | Source code added to image |
+| <code>ADD . /app</code> | COPY + auto-extract tar + download URLs | Prefer COPY (explicit, predictable) |
+| <code>WORKDIR /app</code> | Set working directory | All subsequent commands run here |
+| <code>EXPOSE 3000</code> | Document port (info only) | <code>docker run -p 8080:3000</code> maps host:container |
+| <code>ENV NODE_ENV=production</code> | Set environment variable | Available inside container |
+| <code>CMD ["node", "app.js"]</code> | Default command when container starts | Overridable by <code>docker run</code> args |
+| <code>ENTRYPOINT ["node"]</code> | Fixed command prefix | <code>docker run image app.js</code> → runs <code>node app.js</code> |</p>
+<p><strong>CMD vs ENTRYPOINT:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>CMD [&quot;node&quot;, &quot;app.js&quot;] → docker run myimage → Runs: node app.js
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                        → docker run myimage python → Runs: python (replaces CMD)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>ENTRYPOINT [&quot;node&quot;] + CMD [&quot;app.js&quot;] → docker run myimage → Runs: node app.js
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                                      → docker run myimage server.js → Runs: node server.js
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    → ENTRYPOINT = fixed prefix; CMD = default args (overridable)
+</code></pre></div></p>
+<p><strong>COPY vs ADD:</strong>
+- COPY = simple file copy (preferred, predictable).
+- ADD = COPY + auto-extract archives + download from URL (magic, less predictable).</p>
+<p><strong>Why Volumes?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Without volume: Container writes to writable layer → Container deleted → Data gone
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>With volume:    Container writes to /data (mounted volume) → Container deleted → Data persists on host
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    → Use for: databases, uploaded files, logs
+</code></pre></div></p>
+<hr />
+<h2 id="docker-commands">Docker Commands<a class="headerlink" href="#docker-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker build -t myapp .</code></td>
+<td>Read Dockerfile → Build layers → Tag as <code>myapp</code></td>
+</tr>
+<tr>
+<td><code>docker run -d -p 8080:3000 myapp</code></td>
+<td>Pull image if needed → Create container → Map host:8080→container:3000 → Run detached (-d)</td>
+</tr>
+<tr>
+<td><code>docker ps</code></td>
+<td>List running containers → ID, Image, Ports, Status</td>
+</tr>
+<tr>
+<td><code>docker ps -a</code></td>
+<td>List all containers (including stopped)</td>
+</tr>
+<tr>
+<td><code>docker images</code></td>
+<td>List local images → Repository, Tag, Size</td>
+</tr>
+<tr>
+<td><code>docker logs -f container_id</code></td>
+<td>Stream container stdout/stderr</td>
+</tr>
+<tr>
+<td><code>docker exec -it container_id bash</code></td>
+<td>Execute bash inside running container → Interactive terminal</td>
+</tr>
+<tr>
+<td><code>docker stop container_id</code></td>
+<td>Send SIGTERM → Wait 10s → SIGKILL if not stopped</td>
+</tr>
+<tr>
+<td><code>docker rm container_id</code></td>
+<td>Delete stopped container → Free resources</td>
+</tr>
+<tr>
+<td><code>docker rmi image_id</code></td>
+<td>Delete image → Free disk space</td>
+</tr>
+<tr>
+<td><code>docker pull nginx</code></td>
+<td>Download image from Docker Hub</td>
+</tr>
+<tr>
+<td><code>docker push myrepo/myapp:v1</code></td>
+<td>Upload image to registry</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-4-kubernetes-high-level">PRIORITY 4 — KUBERNETES (High-Level)<a class="headerlink" href="#priority-4-kubernetes-high-level" title="Permanent link">&para;</a></h1>
+<p><strong>1-liner:</strong> Kubernetes (K8s) = orchestrator that manages 100s of containers across multiple machines.</p>
+<p><strong>Why Kubernetes?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Docker alone: 1 server → Run 10 containers → Manual management
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Kubernetes:   10 servers → Cluster → Auto-place containers → Auto-heal → Auto-scale → Load balance
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    → You describe desired state → K8s makes it happen
+</code></pre></div></p>
+<p><strong>Architecture Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>User runs: kubectl apply -f deployment.yaml
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    → kubectl talks to API Server (Control Plane)
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    → Scheduler decides which Worker Node to place Pod on
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    → Controller Manager ensures desired state = actual state
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    → etcd stores cluster state (source of truth)
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    → Kubelet on Worker Node receives instruction → Starts Pod
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    → Kube-Proxy routes traffic to Pod
+</code></pre></div></p>
+<p><strong>Core Components:</strong>
+| Component | What it does | Flow |
+|-----------|-----------|------|
+| <strong>Pod</strong> | Smallest deployable unit → 1+ containers sharing network/storage | Container(s) + shared IP + shared volumes |
+| <strong>Deployment</strong> | Manages Pods → Ensures N replicas running | Declares: "I want 3 Pods of my app" → K8s maintains it |
+| <strong>ReplicaSet</strong> | Ensures exact number of Pods running | Deployment creates/manages ReplicaSet |
+| <strong>Service</strong> | Stable network endpoint for Pods | Pods come and go (IPs change) → Service provides constant IP + DNS + load balances |
+| <strong>Namespace</strong> | Logical isolation → Dev/Staging/Prod in same cluster | <code>kubectl get pods -n production</code> |
+| <strong>ConfigMap</strong> | Non-sensitive config (env vars, config files) | Injected into Pods as env or files |
+| <strong>Secret</strong> | Sensitive data (passwords, tokens, keys) | Base64 encoded (not encrypted by default), mounted as files |</p>
+<p><strong>Pod vs Container:</strong>
+- Container = single running process.
+- Pod = wrapper around 1+ containers → Shared IP, shared storage, same lifecycle.
+- Example: App container + Sidecar container (logging) in same Pod.</p>
+<p><strong>Deployment vs ReplicaSet:</strong>
+- ReplicaSet = ensures N Pods running (low-level).
+- Deployment = manages ReplicaSet + supports rolling updates + rollback (higher-level).
+- You always use Deployment, never ReplicaSet directly.</p>
+<p><strong>Scaling &amp; Self-Healing:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Horizontal Scaling: Deployment replicas: 3 → 10 → K8s creates 7 new Pods → Distributes across nodes
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Rolling Update:     v1 Pods running → Deploy v2 → K8s replaces one by one → Zero downtime
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Self-Healing:       Pod crashes → K8s detects (health check fails) → Creates replacement Pod automatically
+</code></pre></div></p>
+<hr />
+<h1 id="priority-5-aws-basics">PRIORITY 5 — AWS BASICS<a class="headerlink" href="#priority-5-aws-basics" title="Permanent link">&para;</a></h1>
+<h2 id="compute">Compute<a class="headerlink" href="#compute" title="Permanent link">&para;</a></h2>
+<p><strong>EC2 Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Launch EC2 → Choose AMI (OS image) → Pick instance type (t3.micro = 1 CPU, 1GB RAM) → 
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    → Configure VPC/Subnet → Attach Security Group → 
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    → Launch → SSH in → Install app → Run
+</code></pre></div></p>
+<p><strong>Lambda Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Upload function code → Set trigger (API Gateway, S3 upload, Cron) → 
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    → Event occurs → AWS spins up container → Runs function → 
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    → Returns result → Container destroyed (or kept warm) → Pay per invocation + duration
+</code></pre></div></p>
+<p><strong>EC2 vs Lambda:</strong>
+| | EC2 | Lambda |
+|---|---|---|
+| Model | Always-on server | Event-driven function |
+| Management | You manage OS, patches, scaling | AWS manages everything |
+| Billing | Per hour (running) | Per invocation + compute time |
+| Use case | Long-running, complex apps | Short tasks, APIs, event processing |
+| Cold start | None | Yes (100ms-1s delay) |</p>
+<hr />
+<h2 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h2>
+<p><strong>S3 Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Create Bucket (global unique name) → Upload file → Object stored → 
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    → Get URL → https://bucket.s3.amazonaws.com/file.jpg → 
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    → Public? → Direct access → Private? → Signed URL or IAM policy
+</code></pre></div></p>
+<p><strong>S3 vs EBS vs EFS:</strong>
+| | S3 | EBS | EFS |
+|---|---|---|---|
+| Type | Object Storage | Block Storage | File Storage |
+| Access | HTTP/API | Attached to 1 EC2 | Mounted to many EC2s |
+| Use case | Images, backups, static files | Database disks, app storage | Shared config, content |
+| Durability | 99.999999999% (11 9s) | 99.8-99.9% | 99.9% |
+| Size | Unlimited | Up to 64TB | Elastic growth |</p>
+<hr />
+<h2 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h2>
+<p><strong>RDS Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Choose engine (MySQL/PostgreSQL) → Select instance size → 
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    → Enable Multi-AZ (standby in another zone) → 
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    → Automated backups → Connect via endpoint → Use like normal DB
+</code></pre></div></p>
+<p><strong>DynamoDB Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Create table → Define partition key → 
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    → No servers to manage → Auto-scales → 
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    → Read/Write capacity on-demand → Pay per request
+</code></pre></div></p>
+<hr />
+<h2 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h2>
+<p><strong>VPC Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>VPC (Virtual Private Cloud) → 10.0.0.0/16 → 
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    → Public Subnet (10.0.1.0/24) → Internet Gateway → Accessible from internet
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    → Private Subnet (10.0.2.0/24) → NAT Gateway → Outbound only (security)
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    → Security Group (firewall at instance level) → Allow port 80, 443, 22
+</code></pre></div></p>
+<p><strong>Security Group vs Firewall:</strong>
+- Security Group = AWS cloud firewall (stateful, allow rules only, attached to instances).
+- Traditional Firewall = Hardware/software, stateful or stateless, more complex rules.</p>
+<hr />
+<h2 id="iam">IAM<a class="headerlink" href="#iam" title="Permanent link">&para;</a></h2>
+<p><strong>1-liner:</strong> IAM = Identity and Access Management → Who can do what in your AWS account.</p>
+<p><strong>Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>User/Role tries to access S3 → IAM checks policy → 
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>    → Policy allows? → Grant access
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>    → Policy denies? → 403 Forbidden
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    → No policy? → Implicit deny
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>User</strong></td>
+<td>Person/entity with long-term credentials</td>
+</tr>
+<tr>
+<td><strong>Role</strong></td>
+<td>Temporary credentials → Assumed by services/users (e.g., EC2 assumes role to access S3)</td>
+</tr>
+<tr>
+<td><strong>Policy</strong></td>
+<td>JSON document defining permissions (Allow/Deny + Actions + Resources)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Principle of Least Privilege:</strong> Give minimum permissions needed → <code>s3:GetObject</code> on specific bucket, NOT <code>s3:*</code> on <code>*</code>.</p>
+<hr />
+<h1 id="priority-6-storage-types">PRIORITY 6 — STORAGE TYPES<a class="headerlink" href="#priority-6-storage-types" title="Permanent link">&para;</a></h1>
+<p><strong>Block vs File vs Object Storage:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Unit</th>
+<th>Access</th>
+<th>Use Case</th>
+<th>Cloud Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Block</strong></td>
+<td>Fixed-size blocks (512B-4KB)</td>
+<td>Mounted as disk</td>
+<td>OS boot, databases</td>
+<td>EBS</td>
+</tr>
+<tr>
+<td><strong>File</strong></td>
+<td>Files and folders</td>
+<td>NFS/SMB protocol</td>
+<td>Shared files across servers</td>
+<td>EFS, NFS</td>
+</tr>
+<tr>
+<td><strong>Object</strong></td>
+<td>Objects (file + metadata + ID)</td>
+<td>HTTP/API</td>
+<td>Images, videos, backups, static assets</td>
+<td>S3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why Object Storage for images?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Image uploaded → Stored as object → URL generated → 
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    → CDN caches it globally → Users download from nearest edge → 
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    → 11 9s durability → Versioning → Lifecycle (auto-archive old images to Glacier)
+</code></pre></div></p>
+<p><strong>S3 Features:</strong>
+- <strong>Versioning:</strong> Keep all versions → Delete = add delete marker → Restore old version.
+- <strong>Lifecycle:</strong> After 30 days → Move to cheaper storage (S3 Standard-IA) → After 1 year → Archive to Glacier.</p>
+<hr />
+<h1 id="priority-7-networking">PRIORITY 7 — NETWORKING<a class="headerlink" href="#priority-7-networking" title="Permanent link">&para;</a></h1>
+<p><strong>Load Balancer Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>User Request → DNS resolves to LB IP → 
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    → LB receives request → Health check: Which targets are healthy? → 
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    → Route to healthy target (round-robin / least connections) → 
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    → Target processes → Response back through LB → User
+</code></pre></div></p>
+<p><strong>Layer 4 vs Layer 7:</strong>
+| | Layer 4 (NLB) | Layer 7 (ALB) |
+|---|---|---|
+| OSI Layer | Transport (TCP/UDP) | Application (HTTP/HTTPS) |
+| Routing | By IP + Port | By URL path, host header, query params |
+| Speed | Faster (less processing) | Smarter (content-based routing) |
+| Example | <code>api.com:443</code> → Any backend | <code>/api/*</code> → API servers, <code>/web/*</code> → Web servers |</p>
+<p><strong>LB vs Reverse Proxy:</strong>
+- LB = distributes across multiple servers (scalability).
+- Reverse Proxy = sits in front of one server, can cache, SSL termination, security (enhancement).
+- Often combined: ALB (LB) → Nginx (Reverse Proxy) → App Server.</p>
+<hr />
+<h1 id="priority-8-cloud-scalability">PRIORITY 8 — CLOUD SCALABILITY<a class="headerlink" href="#priority-8-cloud-scalability" title="Permanent link">&para;</a></h1>
+<p><strong>Auto Scaling Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>CloudWatch monitors CPU → CPU &gt; 70% for 5 min? → 
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    → CloudWatch Alarm triggers → Auto Scaling Group adds 2 instances → 
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    → Load Balancer registers new instances → Traffic distributed → CPU drops → 
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    → CPU &lt; 30% for 10 min? → Remove 1 instance → Save cost
+</code></pre></div></p>
+<p><strong>Scalability vs Elasticity:</strong>
+- Scalability = Ability to handle growth (plan for more capacity).
+- Elasticity = Auto-scale up AND down based on demand (pay for what you use).</p>
+<p><strong>High Availability vs Fault Tolerance:</strong>
+| | High Availability | Fault Tolerance |
+|---|---|---|
+| Goal | Minimize downtime | Zero downtime |
+| Method | Redundancy + failover | Full redundancy (hot standby) |
+| Downtime | Seconds to minutes | Zero |
+| Cost | Medium | High (duplicate everything) |
+| Example | Multi-AZ RDS (failover in 60s) | Active-active across regions |</p>
+<p><strong>Multi-AZ vs Multi-Region:</strong>
+- Multi-AZ: Same region, different data centers (availability zones) → Low latency failover.
+- Multi-Region: Different geographic regions → Disaster recovery, global latency.</p>
+<hr />
+<h1 id="priority-9-cloud-security">PRIORITY 9 — CLOUD SECURITY<a class="headerlink" href="#priority-9-cloud-security" title="Permanent link">&para;</a></h1>
+<p><strong>Security Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Data at Rest (on disk):    S3 object → Server-Side Encryption (SSE-S3/SSE-KMS) → Encrypted storage
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Data in Transit (network): Browser → HTTPS/TLS 1.3 → Encrypted connection → Server
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Access Control:            IAM Policy → Role → Assumed by EC2 → Can access S3 bucket
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>Secrets:                   Password in Secret Manager → App retrieves at runtime → Never hardcoded
+</code></pre></div></p>
+<p><strong>Why no hardcoded access keys?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Hardcoded in GitHub → Attacker scans repos → Finds AKIA... key → 
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    → Spins up 1000 EC2 instances for crypto mining → $50K bill → You get fired
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>Solution: IAM Roles → EC2 assumes role → Temporary credentials → Auto-rotated → No keys in code
+</code></pre></div></p>
+<hr />
+<h1 id="priority-10-cicd-deployment">PRIORITY 10 — CI/CD &amp; DEPLOYMENT<a class="headerlink" href="#priority-10-cicd-deployment" title="Permanent link">&para;</a></h1>
+<p><strong>Docker-based Deployment Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Developer pushes code → GitHub Actions triggered → 
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    → Build Docker image → Run tests → Push to ECR (registry) → 
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    → Deploy to ECS/K8s → Rolling update → Health checks pass → Traffic switched
+</code></pre></div></p>
+<p><strong>Deployment Strategies:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Flow</th>
+<th>Risk</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rolling</strong></td>
+<td>v1 running → Replace 1 by 1 with v2 → All v2</td>
+<td>Medium</td>
+<td>Standard, zero downtime</td>
+</tr>
+<tr>
+<td><strong>Blue-Green</strong></td>
+<td>Blue (v1) active → Deploy Green (v2) → Test Green → Switch traffic instantly → Rollback = switch back</td>
+<td>Low</td>
+<td>Critical systems, instant rollback</td>
+</tr>
+<tr>
+<td><strong>Canary</strong></td>
+<td>95% v1 + 5% v2 → Monitor → 80/20 → 50/50 → 0/100</td>
+<td>Low</td>
+<td>Test in production, gradual rollout</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-11-infrastructure-as-code-basic">PRIORITY 11 — INFRASTRUCTURE AS CODE (Basic)<a class="headerlink" href="#priority-11-infrastructure-as-code-basic" title="Permanent link">&para;</a></h1>
+<p><strong>1-liner:</strong> IaC = define infrastructure in code files → Version controlled → Reproducible.</p>
+<p><strong>Terraform Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Write main.tf (HCL language) → terraform init → terraform plan (preview changes) → 
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    → terraform apply → AWS resources created → terraform destroy → Clean up
+</code></pre></div></p>
+<p><strong>CloudFormation Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Write template.yaml (JSON/YAML) → Upload to AWS → CloudFormation creates stack → 
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    → All resources provisioned → Update stack for changes → Delete stack to clean up
+</code></pre></div></p>
+<hr />
+<h1 id="priority-12-cloud-cost-optimization">PRIORITY 12 — CLOUD COST OPTIMIZATION<a class="headerlink" href="#priority-12-cloud-cost-optimization" title="Permanent link">&para;</a></h1>
+<p><strong>Instance Types:</strong>
+| Type | Flow | Cost | Use Case |
+|------|------|------|----------|
+| <strong>On-Demand</strong> | Launch anytime → Pay per hour | Highest | Dev/test, unpredictable workloads |
+| <strong>Reserved</strong> | Commit 1-3 years upfront | 40-60% cheaper | Steady-state production |
+| <strong>Spot</strong> | Bid on unused capacity → Can be interrupted | 90% cheaper | Fault-tolerant batch jobs |</p>
+<p><strong>S3 Storage Classes:</strong>
+| Class | Use Case | Cost |
+|-------|----------|------|
+| Standard | Frequently accessed | Highest |
+| Standard-IA | Infrequently accessed | Lower |
+| Glacier | Archives (retrieval minutes-hours) | Lowest |
+| Glacier Deep Archive | Rare access (retrieval hours) | Cheapest |</p>
+<hr />
+<h1 id="common-interview-scenarios-quick-answers">COMMON INTERVIEW SCENARIOS — QUICK ANSWERS<a class="headerlink" href="#common-interview-scenarios-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Cloud vs On-Premises?</td>
+<td>Cloud = rent, scale on demand, managed; On-Prem = own, fixed capacity, you manage</td>
+</tr>
+<tr>
+<td>2</td>
+<td>IaaS vs PaaS vs SaaS?</td>
+<td>IaaS = infrastructure; PaaS = platform; SaaS = software ready to use</td>
+</tr>
+<tr>
+<td>3</td>
+<td>VM vs Container?</td>
+<td>VM = full OS, GBs, minutes; Container = shared kernel, MBs, seconds</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Type 1 vs Type 2 Hypervisor?</td>
+<td>Type 1 = bare metal (fast); Type 2 = hosted on OS (slower)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Docker Image vs Container?</td>
+<td>Image = blueprint (class); Container = running instance (object)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Dockerfile vs Container?</td>
+<td>Dockerfile = recipe to build image; Container = runtime instance</td>
+</tr>
+<tr>
+<td>7</td>
+<td>CMD vs ENTRYPOINT?</td>
+<td>CMD = default args (overridable); ENTRYPOINT = fixed command prefix</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Pod vs Container?</td>
+<td>Pod = wrapper around 1+ containers sharing network/storage</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Kubernetes vs Docker?</td>
+<td>Docker = run containers; K8s = orchestrate 100s of containers across machines</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Deployment vs ReplicaSet?</td>
+<td>Deployment manages ReplicaSet + rolling updates; ReplicaSet ensures Pod count</td>
+</tr>
+<tr>
+<td>11</td>
+<td>EC2 vs Lambda?</td>
+<td>EC2 = always-on server; Lambda = event-driven, pay per invocation</td>
+</tr>
+<tr>
+<td>12</td>
+<td>S3 vs EBS vs EFS?</td>
+<td>S3 = object (HTTP); EBS = block (1 EC2); EFS = file (many EC2s)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Object vs Block Storage?</td>
+<td>Object = file+metadata+URL; Block = raw disk blocks mounted as drive</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Why Kubernetes?</td>
+<td>Auto-scale, self-heal, rolling updates, service discovery across cluster</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Why Docker?</td>
+<td>Consistent environment, portable, lightweight, easy CI/CD integration</td>
+</tr>
+<tr>
+<td>16</td>
+<td>What is Auto Scaling?</td>
+<td>Monitor metrics → Add/remove instances based on demand → Save cost</td>
+</tr>
+<tr>
+<td>17</td>
+<td>HA vs Fault Tolerance?</td>
+<td>HA = minimize downtime; FT = zero downtime (hot standby)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>What is IAM?</td>
+<td>Who can do what in AWS → Users, Roles, Policies</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Why Load Balancer?</td>
+<td>Distribute traffic, health checks, SSL termination, no single point of failure</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Deploy backend to AWS?</td>
+<td>Dockerize → ECR → ECS/Fargate or EC2 → ALB → Route 53 → CloudWatch</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="revision-order-highest-roi">REVISION ORDER (Highest ROI)<a class="headerlink" href="#revision-order-highest-roi" title="Permanent link">&para;</a></h1>
+<ol>
+<li>IaaS vs PaaS vs SaaS (service models)</li>
+<li>VM vs Container (hypervisor, namespaces, cgroups)</li>
+<li>Docker Architecture (image, container, volume, registry)</li>
+<li>Dockerfile instructions (FROM, RUN, COPY, CMD, ENTRYPOINT, EXPOSE)</li>
+<li>Docker Commands (build, run, ps, exec, logs, stop)</li>
+<li>Kubernetes Basics (Pod, Deployment, Service, ReplicaSet)</li>
+<li>K8s Architecture (Control Plane, Worker Node, etcd)</li>
+<li>AWS EC2 vs Lambda (compute models)</li>
+<li>AWS S3 vs EBS vs EFS (storage types)</li>
+<li>AWS RDS vs DynamoDB (database types)</li>
+<li>AWS VPC + Security Groups (networking)</li>
+<li>AWS IAM (users, roles, policies, least privilege)</li>
+<li>Load Balancer (Layer 4 vs Layer 7)</li>
+<li>Auto Scaling + CloudWatch (scaling flow)</li>
+<li>High Availability + Fault Tolerance (concepts)</li>
+<li>Cloud Security (encryption at rest/transit, secrets)</li>
+<li>CI/CD Deployment (rolling, blue-green, canary)</li>
+<li>Infrastructure as Code (Terraform basics)</li>
+<li>Cost Optimization (on-demand, reserved, spot, S3 classes)</li>
+<li>All comparison tables</li>
+</ol>
+<hr />
+<h1 id="hands-on-practice-project">HANDS-ON PRACTICE PROJECT<a class="headerlink" href="#hands-on-practice-project" title="Permanent link">&para;</a></h1>
+<p><strong>Deploy a Backend App to AWS:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>1. Dockerize App:
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>   Write Dockerfile → FROM node:18 → COPY . /app → RUN npm install → EXPOSE 3000 → CMD [&quot;node&quot;, &quot;app.js&quot;]
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>   docker build -t myapp . → docker run -p 3000:3000 myapp → Test locally
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>2. Push to Registry:
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>   docker tag myapp username/myapp:v1 → docker push username/myapp:v1
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>3. Deploy on EC2:
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>   Launch EC2 (t3.micro) → SSH in → Install Docker → docker pull username/myapp:v1 → 
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>   → docker run -d -p 80:3000 myapp → Security Group allow port 80 → Access via public IP
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>4. Store Files in S3:
+<a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>   Create bucket → Upload images → Set policy → Get URL → App stores/retrieves from S3
+<a id="__codelineno-27-14" name="__codelineno-27-14" href="#__codelineno-27-14"></a>
+<a id="__codelineno-27-15" name="__codelineno-27-15" href="#__codelineno-27-15"></a>5. Add Load Balancer:
+<a id="__codelineno-27-16" name="__codelineno-27-16" href="#__codelineno-27-16"></a>   Launch 2nd EC2 with same app → Create Target Group → Create ALB → 
+<a id="__codelineno-27-17" name="__codelineno-27-17" href="#__codelineno-27-17"></a>   → Register both instances → DNS points to ALB → Traffic distributed
+<a id="__codelineno-27-18" name="__codelineno-27-18" href="#__codelineno-27-18"></a>
+<a id="__codelineno-27-19" name="__codelineno-27-19" href="#__codelineno-27-19"></a>6. HTTPS with Nginx:
+<a id="__codelineno-27-20" name="__codelineno-27-20" href="#__codelineno-27-20"></a>   Install Nginx → Reverse proxy to app → SSL certificate (Let&#39;s Encrypt) → 
+<a id="__codelineno-27-21" name="__codelineno-27-21" href="#__codelineno-27-21"></a>   → Nginx handles HTTPS → Forwards HTTP to app internally
+<a id="__codelineno-27-22" name="__codelineno-27-22" href="#__codelineno-27-22"></a>
+<a id="__codelineno-27-23" name="__codelineno-27-23" href="#__codelineno-27-23"></a>7. CI/CD with GitHub Actions:
+<a id="__codelineno-27-24" name="__codelineno-27-24" href="#__codelineno-27-24"></a>   .github/workflows/deploy.yml → On push to main → Build image → Push to ECR → 
+<a id="__codelineno-27-25" name="__codelineno-27-25" href="#__codelineno-27-25"></a>   → SSH to EC2 → Pull new image → Restart container
+<a id="__codelineno-27-26" name="__codelineno-27-26" href="#__codelineno-27-26"></a>
+<a id="__codelineno-27-27" name="__codelineno-27-27" href="#__codelineno-27-27"></a>8. Monitor with CloudWatch:
+<a id="__codelineno-27-28" name="__codelineno-27-28" href="#__codelineno-27-28"></a>   CloudWatch Agent → Collect CPU, memory, logs → Set alarms → Alert on high CPU
+</code></pre></div></p>
+<hr />
+<p><strong>REMEMBER:</strong> Interviewers care about:
+1. <strong>Can you explain the cloud journey?</strong> (User → DNS → CDN → LB → Compute → DB → Response)
+2. <strong>VM vs Container vs Serverless?</strong> (When to use which, trade-offs)
+3. <strong>Docker flow?</strong> (Dockerfile → Image → Registry → Container → Volume)
+4. <strong>Why Kubernetes?</strong> (Orchestration, self-healing, scaling)
+5. <strong>AWS core services?</strong> (EC2, S3, RDS, IAM, LB, Auto Scaling)
+6. <strong>Deployment strategies?</strong> (Rolling vs Blue-Green vs Canary)
+7. <strong>Security basics?</strong> (IAM least privilege, encryption, no hardcoded keys)</p>
+<p>Tell the story of how a request flows through your cloud architecture.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../concurrency/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Concurrency">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Concurrency
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../mathematics/" class="md-footer__link md-footer__link--next" aria-label="Next: Mathematics">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Mathematics
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>

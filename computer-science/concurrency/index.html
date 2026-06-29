@@ -1,0 +1,2333 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Interview Revision Notes for Software Engineering">
+      
+      
+        <meta name="author" content="Samarth D Suryavamshi">
+      
+      
+        <link rel="canonical" href="https://samarth-d-suryavamshi.github.io/revision-notes/computer-science/concurrency/">
+      
+      
+        <link rel="prev" href="../software-engineering/">
+      
+      
+        <link rel="next" href="../cloud/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Concurrency - revision-notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#concurrency-multithreading-interview-notes-system-flow-approach" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="revision-notes" class="md-header__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            revision-notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concurrency
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../interview-preparation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Interview Preparation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Computer Science
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../programming/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../data/" class="md-tabs__link">
+          
+  
+  
+  Data
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="revision-notes" class="md-nav__button md-logo" aria-label="revision-notes" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    revision-notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/samarth-d-suryavamshi/revision-notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    revision-notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-preparation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interview Preparation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Structures & Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operating-systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operating Systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../computer-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Programming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object-oriented-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Oriented Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-patterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mathematics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mathematics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/programming-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../programming/language-specific/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language Specific
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/data-analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/ai-ml-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI • ML • DL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="concurrency-multithreading-interview-notes-system-flow-approach">Concurrency &amp; Multithreading Interview Notes — System Flow Approach<a class="headerlink" href="#concurrency-multithreading-interview-notes-system-flow-approach" title="Permanent link">&para;</a></h1>
+<hr />
+<h1 id="priority-1-concurrency-fundamentals">Priority 1 — Concurrency Fundamentals<a class="headerlink" href="#priority-1-concurrency-fundamentals" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduction-to-concurrency">1. Introduction to Concurrency<a class="headerlink" href="#1-introduction-to-concurrency" title="Permanent link">&para;</a></h2>
+<p><strong>Concurrency vs Parallelism</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Concurrency: Multiple tasks making progress (interleaved, not necessarily simultaneous)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Parallelism: Multiple tasks executing at the exact same time (requires multiple cores)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Analogy: Concurrency = Juggling 3 balls (switching attention). Parallelism = 3 people each holding 1 ball.
+</code></pre></div></p>
+<p><strong>Process vs Thread</strong>
+| Process | Thread |
+|---------|--------|
+| Independent program with own memory | Lightweight unit within a process |
+| Heavy (MBs of memory) | Light (KBs of memory) |
+| IPC needed to communicate | Shared memory (same heap) |
+| OS manages scheduling | OS manages scheduling |
+| Crash doesn't affect other processes | Crash kills entire process |</p>
+<p><strong>System Flow — Why Multiple Threads?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Single Thread: Request 1 → Process → Response → Request 2 → Process → Response (slow, sequential)
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Multi Thread: Request 1 → Thread-1 → Process
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>             Request 2 → Thread-2 → Process  (simultaneous, faster)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>             Request 3 → Thread-3 → Process
+</code></pre></div></p>
+<p><strong>Context Switching:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Thread A running → Timer interrupt → Save Thread A state (registers, PC) → Load Thread B state → Thread B running
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Cost: ~1-10 microseconds. Too much switching = overhead &gt; benefit.
+</code></pre></div></p>
+<hr />
+<h2 id="2-threads">2. Threads<a class="headerlink" href="#2-threads" title="Permanent link">&para;</a></h2>
+<p><strong>Thread Lifecycle:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>NEW → START() → RUNNABLE → Scheduler picks → RUNNING → sleep()/wait() → BLOCKED/WAITING/TIMED_WAITING → notify()/I/O complete → RUNNABLE → run() completes → TERMINATED
+</code></pre></div></p>
+<p><strong>Thread States:</strong>
+| State | Meaning |
+|-------|---------|
+| <strong>NEW</strong> | Created, not started |
+| <strong>RUNNABLE</strong> | Ready to run, waiting for CPU |
+| <strong>RUNNING</strong> | Currently executing |
+| <strong>BLOCKED</strong> | Waiting for monitor lock |
+| <strong>WAITING</strong> | Waiting indefinitely (wait()) |
+| <strong>TIMED_WAITING</strong> | Waiting with timeout (sleep(1000)) |
+| <strong>TERMINATED</strong> | Execution completed |</p>
+<p><strong>Daemon Thread:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Background thread (garbage collector, heartbeat). JVM exits when only daemons remain.
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Non-daemon = user thread. JVM waits for all user threads to finish.
+</code></pre></div></p>
+<p><strong>Why threads lighter than processes?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Process: Own memory space, file descriptors, code segment
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Thread: Shares code, data, heap. Only has own stack + registers + PC.
+</code></pre></div></p>
+<hr />
+<h2 id="3-thread-synchronization">3. Thread Synchronization<a class="headerlink" href="#3-thread-synchronization" title="Permanent link">&para;</a></h2>
+<p><strong>Race Condition:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Shared counter = 0
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Thread A reads counter (0) → Thread B reads counter (0) → A increments (1) → B increments (1)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Result: 1 (expected 2). Lost update.
+</code></pre></div></p>
+<p><strong>Critical Section:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Code that accesses shared resource. Must be protected so only one thread executes at a time.
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Thread A: [enter CS] → read shared_var → modify → write → [exit CS]
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Thread B: [wait] → [enter CS] → read shared_var → modify → write → [exit CS]
+</code></pre></div></p>
+<p><strong>Thread Safety:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Code is thread-safe if multiple threads can execute it concurrently without causing errors.
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>How to achieve:
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>1. No shared state (immutable objects, local variables)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>2. Synchronize access (locks, synchronized)
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>3. Thread-safe data structures (ConcurrentHashMap)
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>4. Atomic operations (CAS)
+</code></pre></div></p>
+<p><strong>Memory Visibility:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Thread A writes to shared variable → Stored in CPU cache → May not flush to main memory immediately
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Thread B reads shared variable → Reads from its own cache → Sees stale value
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Fix: volatile, synchronized, atomic variables (force flush to main memory)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-2-synchronization-primitives">Priority 2 — Synchronization Primitives<a class="headerlink" href="#priority-2-synchronization-primitives" title="Permanent link">&para;</a></h1>
+<h2 id="4-mutex">4. Mutex<a class="headerlink" href="#4-mutex" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Thread A: mutex.lock() → Enter critical section → mutex.unlock()
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Thread B: mutex.lock() → BLOCKED (A holds lock) → ... → A unlocks → B enters
+</code></pre></div></p>
+<p><strong>Mutex = Mutual Exclusion. Only one thread can hold it at a time.</strong></p>
+<p><strong>Mutex has ownership:</strong> Only the thread that locked it can unlock it.</p>
+<p><strong>Mutex vs Semaphore:</strong>
+| Mutex | Semaphore |
+|-------|-----------|
+| Binary (0 or 1) | Can be counting (0 to N) |
+| Has ownership | No ownership |
+| Lock/unlock must be same thread | Any thread can signal |
+| Use: protect critical section | Use: limit resource access |</p>
+<hr />
+<h2 id="5-locks">5. Locks<a class="headerlink" href="#5-locks" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Lock Type</th>
+<th>How it works</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Exclusive Lock</strong></td>
+<td>One reader OR one writer</td>
+<td>General mutual exclusion</td>
+</tr>
+<tr>
+<td><strong>Read Lock</strong></td>
+<td>Multiple readers simultaneously</td>
+<td>Read-heavy data</td>
+</tr>
+<tr>
+<td><strong>Write Lock</strong></td>
+<td>Exclusive, no readers or writers</td>
+<td>Write operations</td>
+</tr>
+<tr>
+<td><strong>Reentrant Lock</strong></td>
+<td>Same thread can lock multiple times</td>
+<td>Recursive algorithms</td>
+</tr>
+<tr>
+<td><strong>Spin Lock</strong></td>
+<td>Thread busy-waits (spins) instead of blocking</td>
+<td>Very short critical sections</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Spin Lock vs Mutex:</strong>
+| Spin Lock | Mutex |
+|-----------|-------|
+| Busy-waits (consumes CPU) | Blocks (yields CPU) |
+| Low latency if lock held briefly | Better for long critical sections |
+| Use: kernel, real-time systems | Use: general application code |</p>
+<p><strong>Read-Write Lock vs Mutex:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Mutex: Read = block others. Read-Write Lock: Multiple reads allowed simultaneously, write exclusive.
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Scenario: 10 readers, 1 writer
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>Mutex: All 10 readers queue up (slow)
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>RW Lock: All 10 readers proceed concurrently (fast), writer waits
+</code></pre></div></p>
+<hr />
+<h2 id="6-semaphore">6. Semaphore<a class="headerlink" href="#6-semaphore" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Semaphore permits = 3
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Thread A: acquire() → permits=2 → Proceed
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Thread B: acquire() → permits=1 → Proceed
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Thread C: acquire() → permits=0 → Proceed
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Thread D: acquire() → permits=0 → BLOCKED
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Thread A: release() → permits=1 → D unblocks → Proceed
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Permits</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Binary</strong></td>
+<td>1</td>
+<td>Like mutex, but no ownership</td>
+</tr>
+<tr>
+<td><strong>Counting</strong></td>
+<td>N</td>
+<td>Limit concurrent access (connection pool, API rate limit)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Binary Semaphore vs Mutex:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Binary Semaphore: Any thread can signal (release). No ownership.
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Mutex: Only owner can unlock. Ownership enforced.
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Use mutex for critical sections. Use semaphore for resource pools.
+</code></pre></div></p>
+<hr />
+<h2 id="7-condition-variables">7. Condition Variables<a class="headerlink" href="#7-condition-variables" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow — Producer-Consumer:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Buffer empty:
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Consumer: lock(mutex) → while(buffer.empty) → wait(cond, mutex) → UNLOCKS mutex, sleeps
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Producer: lock(mutex) → add item → signal(cond) → unlock(mutex)
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>Consumer: wakes up → RELOCKS mutex → consume item → unlock(mutex)
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wait()</code></td>
+<td>Release lock, sleep until signaled</td>
+</tr>
+<tr>
+<td><code>notify()</code></td>
+<td>Wake up ONE waiting thread</td>
+</tr>
+<tr>
+<td><code>notifyAll()</code></td>
+<td>Wake up ALL waiting threads</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why needed?</strong> → Mutex alone can't wait for a condition. Condition variable = "wake me when X happens."</p>
+<p><strong>Condition Variable vs Semaphore:</strong>
+| Condition Variable | Semaphore |
+|-------------------|-----------|
+| Signaling mechanism (wake specific threads) | Counting permits |
+| Must be used with mutex | Independent |
+| Use: producer-consumer, bounded buffer | Use: resource limiting |</p>
+<hr />
+<h2 id="8-atomic-operations">8. Atomic Operations<a class="headerlink" href="#8-atomic-operations" title="Permanent link">&para;</a></h2>
+<p><strong>CAS (Compare-And-Swap):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Atomic operation: Read value → Compare with expected → If match, write new value → Return success/failure
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Thread A: CAS(counter, expected=5, new=6) → Success, counter=6
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Thread B: CAS(counter, expected=5, new=6) → Failure (counter is 6 now), retry
+</code></pre></div></p>
+<p><strong>Why faster than locks?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Lock: Acquire mutex → Enter kernel → Block/unblock → Release mutex (expensive context switches)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>CAS: Single CPU instruction (no kernel involvement, no blocking)
+</code></pre></div></p>
+<p><strong>Limitation:</strong> CAS can suffer from ABA problem (value changes A→B→A, CAS thinks unchanged). Use atomic stamps/versions to fix.</p>
+<hr />
+<h1 id="priority-3-deadlocks-synchronization-problems">Priority 3 — Deadlocks &amp; Synchronization Problems<a class="headerlink" href="#priority-3-deadlocks-synchronization-problems" title="Permanent link">&para;</a></h1>
+<h2 id="9-deadlocks">9. Deadlocks<a class="headerlink" href="#9-deadlocks" title="Permanent link">&para;</a></h2>
+<p><strong>Four Necessary Conditions (ALL must hold):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>1. Mutual Exclusion: Resource can be held by only one thread
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>2. Hold and Wait: Thread holds resource while waiting for another
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>3. No Preemption: Resources cannot be forcibly taken
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>4. Circular Wait: Thread A waits for B, B waits for C, C waits for A
+</code></pre></div></p>
+<p><strong>System Flow — Deadlock:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Thread A: lock(Account1) → ... → lock(Account2) → Transfer A→B
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>Thread B: lock(Account2) → ... → lock(Account1) → Transfer B→A
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>A holds 1, waits for 2
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>B holds 2, waits for 1
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>DEADLOCK — both wait forever
+</code></pre></div></p>
+<p><strong>Prevention:</strong>
+| Strategy | How |
+|----------|-----|
+| <strong>Eliminate Mutual Exclusion</strong> | Use lock-free structures (hard) |
+| <strong>Eliminate Hold and Wait</strong> | Acquire all locks at once, or none |
+| <strong>Eliminate No Preemption</strong> | Timeout and retry, or priority inheritance |
+| <strong>Eliminate Circular Wait</strong> | Lock ordering (always lock A before B) |</p>
+<p><strong>Banker's Algorithm:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Before granting request, simulate if system remains in safe state.
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>If yes → grant. If no → wait.
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>Safe state = there exists a sequence where all threads can complete.
+</code></pre></div></p>
+<hr />
+<h2 id="10-starvation">10. Starvation<a class="headerlink" href="#10-starvation" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>High-priority threads keep getting CPU → Low-priority thread never runs → Starvation
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Or: Reader threads keep acquiring lock → Writer thread never gets access → Write starvation
+</code></pre></div></p>
+<p><strong>Fix:</strong> Fair scheduling (FIFO queue), priority aging (boost waiting threads).</p>
+<hr />
+<h2 id="11-livelock">11. Livelock<a class="headerlink" href="#11-livelock" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Thread A: &quot;You go first&quot; → waits
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Thread B: &quot;No, you go first&quot; → waits
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>Both active, both polite, both blocked forever.
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>vs Deadlock: Both are waiting (blocked)
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>   Livelock: Both are running but making no progress
+</code></pre></div></p>
+<p><strong>Deadlock vs Livelock vs Starvation:</strong>
+| Deadlock | Livelock | Starvation |
+|----------|----------|------------|
+| All blocked, no progress | All active, no progress | Some blocked, others keep progressing |
+| Circular wait | Polite yielding | Unfair scheduling |
+| Fix: lock ordering | Fix: random backoff | Fix: fair queues |</p>
+<hr />
+<h2 id="12-classical-problems">12. Classical Problems<a class="headerlink" href="#12-classical-problems" title="Permanent link">&para;</a></h2>
+<p><strong>Producer-Consumer (Bounded Buffer):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Buffer size = N
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Producer: while(full) wait(notFull) → add item → signal(notEmpty)
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Consumer: while(empty) wait(notEmpty) → remove item → signal(notFull)
+</code></pre></div></p>
+<p><strong>Readers-Writers:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Multiple readers OR one writer.
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Readers: lock(readCount) → increment → if first reader, lock(writeLock) → read → decrement → if last reader, unlock(writeLock)
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Writers: lock(writeLock) → write → unlock(writeLock)
+</code></pre></div></p>
+<p><strong>Dining Philosophers:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>5 philosophers, 5 forks (between each pair).
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Philosopher needs 2 forks to eat.
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>Deadlock: All pick left fork simultaneously → All wait for right fork → Starve.
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>Fix: Pick lower-numbered fork first. Or limit philosophers at table.
+</code></pre></div></p>
+<hr />
+<h1 id="priority-4-thread-pools-task-execution">Priority 4 — Thread Pools &amp; Task Execution<a class="headerlink" href="#priority-4-thread-pools-task-execution" title="Permanent link">&para;</a></h1>
+<h2 id="13-thread-pools">13. Thread Pools<a class="headerlink" href="#13-thread-pools" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Task arrives → Put in queue → Idle worker thread picks up → Executes → Returns to pool → Reusable
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>No thread pool: Request → Create thread → Process → Destroy thread (expensive)
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>Thread pool: Request → Reuse existing thread → Process → Return to pool (fast)
+</code></pre></div></p>
+<p><strong>Why not create thread per request?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Thread creation: ~1ms + memory overhead
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>1000 requests = 1000 threads = memory explosion + context switching overhead
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Thread pool: Fixed threads, queue excess tasks, reuse threads
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Pool Type</th>
+<th>Behavior</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fixed</strong></td>
+<td>N threads, unbounded queue</td>
+<td>Predictable load</td>
+</tr>
+<tr>
+<td><strong>Cached</strong></td>
+<td>Create as needed, idle threads timeout</td>
+<td>Bursty load</td>
+</tr>
+<tr>
+<td><strong>Scheduled</strong></td>
+<td>Execute after delay or periodically</td>
+<td>Timers, cron jobs</td>
+</tr>
+<tr>
+<td><strong>Single</strong></td>
+<td>One thread, sequential execution</td>
+<td>Ordered execution</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Thread Pool Parameters:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Core pool size: Always keep alive
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>Max pool size: Create up to this many
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>Queue: Hold tasks when all threads busy
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>Keep-alive time: How long to keep extra threads idle
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>Rejection policy: What to do when full (abort, discard, caller-runs)
+</code></pre></div></p>
+<hr />
+<h2 id="14-executor-framework-java">14. Executor Framework (Java)<a class="headerlink" href="#14-executor-framework-java" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Submit task → ExecutorService → Task Queue → Worker Thread → Execute → Return Future
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Interface</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Executor</strong></td>
+<td>Basic: <code>execute(Runnable)</code></td>
+</tr>
+<tr>
+<td><strong>ExecutorService</strong></td>
+<td>+ <code>submit()</code>, <code>invokeAll()</code>, <code>shutdown()</code></td>
+</tr>
+<tr>
+<td><strong>ScheduledExecutorService</strong></td>
+<td>+ <code>schedule()</code>, <code>scheduleAtFixedRate()</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Graceful Shutdown:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">executor</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span><span class="w">           </span><span class="c1">// Stop accepting new tasks, finish queued</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">executor</span><span class="p">.</span><span class="na">awaitTermination</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="n">TimeUnit</span><span class="p">.</span><span class="na">SECONDS</span><span class="p">);</span><span class="w"> </span><span class="c1">// Wait for completion</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">executor</span><span class="p">.</span><span class="na">shutdownNow</span><span class="p">();</span><span class="w">        </span><span class="c1">// Force interrupt all threads</span>
+</code></pre></div></p>
+<hr />
+<h1 id="priority-5-futures-asynchronous-programming">Priority 5 — Futures &amp; Asynchronous Programming<a class="headerlink" href="#priority-5-futures-asynchronous-programming" title="Permanent link">&para;</a></h1>
+<h2 id="15-futures">15. Futures<a class="headerlink" href="#15-futures" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Submit task → Get Future object → Future.get() blocks until result ready → Use result
+</code></pre></div></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Blocking?</th>
+<th>Composable?</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Future</strong></td>
+<td>Yes (get() blocks)</td>
+<td>No</td>
+<td>Simple async result</td>
+</tr>
+<tr>
+<td><strong>CompletableFuture</strong></td>
+<td>No (callbacks)</td>
+<td>Yes (thenApply, thenCompose)</td>
+<td>Complex async chains</td>
+</tr>
+</tbody>
+</table>
+<p><strong>CompletableFuture Chain:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fetchUser</span><span class="p">())</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">    </span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="n">user</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="na">getName</span><span class="p">())</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">    </span><span class="p">.</span><span class="na">thenCompose</span><span class="p">(</span><span class="n">name</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fetchOrders</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">    </span><span class="p">.</span><span class="na">thenAccept</span><span class="p">(</span><span class="n">orders</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">sendEmail</span><span class="p">(</span><span class="n">orders</span><span class="p">));</span>
+</code></pre></div></p>
+<hr />
+<h2 id="16-async-programming">16. Async Programming<a class="headerlink" href="#16-async-programming" title="Permanent link">&para;</a></h2>
+<p><strong>Synchronous vs Asynchronous:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Synchronous:  Call API → Wait → Get response → Continue (blocking, one thing at a time)
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>Asynchronous: Call API → Continue other work → Response arrives → Callback executes (non-blocking)
+</code></pre></div></p>
+<p><strong>Async vs Multithreading:</strong>
+| Async | Multithreading |
+|-------|---------------|
+| Programming model (non-blocking) | Execution model (multiple threads) |
+| Can use single thread (event loop) | Requires multiple threads |
+| Callbacks, promises, async/await | Locks, synchronization |
+| Use: I/O bound (network, disk) | Use: CPU bound (computation) |</p>
+<p><strong>Event Loop:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>Single thread: Event queue → Pick event → Execute callback → Return to queue → Pick next event
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>No blocking! If callback needs I/O, register callback, continue to next event.
+</code></pre></div></p>
+<p><strong>Python asyncio:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch</span><span class="p">():</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># Non-blocking, yields control</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></p>
+<hr />
+<h2 id="17-reactive-programming-basic">17. Reactive Programming (Basic)<a class="headerlink" href="#17-reactive-programming-basic" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>Publisher → emits events → Subscriber receives → Backpressure: Subscriber says &quot;slow down&quot; if overwhelmed
+</code></pre></div></p>
+<p><strong>Backpressure:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Fast producer, slow consumer → Consumer buffers overflow → Memory leak
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Fix: Consumer signals &quot;I can handle N more&quot; → Producer pauses/resumes
+</code></pre></div></p>
+<hr />
+<h1 id="priority-6-memory-model">Priority 6 — Memory Model<a class="headerlink" href="#priority-6-memory-model" title="Permanent link">&para;</a></h1>
+<h2 id="18-memory-visibility">18. Memory Visibility<a class="headerlink" href="#18-memory-visibility" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Thread A writes x=1 → Stored in CPU cache L1 → May stay in cache → Thread B reads x → Gets stale value from its cache
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>Fix: Memory barrier (synchronized, volatile, atomic) → Forces flush to main memory → Invalidates other caches
+</code></pre></div></p>
+<p><strong>Why local variables aren't shared:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Each thread has its own stack. Local variables live on stack → Thread-private.
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>Shared variables live on heap → Need synchronization.
+</code></pre></div></p>
+<hr />
+<h2 id="19-volatile-java">19. volatile (Java)<a class="headerlink" href="#19-volatile-java" title="Permanent link">&para;</a></h2>
+<p><strong>System Flow:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>Thread A: volatile x = 1 → Immediately flushed to main memory → Other threads see update
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>Thread B: read volatile x → Reads from main memory (not stale cache) → Sees 1
+</code></pre></div></p>
+<p><strong>Guarantees:</strong>
+| Guarantee | Meaning |
+|-----------|---------|
+| <strong>Visibility</strong> | Write visible to all threads immediately |
+| <strong>Ordering</strong> | Instructions before/after volatile can't be reordered |</p>
+<p><strong>Limitations:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>volatile int count = 0;
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>count++;  // NOT atomic! Read → Increment → Write (3 steps, race condition possible)
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>Fix: Use AtomicInteger or synchronized for compound operations.
+</code></pre></div></p>
+<p><strong>volatile vs synchronized:</strong>
+| volatile | synchronized |
+|----------|-------------|
+| Visibility + ordering | Visibility + ordering + mutual exclusion |
+| No locking | Acquires monitor lock |
+| Use: simple flag, status variable | Use: compound operations, critical sections |</p>
+<hr />
+<h1 id="priority-7-concurrent-data-structures">Priority 7 — Concurrent Data Structures<a class="headerlink" href="#priority-7-concurrent-data-structures" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Thread-Safe?</th>
+<th>How it works</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HashMap</strong></td>
+<td>No</td>
+<td>Not synchronized</td>
+<td>Single-threaded</td>
+</tr>
+<tr>
+<td><strong>ConcurrentHashMap</strong></td>
+<td>Yes</td>
+<td>Segment-level locking (Java 7) / CAS + synchronized (Java 8+)</td>
+<td>Multi-threaded reads/writes</td>
+</tr>
+<tr>
+<td><strong>BlockingQueue</strong></td>
+<td>Yes</td>
+<td>Blocking put/take</td>
+<td>Producer-consumer</td>
+</tr>
+<tr>
+<td><strong>CopyOnWriteArrayList</strong></td>
+<td>Yes</td>
+<td>Copy on write, read lock-free</td>
+<td>Read-heavy, write-rare</td>
+</tr>
+<tr>
+<td><strong>ConcurrentLinkedQueue</strong></td>
+<td>Yes</td>
+<td>Lock-free CAS</td>
+<td>High-concurrency queue</td>
+</tr>
+</tbody>
+</table>
+<p><strong>HashMap vs ConcurrentHashMap:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>HashMap: Not thread-safe. Concurrent modification = infinite loop or corruption.
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>ConcurrentHashMap: Thread-safe without locking entire map. Multiple reads, limited write locking.
+</code></pre></div></p>
+<hr />
+<h1 id="priority-8-language-specific-concurrency">Priority 8 — Language-Specific Concurrency<a class="headerlink" href="#priority-8-language-specific-concurrency" title="Permanent link">&para;</a></h1>
+<h2 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1">// Thread creation</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="c1">// Synchronized method</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="kd">public</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">count</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="c1">// ReentrantLock</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a>
+<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a><span class="c1">// ExecutorService</span>
+<a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a><span class="n">ExecutorService</span><span class="w"> </span><span class="n">executor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Executors</span><span class="p">.</span><span class="na">newFixedThreadPool</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">future</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">executor</span><span class="p">.</span><span class="na">submit</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">compute</span><span class="p">());</span>
+<a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a>
+<a id="__codelineno-42-15" name="__codelineno-42-15" href="#__codelineno-42-15"></a><span class="c1">// CompletableFuture</span>
+<a id="__codelineno-42-16" name="__codelineno-42-16" href="#__codelineno-42-16"></a><span class="n">CompletableFuture</span><span class="p">.</span><span class="na">supplyAsync</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">fetch</span><span class="p">())</span>
+<a id="__codelineno-42-17" name="__codelineno-42-17" href="#__codelineno-42-17"></a><span class="w">    </span><span class="p">.</span><span class="na">thenApply</span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">transform</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<a id="__codelineno-42-18" name="__codelineno-42-18" href="#__codelineno-42-18"></a><span class="w">    </span><span class="p">.</span><span class="na">thenAccept</span><span class="p">(</span><span class="n">finalResult</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">process</span><span class="p">(</span><span class="n">finalResult</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># threading (GIL = only one thread runs Python bytecode at a time)</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">)</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="c1"># multiprocessing (bypasses GIL, true parallelism)</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">worker</span><span class="p">,</span> <span class="n">tasks</span><span class="p">)</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a><span class="c1"># asyncio (single-threaded, non-blocking I/O)</span>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a>    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch_data</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>GIL (Global Interpreter Lock):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>Python has GIL → Only one thread executes Python bytecode at a time → Threads don&#39;t parallelize CPU work
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>Fix: Use multiprocessing for CPU-bound, asyncio for I/O-bound
+</code></pre></div></p>
+<h2 id="c">C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="nf">t</span><span class="p">([]()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="n">std</span><span class="o">::</span><span class="n">lock_guard</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="n">mtx</span><span class="p">);</span><span class="w">  </span><span class="c1">// RAII, auto-unlock</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="n">counter</span><span class="p">.</span><span class="n">fetch_add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c1">// Atomic increment</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="n">std</span><span class="o">::</span><span class="n">future</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">async</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">launch</span><span class="o">::</span><span class="n">async</span><span class="p">,</span><span class="w"> </span><span class="n">compute</span><span class="p">);</span>
+</code></pre></div>
+<hr />
+<h1 id="priority-9-performance-considerations">Priority 9 — Performance Considerations<a class="headerlink" href="#priority-9-performance-considerations" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lock Contention</strong></td>
+<td>Too many threads competing for same lock</td>
+<td>Finer-grained locks, lock-free structures, reduce critical section</td>
+</tr>
+<tr>
+<td><strong>Context Switching Cost</strong></td>
+<td>Too many threads, CPU spends time switching</td>
+<td>Right-size thread pool, async I/O</td>
+</tr>
+<tr>
+<td><strong>False Sharing</strong></td>
+<td>Threads modify adjacent cache lines → Cache invalidation</td>
+<td>Pad data to separate cache lines (64 bytes)</td>
+</tr>
+<tr>
+<td><strong>Thread Starvation</strong></td>
+<td>Unfair scheduling, priority inversion</td>
+<td>Fair locks, priority inheritance</td>
+</tr>
+<tr>
+<td><strong>Thread Explosion</strong></td>
+<td>Unlimited thread creation</td>
+<td>Thread pools, backpressure</td>
+</tr>
+<tr>
+<td><strong>Busy Waiting</strong></td>
+<td>Spin lock spins too long</td>
+<td>Use mutex for long waits, adaptive spinning</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why more threads can reduce performance?</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>More threads than cores → Excessive context switching → CPU overhead &gt; parallel benefit
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>Optimal: threads ≈ cores (CPU-bound) or threads &gt; cores (I/O-bound, since threads block on I/O)
+</code></pre></div></p>
+<hr />
+<h1 id="priority-10-production-concurrency-patterns">Priority 10 — Production Concurrency Patterns<a class="headerlink" href="#priority-10-production-concurrency-patterns" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>System Flow</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Producer-Consumer</strong></td>
+<td>Producer → BlockingQueue → Consumer</td>
+<td>Decouple production from consumption</td>
+</tr>
+<tr>
+<td><strong>Worker Queue</strong></td>
+<td>Tasks → Queue → Thread Pool Workers</td>
+<td>Process jobs asynchronously</td>
+</tr>
+<tr>
+<td><strong>Thread Pool</strong></td>
+<td>Submit → Queue → Reuse threads</td>
+<td>Limit resource usage</td>
+</tr>
+<tr>
+<td><strong>Pipeline</strong></td>
+<td>Stage 1 → Queue → Stage 2 → Queue → Stage 3</td>
+<td>Data processing chains</td>
+</tr>
+<tr>
+<td><strong>Publish-Subscribe</strong></td>
+<td>Publisher → Topic → Multiple Subscribers</td>
+<td>Event broadcasting</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="common-interview-scenarios-quick-answers">Common Interview Scenarios — Quick Answers<a class="headerlink" href="#common-interview-scenarios-quick-answers" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>One-Liner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concurrency vs Parallelism</td>
+<td>Concurrency = interleaved progress. Parallelism = simultaneous execution</td>
+</tr>
+<tr>
+<td>Process vs Thread</td>
+<td>Process = independent, own memory. Thread = lightweight, shared memory</td>
+</tr>
+<tr>
+<td>Race condition</td>
+<td>Multiple threads access shared data, outcome depends on timing</td>
+</tr>
+<tr>
+<td>Critical section</td>
+<td>Code accessing shared resource, needs mutual exclusion</td>
+</tr>
+<tr>
+<td>Mutex vs Semaphore</td>
+<td>Mutex = binary, owned. Semaphore = counting, no ownership</td>
+</tr>
+<tr>
+<td>Binary Semaphore vs Mutex</td>
+<td>Semaphore: any thread can signal. Mutex: only owner unlocks</td>
+</tr>
+<tr>
+<td>Spin Lock vs Mutex</td>
+<td>Spin lock busy-waits (fast, burns CPU). Mutex blocks (slower, saves CPU)</td>
+</tr>
+<tr>
+<td>RW Lock vs Mutex</td>
+<td>RW: multiple readers OR one writer. Mutex: one at a time</td>
+</tr>
+<tr>
+<td>Deadlock vs Starvation vs Livelock</td>
+<td>Deadlock: all blocked. Starvation: some blocked forever. Livelock: all active, no progress</td>
+</tr>
+<tr>
+<td>Producer-Consumer</td>
+<td>Producer adds to bounded buffer, consumer removes. Sync with condition variables</td>
+</tr>
+<tr>
+<td>Dining Philosophers</td>
+<td>5 philos, 5 forks. Deadlock if all grab left. Fix: ordered locking</td>
+</tr>
+<tr>
+<td>Why thread pools?</td>
+<td>Reuse threads, limit resource usage, reduce creation overhead</td>
+</tr>
+<tr>
+<td>Thread pool vs new thread per request</td>
+<td>Pool = bounded, reusable. New thread = unbounded, expensive</td>
+</tr>
+<tr>
+<td>Future vs CompletableFuture</td>
+<td>Future = blocking get(). CompletableFuture = composable, non-blocking callbacks</td>
+</tr>
+<tr>
+<td>Sync vs Async</td>
+<td>Sync = wait for result. Async = continue, result later</td>
+</tr>
+<tr>
+<td>Async vs Multithreading</td>
+<td>Async = model (non-blocking). Multithreading = execution (multiple threads)</td>
+</tr>
+<tr>
+<td>volatile vs synchronized</td>
+<td>volatile = visibility. synchronized = visibility + mutual exclusion</td>
+</tr>
+<tr>
+<td>HashMap vs ConcurrentHashMap</td>
+<td>HashMap = not thread-safe. CHM = segment/CAS locking, thread-safe</td>
+</tr>
+<tr>
+<td>CAS vs Locks</td>
+<td>CAS = atomic instruction, no kernel. Lock = kernel involvement, blocking</td>
+</tr>
+<tr>
+<td>Why atomic ops faster?</td>
+<td>Single CPU instruction, no context switch, no kernel trap</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="quick-reference-when-to-use-what">Quick Reference: When to Use What<a class="headerlink" href="#quick-reference-when-to-use-what" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Protect shared counter</td>
+<td>AtomicInteger (CAS)</td>
+</tr>
+<tr>
+<td>Protect critical section</td>
+<td>synchronized or ReentrantLock</td>
+</tr>
+<tr>
+<td>Read-heavy, write-rare</td>
+<td>ReadWriteLock or CopyOnWriteArrayList</td>
+</tr>
+<tr>
+<td>Limit concurrent DB connections</td>
+<td>Counting Semaphore</td>
+</tr>
+<tr>
+<td>Producer-consumer queue</td>
+<td>BlockingQueue + Thread Pool</td>
+</tr>
+<tr>
+<td>Complex async chains</td>
+<td>CompletableFuture</td>
+</tr>
+<tr>
+<td>I/O-bound, many connections</td>
+<td>Async/await + Event Loop</td>
+</tr>
+<tr>
+<td>CPU-bound, parallel processing</td>
+<td>Thread Pool (size = CPU cores)</td>
+</tr>
+<tr>
+<td>Prevent deadlock</td>
+<td>Lock ordering, timeout, tryLock</td>
+</tr>
+<tr>
+<td>Thread-safe map</td>
+<td>ConcurrentHashMap</td>
+</tr>
+<tr>
+<td>Thread-safe list (read-heavy)</td>
+<td>CopyOnWriteArrayList</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="final-tip-interview-flow-for-concurrency-questions">Final Tip: Interview Flow for Concurrency Questions<a class="headerlink" href="#final-tip-interview-flow-for-concurrency-questions" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>1. Identify shared state (what&#39;s being accessed by multiple threads?)
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>2. Identify race conditions (read-modify-write? check-then-act?)
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>3. Choose synchronization (mutex for exclusion, semaphore for limiting, atomic for simple ops)
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>4. Check for deadlocks (lock ordering? timeouts?)
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>5. Consider performance (contention? granularity?)
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>6. Mention thread-safe alternatives (concurrent collections, thread pools)
+</code></pre></div>
+<p><strong>Always remember:</strong> Shared mutable state = danger. Make it immutable, localize it, or synchronize it.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../software-engineering/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Software Engineering">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Software Engineering
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../cloud/" class="md-footer__link md-footer__link--next" aria-label="Next: Cloud Computing">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Cloud Computing
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2026 Samarth D Suryavamshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/samarth-d-suryavamshi" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.highlight", "search.suggest", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/js/extra.js"></script>
+      
+    
+  </body>
+</html>
