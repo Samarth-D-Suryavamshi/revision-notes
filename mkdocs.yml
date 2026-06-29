@@ -1,0 +1,178 @@
+site_name: revision-notes
+site_description: Interview Revision Notes for Software Engineering
+site_author: Samarth D Suryavamshi
+site_url: https://samarth-d-suryavamshi.github.io/revision-notes/
+
+repo_url: https://github.com/samarth-d-suryavamshi/revision-notes
+repo_name: revision-notes
+
+theme:
+  name: material
+
+  language: en
+
+  favicon: assets/images/favicon.png
+  logo: assets/images/logo.png
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+
+    - search.highlight
+    - search.suggest
+    - search.share
+
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+    - toc.follow
+
+  palette:
+
+    - scheme: slate
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to Light Mode
+
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to Dark Mode
+
+markdown_extensions:
+
+  - admonition
+
+  - attr_list
+
+  - md_in_html
+
+  - tables
+
+  - footnotes
+
+  - def_list
+
+  - toc:
+      permalink: true
+
+  - pymdownx.details
+
+  - pymdownx.superfences
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+  - pymdownx.inlinehilite
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.snippets
+
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+  - pymdownx.emoji
+
+  - pymdownx.keys
+
+  - pymdownx.mark
+
+  - pymdownx.tilde
+
+  - pymdownx.caret
+
+plugins:
+
+  - search
+
+extra_css:
+
+  - assets/css/extra.css
+
+extra_javascript:
+
+  - assets/js/extra.js
+
+nav:
+
+  - Home: index.md
+
+  - Roadmap: roadmap.md
+
+  - Interview Preparation: interview-preparation.md
+
+  - Computer Science:
+
+      - Overview: computer-science/index.md
+
+      - Data Structures & Algorithms: computer-science/dsa.md
+
+      - Operating Systems: computer-science/operating-systems.md
+
+      - Computer Networks: computer-science/computer-networks.md
+
+      - Databases: computer-science/databases.md
+
+      - Object-Oriented Programming: computer-science/oop.md
+
+      - Object-Oriented Design: computer-science/object-oriented-design.md
+
+      - Design Patterns: computer-science/design-patterns.md
+
+      - System Design: computer-science/system-design.md
+
+      - Backend Fundamentals: computer-science/backend-fundamentals.md
+
+      - Git: computer-science/git.md
+
+      - Linux: computer-science/linux.md
+
+      - Software Engineering: computer-science/software-engineering.md
+
+      - Concurrency: computer-science/concurrency.md
+
+      - Cloud Computing: computer-science/cloud.md
+
+      - Mathematics: computer-science/mathematics.md
+
+  - Programming:
+
+      - Overview: programming/index.md
+
+      - Programming Fundamentals: programming/programming-fundamentals.md
+
+      - Language Specific: programming/language-specific.md
+
+  - Data:
+
+      - Overview: data/index.md
+
+      - Data Analytics: data/data-analytics.md
+
+      - AI • ML • DL: data/ai-ml-dl.md
+
+
+  - Resources: resources.md
+
+extra:
+
+  social:
+
+    - icon: fontawesome/brands/github
+      link: https://github.com/samarth-d-suryavamshi
+
+copyright: Copyright © 2026 Samarth D Suryavamshi
