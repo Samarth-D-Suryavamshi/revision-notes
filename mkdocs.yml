@@ -1,4 +1,4 @@
-site_name: revision-notes
+site_name: Revision Notes
 site_description: Interview Revision Notes for Software Engineering
 site_author: Samarth D Suryavamshi
 site_url: https://samarth-d-suryavamshi.github.io/revision-notes/
@@ -216,10 +216,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/samarth-d-suryavamshi
-
-# -----------------------------------------------------------------------------
-# Copyright
-# -----------------------------------------------------------------------------
 
 copyright: >
   Copyright &copy; 2026 Samarth D Suryavamshi.

@@ -10,9 +10,9 @@
 
 ## Overview
 
-This repository serves as a structured reference for software engineering concepts, interview preparation, and technical learning.
+This repository contains MkDocs-based notes and reference material for software engineering interview preparation and technical fundamentals.
 
-The documentation is designed to provide concise, organized, and production-oriented notes covering both theoretical concepts and practical engineering topics.
+The documentation is organized into Computer Science, Programming, Data, and Resources sections, with a live documentation site built from the docs/ folder.
 
 ---
 
@@ -27,38 +27,87 @@ Visit the documentation website:
 ## Repository Structure
 
 ```text
-docs/
-
-├── Roadmap
-├── Interview Preparation
-
-├── Computer Science
-│   ├── Data Structures & Algorithms
-│   ├── Operating Systems
-│   ├── Computer Networks
-│   ├── Databases
-│   ├── Object-Oriented Programming
-│   ├── Object-Oriented Design
-│   ├── Design Patterns
-│   ├── System Design
-│   ├── Backend Fundamentals
-│   ├── Git
-│   ├── Linux
-│   ├── Software Engineering
-│   ├── Concurrency
-│   ├── Cloud Computing
-│   └── Mathematics
-
-├── Programming
-│   ├── Programming Fundamentals
-│   └── Language Specific
-
-├── Data
-│   ├── Data Analytics
-│   └── AI • ML • DL
-
-└── Resources
+.
+├── README.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── mkdocs.yml
+├── requirements.txt
+├── docs
+│   ├── index.md
+│   ├── roadmap.md
+│   ├── interview-preparation.md
+│   ├── resources.md
+│   ├── contributing.md
+│   ├── computer-science
+│   │   ├── index.md
+│   │   ├── backend-fundamentals.md
+│   │   ├── cloud.md
+│   │   ├── concurrency.md
+│   │   ├── computer-networks.md
+│   │   ├── databases.md
+│   │   ├── design-patterns.md
+│   │   ├── git.md
+│   │   ├── linux.md
+│   │   ├── mathematics.md
+│   │   ├── object-oriented-design.md
+│   │   ├── oop.md
+│   │   ├── operating-systems.md
+│   │   ├── software-engineering.md
+│   │   ├── system-design.md
+│   │   └── dsa.md
+│   ├── programming
+│   │   ├── index.md
+│   │   ├── language-specific.md
+│   │   └── programming-fundamentals.md
+│   ├── data
+│   │   ├── index.md
+│   │   ├── ai-ml-dl.md
+│   │   └── data-analytics.md
+│   ├── assets
+│   │   ├── css
+│   │   ├── icons
+│   │   ├── images
+│   │   └── js
+│   └── overrides
+│       └── main.html
 ```
+
+---
+
+Navigation
+The MkDocs navigation is defined in mkdocs.yml and includes:
+
+Home
+Roadmap
+Interview Preparation
+Computer Science
+Overview
+Data Structures & Algorithms
+Operating Systems
+Computer Networks
+Databases
+Object-Oriented Programming
+Object-Oriented Design
+Design Patterns
+System Design
+Backend Fundamentals
+Git
+Linux
+Software Engineering
+Concurrency
+Cloud Computing
+Mathematics
+Programming
+Overview
+Programming Fundamentals
+Language Specific
+Data
+Overview
+Data Analytics
+AI • ML • DL
+Resources
+Contributing
 
 ---
 
@@ -156,7 +205,7 @@ If you find an issue or have suggestions for improvements, feel free to open an 
 
 ## License
 
-This project is licensed under the MIT License.
+This project is proprietary and is distributed under an **All Rights Reserved** copyright notice. See the [LICENSE](LICENSE) file for details.
 
 ---
 
