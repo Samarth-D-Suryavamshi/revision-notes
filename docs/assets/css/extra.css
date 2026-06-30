@@ -86,3 +86,9 @@
   .md-typeset a::after { display: none; }
   .md-typeset img { box-shadow: none; }
 }
+
+.md-search,
+.md-search__inner,
+.md-search__output{
+    overflow: visible;
+}

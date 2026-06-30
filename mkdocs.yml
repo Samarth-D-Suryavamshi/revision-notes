@@ -131,7 +131,21 @@ extra_javascript:
 
 nav:
 
-  - Home: index.md
+  - Home: 
+
+      - Overview: index.md
+
+      - Roadmap: roadmap.md
+
+      - Interview prep:  interview-preparation.md
+
+      - DSA: computer-science/dsa.md
+
+      - System Design: computer-science/system-design.md
+
+      - Databases: computer-science/databases.md
+
+      - Programming: programming/language-specific.md
 
   - Roadmap: roadmap.md
 
@@ -141,36 +155,38 @@ nav:
 
       - Overview: computer-science/index.md
 
+      - Mathematics: computer-science/mathematics.md
+
       - Data Structures & Algorithms: computer-science/dsa.md
-
-      - Operating Systems: computer-science/operating-systems.md
-
-      - Computer Networks: computer-science/computer-networks.md
-
-      - Databases: computer-science/databases.md
 
       - Object-Oriented Programming: computer-science/oop.md
 
-      - Object-Oriented Design: computer-science/object-oriented-design.md
+      - Computer Networks: computer-science/computer-networks.md
 
-      - Design Patterns: computer-science/design-patterns.md
+      - Operating Systems: computer-science/operating-systems.md
 
-      - System Design: computer-science/system-design.md
-
-      - Backend Fundamentals: computer-science/backend-fundamentals.md
+      - Databases: computer-science/databases.md
 
       - Git: computer-science/git.md
 
       - Linux: computer-science/linux.md
+      
+      - Backend Fundamentals: computer-science/backend-fundamentals.md
 
       - Software Engineering: computer-science/software-engineering.md
 
-      - Concurrency: computer-science/concurrency.md
+      - Object-Oriented Design: computer-science/object-oriented-design.md
 
+      - Design Patterns: computer-science/design-patterns.md
+      
+      - Concurrency: computer-science/concurrency.md
+      
       - Cloud Computing: computer-science/cloud.md
 
-      - Mathematics: computer-science/mathematics.md
+      - System Design: computer-science/system-design.md
 
+      - Distributed Systems: computer-science/distributed-systems.md
+      
   - Programming:
 
       - Overview: programming/index.md
@@ -179,6 +195,8 @@ nav:
 
       - Language Specific: programming/language-specific.md
 
+      - The Developer's Mindset: programming/the-developer-mindset.md
+
   - Data:
 
       - Overview: data/index.md
@@ -186,6 +204,8 @@ nav:
       - Data Analytics: data/data-analytics.md
 
       - AI • ML • DL: data/ai-ml-dl.md
+
+      - The Power of Data: data/the-power-of-data.md
 
 
   - Resources: resources.md
@@ -197,4 +217,11 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/samarth-d-suryavamshi
 
-copyright: Copyright © 2026 Samarth D Suryavamshi
+# -----------------------------------------------------------------------------
+# Copyright
+# -----------------------------------------------------------------------------
+
+copyright: >
+  Copyright &copy; 2026 Samarth D Suryavamshi.
+  <br>
+  All Rights Reserved.<a href="license/">License</a>.

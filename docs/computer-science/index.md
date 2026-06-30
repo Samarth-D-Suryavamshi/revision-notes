@@ -52,6 +52,9 @@ Detailed implementation guide to creational, structural, and behavioral design p
 ### 15. [System Design](system-design.md)
 <div styles="text-align: justify;"> Comprehensive guide to designing scalable distributed systems covering scalability, load balancing, caching, databases, messaging, consistency, reliability, and production architectures.</div>
 
+### 16. [Distributed Systems](distributed-systems.md)
+<div styles="text-align: justify;">Comprehensive system design reference featuring distributed systems concepts, architecture patterns, scalability strategies, and real-world design solutions.</div>
+
 ## 🎯 Why Study These?
 <div style= "text-align: justify;"> While frameworks come and go, these principles remain constant. Understanding the "Under the Hood" mechanics makes you a better debugger, a faster learner, and a more effective architect.</div
 >

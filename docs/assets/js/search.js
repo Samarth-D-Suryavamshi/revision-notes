@@ -11,7 +11,14 @@
   window.MkDocsPremium.Search = {
     init() {
       const searchInner = document.querySelector('.md-search__inner');
-      if (!searchInner) return;
+      const search = document.querySelector('.md-search');
+
+      if (!searchInner || !search) return;
+
+      // Fix clipping
+      search.style.overflow = "visible";
+      searchInner.style.overflow = "visible";
+      
 
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
@@ -30,4 +37,9 @@
       // to avoid conflicting with MkDocs Material's built-in search keyboard handling.
     }
   };
-})(); 
+
+  
+
+}
+
+)(); 
