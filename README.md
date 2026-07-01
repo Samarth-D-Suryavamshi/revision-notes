@@ -75,42 +75,6 @@ Visit the documentation website:
 
 ---
 
-Navigation
-The MkDocs navigation is defined in mkdocs.yml and includes:
-
-Home
-Roadmap
-Interview Preparation
-Computer Science
-Overview
-Data Structures & Algorithms
-Operating Systems
-Computer Networks
-Databases
-Object-Oriented Programming
-Object-Oriented Design
-Design Patterns
-System Design
-Backend Fundamentals
-Git
-Linux
-Software Engineering
-Concurrency
-Cloud Computing
-Mathematics
-Programming
-Overview
-Programming Fundamentals
-Language Specific
-Data
-Overview
-Data Analytics
-AI • ML • DL
-Resources
-Contributing
-
----
-
 ## Topics Covered
 
 - Software Engineering
@@ -131,6 +95,7 @@ Contributing
 - Machine Learning
 - Deep Learning
 - Data Analytics
+- Distributed Systems
 - Interview Preparation
 
 ---
